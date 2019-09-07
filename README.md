@@ -36,12 +36,16 @@ git config --global user.email "597379201@qq.com"
 
 ## 配置 Deployment
 
+```
+npm install hexo-deployer-git --save
+```
+
 ```bash
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:bxm0927/bxm0927.github.io.git
+  repo: git@github.com:wilenwu/wilenwu.github.io.git
   branch: master
 ```
 
