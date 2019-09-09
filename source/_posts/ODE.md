@@ -1,6 +1,5 @@
 ---
 title: ODE
-mathjax: true
 tags: [ode]
 categories: [math]
 ---
