@@ -10,7 +10,7 @@ image:
 sticky:
 ---
 
-
+**<center>subtitle<center>**
 
 > 摘自维基百科
 > katex参考链接：https://katex.org/docs/supported.html

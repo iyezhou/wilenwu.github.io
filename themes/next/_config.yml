@@ -116,7 +116,7 @@ disable_baidu_transformation: false
 canonical: true
 
 # Change headers hierarchy on site-subtitle (will be main site description) and on all post / page titles for better SEO-optimization.
-seo: false
+seo: true
 
 # If true, will add site-subtitle to index page.
 # Remember to set up your site-subtitle in Hexo `_config.yml` (e.g. subtitle: Subtitle)
@@ -164,7 +164,7 @@ menu:
   Gitbook: /gitbook/ || book
   足迹: /paw/ || paw
   #schedule: /schedule/ || calendar
-  #sitemap: /sitemap.xml || sitemap
+  sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
 
 # Enable / Disable menu icons / item badges.
@@ -200,8 +200,8 @@ site_state: true
 social:
   GitHub: https://github.com/wilenwu || github
   CSDN: https://blog.csdn.net/qq_41518277 || code
-  E-Mail: mailto:yourname@gmail.com || envelope
-  Weibo: https://weibo.com/yourname || weibo
+  E-Mail: mailto:597379201@qq.com || envelope
+  Weibo: https://weibo.com/ || weibo
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
@@ -218,13 +218,14 @@ social_icons:
 
 # Blog rolls
 links_settings:
-  icon: link
-  title: Links
+  icon: folder
+  title: 收藏夹
   # Available values: block | inline
-  layout: block
+  layout: inline
 
 links:
-  #Title: http://example.com
+  MOOC: https://www.icourse163.org/
+  百度: https://www.icourse163.org/
 
 # Sidebar Avatar
 avatar:
@@ -867,7 +868,7 @@ note:
   #  - flat      flat callout style with background, like on Mozilla or StackOverflow.
   #  - disabled  disable all CSS styles import of note tag.
   style: modern
-  icons: false
+  icons: true
   border_radius: 3
   # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).
   # Offset also applied to label tag variables. This option can work with disabled note tag.
@@ -876,7 +877,7 @@ note:
 # Tabs tag
 tabs:
   transition:
-    tabs: false
+    tabs: true
     labels: true
   border_radius: 0
 
