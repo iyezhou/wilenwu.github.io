@@ -22,7 +22,7 @@ minify: false
 # Define custom file paths.
 # Create your custom files in site directory `source/_data` and uncomment needed files below.
 custom_file_path:
-  #head: source/_data/head.swig
+  head: source/_data/head.swig
   #header: source/_data/header.swig
   #sidebar: source/_data/sidebar.swig
   #postMeta: source/_data/post-meta.swig
@@ -39,10 +39,10 @@ custom_file_path:
 # See: https://theme-next.org/docs/getting-started/
 # ---------------------------------------------------------------
 
-favicon:
-  small: /images/panda16.png
-  medium: /images/panda32.png
-  apple_touch_icon: /images/panda_apple_touch.png
+favicon:                        # https://www.easyicon.net/
+  small: /images/github16.png
+  medium: /images/github32.png
+  apple_touch_icon: /images/github_apple.png
   safari_pinned_tab: /images/logo.svg
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
@@ -59,11 +59,11 @@ footer:
   icon:
     # Icon name in Font Awesome. See: https://fontawesome.com/v4.7.0/icons/
     # `heart` is recommended with animation in red (#ff0000).
-    name: user
+    name: heart
     # If you want to animate the icon, set it to true.
-    animated: false
+    animated: true
     # Change the color of icon, using Hex Code.
-    color: "#808080"
+    color: "#ff0000"
 
   # If not defined, `author` from Hexo `_config.yml` will be used.
   copyright:
@@ -142,7 +142,7 @@ yandex_site_verification:
 baidu_site_verification:
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
-baidu_push: false
+baidu_push: true
 
 
 # ---------------------------------------------------------------
@@ -162,6 +162,7 @@ menu:
   categories: /categories/ || th
   archives: /archives/ || archive
   Gitbook: /gitbook/ || book
+  足迹: /paw/ || paw
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -198,7 +199,7 @@ site_state: true
 # Value after `||` delimiter is the name of Font Awesome icon. If icon (with or without delimiter) is not specified, globe icon will be loaded.
 social:
   GitHub: https://github.com/wilenwu || github
-  CSDN: https://blog.csdn.net/qq_41518277 || book
+  CSDN: https://blog.csdn.net/qq_41518277 || code
   E-Mail: mailto:yourname@gmail.com || envelope
   Weibo: https://weibo.com/yourname || weibo
   #Google: https://plus.google.com/yourname || google
@@ -666,7 +667,7 @@ valine:
   pageSize: 10 # Pagination size
   language: zh-cn # Language, available values: en, zh-cn
   visitor: true # leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html
-  comment_count: false # If false, comment count will only be displayed in post page, not in home page
+  comment_count: true # If false, comment count will only be displayed in post page, not in home page
   #post_meta_order: 0
 
 # LiveRe comments system
@@ -782,7 +783,7 @@ firestore:
 # Show Views / Visitors of the website / page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi
 busuanzi_count:
-  enable: true
+  enable: false
   total_visitors: true
   total_visitors_icon: user
   total_views: true

@@ -1,20 +1,36 @@
 
-// 网站背景，可选择随机切换url(https://source.unsplash.com/random/1600x900); 
+// 添加背景 url(https://source.unsplash.com/random/1600x900); 
 body {
-    background:url(https://source.unsplash.com/random/1600x900);
+    background:url(/images/background6.jpg);
     background-repeat: no-repeat;
     background-attachment:fixed;
     background-position:50% 50%;
 	background-size:cover;
 }
 
-// 背景透明度
-.main-inner { 
-    opacity: 0.9;
-    min-height: 500px;
-}
-
 // 标题栏背景
 .site-meta {
-  background: $blue; 
+   background: $blue; 
+}  
+
+//主标题颜色
+.brand{
+    color: $white
+}
+
+//副标题颜色
+.site-subtitle{
+    color: #fff
+}
+
+
+// 修改主体透明度
+.main-inner{
+    background: #fff;
+    opacity: 0.95;
+}
+
+// 修改菜单栏透明度
+.header-inner {
+    opacity: 0.95;
 }
