@@ -86,7 +86,7 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:                               # 发布
+deploy:                               # 部署
   type: git
   repo: git@github.com:WilenWu/wilenwu.github.io.git
   branch: master
