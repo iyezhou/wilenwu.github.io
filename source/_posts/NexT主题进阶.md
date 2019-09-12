@@ -1,5 +1,5 @@
 ---
-title: NexT主题进阶设定
+title: NexT主题进阶
 tags: [Hexo,NexT,Github pages]
 copyright: true
 date: 2019-09-11 14:14:04
@@ -167,7 +167,7 @@ favicon：
   ms_browserconfig： /images/browserconfig.xml
 ```
 
-# SEO支持
+## SEO支持
 
 SEO(Search Engine Optimization)意为搜索引擎优化,利用搜索引擎的规则提高网站在有关搜索引擎内的自然排名。
 
