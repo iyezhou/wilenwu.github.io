@@ -80,7 +80,7 @@ footer:
     # Version info of NexT after scheme info (vX.X.X).
     version: true
 
-  # Beian ICP and gongan information for Chinese users. See: http://www.beian.miit.gov.cn, http://www.beian.gov.cn
+  # 备案 ICP and gongan information for Chinese users. See: http://www.beian.miit.gov.cn, http://www.beian.gov.cn
   beian:
     enable: false
     icp:
@@ -164,7 +164,7 @@ menu:
   Gitbook: /gitbook/ || book
   足迹: /paw/ || paw
   #schedule: /schedule/ || calendar
-  sitemap: /sitemap.xml || sitemap
+  #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
 
 # Enable / Disable menu icons / item badges.
@@ -348,14 +348,14 @@ reward:
 # Dependencies: https://github.com/tea3/hexo-related-popular-posts
 related_posts:
   enable: false
-  title: # Custom header, leave empty to use the default one
-  display_in_home: false
-  params:
-    maxCount: 5
-    #PPMixingRate: 0.0
-    #isDate: false
-    #isImage: false
-    #isExcerpt: false
+  title:                   # 默认 `Related Posts`
+  display_in_home: true    
+  params:                  
+    maxCount: 5            # 列表的最大数量
+    #PPMixingRate: 0.0     # 流行帖子和相关帖子的混合比例
+    #isDate: false         # 显示相关帖子的日期
+    #isImage: false        # 显示相关帖子的图像
+    #isExcerpt: false      # 显示相关帖子的摘录
 
 # Post edit
 # Dependencies: https://github.com/hexojs/hexo-deployer-git
@@ -626,7 +626,7 @@ comments:
 # Disqus
 disqus:
   enable: false
-  shortname:
+  shortname: 
   count: true
   lazyload: false
   #post_meta_order: 0
@@ -667,7 +667,7 @@ valine:
   guest_info: nick,mail,link # Custom comment header
   pageSize: 10 # Pagination size
   language: zh-cn # Language, available values: en, zh-cn
-  visitor: true # leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html
+  visitor: false # leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html
   comment_count: true # If false, comment count will only be displayed in post page, not in home page
   #post_meta_order: 0
 
@@ -731,10 +731,16 @@ rating:
   id:     # <app_id>
   color:  fc6423
 
+
 # AddThis Share. See: https://www.addthis.com
 # Go to https://www.addthis.com/dashboard to customize your tools.
 add_this_id:
 
+# JiaThis Share.
+jiathis: true
+
+# baidu Share.
+baidushare: true
 
 # ---------------------------------------------------------------
 # Statistics and Analytics
@@ -763,9 +769,9 @@ application_insights:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn to get AppID and AppKey.
 leancloud_visitors:
-  enable: false
-  app_id: # <app_id>
-  app_key: # <app_key>
+  enable: true
+  app_id: xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI
+  app_key: 6EzBICTWxLbjiGsbNAa8Fv2s
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in leancloud counter and just want to use it directly
   # (without hexo-leancloud-counter-security plugin), set `security` to `false`.

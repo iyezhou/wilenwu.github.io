@@ -1,24 +1,26 @@
 ---
-title: 数学符号列表(List of Mathematical Symbols)
-tags: [math]
+title: KaTeX 数学符号列表
+tags: [math,markdown]
 mathjax: true
 copyright: true
-date: 2019-09-09 12:14:12
-categories:
-description:
-image:
-sticky:
+date: 2019-04-22 18:37:20
+categories: 
+- markdown
+- math
+sticky: true
 ---
 
-**<center>subtitle<center>**
-
-> 摘自维基百科
-> katex参考链接：https://katex.org/docs/supported.html
-
-# 字母(Letters)
-希腊字母(Greek Letters)
+KaTeX是一个快速，易于使用的JavaScript库，用于在Web上进行TeX数学渲染。
+KaTeX兼容所有主流浏览器，包括Chrome，Safari，Firefox，Opera，Edge和IE 9-11。
+KaTeX支持很多（但不是全部）LaTeX语法和许多LaTeX软件包。
 
 <!-- more -->
+
+[katex官方文档](https://katex.org/docs/supported.html)
+
+# 字母(Letters)
+
+## 希腊字母(Greek Letters)
 
 $\Alpha$ \Alpha|$\alpha$ \alpha|$\Tau$ \Tau|$\tau$ \tau
 ---|---|---|---
@@ -40,7 +42,8 @@ $\Pi$ \Pi|$\pi$ \pi|$\varPsi$ \varPsi|
 $\Rho$ \Rho|$\rho$ \rho|$\varOmega$ \varOmega|
 $\Sigma$ \Sigma|$\sigma$ \sigma|$\mho$ \mho|
 
-Other Letters
+## 其他字母
+
 $\imath$ \imath|$\nabla$ \nabla|$\Im$ \Im|$\Reals$ \Reals|$\text{\OE}$ \text{\OE}
 ---|---|---|---|---
 $\jmath$ \jmath|$\partial$ \partial|$\image$ \image|$\wp$ \wp|$\text{\o}$ \text{\o}
@@ -52,28 +55,7 @@ $\gimel$ \gimel|$\ell$ \ell|$\Re$ \Re|$\text{\ae}$ \text{\ae}|
 $\daleth$ \daleth|$\hbar$ \hbar|$\real$ \real|$\text{\AE}$ \text{\AE}|
 $\eth$ \eth|$\hslash$ \hslash|$\reals$ \reals|$\text{\oe}$ \text{\oe}|
 
-# 二元运算符(Binary Operators)
-$+$  `+`|$\cdot$  `\cdot`|$\gtrdot$  `\gtrdot`|$\pmod a$  `\pmod a`
-:---|:---|:---|:---
-$-$  `-`|$\cdotp$  `\cdotp`|$\intercal$  `\intercal`|$\pod a$  `\pod a`
-$/$  `/`|$\centerdot$  `\centerdot`|$\land$  `\land`|$\rhd$  `\rhd`
-$*$  `*`|$\circ$  `\circ`|$\leftthreetimes$  `\leftthreetimes`|$\rightthreetimes$  `\rightthreetimes`
-$\amalg$  `\amalg`|$\circledast$  `\circledast`|$\ldotp$  `\ldotp`|$\rtimes$  `\rtimes`
-$\And$  `\And`|$\circledcirc$  `\circledcirc`|$\lor$  `\lor`|$\setminus$  `\setminus`
-$\ast$  `\ast`|$\circleddash$  `\circleddash`|$\lessdot$  `\lessdot`|$\smallsetminus$  `\smallsetminus`
-$\barwedge$  `\barwedge`|$\Cup$  `\Cup`|$\lhd$  `\lhd`|$\sqcap$  `\sqcap`
-$\bigcirc$  `\bigcirc`|$\cup$  `\cup`|$\ltimes$  `\ltimes`|$\sqcup$  `\sqcup`
-$\bmod$  `\bmod`|$\curlyvee$  `\curlyvee`|$\mod a$  `\mod a`|$\times$  `\times`
-$\boxdot$  `\boxdot`|$\curlywedge$  `\curlywedge`|$\mp$  `\mp`|$\unlhd$  `\unlhd`
-$\boxminus$  `\boxminus`|$\div$  `\div`|$\odot$  `\odot`|$\unrhd$  `\unrhd`
-$\boxplus$  `\boxplus`|$\divideontimes$  `\divideontimes`|$\ominus$  `\ominus`|$\uplus$  `\uplus`
-$\boxtimes$  `\boxtimes`|$\dotplus$  `\dotplus`|$\oplus$  `\oplus`|$\vee$  `\vee`
-$\bullet$  `\bullet`|$\doublebarwedge$  `\doublebarwedge`|$\otimes$  `\otimes`|$\veebar$  `\veebar`
-$\Cap$  `\Cap`|$\doublecap$  `\doublecap`|$\oslash$  `\oslash`|$\wedge$  `\wedge`
-$\cap$  `\cap`|$\doublecup$  `\doublecup`|$\pm$  `\pm or \plusmn`|$\wr$  `\wr`
-
-
-# 基础符号(Basic Symbols)
+# 运算符
 
 运算符|定义|Latex
 :---|:---|:---
@@ -226,6 +208,7 @@ $\leftarrowtail$  `\leftarrowtail`|$\nwarrow$  `\nwarrow`|
 $\leftharpoondown$  `\leftharpoondown`|$\Rarr$  `\Rarr`|
 
 **扩展箭头(Extensible Arrows)**
+
 $\xleftarrow{abc}$  `\xleftarrow{abc}`|$\xrightarrow[under]{over}$  `\xrightarrow[under]{over} `
 :---|:---
 $\xLeftarrow{abc}$  `\xLeftarrow{abc}`|$\xRightarrow{abc}$  `\xRightarrow{abc} `
@@ -238,6 +221,7 @@ $\xleftrightharpoons{abc}$  `\xleftrightharpoons{abc}`|$\xrightleftharpoons{abc}
 $\xtofrom{abc}$  `\xtofrom{abc}`|$\xmapsto{abc}$  `\xmapsto{abc} `
 
 # 函数(Functions)
+
 $\arcsin$  `\arcsin`|$\cotg$  `\cotg`|$\ln$  `\ln`|$\det$  `\det`
 :---|:---|:---|:---
 $\arccos$  `\arccos`|$\coth$  `\coth`|$\log$  `\log`|$\gcd$  `\gcd`
@@ -254,6 +238,7 @@ $\arg\min$  `\arg\min`|||
 
 
 # 逻辑理论(Logic Theory)
+
 离散数学|定义|Latex|示例
 :---|:---|:---|:---
 $\because$|因为|\because
@@ -277,6 +262,7 @@ $\Diamond$|拟态词可能|\Diamond
 $R \circ S$|复合关系|R \circ S
 
 # 集合，概率论和统计学(Set , Probability Theory & Statistics)
+
 集合符号|定义|Latex|示例
 :---|:---|:---|:---
 $\{x\vert P(x)\}$|集合|\{x\mid P(x)\}
@@ -308,6 +294,7 @@ ${n\brace k}$||{n\brace k}
 ${n\brack k}$||{n\brack k}
 
 # 几何(Geometric)
+
 几何符号|定义|Latex
 :---|:---|:---
 $\backsim$|相似三角形|\backsim
@@ -333,6 +320,7 @@ $90\degree$|角度|90\degree
 
 
 # 微积分(Calculus)
+
 微积分|定义|Latex|示例
 :---|:---|:---|:---
 $\gets$||\gets
@@ -360,6 +348,7 @@ $\Box$|非欧几里得<br>拉普拉斯算子|\Box|$\Box=\dfrac{1}{c^2}\dfrac{\pa
 
 
 # 线性代数(Linear Algebra)
+
 线性代数|定义|Latex
 :---|:---|:---|:---
 $f(x)=\begin{cases} a &\text{if } b \\   c &\text{if } d \end{cases}$|定义方程|`f(x)=\begin{cases}`   <br>`a &\text{if } b \\` <br>   `c &\text{if } d` <br>`\end{cases}`
@@ -422,6 +411,7 @@ a_{m1}&a_{m2}&\cdots&a_{mn} \\
 
 
 # 群论(Group Theory)
+
 群论(瞎猜)|定义|Latex|示例
 :---|:---|:---|:---
 $b\pmod m$||b\pmod m

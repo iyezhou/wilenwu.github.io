@@ -8,7 +8,7 @@ subtitle: ∞                            # 网站子标题
 description: 个人技术博客              # 网站的描述性
 keywords:                              # 网站的关键字 
 author: Wilen Wu                       # 网站的作者
-language: zh-CN                        # 网站采用语言，要跟/theme/***/languages/**.yml下的文件名对应
+language: zh-CN                        # 网站采用语言，与/theme/next/languages/zh-CN.yml下的文件名对应
 timezone:                              # 网站的时区
 
 # URL
@@ -104,7 +104,7 @@ symbols_count_time:
   total_time: true
   exclude_codeblock: false
   
-#RSS订阅
+#RSS
 plugin:
   - hexo-generator-feed
 
@@ -119,3 +119,13 @@ sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
+
+# leancloud_visitors
+leancloud_counter_security:
+  enable_sync: true
+  app_id: xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI
+  app_key: 6EzBICTWxLbjiGsbNAa8Fv2s
+  username:   # 部署时会询问是否留空
+  password:   # 建议留空。部署时会询问是否留空
+  
+  
