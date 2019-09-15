@@ -5,7 +5,7 @@ copyright: true
 mathjax: false
 date: 2018-04-30 13:57:37
 categories: markdown
-sticky: true
+sticky: false
 ---
 
 **Markdown**是一种轻量级**标记语言**，它以纯文本形式编写文档，易读（看起来舒服）、易写（语法简单）、易更改，并最终以HTML格式发布。
@@ -152,12 +152,10 @@ Header 2
 
 如果要插入代码块，需要3个反引号开启和结束，例如
 
-{% codeblock lang:md %}
-```python
+\`\`\`python
 import sys
 print('hello world')
-```
-{% endcodeblock %}
+\`\`\`
 
 ```python
 import sys
@@ -299,8 +297,7 @@ Input emoji with syntax `:smile:`.
 ### UML diagrams 
 
 You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
-{% codeblock lang:md %}
-```mermaid
+\`\`\`mermaid
 sequenceDiagram
 Alice ->> Bob: Hello Bob, how are you?
 Bob-->>John: How about you John?
@@ -309,11 +306,9 @@ Bob-x John: I am good thanks!
 Note right of John: Bob thinks a long<br/>long time, so long that the text does not fit on a row.
 Bob-->>Alice: Checking with John...
 Alice->>John: Yes... John, how are you?
-```
-{% endcodeblock %}
+\`\`\`
 
-
-```mermaid
+{% mermaid %}
 sequenceDiagram
 Alice ->> Bob: Hello Bob, how are you?
 Bob-->>John: How about you John?
@@ -323,26 +318,26 @@ Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text d
 
 Bob-->>Alice: Checking with John...
 Alice->>John: Yes... John, how are you?
-```
+{% endmermaid %}
+
 And this will produce a flow chart:
-{% codeblock lang:md %}
-```mermaid
+\`\`\`mermaid
 graph LR
 A[Square Rect] -- Link text --> B((Circle))
 A --> C(Round Rect)
 B --> D{Rhombus}
 C --> D
-```
-{% endcodeblock %}
+\`\`\`
 
 
-```mermaid
+{% mermaid %}
 graph LR
 A[Square Rect] -- Link text --> B((Circle))
 A --> C(Round Rect)
 B --> D{Rhombus}
 C --> D
-```
+{% endmermaid %}
+
 
 ## 部分HTML语法
 

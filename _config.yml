@@ -51,8 +51,7 @@ highlight:
 index_generator:          
   path: ''                   # 主页所在路径，默认为''
   per_page: 10               # 主页的索引页包含文章数量，如未定义，则采用根目录下的`per_page`值
-  order_by: -date            # 文章（Post类型）排序属性，`-`为降序 
-  
+  order_by:  -date              # 文章（Post类型）排序属性，`-`为降序   
   
 archive_generator:           # 归档页
   per_page: 20

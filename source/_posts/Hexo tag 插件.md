@@ -224,10 +224,32 @@ Will you choose {% label default@default %}, {% label primary@primary %}, {% lab
 ## 流程图
 
 ```
-{% mermaid type %}
+{% mermaid type%}
 {% endmermaid %}
 ```
-> type: default | dark | forest | neutral
+> type: 请访问https://github.com/knsv/mermaid以获取更多信息
+
+```sh
+{% mermaid sequenceDiagram %}
+Alice ->> Bob: Hello Bob, how are you?
+Bob-->>John: How about you John?
+Bob--x Alice: I am good thanks!
+Bob-x John: I am good thanks!
+Note right of John: Bob thinks a long<br/>long time, so long that the text does not fit on a row.
+Bob-->>Alice: Checking with John...
+Alice->>John: Yes... John, how are you?
+{% endmermaid %}
+```
+
+{% mermaid sequenceDiagram %}
+Alice ->> Bob: Hello Bob, how are you?
+Bob-->>John: How about you John?
+Bob--x Alice: I am good thanks!
+Bob-x John: I am good thanks!
+Note right of John: Bob thinks a long<br/>long time, so long that the text does not fit on a row.
+Bob-->>Alice: Checking with John...
+Alice->>John: Yes... John, how are you?
+{% endmermaid %}
 
 
 ## 图片集
