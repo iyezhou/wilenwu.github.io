@@ -8,5 +8,9 @@ mathjax: false
 sticky: 
 ---
 
+
+{% cq %} center quote {% endcq %}
+
+
 <!-- more -->
 

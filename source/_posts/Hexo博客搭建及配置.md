@@ -5,8 +5,7 @@ copyright: true
 date: 2019-09-10 13:48:53
 categories: 
 - Hexo
-sticky: true
-top: true
+sticky: 
 ---
 
 [Hexo](https://hexo.io/zh-cn/) 是高效的静态站点生成框架，基于 [Node.js](https://nodejs.org/)。 通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 [tag 插件](https://hexo.io/zh-cn/docs/tag-plugins.html) 来快速的插入特定形式的内容。Hexo 还拥有丰富的主题，任君部署。
@@ -247,7 +246,7 @@ date: 2013/7/13 20:46:25
 ```sh
 categories:
 - Diary
-  - Sunday 
+- Sunday 
 tags:
 - Games
 ```
@@ -258,6 +257,83 @@ tags:
 在文章中使用 `<!-- more -->`，那么 `<!-- more -->` 之前的文字将会被视为摘要，在主页中展示。
 
 
+## 置顶和置顶标签
+
+修改Hexo文件夹下的`node_modules/hexo-generator-index/lib/generator.js`，在生成文章之前进行文章sticky值排序。
+
+需添加的代码：
+```js
+posts.data = posts.data.sort(function(a, b) {
+    if(a.sticky && b.sticky) { // 两篇文章sticky都有定义
+        if(a.sticky == b.sticky) return b.date - a.date; // 若sticky值一样则按照文章日期降序排
+        else return b.sticky - a.sticky; // 否则按照sticky值降序排
+    }
+    else if(a.sticky && !b.sticky) { // 以下是只有一篇文章sticky有定义，那么将有sticky的排在前面（这里用异或操作居然不行233）
+        return -1;
+    }
+    else if(!a.sticky && b.sticky) {
+        return 1;
+    }
+    else return b.date - a.date; // 都没定义按照文章日期降序排
+});
+```
+
+修改完成后，只需要在front-matter中设置需要置顶文章的 `sticky: true`。同时sticky也决定了是否添加置顶标签。
+也可以设置sticky值为数字，将会根据sticky值大小来选择置顶顺序，sticky值越大越靠前。
+需要注意的是，这个文件不是主题的一部分，也不是Git管理的，备份的时候比较容易忽略。
+
+以下是最终的generator.js内容
+```js
+'use strict';
+
+var pagination = require('hexo-pagination');
+
+module.exports = function(locals) {
+  var config = this.config;
+  var posts = locals.posts.sort(config.index_generator.order_by);
+  
+  posts.data = posts.data.sort(function(a, b) {
+    if(a.sticky && b.sticky) { 
+        if(a.sticky == b.sticky) return b.date - a.date; 
+        else return b.sticky - a.sticky;
+    }
+    else if(a.sticky && !b.sticky) {
+        return -1;
+    }
+    else if(!a.sticky && b.sticky) {
+        return 1;
+    }
+    else return b.date - a.date; 
+  });
+  
+  var paginationDir = config.pagination_dir || 'page';
+  var path = config.index_generator.path || '';
+
+  return pagination(path, posts, {
+    perPage: config.index_generator.per_page,
+    layout: ['index', 'archive'],
+    format: paginationDir + '/%d/',
+    data: {
+      __index: true
+    }
+  });
+};
+
+```
+
+
+
+## 上传本地图片
+
+hexo 上传本地图片，真实个坑，话不多说，上代码
+
+1. 修改站点配置文件 `post_asset_folder: true`
+2. `test.md` 文件同文件夹下新建同名资源文件夹 `test`
+3. 将图片拷进资源文件夹
+4. 使用`![example](example.jpg)` 或 `{% asset_img example.jpg example %}` 来引用本地图片
+
+
 
 参考链接：
 [Github+Hexo搭建专属自己的博客](https://www.linjiujiu.xyz/2018/12/10/Github-Hexo%E6%90%AD%E5%BB%BA%E4%B8%93%E5%B1%9E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/)
+[HEXO添加置顶功能](https://www.cnblogs.com/lqerio/p/11117467.html)

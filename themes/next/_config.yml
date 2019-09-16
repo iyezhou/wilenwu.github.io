@@ -161,8 +161,8 @@ menu:
   tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
-  Gitbook: /gitbook/ || book
-  足迹: /paw/ || paw
+  GitBook: /gitbook/ || paw
+  Bookmarks: /bookmarks/ || bookmark
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -199,7 +199,7 @@ site_state: true
 # Value after `||` delimiter is the name of Font Awesome icon. If icon (with or without delimiter) is not specified, globe icon will be loaded.
 social:
   GitHub: https://github.com/wilenwu || github
-  CSDN: https://blog.csdn.net/qq_41518277 || code
+  CSDN: https://blog.csdn.net/qq_41518277 || book
   E-Mail: mailto:597379201@qq.com || envelope
   Weibo: https://weibo.com/ || weibo
   #Google: https://plus.google.com/yourname || google
@@ -218,14 +218,14 @@ social_icons:
 
 # Blog rolls
 links_settings:
-  icon: folder
-  title: 收藏夹
+  icon: link
+  title: link
   # Available values: block | inline
-  layout: inline
+  layout: block
 
 links:
-  MOOC: https://www.icourse163.org/
-  百度: https://www.icourse163.org/
+
+  
 
 # Sidebar Avatar
 avatar:
@@ -429,7 +429,7 @@ codeblock:
   # Code Highlight theme
   # Available values: normal | night | night eighties | night blue | night bright
   # See: https://github.com/chriskempson/tomorrow-theme
-  highlight_theme: night bright
+  highlight_theme: normal
   # Add copy button on codeblock
   copy_button:
     enable: true

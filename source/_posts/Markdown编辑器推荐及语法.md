@@ -5,7 +5,7 @@ copyright: true
 mathjax: false
 date: 2018-04-30 13:57:37
 categories: markdown
-sticky: false
+sticky: true
 ---
 
 **Markdown**是一种轻量级**标记语言**，它以纯文本形式编写文档，易读（看起来舒服）、易写（语法简单）、易更改，并最终以HTML格式发布。

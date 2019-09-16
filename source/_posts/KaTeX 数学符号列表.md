@@ -5,7 +5,7 @@ mathjax: true
 copyright: true
 date: 2019-04-22 18:37:20
 categories: markdown
-sticky: false
+sticky: true
 ---
 
 KaTeX是一个快速，易于使用的JavaScript库，用于在Web上进行TeX数学渲染。
