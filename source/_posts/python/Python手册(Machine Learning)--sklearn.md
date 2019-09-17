@@ -5,7 +5,7 @@ tags: [python,sklearn,机器学习,回归,分类,聚类]
 mathjax: false
 copyright: true
 date: 2018-05-10 23:08:52
-categories: [python,Machine Learning]
+categories: [python,Machine Learning,sklearn]
 sticky: false
 ---
 

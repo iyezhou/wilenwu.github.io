@@ -161,8 +161,11 @@ menu:
   tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
-  GitBook: /gitbook/ || paw
+  toc: /toc/ || windows
+  GitBook: /gitbook/ || github
   Bookmarks: /bookmarks/ || bookmark
+  #footprints: /footprints/ || paw
+  #map: /map/ || send 
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -219,11 +222,13 @@ social_icons:
 # Blog rolls
 links_settings:
   icon: link
-  title: link
+  title: links
   # Available values: block | inline
-  layout: block
+  layout: inline
 
 links:
+  easyicon: https://www.easyicon.net/
+  Font Awesome: http://www.fontawesome.com.cn/
 
   
 
@@ -499,19 +504,19 @@ font:
   global:
     external: true
     family: Lato
-    size:
+    size: 0.85
 
   # Font settings for site title (.site-title). `Lobster Two | Comic Sans MS`
   title:
     external: true
     family: Comic Sans MS
-    size:
+    size: 
 
   # Font settings for headlines (<h1> to <h6>).
   headings:
     external: true
     family:
-    size:
+    size: 
 
   # Font settings for posts (.post-body).
   posts:
