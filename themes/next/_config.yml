@@ -161,9 +161,8 @@ menu:
   tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
-  toc: /toc/ || windows
-  GitBook: /gitbook/ || github
-  Bookmarks: /bookmarks/ || bookmark
+  bookshelf: /bookshelf/ || windows
+  bookmarks: /bookmarks/ || bookmark
   #footprints: /footprints/ || paw
   #map: /map/ || send 
   #schedule: /schedule/ || calendar
@@ -890,7 +889,7 @@ tabs:
   transition:
     tabs: true
     labels: true
-  border_radius: 0
+  border_radius: 3
 
 # PDF tag, requires two plugins: pdfObject and pdf.js
 # pdfObject will try to load pdf files natively, if failed, pdf.js will be used.

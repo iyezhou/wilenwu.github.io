@@ -15,7 +15,8 @@ menu:
   sitemap: 站点地图
   commonweal: 公益 404
   toc: 目录
-  Bookmarks: 收藏夹
+  bookmarks: 收藏夹
+  bookshelf: 书架
   footprints: 足迹
 sidebar:
   overview: 站点概览
