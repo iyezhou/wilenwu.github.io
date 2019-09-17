@@ -84,19 +84,15 @@ code snippet
 
 使用方式
 
-- HTML方式：使用这种方式时，给 `img` 添加属性 `class="blockquote-center"` 即可。
+- HTML方式：直接在 Markdown 文件中编写 HTML 来调用，给 `img` 添加属性 `class="blockquote-center"` 即可。
 - 标签方式：使用 `centerquote` 或者 简写 `cq`。
 
 ```
-<!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 -->
-<!-- 其中 class="blockquote-center" 是必须的 -->
+# HTML方式
 <blockquote class="blockquote-center">blah blah blah</blockquote>
 
-<!-- 标签 方式，要求版本在0.4.5或以上 -->
+# 标签方式
 {% centerquote %}blah blah blah{% endcenterquote %}
-
-<!-- 标签别名 -->
-{% cq %} blah blah blah {% endcq %}
 ```
 
 {% cq %} 佚名 {% endcq %}
@@ -107,19 +103,15 @@ code snippet
 
 使用方式
 
-- HTML方式：使用这种方式时，为 `img` 添加属性 `class="full-image"`即可。
+- HTML方式：直接在 Markdown 文件中编写 HTML 来调用，为 `img` 添加属性 `class="full-image"`即可。
 - 标签方式：使用 `fullimage` 或者 简写 `fi`， 并传递图片地址、 `alt` 和 `title` 属性即可。 属性之间以逗号分隔。
 
 ```
-<!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 -->
-<!-- 其中 class="full-image" 是必须的 -->
+# HTML方式:
 <img src="/image-url" class="full-image" />
 
-<!-- 标签 方式，要求版本在0.4.5或以上 -->
+# 标签 方式
 {% fullimage /image-url, alt, title %}
-
-<!-- 别名 -->
-{% fi /image-url, alt, title %}
 ```
 
 ## Note 标签
@@ -206,7 +198,6 @@ Will you choose {% label default@default %}, {% label primary@primary %}, {% lab
 ## Button 标签
 
 使用 `button` 或者 简写 `btn`
-使用时最好添加 `<div>` 标签，显示非常美观。
 
 ```
 {% button url, text, icon [class], [title] %}
@@ -218,14 +209,15 @@ Will you choose {% label default@default %}, {% label primary@primary %}, {% lab
 > [title]：鼠标悬停时的工具提示
 
 {% btn #,home, home %}  
-<div>{% btn #,home+, home %}</div>
+
+
 ## 流程图
 
 ```
 {% mermaid type%}
 {% endmermaid %}
 ```
-> type: 请访问https://github.com/knsv/mermaid以获取更多信息
+> type: 请访问 https://github.com/knsv/mermaid 以获取更多信息
 
 ```sh
 {% mermaid sequenceDiagram %}
