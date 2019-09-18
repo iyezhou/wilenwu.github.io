@@ -1,8 +1,13 @@
 ---
+layout: true
 title: {{ title }}
 date: {{ date }}
+updated: 
+comments: true
 tags: []
-categories:
+categories: 
+permalink:
+ 
 copyright: true 
 mathjax: false
 sticky: 

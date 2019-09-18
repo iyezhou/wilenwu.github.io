@@ -15,18 +15,20 @@ timezone:                              # 网站的时区
 # If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://wilenwu.github.io                    # 网站的url，如果不在域名根目录，应包含子目录，且root要设置为`/子目录/`
 root: /                                           # 网站的根目录
-permalink: :year/:month/:day/:title/              #文章永久链接的形成模版。每一篇文章都有唯一的url。
+#permalink: :year/:month/:day/:title/              #文章永久链接的形成模版。每一篇文章都有唯一的url。
+permalink: posts/:title.html                       # title 文档名字 | post_title 文章标题 | id 文章随机ID
 permalink_defaults:                               #文章永久链接中，各部分的默认值。
-
+  lang: en
+  
 # Directory
 source_dir: source                    # 网站中源文件
 public_dir: public                    # 生成的静态网站的目录
 tag_dir: tags                         # 标签页所在的文件夹 
 archive_dir: archives                 # 文档页所在的文件夹
 category_dir: categories              # 类别页所在的文件夹
-code_dir: downloads/code              # 代码页所在的文件夹
+code_dir: downloads/code              # 代码页所在的文件夹(source_dir/)
 i18n_dir: :lang                       # 国际语言所在的文件夹
-skip_render: README.md                # 忽略文档清单
+skip_render:                          # 忽略文档(source_dir/)，不做改动地输出到 public 目录
 
 # Writing
 new_post_name: :title.md                # 默认新建文档名，`:title`为变量，指文档标题，也可用其他变量
@@ -35,7 +37,7 @@ titlecase: false                        # 是否要把标题中的首字符大�
 external_link: true                     # 是否要在新开tab中打开外链 
 filename_case: 0                        # 文件名是否小写敏感
 render_drafts: false                    # 是否渲染草稿
-post_asset_folder: true                # 是否启用资源文件夹。如启用，新建文档同时建立同名的资源文件夹 
+post_asset_folder: false                # 是否启用资源文件夹。如启用，新建文档同时建立同名的资源文件夹 
 relative_link: false                    # 是否把站内资源的链接改为站内相对链接。建议关闭。
 future: true                            # 文档中指定为未来时间创建 
 highlight:                     
@@ -51,18 +53,18 @@ highlight:
 index_generator:          
   path: ''                   # 主页所在路径，默认为''
   per_page: 10               # 主页的索引页包含文章数量，如未定义，则采用根目录下的`per_page`值
-  order_by:  -date              # 文章（Post类型）排序属性，`-`为降序   
+  order_by:  -date           # 文章（Post类型）排序属性，`-`为降序   
   
 archive_generator:           # 归档页
   per_page: 20
   yearly: true
-  monthly: false
+  monthly: true
 
 tag_generator:               # 标签页
   per_page: 10  
   
 # Category & Tag
-default_category: default          # 对文档的默认分类
+default_category: uncategorized          # 对文档的默认分类
 category_map:                            # 对文档中的分类字段进行映射。建立分类文件夹时采用映射后的字符串 
 tag_map:                                 # 对文档中的标签字段进行映射。建立标签文件夹时采用映射后的字符串 
 

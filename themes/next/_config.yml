@@ -157,12 +157,12 @@ baidu_push: true
 # External url should start with http:// or https://
 menu:
   home: / || home
-  about: /about/ || user
   tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
   bookshelf: /bookshelf/ || windows
   bookmarks: /bookmarks/ || bookmark
+  about: /about/ || user
   #footprints: /footprints/ || paw
   #map: /map/ || send 
   #schedule: /schedule/ || calendar
@@ -503,7 +503,7 @@ font:
   global:
     external: true
     family: Lato
-    size: 0.85
+    size: 0.9
 
   # Font settings for site title (.site-title). `Lobster Two | Comic Sans MS`
   title:
