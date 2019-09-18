@@ -167,12 +167,10 @@ from statsmodels.tsa.api import VAR
 向量自回归（VAR）是基于数据的统计性质建立模型，VAR模型把系统中每一个内生变量作为系统中所有内生变量的滞后值的函数来构造模型，从而将单变量自回归模型推广到由多元时间序列变量组成的“向量”自回归模型。VAR模型是处理多个相关经济指标的分析与预测最容易操作的模型之一，并且在一定的条件下，多元MA和ARMA模型也可转化成VAR模型，因此近年来VAR模型受到越来越多的经济工作者的重视。
 
 ### VAR进程(VAR processes)
+
 VAR\(p\)建立$T \times K$多变量时间序列Y，T为观测数量，K为变量数量。
 估计时间序列与其滞后值之间关系的向量自回归过程为：
-$$
-Y_t=A_1Y_{t-1}+\cdots+A_pY_{t-p}+u_t \\
-u_t=N(0,\Sigma_u)
-$$
+$Y_t=A_1Y_{t-1}+\cdots+A_pY_{t-p}+u_t,\  u_t=N(0,\Sigma_u)$
 $A_i$ 是一个 K×K 系数矩阵
 
 ### 模型拟合(Model fitting)

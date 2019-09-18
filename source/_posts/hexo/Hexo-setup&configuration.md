@@ -43,8 +43,8 @@ hexo new page  "pageName"  # 新建页面
 
 - 命令简写
 ```bash
-hexo g -s    # 生成加预览
-hexo g -d    # 生成加发布
+hexo clean && hexo g -s    # 清除缓存+生成+预览
+hexo clean && hexo g -d    # 清除缓存+生成+发布
 ```
 
 ## 预览
