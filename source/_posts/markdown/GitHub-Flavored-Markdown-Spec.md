@@ -1,0 +1,509 @@
+---
+title: GitHub Flavored Markdown 规范
+tags: [markdown]
+copyright: true
+mathjax: false
+date: 2018-04-30 13:57:37
+categories: [markdown]
+sticky: true
+
+---
+
+**Markdown**是一种轻量级**标记语言**，它以纯文本形式编写文档，易读（看起来舒服）、易写（语法简单）、易更改，并最终以HTML格式发布。由于markdown没有明确指定语法，随着编译器不一样，实现方式有很大差异。GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规范了markdown的语法和语义。
+
+<!-- more -->
+
+# Markdown 免费编辑器推荐
+
+## Markdown In browser
+
+- [StackEdit](https://stackedit.io/app):  markdown editor
+- [Modoko](https://www.madoko.net/): Write Beautiful Documents
+- [Markdown Here](https://markdown-here.com/):   这是一个Chrome浏览器插件
+- [马克飞象](https://maxiang.io/): 专为印象笔记打造的Markdown编辑器（付费）
+- [小书匠](http://markdown.xiaoshujiang.com/): 支持第三方数据存储集成(evernote,印象笔记,github,dropbox等)。
+
+## Markdown Client
+
+- [Typora](https://pc.qq.com/search.html#!keyword=Typora) (Win+Mac+Linux) : What You See Is What You Get
+- [Mou](http://25.io/mou/) (Mac): Markdown editor for developers.
+- [Macdown](http://macdown.uranusjr.com/) (Mac): MacDown is an  open source Markdown editor for OS X
+- [Bear](http://www.bear-writer.com/)(Mac): Write beautifully on iPhone, iPad, and Mac
+- [MarkdownPad](markdownpad.com)(Windows): MarkdownPad is a full-featured Markdown editor for Windows
+- [MarkPad](http://code52.org/MarkPadRT/): Markdown works better with MarkPad
+
+## Text Editor
+
+- [Atom](https://atom.io/) (all): A hackable text editor for the 21st Century
+- [Sublime Text](http://www.sublimetextcn.com/)  (all): 是程序员圈子里口口相传的「神器」级代码编辑器
+- [Notepad++](https://notepad-plus-plus.org/zh/) (Windows): Windows强大的轻量级文本编辑器
+
+# [Markdown语法](https://help.github.com/cn/categories/writing-on-github)
+
+> 通过在 Markdown 字符前面输入`\`，可获得Markdown 字符
+
+## 标题
+
+要创建标题，请在标题文本前添加一至六个 `#` 符号。 您使用的 `#` 数量将决定标题的大小。
+
+```markdown
+# Header 1 
+## Header 2 
+... ...
+##### Header 6
+```
+
+或者在标题文本下面添加下划线至少三个`=`或`-`表示一级或二级标题。
+
+```markdow
+Header 1
+========
+Header 2
+--------
+```
+
+## 文本样式
+
+您可以使用粗体、斜体或删除线文本来表示强调。
+
+| 样式   | 语法               | 快捷键              | 示例               | 输出             |
+| ------ | :----------------- | ------------------- | ------------------ | ---------------- |
+| 粗体   | `** **` 或 `__ __` | <kbd>Ctrl + B</kbd> | `**bold**`         | **bold**         |
+| 斜体   | `* *` 或 `_ _`     | <kbd>Ctrl + I</kbd> | `*italic*`         | *italic*         |
+| 删除线 | `~~ ~~`            | <kbd>Ctrl + R</kbd> | `~~mistaken~~`     | ~~mistaken~~     |
+| 高亮   | `== ==`            |                     | `==highlight==`    | ==highlight==    |
+| 下划线 | HTML语法           |                     | `<u>underline</u>` | <u>underline</u> |
+| 下标   | `~ ~`              |                     | `H~2~O`            | H~2~O            |
+| 上标   | `^ ^`              |                     | `2^10^`            | 2^10^            |
+| 方框   | HTML语法           |                     | `<kbd>box</kbd>`   | <kbd>box</kbd>   |
+
+你也可以用HTML标签可表示其他文本样式
+
+```html
+<span style="color:red">this text is red</span>
+<font face="黑体" color=red size=5>这是红色黑体5号字</font>
+```
+
+<span style="color:red">this text is red</span>
+<font face="黑体" color=red size=5>这是红色黑体5号字</font>
+
+## 引用
+
+您可以使用 `>` 来引用文本，快捷键 <kbd>Ctrl + Q</kbd>
+
+```markdown
+> Quoted text
+>> Quoted text
+```
+
+> Quoted text
+>
+> > Quoted text
+
+## 列表
+
+通过在一行或多行文本前面添加 `-` 或 `*` 可创建无序列表。
+
+```markdown
+- Item 1
+- Item 2
+```
+
+- Item 1
+- Item 2
+
+要对列表排序，请在每行前面添加一个编号。
+
+```markdown
+1. Item 1
+2. Item 2
+```
+
+1. Item 1
+2. Item 2
+
+在每行前面添加`- [ ]`或 `- [x]`标记为任务列表。
+
+```markdown
+- [ ] Incomplete item
+- [x] Complete item
+```
+
+- [ ] Incomplete item
+- [x] Complete item
+
+通过在一个列表项下面缩进一个或多个其他列表项，可创建嵌套列表。
+
+```markdown
+*   Abacus
+    * answer
+*   Bubbles
+    1.  bunk
+    2.  bupkis
+        * BELITTLER
+    3. burper
+*   Cunning
+```
+
+- Abacus
+  - answer
+- Bubbles
+  1. bunk
+  2. bupkis
+     - BELITTLER
+  3. burper
+- Cunning
+
+## 代码
+
+如果要标记一小段行内代码，你可以用反引号 (<code>`</code>) 把它包起来，反引号中的文本不会被格式化。
+
+```markdown
+`inline code`
+```
+
+如果要在代码区段内插入反引号，你可以用多个反引号来开启和结束代码区段，例如
+
+```markdown
+``There is a literal backtick (`) here.``
+```
+
+如果要插入代码块，需要三个反引号开启和结束，我们建议在代码块的前后各留一个空白行，使原始格式更易辨读。
+
+您可以添加可选的语言标识符，以在代码块中启用语法高亮。
+
+~~~markdown
+```python
+import sys
+print('hello world')
+```
+~~~
+
+```python
+import sys
+print('hello world')
+```
+
+GFM中还可以显示 `diff`效果，即展示一个文件内容的增加与删除。绿色表示新增，红色表示删除。
+在三个反引号后面加上 `diff`标识符，并且其代码块行头以 `+`开头表示新增，`-`开头表示删除。
+
+```diff
++ update today.
+- What? When?
+```
+
+## 数学公式
+
+你可以使用**MathJax**渲染*LaTeX*数学公式，也可以使用 [KaTeX](https://khan.github.io/KaTeX/) 语法渲染。
+如果要写一小段行内数学公式，你可以用 `$` 把它包起来，例如
+
+```markdown
+$\displaystyle\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt$
+```
+
+$\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt$
+
+如果要插入数学公式块，需要两个 `$$`开启和结束，例如
+
+```markdown
+$$
+\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\
+\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\
+\end{vmatrix}
+$$
+```
+
+$$
+\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\
+\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\
+\end{vmatrix}
+$$
+
+## 链接
+
+markdown支持两种形式的链接：行内链接和参考链接，快捷键为 <kbd>Ctrl + K</kbd>
+
+行内链接：在`[]`里输入链接文本，在其后`()`输入 URL 和 `title`(可选)
+
+```markdown
+This is [an example](http://example.com/ "Title") inline link.
+```
+
+HTML语法格式为
+
+```html
+<p>This is <a href="http://example.com/" title="Title">
+```
+
+参考链接的使用格式为
+
+```markdown
+This is [an example][id] reference-style link.
+
+[id]: http://example.com/  "Optional Title Here"
+```
+
+## 图片
+
+图片的语法和链接相似，需要在链接前添加 `!`，我们可以像这样插入图片
+
+```markdown
+![Alt text](/path/to/img.jpg "Optional title")
+```
+
+当然，有时markdown不能满足我们的需求，我们可以采用[HTML语法](#链接和图片)。
+
+## 锚点
+
+锚点的使用方法和链接相同，需要在`()`起始加`#`
+
+```markdown
+[back to h1](#markdown-in-browser)
+```
+
+[back to h1](#markdown-in-browser)
+
+每一个标题都是一个锚点，和HTML的锚点类似，不过要注意，标题中的英文字母都被转化为**小写字母**，空格换成 `-`。
+
+锚点的设置可以使用HTML标签`<a id=xxx></a>`或`<h5 id=xxx>xxx</h5>`
+
+## 表格
+
+您可以用竖线 `|` 和横线 `-` 创建表格。 横线用于创建每列的标题，而竖线用于分隔每列。 必须在表格前包含空白链接，以便其正确呈现。表格末尾的竖线可选。
+
+您可以在标头行中横线的左侧、右侧或两侧加入冒号 `:`，靠左、靠右或居中对齐列中的文本。
+
+要包含竖线 `|` 作为单元格中的内容，请在竖线前使用 `\`
+
+```markdown
+|Item | Column 1 | Column 2     |  Column 3 |
+|-----|:--------:| -------------:|:---------|
+|Value| centered | right-aligned | left-aligned|
+```
+
+| Item  | Column 1 |      Column 2 | Column 3     |
+| ----- | :------: | ------------: | :----------- |
+| Value | centered | right-aligned | left-aligned |
+
+## 段落和区块
+
+通过在文本行之间留一个空白行，可创建新段落。
+
+列表项目可以包含多个段落，每个项目下的段落都必须缩进 4 个空格或是 1 个制表符
+
+```markdown
+1.  This is a list item with two paragraphs. 
+
+    The second paragraph. 
+
+2.  Suspendisse id sem consectetuer libero luctus adipiscing.
+```
+
+1. This is a list item with two paragraphs. 
+
+   The second paragraph. 
+
+2. Suspendisse id sem consectetuer libero luctus adipiscing.
+
+如果要在列表项目内放进引用，那 `>` 就需要缩进4 个空格或是 1 个制表符：
+
+```markdown
+*   A list item with a blockquote:
+    > This is a blockquote
+    > inside a list item.
+```
+
+- A list item with a blockquote:
+
+  > This is a blockquote
+  > inside a list item.
+
+## Emoji :smile:
+
+通过键入 `:EMOJICODE:` 可在您的写作中添加表情符号。
+`@octocat :+1: This PR looks great`
+@octocat :+1: This PR looks great
+
+键入 `:` 将显示建议的表情符号列表。 列表将在您键入时进行过滤，因此一旦找到所需表情符号，请按 **Tab** 或 **Enter** 键以填写选中的结果。
+
+有关可用表情符号和代码的完整列表，请查看 [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com/)。
+
+## 注脚
+
+```markdown
+You can create footnotes like this[^footnote].
+
+[^footnote]: Here is the *text* of the **footnote**.
+```
+
+You can create footnotes like this[^footnote].
+
+[^footnote]: Here is the *text* of the **footnote**.
+
+注脚内容将会在底部看到。
+
+## 分割线
+
+至少3个`---` 或 `***`可形成分割线
+
+------
+
+## YAML Front Matter
+
+Typora 支持YAML Front Matter，在文章顶部输入`---`开始和结束。
+
+```markdown
+---
+title: Markdown编辑器推荐及语法
+tags: [Markdown]
+---
+```
+
+## Table of Contents (TOC)
+
+StackEdit 支持生成目录，输入 `[toc]` 即可根据标题生成目录，可自动更新。
+
+## UML diagrams
+
+You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/).
+
+​\`\`\`mermaid
+sequenceDiagram
+Alice ->> Bob: Hello Bob, how are you?
+Bob-->>John: How about you John?
+Bob--x Alice: I am good thanks!
+Bob-x John: I am good thanks!
+Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+
+Bob-->>Alice: Checking with John...
+Alice->>John: Yes... John, how are you?
+​\`\`\`
+
+{% mermaid %}
+sequenceDiagram
+Alice ->> Bob: Hello Bob, how are you?
+Bob-->>John: How about you John?
+Bob--x Alice: I am good thanks!
+Bob-x John: I am good thanks!
+Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+
+Bob-->>Alice: Checking with John...
+Alice->>John: Yes... John, how are you?
+{% endmermaid %}
+
+And this will produce a flow chart:
+
+
+
+​\`\`\`mermaid
+graph LR
+A[Square Rect] -- Link text --> B((Circle))
+A --> C(Round Rect)
+B --> D{Rhombus}
+C --> D
+​\`\`\`
+
+{% mermaid %}
+graph LR
+A[Square Rect] -- Link text --> B((Circle))
+A --> C(Round Rect)
+B --> D{Rhombus}
+C --> D
+{% endmermaid %}
+
+
+
+# 部分HTML语法
+
+Markdown兼容HTML，不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。不需要额外标注。能制约的只有一些 HTML 区块元素――比如 `<div>`、`<table>`、`<pre>`、`<p>` 等标签，必须在前后加上空行与其它内容区隔开，还要求它们的开始标签与结尾标签不能用制表符或空格来缩进。
+
+HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Markdown 的段落、列表或是标题里随意使用。依照个人习惯，甚至可以不用 Markdown 格式，而直接采用 HTML 标签来格式化。
+
+## 注释
+
+```html
+<!--HTML 注释-->
+```
+
+## 文本背景色
+
+```html
+<table><tr><td bgcolor=yellow>背景色</td></tr></table>
+```
+
+<table><tr><td bgcolor=yellow>背景色</td></tr></table>
+## 对齐方式
+
+```html
+<center>居中</center>
+<p align="right">右对齐</p>
+
+```
+
+<center>居中</center>
+<p align="right">右对齐</p>
+## 表格
+
+```html
+<table>
+    <tr>
+        <th>header 1</th>
+        <th>header 2</th>
+    </tr>
+    <tr>
+        <td>row1,col1</td>
+        <td>row1,col2</td>
+    </tr>
+    <tr>
+        <td>row2,col1</td>
+        <td>row2,col2</td>
+    </tr>    
+</table>
+
+```
+
+<table>
+    <tr>
+        <th>header 1</th>
+        <th>header 2</th>
+    </tr>
+    <tr>
+        <td>row1,col1</td>
+        <td>row1,col2</td>
+    </tr>
+    <tr>
+        <td>row2,col1</td>
+        <td>row2,col2</td>
+    </tr>    
+</table>
+
+## 链接和图片
+
+```html
+<a href="http://example.com/" title="Title">
+<img src="img.jpg" alt="Title" width="20%" height="20%" align="right"/>
+```
+
+## 音视频
+
+```html
+<iframe src="url" title='xxx' scrolling="no" border="0" frameborder="no"
+  framespacing="0" allowfullscreen="true"> </iframe>
+
+<video src="xxx.mp4" />
+```
+
+## Font Awesome
+
+[Font Awesome](http://www.fontawesome.com.cn/) 提供一套免费可缩放矢量图标，它可以被定制大小、颜色、阴影以及任何可以用CSS的样式。
+
+```html
+<i class="fa fa-download"></i>
+```
+
+<i class="fa fa-download"></i>
+

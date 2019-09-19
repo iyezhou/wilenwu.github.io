@@ -14,7 +14,7 @@ sticky:
 ## 前提环境
 
 - [Node.js](http://nodejs.org/) (Should be at least nodejs 6.9)
-- [Git](http://git-scm.com/)
+- [Git](http://git-scm.com/)：[Git命令官方文档](https://git-scm.com/book/zh/v2)
 - 创建 github pages 库：库名为 `username.github.io` ，`username` 必须和github用户名保持一致 
 
 
