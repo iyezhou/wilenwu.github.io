@@ -158,7 +158,7 @@ timezone:                              | 网站的时区
 | category_dir: categories | 类别页所在的文件夹   |
 | code_dir: downloads/code | 代码页所在的文件夹   |
 | i18n_dir: :lang          | 国际语言所在的文件夹 |
-| skip_render: README.md   | 忽略文档清单         |
+| skip_render:            | 忽略文档清单         |
 
 | Writing                  | 写作设置                                                     |
 | :----------------------- | :----------------------------------------------------------- |
@@ -260,28 +260,7 @@ tags:
 
 修改Hexo文件夹下的`node_modules/hexo-generator-index/lib/generator.js`，在生成文章之前进行文章sticky值排序。
 
-需添加的代码：
-```js
-posts.data = posts.data.sort(function(a, b) {
-    if(a.sticky && b.sticky) { // 两篇文章sticky都有定义
-        if(a.sticky == b.sticky) return b.date - a.date; // 若sticky值一样则按照文章日期降序排
-        else return b.sticky - a.sticky; // 否则按照sticky值降序排
-    }
-    else if(a.sticky && !b.sticky) { // 以下是只有一篇文章sticky有定义，那么将有sticky的排在前面（这里用异或操作居然不行233）
-        return -1;
-    }
-    else if(!a.sticky && b.sticky) {
-        return 1;
-    }
-    else return b.date - a.date; // 都没定义按照文章日期降序排
-});
-```
-
-修改完成后，只需要在front-matter中设置需要置顶文章的 `sticky: true`。同时sticky也决定了是否添加置顶标签。
-也可以设置sticky值为数字，将会根据sticky值大小来选择置顶顺序，sticky值越大越靠前。
-需要注意的是，这个文件不是主题的一部分，也不是Git管理的，备份的时候比较容易忽略。
-
-以下是最终的generator.js内容
+以下是最终的generator.js内容、
 ```js
 'use strict';
 
@@ -291,19 +270,21 @@ module.exports = function(locals) {
   var config = this.config;
   var posts = locals.posts.sort(config.index_generator.order_by);
   
+  // -----------------需要添加的代码------------------------
   posts.data = posts.data.sort(function(a, b) {
-    if(a.sticky && b.sticky) { 
-        if(a.sticky == b.sticky) return b.date - a.date; 
-        else return b.sticky - a.sticky;
-    }
-    else if(a.sticky && !b.sticky) {
-        return -1;
-    }
-    else if(!a.sticky && b.sticky) {
-        return 1;
-    }
-    else return b.date - a.date; 
+      if(a.sticky && b.sticky) { // 两篇文章sticky都有定义
+          if(a.sticky == b.sticky) return b.date - a.date; // 若sticky值一样则按照文章日期降序排
+          else return b.sticky - a.sticky; // 否则按照sticky值降序排
+      }
+      else if(a.sticky && !b.sticky) { // 以下是只有一篇文章sticky有定义
+          return -1;
+      }
+      else if(!a.sticky && b.sticky) {
+          return 1;
+      }
+      else return b.date - a.date; // 都没定义按照文章日期降序排
   });
+  //-------------------------分割线-----------------------
   
   var paginationDir = config.pagination_dir || 'page';
   var path = config.index_generator.path || '';
@@ -320,19 +301,42 @@ module.exports = function(locals) {
 
 ```
 
+修改完成后，只需要在front-matter中设置需要置顶文章的 `sticky: true`。同时sticky也决定了是否添加置顶标签。
+也可以设置sticky值为数字，将会根据sticky值大小来选择置顶顺序，sticky值越大越靠前。
+需要注意的是，这个文件不是主题的一部分，也不是Git管理的，备份的时候比较容易忽略。
+
+## 本地图片链接
+
+- 如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 `source/images` 文件夹中。然后通过类似于 `![](/images/image.jpg)` 或`{% asset_img /images/image.jpg %}`的方法访问它们。
+- 对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。
+  需要首先修改站点配置文件 `post_asset_folder: true` 打开资源文件夹。
+  打开当资源文件管理功能打开后，Hexo将会在你每一次通过 `hexo new [layout] <title>` 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们。
+   `![](image.jpg)` 或`{% asset_img image.jpg %}`
+
+------
+
+## 踩过的坑
+
+{% note info %} skip_render {% endnote %}
+
+`skip_render`：跳过指定文件的渲染。匹配到的文件将会被不做改动的复制到 `public` 目录中。
+- `skip_render: "mypage/**"` 将会直接将 `source/mypage/`下的所有文件和目录不做改动地输出到 'public' 目录
+  注意：这里只能填相对于source文件夹的**相对路径**。千万不要手贱加上个`/`
+  
+- `skip_render: "_posts/test-post.md"` 这将会忽略对 'test-post.md' 的渲染
+
+- `skip_render: "mypage/*"`将会忽略`source/mypage/`文件夹下所有文件的渲染
+
+- `skip_render: "mypage/*.html"` 将会忽略`source/mypage/`文件夹下`.html`文件
+
+- 如果要忽略多个路径的文件或目录，可以这样配置：
+  ```shell
+  skip_render: 
+    - "_posts/test-post.md"   
+    - "mypage/*
+  ```
 
 
-## 上传本地图片
-
-hexo 上传本地图片，真实个坑，话不多说，上代码
-
-1. 修改站点配置文件 `post_asset_folder: true`
-2. `test.md` 文件同文件夹下新建同名资源文件夹 `test`
-3. 将图片拷进资源文件夹
-4. 使用`![example](example.jpg)` 或 `{% asset_img example.jpg example %}` 来引用本地图片
-
-或者直接使用绝对路径 `![example](/images/example.jpg)` 或 `{% asset_img /images/example.jpg example %}`
-注意绝对路径的根目录为 `hexo/source/`
 
 参考链接：
 [Github+Hexo搭建专属自己的博客](https://www.linjiujiu.xyz/2018/12/10/Github-Hexo%E6%90%AD%E5%BB%BA%E4%B8%93%E5%B1%9E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/)

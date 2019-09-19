@@ -503,7 +503,7 @@ font:
   global:
     external: true
     family: Lato
-    size: 0.9
+    size: 15px
 
   # Font settings for site title (.site-title). `Lobster Two | Comic Sans MS`
   title:
