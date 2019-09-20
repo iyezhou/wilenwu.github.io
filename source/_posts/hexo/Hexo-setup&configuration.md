@@ -211,15 +211,13 @@ tag_generator:               # 标签页
 theme: next    # 更换主题
 ```
 
-
-
 ## 写作模板
 
 在新建文章时，Hexo 会根据 `scaffolds` 文件夹内相对应的模板来建立文件
 
 Front-matter 是文件最上方以 `---` 分隔的区域，用于指定个别文件的变量，举例来说：
 
-```bash
+```yaml
 ---
 title: Hello World
 date: 2013/7/13 20:46:25
@@ -310,8 +308,8 @@ module.exports = function(locals) {
 - 如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 `source/images` 文件夹中。然后通过类似于 `![](/images/image.jpg)` 或`{% asset_img /images/image.jpg %}`的方法访问它们。
 - 对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。
   需要首先修改站点配置文件 `post_asset_folder: true` 打开资源文件夹。
-  打开当资源文件管理功能打开后，Hexo将会在你每一次通过 `hexo new [layout] <title>` 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们。
-   `![](image.jpg)` 或`{% asset_img image.jpg %}`
+  打开当资源文件管理功能打开后，Hexo将会在你每一次通过 `hexo new [layout] <title>` 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径  `![](image.jpg)`  来引用它们。
+  
 
 ------
 

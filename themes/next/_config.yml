@@ -477,7 +477,7 @@ github_banner:
 # Font Settings
 # See: https://theme-next.org/docs/theme-settings/#Fonts-Customization
 # ---------------------------------------------------------------
-# Find fonts on Google Fonts (https://www.google.com/fonts) or (http://www.googlefonts.net/)
+# Find fonts on Google Fonts (https://www.google.com/fonts) 
 # All fonts set here will have the following styles:
 #   light | light italic | normal | normal italic | bold | bold italic
 # Be aware that setting too much fonts will cause site running slowly
@@ -486,7 +486,7 @@ github_banner:
 # Arial | Tahoma | Helvetica | Times New Roman | Courier New | Verdana | Georgia | Palatino | Garamond | Comic Sans MS | Trebuchet MS
 # ---------------------------------------------------------------
 
-font:
+font:  # (http://www.googlefonts.net/)
   # Use custom fonts families or not.
   # Depended options: `external` and `family`.
   enable: true
@@ -502,25 +502,25 @@ font:
   # Global font settings used for all elements inside <body>.
   global:
     external: true
-    family: Lato
+    family: Lato     # Lato
     size: 15px
 
   # Font settings for site title (.site-title). `Lobster Two | Comic Sans MS`
   title:
     external: true
-    family: Comic Sans MS
+    family: Great Vibes       # Comic Sans MS | Lobster | Dancing Script | Teko | Satisfy | Great Vibes
     size: 
 
   # Font settings for headlines (<h1> to <h6>).
   headings:
     external: true
-    family:
+    family:           # Merriweather
     size: 
 
   # Font settings for posts (.post-body).
   posts:
     external: true
-    family:
+    family:           # Arimo
 
   # Font settings for <code> and code blocks.
   codes:

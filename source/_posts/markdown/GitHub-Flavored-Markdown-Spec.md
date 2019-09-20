@@ -6,7 +6,6 @@ mathjax: false
 date: 2018-04-30 13:57:37
 categories: [markdown]
 sticky: true
-
 ---
 
 **Markdown**是一种轻量级**标记语言**，它以纯文本形式编写文档，易读（看起来舒服）、易写（语法简单）、易更改，并最终以HTML格式发布。由于markdown没有明确指定语法，随着编译器不一样，实现方式有很大差异。GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规范了markdown的语法和语义。
@@ -62,6 +61,15 @@ Header 2
 --------
 ```
 
+HTML 语法
+
+```html
+<h1> Header 1 </h1>
+<h2> Header 2 </h2>
+... ...
+<h6> Header 6 </h6>
+```
+
 ## 文本样式
 
 您可以使用粗体、斜体或删除线文本来表示强调。
@@ -72,12 +80,12 @@ Header 2
 | 斜体   | `* *` 或 `_ _`     | <kbd>Ctrl + I</kbd> | `*italic*`         | *italic*         |
 | 删除线 | `~~ ~~`            | <kbd>Ctrl + R</kbd> | `~~mistaken~~`     | ~~mistaken~~     |
 | 高亮   | `== ==`            |                     | `==highlight==`    | ==highlight==    |
-| 下划线 | HTML语法           |                     | `<u>underline</u>` | <u>underline</u> |
+| 下划线 | HTML标签           |                     | `<u>underline</u>` | <u>underline</u> |
 | 下标   | `~ ~`              |                     | `H~2~O`            | H~2~O            |
 | 上标   | `^ ^`              |                     | `2^10^`            | 2^10^            |
-| 方框   | HTML语法           |                     | `<kbd>box</kbd>`   | <kbd>box</kbd>   |
+| 方框   | HTML标签           |                     | `<kbd>box</kbd>`   | <kbd>box</kbd>   |
 
-你也可以用HTML标签可表示其他文本样式
+你也可以用HTML标签表示其他文本样式
 
 ```html
 <span style="color:red">this text is red</span>
@@ -225,7 +233,7 @@ $$
 
 ## 链接
 
-markdown支持两种形式的链接：行内链接和参考链接，快捷键为 <kbd>Ctrl + K</kbd>
+GFM支持行内链接、参考链接和锚点，快捷键为 <kbd>Ctrl + K</kbd>
 
 行内链接：在`[]`里输入链接文本，在其后`()`输入 URL 和 `title`(可选)
 
@@ -233,43 +241,63 @@ markdown支持两种形式的链接：行内链接和参考链接，快捷键为
 This is [an example](http://example.com/ "Title") inline link.
 ```
 
-HTML语法格式为
-
-```html
-<p>This is <a href="http://example.com/" title="Title">
-```
-
-参考链接的使用格式为
+参考链接
 
 ```markdown
 This is [an example][id] reference-style link.
 
+<!--在任意位置定义URL-->
 [id]: http://example.com/  "Optional Title Here"
 ```
+
+> 提示：链接文本不必一定是文本。图片或其他 HTML 元素都可以成为链接。
+
+锚点
+
+每一个标题都是一个锚点，也可以用HTML方式定义锚点，不过要注意，引用时标题中的英文字母都要被转化为**小写字母**，空格换成 `-`。（GFM锚点也支持中文）
+
+```markdown
+[back to h1](#markdown-in-browser)
+```
+
+[back to h1](#markdown-in-browser)
+
+HTML语法格式为
+
+```html
+<!--行内链接和参考链接-->
+This is <a href="http://example.com/" title="Title">an example</a>
+
+<!--创建锚点(在HTML文档中是不显示的)-->
+<h1 id="h1">Header 1</h1>
+<a id="tips">back to tips</a>
+
+<!--引用锚点-->
+<a href="#tips">back to tips</a>
+<!--引用其他页面的锚点-->
+<a href="https://help.github.com/nothing.html#tips">back to tips</a>
+```
+
+## URLs
+
+GitHub 自动从标准 URL 创建链接。如 www.baidu.com
+也允许通过标签 `<`brackets`>` 创建链接
+
+`<i@typora.io>` becomes <i@typora.io>.
 
 ## 图片
 
 图片的语法和链接相似，需要在链接前添加 `!`，我们可以像这样插入图片
 
 ```markdown
-![Alt text](/path/to/img.jpg "Optional title")
+![Alt text](img.jpg "Optional title")
 ```
 
-当然，有时markdown不能满足我们的需求，我们可以采用[HTML语法](#链接和图片)。
+当然，有时markdown不能满足我们的需求，我们可以采用HTML语法。
 
-## 锚点
-
-锚点的使用方法和链接相同，需要在`()`起始加`#`
-
-```markdown
-[back to h1](#markdown-in-browser)
+```html
+<img src="img.jpg" alt="Optional title" width="20%" height="20%" align="right"/>
 ```
-
-[back to h1](#markdown-in-browser)
-
-每一个标题都是一个锚点，和HTML的锚点类似，不过要注意，标题中的英文字母都被转化为**小写字母**，空格换成 `-`。
-
-锚点的设置可以使用HTML标签`<a id=xxx></a>`或`<h5 id=xxx>xxx</h5>`
 
 ## 表格
 
@@ -289,11 +317,31 @@ This is [an example][id] reference-style link.
 | ----- | :------: | ------------: | :----------- |
 | Value | centered | right-aligned | left-aligned |
 
-## 段落和区块
+有时你不需要表头，可以用HTML语法处理
 
-通过在文本行之间留一个空白行，可创建新段落。
+```html
+<table>
+    <tr>
+        <th>header 1</th>
+        <th>header 2</th>
+    </tr>
+    <tr>
+        <td>row1,col1</td>
+        <td>row1,col2</td>
+    </tr>
+    <tr>
+        <td>row2,col1</td>
+        <td>row2,col2</td>
+    </tr>    
+</table>
+```
+
+## 段落和换行
 
 列表项目可以包含多个段落，每个项目下的段落都必须缩进 4 个空格或是 1 个制表符
+通过在文本行之间留一个空白行，可创建新段落。
+typora 按Shift+Enter创建一个换行符。然而，大多数的编辑器会忽略单行，为了让其它的Markdown编辑器识别你的换行符，可以在行尾留下两个空格或者插入`<br/>`。
+HTML语法的段落标签为 `<p>paragraph </p>`
 
 ```markdown
 1.  This is a list item with two paragraphs. 
@@ -346,9 +394,10 @@ You can create footnotes like this[^footnote].
 
 注脚内容将会在底部看到。
 
-## 分割线
+## 水平线
 
-至少3个`---` 或 `***`可形成分割线
+至少3个`---` 或 `***`可形成水平线
+HTML 标签`<hr>` 在页面中创建水平线
 
 ------
 
@@ -356,7 +405,7 @@ You can create footnotes like this[^footnote].
 
 Typora 支持YAML Front Matter，在文章顶部输入`---`开始和结束。
 
-```markdown
+```yaml
 ---
 title: Markdown编辑器推荐及语法
 tags: [Markdown]
@@ -371,7 +420,7 @@ StackEdit 支持生成目录，输入 `[toc]` 即可根据标题生成目录，�
 
 You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/).
 
-​\`\`\`mermaid
+\`\`\`mermaid
 sequenceDiagram
 Alice ->> Bob: Hello Bob, how are you?
 Bob-->>John: How about you John?
@@ -399,7 +448,7 @@ And this will produce a flow chart:
 
 
 
-​\`\`\`mermaid
+\`\`\`mermaid
 graph LR
 A[Square Rect] -- Link text --> B((Circle))
 A --> C(Round Rect)
@@ -446,56 +495,54 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
 
 <center>居中</center>
 <p align="right">右对齐</p>
-## 表格
+## 单选按钮（Radio Buttons）
+
+`<input type="radio">` 标签定义了表单单选框选项
 
 ```html
-<table>
-    <tr>
-        <th>header 1</th>
-        <th>header 2</th>
-    </tr>
-    <tr>
-        <td>row1,col1</td>
-        <td>row1,col2</td>
-    </tr>
-    <tr>
-        <td>row2,col1</td>
-        <td>row2,col2</td>
-    </tr>    
-</table>
-
+<form>
+<input type="radio" name="sex" value="male">Male<br>
+<input type="radio" name="sex" value="female">Female
+</form>
 ```
+<form>
+<input type="radio" name="sex" value="male">Male<br>
+<input type="radio" name="sex" value="female">Female
+</form>
 
-<table>
-    <tr>
-        <th>header 1</th>
-        <th>header 2</th>
-    </tr>
-    <tr>
-        <td>row1,col1</td>
-        <td>row1,col2</td>
-    </tr>
-    <tr>
-        <td>row2,col1</td>
-        <td>row2,col2</td>
-    </tr>    
-</table>
+## 复选框（Checkboxes）
 
-## 链接和图片
+`<input type="checkbox">` 定义了复选框. 用户需要从若干给定的选择中选取一个或若干选项。
 
 ```html
-<a href="http://example.com/" title="Title">
-<img src="img.jpg" alt="Title" width="20%" height="20%" align="right"/>
+<form>
+<input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
+<input type="checkbox" name="vehicle" value="Car">I have a car
+</form>
+```
+<form>
+<input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
+<input type="checkbox" name="vehicle" value="Car">I have a car
+</form>
+
+## HTML 框架
+
+通过使用框架，你可以在同一个浏览器窗口中显示不止一个页面。
+
+```html
+<iframe src="url" title='xxx' scrolling="no" border="0" frameborder="no"
+  framespacing="0" allowfullscreen="true"> </iframe>
 ```
 
 ## 音视频
 
 ```html
-<iframe src="url" title='xxx' scrolling="no" border="0" frameborder="no"
-  framespacing="0" allowfullscreen="true"> </iframe>
-
 <video src="xxx.mp4" />
 ```
+你可以在各大视频网站的分享入口，找到嵌入的 HTML 代码。
+
+![video](https://www.runoob.com/wp-content/uploads/2013/07/36B8ED24-2F40-44EC-A751-2617F749447C.jpg)
+
 
 ## Font Awesome
 

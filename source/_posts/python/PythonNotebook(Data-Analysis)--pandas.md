@@ -229,7 +229,8 @@ data.replace({-999: np.nan, -1000: 0})   #参数为字典
 |:---|:---|
 | df.transform(func)   | 数据转换，返回的形状和df完全一样<br>`df.transform(lambda x: (x - x.mean()) / x.std())`|
 | df.astype(dtype,copy=False)   | 数据类型转换|
-| df['column'].str.title()  | 转换成首字母大写（string方法对pandas适用） |
+| df['column'].str.title()  | 转换成首字母大写（字符的属性和方法对pandas适用） |
+| df['datetime'].dt.day | 获取日期（datetime类的属性和方法对pandas适用） |
 
 |**重复值**|默认判断全部列|
 |:---|:---|
@@ -828,7 +829,7 @@ pd.crosstab(index, columns, values=None, rownames=None, colnames=None,
 
 ```python
 df.pipe(func, *args, **kwargs)   # df.pipe(f)等价于f(df)
-``` 
+```
 
 ```python
 (df.pipe(h)

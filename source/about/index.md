@@ -1,8 +1,9 @@
 ---
-title: 关于
+title: About
 date: 2019-09-07 21:46:41
 type: "post"
 comments: true
 ---
+{% note success no-icon %} Welcome to my kingdom ! {% endnote %}
 
-{% cq %} **Welcome to my kingdom !** {% endcq %}
+![夜景](/images/china.jpg)
