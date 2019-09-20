@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_apple.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github32.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github16.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Wilen's Blog" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Great Vibes:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="时间序列（time series）数据是一种重要的结构化数据形式，具体的应用场景，主要有以下几种：  时间戳（timestamp），特定的时刻。 固定时期（period），如2007年1月或2010年全年。 时间间隔（interval），由起始和结束时间戳表示。时期（period）可以被看做间隔（interval）的特例。 实验或过程时间，每个时间点都是相对于特定起始时间的一个度量。例如，从放入烤">
+<meta name="keywords" content="python,pandas,时间序列,日期,时间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python手册(Time Series)--pandas(Time Series)">
+<meta property="og:url" content="https://wilenwu.github.io/posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries).html">
+<meta property="og:site_name" content="Wilen&#39;s Blog">
+<meta property="og:description" content="时间序列（time series）数据是一种重要的结构化数据形式，具体的应用场景，主要有以下几种：  时间戳（timestamp），特定的时刻。 固定时期（period），如2007年1月或2010年全年。 时间间隔（interval），由起始和结束时间戳表示。时期（period）可以被看做间隔（interval）的特例。 实验或过程时间，每个时间点都是相对于特定起始时间的一个度量。例如，从放入烤">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-18T11:00:52.048Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python手册(Time Series)--pandas(Time Series)">
+<meta name="twitter:description" content="时间序列（time series）数据是一种重要的结构化数据形式，具体的应用场景，主要有以下几种：  时间戳（timestamp），特定的时刻。 固定时期（period），如2007年1月或2010年全年。 时间间隔（interval），由起始和结束时间戳表示。时期（period）可以被看做间隔（interval）的特例。 实验或过程时间，每个时间点都是相对于特定起始时间的一个度量。例如，从放入烤">
+  <link rel="canonical" href="https://wilenwu.github.io/posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries)">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<script> 
+ (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+  <title>Python手册(Time Series)--pandas(Time Series) | Wilen's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?873a3ba02856122b60c91114a489f967";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wilen's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">∞</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">51</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">9</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">30</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-bookshelf">
+      
+    
+      
+    
+
+    <a href="/bookshelf/" rel="section"><i class="menu-item-icon fa fa-fw fa-windows"></i> <br>书架</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-bookmarks">
+      
+    
+      
+    
+
+    <a href="/bookmarks/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏夹</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/wilenwu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries).html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wilen Wu">
+      <meta itemprop="description" content="个人技术博客">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wilen's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">Python手册(Time Series)--pandas(Time Series)
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-12 00:49:34" itemprop="dateCreated datePublished" datetime="2018-05-12T00:49:34+08:00">2018-05-12</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-18 19:00:52" itemprop="dateModified" datetime="2019-09-18T19:00:52+08:00">2019-09-18</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/pandas/" itemprop="url" rel="index"><span itemprop="name">pandas</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries).html" class="post-meta-item leancloud_visitors" data-flag-title="Python手册(Time Series)--pandas(Time Series)" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries).html#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries).html" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>10k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>10 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>时间序列（time series）数据是一种重要的结构化数据形式，具体的应用场景，主要有以下几种：</p>
+<ul>
+<li>时间戳（timestamp），特定的时刻。</li>
+<li>固定时期（period），如2007年1月或2010年全年。</li>
+<li>时间间隔（interval），由起始和结束时间戳表示。时期（period）可以被看做间隔（interval）的特例。</li>
+<li>实验或过程时间，每个时间点都是相对于特定起始时间的一个度量。例如，从放入烤箱时起，每秒钟饼干的直径。</li>
+</ul>
+<a id="more"></a>
+<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
+<blockquote>
+<p>pandas最基本的时间序列类型就是以时间戳（通常以Python字符串或datatime对象表示）为索引的Series。<br>
+NaT（Not a Time）是pandas中时间戳数据的null值。</p>
+</blockquote>
+<p>下表显示了pandas可以处理的时间相关类的类型以及如何创建它们：</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Remarks</th>
+<th>How to create</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Timestamp</td>
+<td>Represents a single timestamp</td>
+<td>to_datetime, Timestamp</td>
+</tr>
+<tr>
+<td>DatetimeIndex</td>
+<td>Index of Timestamp</td>
+<td>to_datetime, date_range, bdate_range, DatetimeIndex</td>
+</tr>
+<tr>
+<td>Period</td>
+<td>Represents a single time span</td>
+<td>Period</td>
+</tr>
+<tr>
+<td>PeriodIndex</td>
+<td>Index of Period</td>
+<td>period_range, PeriodIndex</td>
+</tr>
+</tbody>
+</table>
+<h1 id="时间戳和时间区间"><a class="markdownIt-Anchor" href="#时间戳和时间区间"></a> 时间戳和时间区间</h1>
+<h2 id="pdtimestamp-and-pdperiod"><a class="markdownIt-Anchor" href="#pdtimestamp-and-pdperiod"></a> pd.Timestamp and pd.Period</h2>
+<blockquote>
+<p>pandas用NumPy的datetime64数据类型以纳秒形式存储时间戳</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pd.Timestamp</span></span><br><span class="line">In [<span class="number">8</span>]: pd.Timestamp(datetime(<span class="number">2012</span>, <span class="number">5</span>, <span class="number">1</span>))</span><br><span class="line">In [<span class="number">9</span>]: pd.Timestamp(<span class="string">'2012-05-01'</span>)</span><br><span class="line">In [<span class="number">10</span>]: pd.Timestamp(<span class="number">2012</span>, <span class="number">5</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment"># Out : Timestamp('2012-05-01 00:00:00')</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pd.Period</span></span><br><span class="line">In [<span class="number">11</span>]: pd.Period(<span class="string">'2011-01'</span>)</span><br><span class="line">Out[<span class="number">11</span>]: Period(<span class="string">'2011-01'</span>, <span class="string">'M'</span>)</span><br><span class="line">In [<span class="number">12</span>]: pd.Period(<span class="string">'2012-05'</span>, freq=<span class="string">'D'</span>)</span><br><span class="line">Out[<span class="number">12</span>]: Period(<span class="string">'2012-05-01'</span>, <span class="string">'D'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="datetimeindex-and-periodindex"><a class="markdownIt-Anchor" href="#datetimeindex-and-periodindex"></a> DatetimeIndex and PeriodIndex</h2>
+<p>pd.Timestamp and pd.Period对象是以DatetimeIndex and PeriodIndex的格式存储在Series的索引中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">13</span>]: dates = [pd.Timestamp(<span class="string">'2012-05-01'</span>), pd.Timestamp(<span class="string">'2012-05-02'</span>), pd.Timestamp(<span class="string">'2012-05-03'</span>)]</span><br><span class="line">In [<span class="number">14</span>]: ts = pd.Series(np.random.randn(<span class="number">3</span>), dates)</span><br><span class="line">In [<span class="number">16</span>]: ts.index</span><br><span class="line">Out[<span class="number">16</span>]: DatetimeIndex([<span class="string">'2012-05-01'</span>, <span class="string">'2012-05-02'</span>, <span class="string">'2012-05-03'</span>], dtype=<span class="string">'datetime64[ns]'</span>, freq=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="pdto_datetimeconverting-to-timestamps"><a class="markdownIt-Anchor" href="#pdto_datetimeconverting-to-timestamps"></a> pd.to_datetime（Converting to Timestamps）</h2>
+<p><code>pd.to_datetime(arg)</code></p>
+<blockquote>
+<p>arg : integer, float, string, datetime, list, tuple, 1-d array, Series or DataFrame/dict-like</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Providing a Format Argument</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pd.to_datetime(<span class="string">'2010/11/12'</span>, format=<span class="string">'%Y/%m/%d'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pd.to_datetime(<span class="string">'13000101'</span>, format=<span class="string">'%Y%m%d'</span>, errors=<span class="string">'ignore'</span>)</span><br><span class="line">datetime.datetime(<span class="number">1300</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># from Multiple DataFrame Columns</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df = pd.DataFrame(&#123;<span class="string">'year'</span>: [<span class="number">2015</span>, <span class="number">2016</span>],</span><br><span class="line">                       <span class="string">'month'</span>: [<span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">                       <span class="string">'day'</span>: [<span class="number">4</span>, <span class="number">5</span>]&#125;)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pd.to_datetime(df)</span><br><span class="line"></span><br><span class="line"><span class="comment"># integer, float</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pd.to_datetime(<span class="number">1490195805</span>, unit=<span class="string">'s'</span>)</span><br><span class="line">Timestamp(<span class="string">'2017-03-22 15:16:45'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using the origin Parameter(default,origin=970-01-01 00:00:00)</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pd.to_datetime([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], unit=<span class="string">'D'</span>,</span><br><span class="line">                   origin=pd.Timestamp(<span class="string">'1960-01-01'</span>))</span><br></pre></td></tr></table></figure>
+<h1 id="索引和切片"><a class="markdownIt-Anchor" href="#索引和切片"></a> 索引和切片</h1>
+<p>DatetimeIndex 可以像常规索引一样使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>ts[<span class="string">'2011-01-05'</span>:]</span><br></pre></td></tr></table></figure>
+<p>日期和解析为时间戳的字符串可以作为索引参数传递</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>ts[<span class="string">'1/10/2011'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ts[<span class="string">'20110110'</span>]</span><br></pre></td></tr></table></figure>
+<p>对于较长的时间序列，只需传入“年”或“年月”即可轻松选取数据的切片：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>longer_ts[<span class="string">'2001'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>longer_ts[<span class="string">'2001-05'</span>]</span><br></pre></td></tr></table></figure>
+<p>datetime对象也可以进行切片：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>ts[datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">7</span>):]</span><br></pre></td></tr></table></figure>
+<p>截断方法<br>
+<code>ts.truncate(before=None, after=None, axis=None, copy=True)</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>ts.truncate(after=<span class="string">'1/9/2011'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="日期范围"><a class="markdownIt-Anchor" href="#日期范围"></a> 日期范围</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 日历日</span></span><br><span class="line">pd.date_range(start=<span class="literal">None</span>, end=<span class="literal">None</span>, periods=<span class="literal">None</span>, freq=<span class="string">'D'</span>, </span><br><span class="line">   tz=<span class="literal">None</span>, normalize=<span class="literal">False</span>, name=<span class="literal">None</span>, closed=<span class="literal">None</span>, **kwargs) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 工作日</span></span><br><span class="line">pd.bdate_range(start=<span class="literal">None</span>, end=<span class="literal">None</span>, periods=<span class="literal">None</span>, freq=<span class="string">'B'</span>, </span><br><span class="line">   tz=<span class="literal">None</span>, normalize=<span class="literal">True</span>, name=<span class="literal">None</span>, closed=<span class="literal">None</span>, **kwargs)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>返回DatetimeIndex对象<br>
+默认会保留起始和结束时间戳的时间信息（如果有的话）<br>
+normalize参数：被规范化（normalize）到午夜的时间戳。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">50</span>]: start = datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">In [<span class="number">51</span>]: end = datetime(<span class="number">2012</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">In [<span class="number">52</span>]: index = pd.date_range(start, end)</span><br><span class="line">In [<span class="number">56</span>]: pd.date_range(start, periods=<span class="number">100</span>, freq=<span class="string">'M'</span>)</span><br><span class="line">In [<span class="number">58</span>]: pd.date_range(start, end, freq=<span class="string">'BM'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义频率</span></span><br><span class="line">In [<span class="number">62</span>]: weekmask = <span class="string">'Mon Wed Fri'</span></span><br><span class="line">In [<span class="number">63</span>]: holidays = [datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">5</span>), datetime(<span class="number">2011</span>, <span class="number">3</span>, <span class="number">14</span>)]</span><br><span class="line">In [<span class="number">64</span>]: pd.bdate_range(start, end, freq=<span class="string">'C'</span>, weekmask=weekmask, holidays=holidays)</span><br></pre></td></tr></table></figure>
+<h1 id="dateoffset-objects"><a class="markdownIt-Anchor" href="#dateoffset-objects"></a> DateOffset Objects</h1>
+<h2 id="offset基本用法"><a class="markdownIt-Anchor" href="#offset基本用法"></a> offset基本用法</h2>
+<p>前面的DatetimeIndex通过将频率字符串（ 如’M’，‘W’和’BM’）传递给freq参数来创建各种频率的对象。这些频率字符串被翻译成一个DateOffset实例，代表一个常规的频率增量。***(<code>from pandas.tseries.offsets</code>)***</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">别名</th>
+<th style="text-align:left">Offset类型</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">B</td>
+<td style="text-align:left">BDay</td>
+<td style="text-align:left">工作日</td>
+</tr>
+<tr>
+<td style="text-align:left">C</td>
+<td style="text-align:left">CDay</td>
+<td style="text-align:left">定制工作日</td>
+</tr>
+<tr>
+<td style="text-align:left">D</td>
+<td style="text-align:left">Day</td>
+<td style="text-align:left">日历日</td>
+</tr>
+<tr>
+<td style="text-align:left">W</td>
+<td style="text-align:left">Week</td>
+<td style="text-align:left">每周</td>
+</tr>
+<tr>
+<td style="text-align:left">M</td>
+<td style="text-align:left">MonthEnd</td>
+<td style="text-align:left">每月最后一个日历日</td>
+</tr>
+<tr>
+<td style="text-align:left">SM</td>
+<td style="text-align:left">SemiMonthEnd</td>
+<td style="text-align:left">每月15日和最后一个日历日</td>
+</tr>
+<tr>
+<td style="text-align:left">BM</td>
+<td style="text-align:left">BMonthEnd</td>
+<td style="text-align:left">每月15日和最后一个工作日</td>
+</tr>
+<tr>
+<td style="text-align:left">CBM</td>
+<td style="text-align:left">CBMonthEnd</td>
+<td style="text-align:left">定制每月最后一个日历日</td>
+</tr>
+<tr>
+<td style="text-align:left">MSS</td>
+<td style="text-align:left">MonthBegin</td>
+<td style="text-align:left">每月第一个日历日</td>
+</tr>
+<tr>
+<td style="text-align:left">SMS</td>
+<td style="text-align:left">SemiMonthBegin</td>
+<td style="text-align:left">每月1日和15日</td>
+</tr>
+<tr>
+<td style="text-align:left">BMS</td>
+<td style="text-align:left">BMonthBegin</td>
+<td style="text-align:left">每月第一个工作日</td>
+</tr>
+<tr>
+<td style="text-align:left">CBMS</td>
+<td style="text-align:left">CBMonthBegin</td>
+<td style="text-align:left">定制每月第一个工作日</td>
+</tr>
+<tr>
+<td style="text-align:left">Q</td>
+<td style="text-align:left">QuarterEnd</td>
+<td style="text-align:left">每季度最后一个日历日</td>
+</tr>
+<tr>
+<td style="text-align:left">BQ</td>
+<td style="text-align:left">BQuarterEnd</td>
+<td style="text-align:left">每季度最后一个工作日</td>
+</tr>
+<tr>
+<td style="text-align:left">QS</td>
+<td style="text-align:left">QuarterBegin</td>
+<td style="text-align:left">每季度第一个日历日</td>
+</tr>
+<tr>
+<td style="text-align:left">BQS</td>
+<td style="text-align:left">BQuarterBegin</td>
+<td style="text-align:left">每季度第一个工作日</td>
+</tr>
+<tr>
+<td style="text-align:left">A,Y</td>
+<td style="text-align:left">YearEnd</td>
+<td style="text-align:left">每年最后一个日历日</td>
+</tr>
+<tr>
+<td style="text-align:left">BA,BY</td>
+<td style="text-align:left">BYearEnd</td>
+<td style="text-align:left">每年最后一个工作日</td>
+</tr>
+<tr>
+<td style="text-align:left">AS,YS</td>
+<td style="text-align:left">YearBegin</td>
+<td style="text-align:left">每年第一个日历日</td>
+</tr>
+<tr>
+<td style="text-align:left">BAS,BYS</td>
+<td style="text-align:left">BYearBegin</td>
+<td style="text-align:left">每年第一个工作日</td>
+</tr>
+<tr>
+<td style="text-align:left">H</td>
+<td style="text-align:left">Hour</td>
+<td style="text-align:left">每小时</td>
+</tr>
+<tr>
+<td style="text-align:left">BH</td>
+<td style="text-align:left">BusinessHour</td>
+<td style="text-align:left">每工作小时</td>
+</tr>
+<tr>
+<td style="text-align:left">T,min</td>
+<td style="text-align:left">Minute</td>
+<td style="text-align:left">每分钟</td>
+</tr>
+<tr>
+<td style="text-align:left">S</td>
+<td style="text-align:left">Second</td>
+<td style="text-align:left">每秒</td>
+</tr>
+<tr>
+<td style="text-align:left">L,ms</td>
+<td style="text-align:left">Milli</td>
+<td style="text-align:left">毫秒</td>
+</tr>
+<tr>
+<td style="text-align:left">U,us</td>
+<td style="text-align:left">Micro</td>
+<td style="text-align:left">微秒</td>
+</tr>
+<tr>
+<td style="text-align:left">N</td>
+<td style="text-align:left">Nano</td>
+<td style="text-align:left">纳秒</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>锚定偏移量</strong></th>
+<th style="text-align:left"></th>
+<th style="text-align:left">这些频率所描述的时间点并不是均匀分隔的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">W-SUN,W-MON,…,W-SAT</td>
+<td style="text-align:left">Week</td>
+<td style="text-align:left">每周从指定日期算起(MON,TUE,WEN,THU,FRI,SAT,SUN)</td>
+</tr>
+<tr>
+<td style="text-align:left">WOM-1MON,WOM-2MON,…</td>
+<td style="text-align:left">WeekOfMonth</td>
+<td style="text-align:left">每月第x个星期y</td>
+</tr>
+<tr>
+<td style="text-align:left">Q-JAN,Q-FEB,…</td>
+<td style="text-align:left">QuarterEnd</td>
+<td style="text-align:left">以指定月份（最后一个日历日）结束季度</td>
+</tr>
+<tr>
+<td style="text-align:left">BQ-JAN,BQ-FEB,…</td>
+<td style="text-align:left">BQuarterBegin</td>
+<td style="text-align:left">以指定月份（最后一个工作日）结束季度</td>
+</tr>
+<tr>
+<td style="text-align:left">QS-JAN,QS-FEB,…</td>
+<td style="text-align:left">QuarterBegin</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">BQS-JAN,BQS-FEB,…</td>
+<td style="text-align:left">BQuarterBegin</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">A-JAN,A-FEB,…</td>
+<td style="text-align:left">YearEnd</td>
+<td style="text-align:left">以指定月份（最后一个日历日）结束年度</td>
+</tr>
+<tr>
+<td style="text-align:left">BA-JAN,BA-FEB,…</td>
+<td style="text-align:left">BYearEnd</td>
+<td style="text-align:left">以指定月份（最后一个工作日）结束年度</td>
+</tr>
+<tr>
+<td style="text-align:left">AS-JAN,AS-FEB,…</td>
+<td style="text-align:left">YearBegin</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">BAS-JAN,BAS-FEB,…</td>
+<td style="text-align:left">BYearBegin</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p>Examples</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">112</span>]: d = datetime(<span class="number">2008</span>, <span class="number">8</span>, <span class="number">18</span>, <span class="number">9</span>, <span class="number">0</span>)</span><br><span class="line">In [<span class="number">114</span>]: <span class="keyword">from</span> pandas.tseries.offsets <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">In [<span class="number">82</span>]: hour = Hour()</span><br><span class="line">In [<span class="number">84</span>]: four_hours = Hour(<span class="number">4</span>) <span class="comment"># 传入一个整数即可定义偏移量的倍数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 一般来说，无需明确创建这样的对象，只需使用诸如"H"或"4H"这样的字符串别名即可</span></span><br><span class="line">In [<span class="number">86</span>]: pd.date_range(<span class="string">'2000-01-01'</span>, <span class="string">'2000-01-03 23:59'</span>, freq=<span class="string">'4h'</span>)</span><br><span class="line">In [<span class="number">87</span>]: Hour(<span class="number">2</span>) + Minute(<span class="number">30</span>) <span class="comment"># 数学运算</span></span><br><span class="line">Out[<span class="number">87</span>]: &lt;<span class="number">150</span> * Minutes&gt;</span><br><span class="line">pd.date_range(<span class="string">'2000-01-01'</span>, periods=<span class="number">10</span>, freq=<span class="string">'2h30min'</span>) <span class="comment"># 字符串"2h30min"</span></span><br></pre></td></tr></table></figure>
+<h2 id="wom日期"><a class="markdownIt-Anchor" href="#wom日期"></a> WOM日期</h2>
+<p>WOM（Week Of Month）是一种非常实用的频率类，它以WOM开头。它使你能获得诸如“每月第3个星期五”之类的日期。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.date_range(<span class="string">'2012-01-01'</span>, <span class="string">'2012-09-01'</span>, freq=<span class="string">'WOM-3FRI'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="移动超前和滞后数据"><a class="markdownIt-Anchor" href="#移动超前和滞后数据"></a> 移动（超前和滞后）数据</h1>
+<h2 id="shift方法"><a class="markdownIt-Anchor" href="#shift方法"></a> shift方法</h2>
+<p><code>ts.shift(periods=1, freq=None, axis=0)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [91]: ts = pd.Series(np.random.randn(4),</span><br><span class="line">   ....:                index=pd.date_range(&apos;1/1/2000&apos;, periods=4, freq=&apos;M&apos;))</span><br><span class="line">In [94]: ts.shift(-2)</span><br><span class="line">In [96]: ts.shift(3, freq=&apos;D&apos;)</span><br></pre></td></tr></table></figure>
+<h2 id="通过offset对日期进行位移"><a class="markdownIt-Anchor" href="#通过offset对日期进行位移"></a> 通过Offset对日期进行位移</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">98</span>]: <span class="keyword">from</span> pandas.tseries.offsets <span class="keyword">import</span> Day, MonthEnd</span><br><span class="line">In [<span class="number">99</span>]: now = datetime(<span class="number">2011</span>, <span class="number">11</span>, <span class="number">17</span>)</span><br><span class="line">In [<span class="number">100</span>]: now + <span class="number">3</span> * Day()</span><br><span class="line">Out[<span class="number">100</span>]: Timestamp(<span class="string">'2011-11-20 00:00:00'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果加的是锚定偏移量（比如MonthEnd），第一次增量会将原日期向前滚动到符合频率规则的下一个日期</span></span><br><span class="line">In [<span class="number">102</span>]: now + MonthEnd(<span class="number">2</span>)</span><br><span class="line">Out[<span class="number">102</span>]: Timestamp(<span class="string">'2011-12-31 00:00:00'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 锚定偏移量的rollforward和rollback方法，可明确地将日期向前或向后“滚动”</span></span><br><span class="line">In [<span class="number">103</span>]: offset = MonthEnd()</span><br><span class="line">In [<span class="number">104</span>]: offset.rollforward(now)</span><br><span class="line">Out[<span class="number">104</span>]: Timestamp(<span class="string">'2011-11-30 00:00:00'</span>)</span><br><span class="line">In [<span class="number">105</span>]: offset.rollback(now)</span><br><span class="line">Out[<span class="number">105</span>]: Timestamp(<span class="string">'2011-10-31 00:00:00'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="时期及其算术运算"><a class="markdownIt-Anchor" href="#时期及其算术运算"></a> 时期及其算术运算</h1>
+<h2 id="period"><a class="markdownIt-Anchor" href="#period"></a> Period</h2>
+<p><code>pd.Period(value=None, freq=None, ordinal=None, year=None, month=None, quarter=None, day=None, hour=None, minute=None, second=None)</code><br>
+时期（period）表示的是时间区间，比如数日、数月、数季、数年等。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">149</span>]: p = pd.Period(<span class="number">2007</span>, freq=<span class="string">'A-DEC'</span>)</span><br><span class="line">In [<span class="number">150</span>]: p</span><br><span class="line">Out[<span class="number">150</span>]: Period(<span class="string">'2007'</span>, <span class="string">'A-DEC'</span>)</span><br><span class="line">In [<span class="number">151</span>]: p + <span class="number">5</span></span><br><span class="line">Out[<span class="number">151</span>]: Period(<span class="string">'2012'</span>, <span class="string">'A-DEC'</span>)</span><br><span class="line">In [<span class="number">153</span>]: pd.Period(<span class="string">'2014'</span>, freq=<span class="string">'A-DEC'</span>) - p</span><br><span class="line">Out[<span class="number">153</span>]: <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<h2 id="periodindex-and-period_range"><a class="markdownIt-Anchor" href="#periodindex-and-period_range"></a> PeriodIndex and period_range</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># period_range函数可用于创建规则的时期范围，返回PeriodIndex对象</span></span><br><span class="line">pd.period_range(start=<span class="literal">None</span>, end=<span class="literal">None</span>, periods=<span class="literal">None</span>, freq=<span class="string">'D'</span>, name=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">pd.PeriodIndex(data=<span class="literal">None</span>, ordinal=<span class="literal">None</span>, freq=<span class="literal">None</span>, start=<span class="literal">None</span>, end=<span class="literal">None</span>, </span><br><span class="line">   periods=<span class="literal">None</span>, copy=<span class="literal">False</span>, name=<span class="literal">None</span>, tz=<span class="literal">None</span>, dtype=<span class="literal">None</span>, **kwargs)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">154</span>]: rng = pd.period_range(<span class="string">'2000-01-01'</span>, <span class="string">'2000-06-30'</span>, freq=<span class="string">'M'</span>)</span><br><span class="line">In [<span class="number">155</span>]: rng</span><br><span class="line">Out[<span class="number">155</span>]: PeriodIndex([<span class="string">'2000-01'</span>, <span class="string">'2000-02'</span>, <span class="string">'2000-03'</span>, <span class="string">'2000-04'</span>, <span class="string">'2000-05'</span>, <span class="string">'20</span></span><br><span class="line"><span class="string">00-06'</span>], dtype=<span class="string">'period[M]'</span>, freq=<span class="string">'M'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 作为时间序列索引引用</span></span><br><span class="line">In [<span class="number">156</span>]: pd.Series(np.random.randn(<span class="number">6</span>), index=rng)</span><br><span class="line"></span><br><span class="line"><span class="comment"># pd.PeriodIndex</span></span><br><span class="line">In [<span class="number">157</span>]: values = [<span class="string">'2001Q3'</span>, <span class="string">'2002Q2'</span>, <span class="string">'2003Q1'</span>]</span><br><span class="line">In [<span class="number">158</span>]: index = pd.PeriodIndex(values, freq=<span class="string">'Q-DEC'</span>)</span><br><span class="line">In [<span class="number">159</span>]: index</span><br><span class="line">Out[<span class="number">159</span>]: PeriodIndex([<span class="string">'2001Q3'</span>, <span class="string">'2002Q2'</span>, <span class="string">'2003Q1'</span>], dtype=<span class="string">'period[Q-DEC]'</span>, freq</span><br><span class="line">=<span class="string">'Q-DEC'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="时期的频率转换"><a class="markdownIt-Anchor" href="#时期的频率转换"></a> 时期的频率转换</h2>
+<p>Period和PeriodIndex对象都可以通过其asfreq方法被转换成别的频率。<br>
+<code>p.asfreq(freq,how='end')</code></p>
+<blockquote>
+<p>freq : string<br>
+how : {‘E’, ‘S’, ‘end’, ‘start’}, default ‘end’<br>
+Start or end of the timespan</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">160</span>]: p = pd.Period(<span class="string">'2007'</span>, freq=<span class="string">'A-DEC'</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">162</span>]: p.asfreq(<span class="string">'M'</span>, how=<span class="string">'start'</span>)</span><br><span class="line">Out[<span class="number">162</span>]: Period(<span class="string">'2007-01'</span>, <span class="string">'M'</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">163</span>]: p.asfreq(<span class="string">'M'</span>, how=<span class="string">'end'</span>)</span><br><span class="line">Out[<span class="number">163</span>]: Period(<span class="string">'2007-12'</span>, <span class="string">'M'</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt="时期的频率转换" data-src="/images/period.png"></p>
+<h2 id="按季度计算的时期频率"><a class="markdownIt-Anchor" href="#按季度计算的时期频率"></a> 按季度计算的时期频率</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2012Q4</span></span><br><span class="line">In [<span class="number">175</span>]: p = pd.Period(<span class="string">'2012Q4'</span>, freq=<span class="string">'Q-JAN'</span>)</span><br><span class="line">In [<span class="number">176</span>]: p</span><br><span class="line">Out[<span class="number">176</span>]: Period(<span class="string">'2012Q4'</span>, <span class="string">'Q-JAN'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2012Q4是从11月到1月（ freq='Q-JAN'）</span></span><br><span class="line">In [<span class="number">177</span>]: p.asfreq(<span class="string">'D'</span>, <span class="string">'start'</span>)</span><br><span class="line">Out[<span class="number">177</span>]: Period(<span class="string">'2011-11-01'</span>, <span class="string">'D'</span>)</span><br><span class="line">In [<span class="number">178</span>]: p.asfreq(<span class="string">'D'</span>, <span class="string">'end'</span>)</span><br><span class="line">Out[<span class="number">178</span>]: Period(<span class="string">'2012-01-31'</span>, <span class="string">'D'</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt="按季度计算的时期频率" data-src="/images/period2.png"></p>
+<h2 id="timestamp和period户型给转换"><a class="markdownIt-Anchor" href="#timestamp和period户型给转换"></a> Timestamp和Period户型给转换</h2>
+<p><code>Timestamp.to_period(freq=None)</code><br>
+<code>Period.to_timestamp(freq,how)</code></p>
+<blockquote>
+<p>freq : string or DateOffset, default is ‘D’<br>
+how: str, default ‘S’ (start): ‘Start’, ‘Finish’, ‘Begin’, ‘End’</p>
+</blockquote>
+<h1 id="重采样及频率转换"><a class="markdownIt-Anchor" href="#重采样及频率转换"></a> 重采样及频率转换</h1>
+<p>重采样（resampling）指的是将时间序列从一个频率转换到另一个频率的处理过程。将高频率数据聚合到低频率称为降采样（downsampling），而将低频率数据转换到高频率则称为升采样（upsampling）。</p>
+<p>pandas对象都带有一个resample方法，它是各种频率转换工作的主力函数。resample有一个类似于groupby的API，调用resample可以分组数据，然后会调用一个聚合函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ts.resample(rule, how=<span class="literal">None</span>, axis=<span class="number">0</span>, fill_method=<span class="literal">None</span>, closed=<span class="literal">None</span>, label=<span class="literal">None</span>, </span><br><span class="line">   convention=<span class="string">'start'</span>, kind=<span class="literal">None</span>, loffset=<span class="literal">None</span>, limit=<span class="literal">None</span>, base=<span class="number">0</span>, on=<span class="literal">None</span>, level=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Parameters:<br>
+rule :  表示重采样频率的字符串或Offset<br>
+axis : int, optional, default 0<br>
+fill_method: {’'ffill,‘bfill’}，插值方法<br>
+limit: 向前或向后填充的最大区间<br>
+kind: {‘period’,‘timestamp’}，默认聚合的时间序列的索引类型<br>
+closed : {‘right’, ‘left’}，降采样中时间段的哪一端闭合<br>
+label : {‘right’, ‘left’}，降采样中如何设置聚合值的标签<br>
+convention : {‘start’, ‘end’, ‘s’, ‘e’}，低频周期到高频周期的惯用法<br>
+loffset : timedelta，面元标签的时间校正值</p>
+</blockquote>
+<h2 id="降采样"><a class="markdownIt-Anchor" href="#降采样"></a> 降采样</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">213</span>]: rng = pd.date_range(<span class="string">'2000-01-01'</span>, periods=<span class="number">12</span>, freq=<span class="string">'T'</span>)</span><br><span class="line">In [<span class="number">214</span>]: ts = pd.Series(np.arange(<span class="number">12</span>), index=rng)</span><br><span class="line">In [<span class="number">216</span>]: ts.resample(<span class="string">'5min'</span>, closed=<span class="string">'right'</span>).sum()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过loffset设置一个字符串或日期偏移量对索引进行位移</span></span><br><span class="line">In [<span class="number">219</span>]: ts.resample(<span class="string">'5min'</span>, closed=<span class="string">'right'</span>,</span><br><span class="line">   .....:             label=<span class="string">'right'</span>, loffset=<span class="string">'-1s'</span>).sum()</span><br><span class="line">Out[<span class="number">219</span>]: </span><br><span class="line"><span class="number">1999</span><span class="number">-12</span><span class="number">-31</span> <span class="number">23</span>:<span class="number">59</span>:<span class="number">59</span>     <span class="number">0</span></span><br><span class="line"><span class="number">2000</span><span class="number">-01</span><span class="number">-01</span> <span class="number">00</span>:<span class="number">04</span>:<span class="number">59</span>    <span class="number">15</span></span><br></pre></td></tr></table></figure>
+<h2 id="ohlc重采样"><a class="markdownIt-Anchor" href="#ohlc重采样"></a> OHLC重采样</h2>
+<p>金融领域中有一种无所不在的时间序列聚合方式，即计算各面元的四个值：第一个值（open，开盘）、最后一个值（close，收盘）、最大值（high，最高）以及最小值（low，最低）。传入how='ohlc’即可得到一个含有这四种聚合值的DataFrame。整个过程很高效，只需一次扫描即可计算出结果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">220</span>]: ts.resample(<span class="string">'5min'</span>).ohlc()</span><br><span class="line">Out[<span class="number">220</span>]: </span><br><span class="line">                     open  high  low  close</span><br><span class="line"><span class="number">2000</span><span class="number">-01</span><span class="number">-01</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>     <span class="number">0</span>     <span class="number">4</span>    <span class="number">0</span>      <span class="number">4</span></span><br><span class="line"><span class="number">2000</span><span class="number">-01</span><span class="number">-01</span> <span class="number">00</span>:<span class="number">05</span>:<span class="number">00</span>     <span class="number">5</span>     <span class="number">9</span>    <span class="number">5</span>      <span class="number">9</span></span><br><span class="line"><span class="number">2000</span><span class="number">-01</span><span class="number">-01</span> <span class="number">00</span>:<span class="number">10</span>:<span class="number">00</span>    <span class="number">10</span>    <span class="number">11</span>   <span class="number">10</span>     <span class="number">11</span></span><br></pre></td></tr></table></figure>
+<h2 id="升采样和插值"><a class="markdownIt-Anchor" href="#升采样和插值"></a> 升采样和插值</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">221</span>]: frame = pd.DataFrame(np.random.randn(<span class="number">2</span>, <span class="number">4</span>),</span><br><span class="line">   .....:                      index=pd.date_range(<span class="string">'1/1/2000'</span>, periods=<span class="number">2</span>,freq=<span class="string">'W-WED'</span>),</span><br><span class="line">   .....:                      columns=[<span class="string">'Colorado'</span>, <span class="string">'Texas'</span>, <span class="string">'New York'</span>, <span class="string">'Ohio'</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">226</span>]: frame.resample(<span class="string">'D'</span>).ffill(limit=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="移动窗口函数"><a class="markdownIt-Anchor" href="#移动窗口函数"></a> 移动窗口函数</h1>
+<h2 id="移动窗口函数-2"><a class="markdownIt-Anchor" href="#移动窗口函数-2"></a> 移动窗口函数</h2>
+<p><code>ts.rolling(window, min_periods=None, freq=None, center=False, win_type=None, on=None, axis=0, closed=None)</code></p>
+<blockquote>
+<p>window : int, or offset</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ts.rolling(<span class="number">250</span>).mean().plot() <span class="comment"># 移动窗口平均值作图</span></span><br></pre></td></tr></table></figure>
+<h2 id="指数加权函数"><a class="markdownIt-Anchor" href="#指数加权函数"></a> 指数加权函数</h2>
+<p>另一种使用固定大小窗口及相等权数观测值的办法是，定义一个衰减因子（decay factor）常量，以便使近期的观测值拥有更大的权数。衰减因子的定义方式有很多，比较流行的是使用时间间隔（span），它可以使结果兼容于窗口大小等于时间间隔的简单移动窗口（simple moving window）函数。</p>
+<p><code>ts.ewm(com=None, span=None, halflife=None, alpha=None, min_periods=0, freq=None, adjust=True, ignore_na=False, axis=0)</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ts.ewm(span=<span class="number">30</span>).mean().plot()</span><br></pre></td></tr></table></figure>
+<h2 id="二元移动窗口函数"><a class="markdownIt-Anchor" href="#二元移动窗口函数"></a> 二元移动窗口函数</h2>
+<p>有些统计运算（如相关系数和协方差）需要在两个时间序列上执行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 假设你想要一次性计算多只股票与标准普尔500指数的相关系数</span></span><br><span class="line">In [<span class="number">262</span>]: corr = returns.rolling(<span class="number">125</span>, min_periods=<span class="number">100</span>).corr(spx_rets)</span><br><span class="line">In [<span class="number">263</span>]: corr.plot()</span><br></pre></td></tr></table></figure>
+<p><img alt="二元移动窗口函数" data-src="/images/corr.png"></p>
+<h2 id="用户定义的移动窗口函数"><a class="markdownIt-Anchor" href="#用户定义的移动窗口函数"></a> 用户定义的移动窗口函数</h2>
+<p>rolling_apply函数使你能够在移动窗口上应用自己设计的数组函数。唯一要求的就是：该函数要能从数组的各个片段中产生单个值（即约简）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">265</span>]: <span class="keyword">from</span> scipy.stats <span class="keyword">import</span> percentileofscore</span><br><span class="line">In [<span class="number">266</span>]: score_at_2percent = <span class="keyword">lambda</span> x: percentileofscore(x, <span class="number">0.02</span>)</span><br><span class="line">In [<span class="number">267</span>]: result = returns.AAPL.rolling(<span class="number">250</span>).apply(score_at_2percent)</span><br><span class="line">In [<span class="number">268</span>]: result.plot()</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+        
+      
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/nezha.jpg" alt="Wilen Wu 比特币">
+        <p>比特币</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Wilen Wu</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wilenwu.github.io/posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries).html" title="Python手册(Time Series)--pandas(Time Series)">https://wilenwu.github.io/posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries).html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/python/" rel="tag"># python</a>
+            
+              <a href="/tags/pandas/" rel="tag"># pandas</a>
+            
+              <a href="/tags/时间序列/" rel="tag"># 时间序列</a>
+            
+              <a href="/tags/日期/" rel="tag"># 日期</a>
+            
+              <a href="/tags/时间/" rel="tag"># 时间</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/posts/python/PythonNotebook(Visualise)--seaborn.html" rel="next" title="Python手册(Visualise)--seaborn">
+                  <i class="fa fa-chevron-left"></i> Python手册(Visualise)--seaborn
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/posts/python/PythonNotebook(Visualise)--matplotlib.html" rel="prev" title="Python手册(Visualise)--matplotlib">
+                  Python手册(Visualise)--matplotlib <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+          
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+          
+            <li class="tab"><a href="#comment-valine">valine</a></li>
+          
+        </ul>
+        <div class="tab-content">
+          
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
+          
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="comments"></div>
+            </div>
+          
+        </div>
+      </div>
+      <script>
+        window.addEventListener('tabs:register', () => {
+          let activeClass = 'gitalk';
+          
+            activeClass = localStorage.getItem('comments_active') || activeClass;
+          
+          if (activeClass) {
+            let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+            if (activeTab) {
+              activeTab.click();
+            }
+          }
+        });
+        
+        window.addEventListener('tabs:click', event => {
+          let commentClass = event.target.classList[1];
+          localStorage.setItem('comments_active', commentClass);
+        });
+        
+      </script>
+    
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时间戳和时间区间"><span class="nav-number">2.</span> <span class="nav-text"> 时间戳和时间区间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pdtimestamp-and-pdperiod"><span class="nav-number">2.1.</span> <span class="nav-text"> pd.Timestamp and pd.Period</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#datetimeindex-and-periodindex"><span class="nav-number">2.2.</span> <span class="nav-text"> DatetimeIndex and PeriodIndex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pdto_datetimeconverting-to-timestamps"><span class="nav-number">2.3.</span> <span class="nav-text"> pd.to_datetime（Converting to Timestamps）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#索引和切片"><span class="nav-number">3.</span> <span class="nav-text"> 索引和切片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#日期范围"><span class="nav-number">4.</span> <span class="nav-text"> 日期范围</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dateoffset-objects"><span class="nav-number">5.</span> <span class="nav-text"> DateOffset Objects</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#offset基本用法"><span class="nav-number">5.1.</span> <span class="nav-text"> offset基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wom日期"><span class="nav-number">5.2.</span> <span class="nav-text"> WOM日期</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动超前和滞后数据"><span class="nav-number">6.</span> <span class="nav-text"> 移动（超前和滞后）数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#shift方法"><span class="nav-number">6.1.</span> <span class="nav-text"> shift方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过offset对日期进行位移"><span class="nav-number">6.2.</span> <span class="nav-text"> 通过Offset对日期进行位移</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时期及其算术运算"><span class="nav-number">7.</span> <span class="nav-text"> 时期及其算术运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#period"><span class="nav-number">7.1.</span> <span class="nav-text"> Period</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#periodindex-and-period_range"><span class="nav-number">7.2.</span> <span class="nav-text"> PeriodIndex and period_range</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时期的频率转换"><span class="nav-number">7.3.</span> <span class="nav-text"> 时期的频率转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按季度计算的时期频率"><span class="nav-number">7.4.</span> <span class="nav-text"> 按季度计算的时期频率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#timestamp和period户型给转换"><span class="nav-number">7.5.</span> <span class="nav-text"> Timestamp和Period户型给转换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重采样及频率转换"><span class="nav-number">8.</span> <span class="nav-text"> 重采样及频率转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#降采样"><span class="nav-number">8.1.</span> <span class="nav-text"> 降采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ohlc重采样"><span class="nav-number">8.2.</span> <span class="nav-text"> OHLC重采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#升采样和插值"><span class="nav-number">8.3.</span> <span class="nav-text"> 升采样和插值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动窗口函数"><span class="nav-number">9.</span> <span class="nav-text"> 移动窗口函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#移动窗口函数-2"><span class="nav-number">9.1.</span> <span class="nav-text"> 移动窗口函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指数加权函数"><span class="nav-number">9.2.</span> <span class="nav-text"> 指数加权函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二元移动窗口函数"><span class="nav-number">9.3.</span> <span class="nav-text"> 二元移动窗口函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户定义的移动窗口函数"><span class="nav-number">9.4.</span> <span class="nav-text"> 用户定义的移动窗口函数</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/header.jpg"
+      alt="Wilen Wu">
+  <p class="site-author-name" itemprop="name">Wilen Wu</p>
+  <div class="site-description" itemprop="description">个人技术博客</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/wilenwu" title="GitHub &rarr; https://github.com/wilenwu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/qq_41518277" title="CSDN &rarr; https://blog.csdn.net/qq_41518277" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>CSDN</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:597379201@qq.com" title="E-Mail &rarr; mailto:597379201@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/" title="Weibo &rarr; https://weibo.com/" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.easyicon.net/" title="https://www.easyicon.net/" rel="noopener" target="_blank">easyicon</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.fontawesome.com.cn/" title="http://www.fontawesome.com.cn/" rel="noopener" target="_blank">Font Awesome</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wilen Wu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">206k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:07</span>
+</div>
+
+        
+
+
+
+
+
+
+  
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+            
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI',
+            'X-LC-Key': '6EzBICTWxLbjiGsbNAa8Fv2s',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+        if (localhost.test(document.URL)) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: '3be7aa98d992907175cbd79c194399f2',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: 'b269fdaf30f1c26292543e9b68d66df8',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI',
+    appKey: '6EzBICTWxLbjiGsbNAa8Fv2s',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

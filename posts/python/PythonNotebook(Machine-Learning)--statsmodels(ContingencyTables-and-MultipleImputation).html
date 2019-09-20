@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_apple.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github32.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github16.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Wilen's Blog" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Great Vibes:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Contingency Tables(列联表) Statsmodels支持各种分析列联表的方法，包括评估独立性，对称性，同质性的方法，以及处理来自分层人群的表集合的方法。 这里描述的方法主要用于双向表。可以使用对数线性模型分析多路表。Statsmodels目前没有statsmodels.genmod.GLM用于对数线性建模的专用API，但Poisson回归可用于此目的。 from statsmo">
+<meta name="keywords" content="python,机器学习,statsmodels,列联表,多重插补">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python手册(Machine Learning)--statsmodels(Contingency Tables and Multiple Imputation)">
+<meta property="og:url" content="https://wilenwu.github.io/posts/python/PythonNotebook(Machine-Learning)--statsmodels(ContingencyTables-and-MultipleImputation).html">
+<meta property="og:site_name" content="Wilen&#39;s Blog">
+<meta property="og:description" content="Contingency Tables(列联表) Statsmodels支持各种分析列联表的方法，包括评估独立性，对称性，同质性的方法，以及处理来自分层人群的表集合的方法。 这里描述的方法主要用于双向表。可以使用对数线性模型分析多路表。Statsmodels目前没有statsmodels.genmod.GLM用于对数线性建模的专用API，但Poisson回归可用于此目的。 from statsmo">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-18T10:39:35.726Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python手册(Machine Learning)--statsmodels(Contingency Tables and Multiple Imputation)">
+<meta name="twitter:description" content="Contingency Tables(列联表) Statsmodels支持各种分析列联表的方法，包括评估独立性，对称性，同质性的方法，以及处理来自分层人群的表集合的方法。 这里描述的方法主要用于双向表。可以使用对数线性模型分析多路表。Statsmodels目前没有statsmodels.genmod.GLM用于对数线性建模的专用API，但Poisson回归可用于此目的。 from statsmo">
+  <link rel="canonical" href="https://wilenwu.github.io/posts/python/PythonNotebook(Machine-Learning)--statsmodels(ContingencyTables-and-MultipleImputation)">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<script> 
+ (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+  <title>Python手册(Machine Learning)--statsmodels(Contingency Tables and Multiple Imputation) | Wilen's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?873a3ba02856122b60c91114a489f967";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wilen's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">∞</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">51</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">9</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">30</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-bookshelf">
+      
+    
+      
+    
+
+    <a href="/bookshelf/" rel="section"><i class="menu-item-icon fa fa-fw fa-windows"></i> <br>书架</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-bookmarks">
+      
+    
+      
+    
+
+    <a href="/bookmarks/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏夹</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/wilenwu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/python/PythonNotebook(Machine-Learning)--statsmodels(ContingencyTables-and-MultipleImputation).html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wilen Wu">
+      <meta itemprop="description" content="个人技术博客">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wilen's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">Python手册(Machine Learning)--statsmodels(Contingency Tables and Multiple Imputation)
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-19 16:59:00" itemprop="dateCreated datePublished" datetime="2018-12-19T16:59:00+08:00">2018-12-19</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-18 18:39:35" itemprop="dateModified" datetime="2019-09-18T18:39:35+08:00">2019-09-18</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(ContingencyTables-and-MultipleImputation).html" class="post-meta-item leancloud_visitors" data-flag-title="Python手册(Machine Learning)--statsmodels(Contingency Tables and Multiple Imputation)" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(ContingencyTables-and-MultipleImputation).html#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(ContingencyTables-and-MultipleImputation).html" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>9.6k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>9 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="contingency-tables列联表"><a class="markdownIt-Anchor" href="#contingency-tables列联表"></a> <a href="http://www.statsmodels.org/stable/contingency_tables.html" target="_blank" rel="noopener">Contingency Tables(列联表)</a></h2>
+<p>Statsmodels支持各种分析列联表的方法，包括评估独立性，对称性，同质性的方法，以及处理来自分层人群的表集合的方法。</p>
+<p>这里描述的方法主要用于双向表。可以使用对数线性模型分析多路表。Statsmodels目前没有statsmodels.genmod.GLM用于对数线性建模的专用API，但Poisson回归可用于此目的。</p>
+<p><code>from statsmodels import stats</code></p>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Table</td>
+<td style="text-align:left">双向应变表列联表</td>
+</tr>
+<tr>
+<td style="text-align:left">Table2x2</td>
+<td style="text-align:left">可以在2x2列联表上执行分析</td>
+</tr>
+<tr>
+<td style="text-align:left">SquareTable</td>
+<td style="text-align:left">分析方形列联表的方法</td>
+</tr>
+<tr>
+<td style="text-align:left">StratifiedTable</td>
+<td style="text-align:left">分析2×2列联表的集合</td>
+</tr>
+<tr>
+<td style="text-align:left">mcnemar</td>
+<td style="text-align:left">McNemar同质性测试</td>
+</tr>
+<tr>
+<td style="text-align:left">cochrans_q</td>
+<td style="text-align:left">Cochran对相同二项式比例的Q检验</td>
+</tr>
+</tbody>
+</table>
+<p>statsmodels.stats.Table是使用列联表的最基本的类。我们可以Table直接从任何包含列联表单元格计数的矩形数组对象创建对象：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">In [<span class="number">2</span>]: <span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">In [<span class="number">3</span>]: <span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm</span><br><span class="line">In [<span class="number">4</span>]: df = sm.datasets.get_rdataset(<span class="string">"Arthritis"</span>, <span class="string">"vcd"</span>).data</span><br><span class="line">In [<span class="number">5</span>]: tab = pd.crosstab(df[<span class="string">'Treatment'</span>], df[<span class="string">'Improved'</span>])</span><br><span class="line">In [<span class="number">6</span>]: tab = tab.loc[:, [<span class="string">"None"</span>, <span class="string">"Some"</span>, <span class="string">"Marked"</span>]]</span><br><span class="line">In [<span class="number">7</span>]: table = sm.stats.Table(tab)</span><br></pre></td></tr></table></figure>
+<p>或者，我们可以传递原始数据，让Table类为我们构建单元格数组：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">8</span>]: table = sm.stats.Table.from_data(df[[<span class="string">"Treatment"</span>, <span class="string">"Improved"</span>]])</span><br></pre></td></tr></table></figure>
+<h3 id="independence独立性"><a class="markdownIt-Anchor" href="#independence独立性"></a> Independence(独立性)</h3>
+<p>独立性(Independence)是行和列因子独立出现的属性。联合(Association)缺乏独立性。如果联合分布是独立的，则可以将其写为行和列边缘分布的外积</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><msub><mo>∑</mo><mi>k</mi></msub><msub><mi>P</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>⋅</mo><msub><mo>∑</mo><mi>k</mi></msub><msub><mi>P</mi><mrow><mi>k</mi><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">P_ {ij} = \sum_k P_ {ij} \cdot \sum_k P_ {kj}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.0497100000000001em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1863979999999999em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.0497100000000001em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1863979999999999em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></p>
+<ul>
+<li>我们可以为我们观察到的数据获得最佳拟合的独立分布，然后查看识别最强烈违反独立性的特定残差</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">9</span>]: print(table.table_orig)</span><br><span class="line">Improved   Marked  <span class="literal">None</span>  Some</span><br><span class="line">Treatment                    </span><br><span class="line">Placebo         <span class="number">7</span>    <span class="number">29</span>     <span class="number">7</span></span><br><span class="line">Treated        <span class="number">21</span>    <span class="number">13</span>     <span class="number">7</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">10</span>]: print(table.fittedvalues)</span><br><span class="line">Improved      Marked  <span class="literal">None</span>      Some</span><br><span class="line">Treatment                           </span><br><span class="line">Placebo    <span class="number">14.333333</span>  <span class="number">21.5</span>  <span class="number">7.166667</span></span><br><span class="line">Treated    <span class="number">13.666667</span>  <span class="number">20.5</span>  <span class="number">6.833333</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: print(table.resid_pearson)</span><br><span class="line">Improved     Marked      <span class="literal">None</span>      Some</span><br><span class="line">Treatment                              </span><br><span class="line">Placebo   <span class="number">-1.936992</span>  <span class="number">1.617492</span> <span class="number">-0.062257</span></span><br><span class="line">Treated    <span class="number">1.983673</span> <span class="number">-1.656473</span>  <span class="number">0.063758</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果表的行和列是无序的（即名义变量，nominal factors），那么正式评估独立性的最常用方法是使用Pearson的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>χ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\chi^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>统计。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">12</span>]: rslt = table.test_nominal_association()</span><br><span class="line"></span><br><span class="line">In [<span class="number">13</span>]: print(rslt.pvalue)</span><br><span class="line"><span class="number">0.0014626434089526352</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: print(table.chi2_contribs)</span><br><span class="line">Improved     Marked      <span class="literal">None</span>      Some</span><br><span class="line">Treatment                              </span><br><span class="line">Placebo    <span class="number">3.751938</span>  <span class="number">2.616279</span>  <span class="number">0.003876</span></span><br><span class="line">Treated    <span class="number">3.934959</span>  <span class="number">2.743902</span>  <span class="number">0.004065</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>对于有序行和列因子(factors)的表，我们可以通过线性相关检验，以获得更多权重来对抗关于排序的替代假设。线性相关检验的统计量为<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mo>∑</mo><mi>k</mi></msub><msub><mi>r</mi><mi>i</mi></msub><msub><mi>c</mi><mi>j</mi></msub><msub><mi>T</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\sum_k r_i c_j T_ {ij}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0497100000000001em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1863979999999999em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></li>
+</ul>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>r</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>c</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">r_i ,c_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>是行和列分数。通常将这些分数设置为序列0,1，…<br>
+这给出了Cochran-Armitage趋势测试。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">15</span>]: rslt = table.test_ordinal_association()</span><br><span class="line">In [<span class="number">16</span>]: print(rslt.pvalue)</span><br><span class="line"><span class="number">0.023644578093923983</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>我们可以评估再 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mo>×</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">r \times x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 表中的关联，通过构建一系列<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2 \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>表格，并计算它们的比值比(OR)。有两种方法可以做到这一点。从相邻行和列类别的本地优势比(<strong>local odds ratios</strong>)来构建<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2 \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>表。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">17</span>]: print(table.local_oddsratios)</span><br><span class="line">Improved     Marked      <span class="literal">None</span>  Some</span><br><span class="line">Treatment                          </span><br><span class="line">Placebo    <span class="number">0.149425</span>  <span class="number">2.230769</span>   NaN</span><br><span class="line">Treated         NaN       NaN   NaN</span><br><span class="line"></span><br><span class="line">In [<span class="number">18</span>]: taloc = sm.stats.Table2x2(np.asarray([[<span class="number">7</span>, <span class="number">29</span>], [<span class="number">21</span>, <span class="number">13</span>]]))</span><br><span class="line">In [<span class="number">19</span>]: print(taloc.oddsratio)</span><br><span class="line"><span class="number">0.14942528735632185</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">20</span>]: taloc = sm.stats.Table2x2(np.asarray([[<span class="number">29</span>, <span class="number">7</span>], [<span class="number">13</span>, <span class="number">7</span>]]))</span><br><span class="line">In [<span class="number">21</span>]: print(taloc.oddsratio)</span><br><span class="line"><span class="number">2.230769230769231</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>也可以通过在每个可能的点上对行和列因子进行二分法的累积比值比(<strong>cumulative odds ratios</strong>)来构建<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2 \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>表。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">22</span>]: print(table.cumulative_oddsratios)</span><br><span class="line">Improved     Marked      <span class="literal">None</span>  Some</span><br><span class="line">Treatment                          </span><br><span class="line">Placebo    <span class="number">0.185185</span>  <span class="number">1.058824</span>   NaN</span><br><span class="line">Treated         NaN       NaN   NaN</span><br><span class="line"></span><br><span class="line">In [<span class="number">23</span>]: tab1 = np.asarray([[<span class="number">7</span>, <span class="number">29</span> + <span class="number">7</span>], [<span class="number">21</span>, <span class="number">13</span> + <span class="number">7</span>]])</span><br><span class="line">In [<span class="number">24</span>]: tacum = sm.stats.Table2x2(tab1)</span><br><span class="line">In [<span class="number">25</span>]: print(tacum.oddsratio)</span><br><span class="line"><span class="number">0.18518518518518517</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">26</span>]: tab1 = np.asarray([[<span class="number">7</span> + <span class="number">29</span>, <span class="number">7</span>], [<span class="number">21</span> + <span class="number">13</span>, <span class="number">7</span>]])</span><br><span class="line">In [<span class="number">27</span>]: tacum = sm.stats.Table2x2(tab1)</span><br><span class="line">In [<span class="number">28</span>]: print(tacum.oddsratio)</span><br><span class="line"><span class="number">1.0588235294117647</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>马赛克图(mosaic plot)是一种非正式评估双向表中依赖性的图形方法。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> statsmodels.graphics.mosaicplot <span class="keyword">import</span> mosaic</span><br><span class="line">mosaic(data)</span><br></pre></td></tr></table></figure>
+<h3 id="symmetry-and-homogeneity对称性和同质性"><a class="markdownIt-Anchor" href="#symmetry-and-homogeneity对称性和同质性"></a> Symmetry and homogeneity(对称性和同质性)</h3>
+<p>Symmetry(对称性) is the property<br>
+that <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><msub><mi>P</mi><mrow><mi>j</mi><mo separator="true">,</mo><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">P_{i,j}=P_{j,i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>  for every i and j。<br>
+Homogeneity(同质性)是行因子和列因子的边际分布相同的特性<br>
+meaning that  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mo>∑</mo><mi>j</mi></msub><msub><mi>P</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><msub><mo>∑</mo><mi>j</mi></msub><msub><mi>P</mi><mrow><mi>j</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\sum_j P_ {ij} = \sum_j P_ {ji}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.185818em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16195399999999993em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.185818em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16195399999999993em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> for all i</p>
+<blockquote>
+<p>注意，P (and T)必须是正方形，行和列类别必须相同，并且必须以相同的顺序出现。</p>
+</blockquote>
+<p>为了说明，我们加载数据集，创建列联表，并计算行和列边距(the row and column margins)。本<code>Table</code>类包含分析方法<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mo>×</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">r \times c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>列联表。下面加载的数据集包含人们左眼和右眼视敏度的评估。我们首先加载数据并创建一个列联表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">29</span>]: df = sm.datasets.get_rdataset(<span class="string">"VisualAcuity"</span>, <span class="string">"vcd"</span>).data</span><br><span class="line">In [<span class="number">30</span>]: df = df.loc[df.gender == <span class="string">"female"</span>, :]</span><br><span class="line">In [<span class="number">31</span>]: tab = df.set_index([<span class="string">'left'</span>, <span class="string">'right'</span>])</span><br><span class="line">In [<span class="number">32</span>]: <span class="keyword">del</span> tab[<span class="string">"gender"</span>]</span><br><span class="line">In [<span class="number">33</span>]: tab = tab.unstack()</span><br><span class="line">In [<span class="number">34</span>]: tab.columns = tab.columns.get_level_values(<span class="number">1</span>)</span><br><span class="line">In [<span class="number">35</span>]: print(tab)</span><br><span class="line">right     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>    <span class="number">4</span></span><br><span class="line">left                        </span><br><span class="line"><span class="number">1</span>      <span class="number">1520</span>   <span class="number">234</span>   <span class="number">117</span>   <span class="number">36</span></span><br><span class="line"><span class="number">2</span>       <span class="number">266</span>  <span class="number">1512</span>   <span class="number">362</span>   <span class="number">82</span></span><br><span class="line"><span class="number">3</span>       <span class="number">124</span>   <span class="number">432</span>  <span class="number">1772</span>  <span class="number">179</span></span><br><span class="line"><span class="number">4</span>        <span class="number">66</span>    <span class="number">78</span>   <span class="number">205</span>  <span class="number">492</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 从列联表创建一个SquareTable对象</span></span><br><span class="line">In [<span class="number">36</span>]: sqtab = sm.stats.SquareTable(tab)</span><br><span class="line">In [<span class="number">37</span>]: row, col = sqtab.marginal_probabilities</span><br><span class="line">In [<span class="number">38</span>]: print(row)</span><br><span class="line">right</span><br><span class="line"><span class="number">1</span>    <span class="number">0.255049</span></span><br><span class="line"><span class="number">2</span>    <span class="number">0.297178</span></span><br><span class="line"><span class="number">3</span>    <span class="number">0.335295</span></span><br><span class="line"><span class="number">4</span>    <span class="number">0.112478</span></span><br><span class="line">dtype: float64</span><br><span class="line"></span><br><span class="line">In [<span class="number">39</span>]: print(col)</span><br><span class="line">right</span><br><span class="line"><span class="number">1</span>    <span class="number">0.264277</span></span><br><span class="line"><span class="number">2</span>    <span class="number">0.301725</span></span><br><span class="line"><span class="number">3</span>    <span class="number">0.328474</span> </span><br><span class="line"><span class="number">4</span>    <span class="number">0.105524</span></span><br><span class="line">dtype: float64</span><br><span class="line"></span><br><span class="line"><span class="comment"># 该summary方法打印对称性和均匀性检测结果</span></span><br><span class="line">In [<span class="number">40</span>]: print(sqtab.summary()) </span><br><span class="line">            Statistic P-value DF</span><br><span class="line">--------------------------------</span><br><span class="line">Symmetry       <span class="number">19.107</span>   <span class="number">0.004</span>  <span class="number">6</span></span><br><span class="line">Homogeneity    <span class="number">11.957</span>   <span class="number">0.008</span>  <span class="number">3</span></span><br><span class="line">--------------------------------</span><br></pre></td></tr></table></figure>
+<h3 id="a-single-2x2-table单个2x2表"><a class="markdownIt-Anchor" href="#a-single-2x2-table单个2x2表"></a> A single 2x2 table(单个2x2表)</h3>
+<p><code>sm.stats.Table2x2</code>类提供了几种处理单个2x2表的方法。summary方法显示表的行和列之间的若干关联度量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">41</span>]: table = np.asarray([[<span class="number">35</span>, <span class="number">21</span>], [<span class="number">25</span>, <span class="number">58</span>]])</span><br><span class="line">In [<span class="number">42</span>]: t22 = sm.stats.Table2x2(table)</span><br><span class="line">In [<span class="number">43</span>]: print(t22.summary())</span><br><span class="line">               Estimate   SE   LCB   UCB  p-value</span><br><span class="line">-------------------------------------------------</span><br><span class="line">Odds ratio        <span class="number">3.867</span>       <span class="number">1.890</span> <span class="number">7.912</span>   <span class="number">0.000</span></span><br><span class="line">Log odds ratio    <span class="number">1.352</span> <span class="number">0.365</span> <span class="number">0.636</span> <span class="number">2.068</span>   <span class="number">0.000</span></span><br><span class="line">Risk ratio        <span class="number">2.075</span>       <span class="number">1.411</span> <span class="number">3.051</span>   <span class="number">0.000</span></span><br><span class="line">Log risk ratio    <span class="number">0.730</span> <span class="number">0.197</span> <span class="number">0.345</span> <span class="number">1.115</span>   <span class="number">0.000</span></span><br><span class="line">-------------------------------------------------</span><br><span class="line"></span><br><span class="line"><span class="comment">#请注意，风险比不是对称的，因此如果分析转置表，将获得不同的结果。</span></span><br><span class="line">In [<span class="number">44</span>]: table = np.asarray([[<span class="number">35</span>, <span class="number">21</span>], [<span class="number">25</span>, <span class="number">58</span>]])</span><br><span class="line">In [<span class="number">45</span>]: t22 = sm.stats.Table2x2(table.T)</span><br><span class="line">In [<span class="number">46</span>]: print(t22.summary())</span><br><span class="line">               Estimate   SE   LCB   UCB  p-value</span><br><span class="line">-------------------------------------------------</span><br><span class="line">Odds ratio        <span class="number">3.867</span>       <span class="number">1.890</span> <span class="number">7.912</span>   <span class="number">0.000</span></span><br><span class="line">Log odds ratio    <span class="number">1.352</span> <span class="number">0.365</span> <span class="number">0.636</span> <span class="number">2.068</span>   <span class="number">0.000</span></span><br><span class="line">Risk ratio        <span class="number">2.194</span>       <span class="number">1.436</span> <span class="number">3.354</span>   <span class="number">0.000</span></span><br><span class="line">Log risk ratio    <span class="number">0.786</span> <span class="number">0.216</span> <span class="number">0.362</span> <span class="number">1.210</span>   <span class="number">0.000</span></span><br><span class="line">-------------------------------------------------</span><br></pre></td></tr></table></figure>
+<h3 id="stratified-2x2-tables分层2x2表"><a class="markdownIt-Anchor" href="#stratified-2x2-tables分层2x2表"></a> Stratified 2x2 tables(分层2x2表)</h3>
+<p>当我们有一组由同样行和列因子定义的列联表时，就会发生分层。</p>
+<p><strong>案例</strong></p>
+<ul>
+<li>我们有一组2x2表，反映了中国几个地区吸烟和肺癌的联合分布。表格可能都具有共同的比值比，即使边际概率在各阶层之间变化也是如此。</li>
+<li>“Breslow-Day”程序测试数据是否与常见优势比一致。它在下面显示为常数OR的测试。</li>
+<li>Mantel-Haenszel程序测试这个常见优势比是否等于1。它在下面显示为OR = 1的测试。还可以估计共同的几率和风险比并获得它们的置信区间。</li>
+<li>summary方法显示所有这些结果。可以从类方法和属性中获得单个结果。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">47</span>]: data = sm.datasets.china_smoking.load()</span><br><span class="line">In [<span class="number">48</span>]: mat = np.asarray(data.data)</span><br><span class="line">In [<span class="number">49</span>]: tables = [np.reshape(x.tolist()[<span class="number">1</span>:], (<span class="number">2</span>, <span class="number">2</span>)) <span class="keyword">for</span> x <span class="keyword">in</span> mat]</span><br><span class="line">In [<span class="number">50</span>]: st = sm.stats.StratifiedTable(tables)</span><br><span class="line">In [<span class="number">51</span>]: print(st.summary())</span><br><span class="line">                   Estimate   LCB    UCB </span><br><span class="line">-----------------------------------------</span><br><span class="line">Pooled odds           <span class="number">2.174</span>   <span class="number">1.984</span> <span class="number">2.383</span></span><br><span class="line">Pooled log odds       <span class="number">0.777</span>   <span class="number">0.685</span> <span class="number">0.868</span></span><br><span class="line">Pooled risk ratio     <span class="number">1.519</span>              </span><br><span class="line">                                         </span><br><span class="line">                 Statistic P-value </span><br><span class="line">-----------------------------------</span><br><span class="line">Test of OR=<span class="number">1</span>       <span class="number">280.138</span>   <span class="number">0.000</span> </span><br><span class="line">Test constant OR     <span class="number">5.200</span>   <span class="number">0.636</span> </span><br><span class="line">                       </span><br><span class="line">-----------------------</span><br><span class="line">Number of tables    <span class="number">8</span>  </span><br><span class="line">Min n             <span class="number">213</span>  </span><br><span class="line">Max n            <span class="number">2900</span>  </span><br><span class="line">Avg n            <span class="number">1052</span>  </span><br><span class="line">Total n          <span class="number">8419</span>  </span><br><span class="line">-----------------------</span><br></pre></td></tr></table></figure>
+<h2 id="multiple-imputation多重插补"><a class="markdownIt-Anchor" href="#multiple-imputation多重插补"></a> <a href="http://www.statsmodels.org/stable/imputation.html" target="_blank" rel="noopener">Multiple Imputation(多重插补)</a></h2>
+<p>MICE模块允许大多数Statsmodels模型拟合独立和/或因变量上具有缺失值的数据集，并为拟合参数提供严格的标准误差。基本思想是将具有缺失值的每个变量视为回归中的因变量，其中一些或所有剩余变量作为其预测变量。MICE程序循环遍历这些模型，依次拟合每个模型，然后使用称为“预测平均匹配”（PMM）的过程从拟合模型确定的预测分布中生成随机抽取。这些随机抽取成为一个插补数据集的估算值。</p>
+<p>默认情况下，每个具有缺失变量的变量都使用线性回归建模，拟合数据集中的所有其他变量。请注意，即使插补模型是线性的，PMM过程也会保留每个变量的域。因此，例如，如果给定变量的所有观测值都是正，则变量的所有估算值将始终为正。用户还可以选择指定使用哪个模型为每个变量生成插补值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> statsmodels.imputation <span class="keyword">import</span> mice</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">MICE(model_formula, model_class, data, n_skip=3, init_kwds=None, fit_kwds=None)</td>
+<td style="text-align:left">用链式方程多重插补</td>
+</tr>
+<tr>
+<td style="text-align:left">MICEData（data [，perturbation_method，k_pmm，…]）</td>
+<td style="text-align:left">包装数据集以允许MICE处理丢失数据</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>MICEData类方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get_fitting_data</td>
+<td>返回进行插补所需的数据</td>
+</tr>
+<tr>
+<td>get_split_data(vname)</td>
+<td>返回endog和exog以获取给定变量的插补</td>
+</tr>
+<tr>
+<td>impute(vname)</td>
+<td></td>
+</tr>
+<tr>
+<td>impute_pmm(vname)</td>
+<td>使用预测均值匹配来估算缺失值</td>
+</tr>
+<tr>
+<td>next_sample()</td>
+<td>返回插补过程中的下一个插补数据集</td>
+</tr>
+<tr>
+<td>perturb_params(vname)</td>
+<td></td>
+</tr>
+<tr>
+<td>plot_bivariate(col1_name,col2_name [,…])</td>
+<td>绘制两个变量的观察值和估算值</td>
+</tr>
+<tr>
+<td>plot_fit_obs(col_name[, lowess_args, …])</td>
+<td>绘制拟合估计值或观察值的散点图</td>
+</tr>
+<tr>
+<td>plot_imputed_hist(col_name[, ax, …])</td>
+<td>将一个变量的估算值显示为直方图</td>
+</tr>
+<tr>
+<td>plot_missing_pattern([ax, row_order, …])</td>
+<td>生成显示缺失数据模式的图像</td>
+</tr>
+<tr>
+<td>set_imputer(endog_name[, formula, …])</td>
+<td>指定单个变量的插补过程。</td>
+</tr>
+<tr>
+<td>update(vname)</td>
+<td>为单个变量计算缺失值。</td>
+</tr>
+<tr>
+<td>update_all([n_iter])</td>
+<td>执行指定数量的MICE迭代。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>imp = mice.MICEData(data)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fml = <span class="string">'y ~ x1 + x2 + x3 + x4'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>mice = mice.MICE(fml, sm.OLS, imp)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>results = mice.fit(<span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(results.summary())</span><br><span class="line">                          Results: MICE</span><br><span class="line">=================================================================</span><br><span class="line">Method:                    MICE       Sample size:           <span class="number">1000</span></span><br><span class="line">Model:                     OLS        Scale                  <span class="number">1.00</span></span><br><span class="line">Dependent variable:        y          Num. imputations       <span class="number">10</span></span><br><span class="line">-----------------------------------------------------------------</span><br><span class="line">           Coef.  Std.Err.    t     P&gt;|t|   [<span class="number">0.025</span>  <span class="number">0.975</span>]  FMI</span><br><span class="line">-----------------------------------------------------------------</span><br><span class="line">Intercept <span class="number">-0.0234</span>   <span class="number">0.0318</span>  <span class="number">-0.7345</span> <span class="number">0.4626</span> <span class="number">-0.0858</span>  <span class="number">0.0390</span> <span class="number">0.0128</span></span><br><span class="line">x1         <span class="number">1.0305</span>   <span class="number">0.0578</span>  <span class="number">17.8342</span> <span class="number">0.0000</span>  <span class="number">0.9172</span>  <span class="number">1.1437</span> <span class="number">0.0309</span></span><br><span class="line">x2        <span class="number">-0.0134</span>   <span class="number">0.0162</span>  <span class="number">-0.8282</span> <span class="number">0.4076</span> <span class="number">-0.0451</span>  <span class="number">0.0183</span> <span class="number">0.0236</span></span><br><span class="line">x3        <span class="number">-1.0260</span>   <span class="number">0.0328</span> <span class="number">-31.2706</span> <span class="number">0.0000</span> <span class="number">-1.0903</span> <span class="number">-0.9617</span> <span class="number">0.0169</span></span><br><span class="line">x4        <span class="number">-0.0253</span>   <span class="number">0.0336</span>  <span class="number">-0.7520</span> <span class="number">0.4521</span> <span class="number">-0.0911</span>  <span class="number">0.0406</span> <span class="number">0.0269</span></span><br><span class="line">=================================================================</span><br><span class="line"></span><br><span class="line"><span class="comment">#获得一系列拟合分析模型，无需合并即可获得摘要：</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>imp = mice.MICEData(data)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fml = <span class="string">'y ~ x1 + x2 + x3 + x4'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>mice = mice.MICE(fml, sm.OLS, imp)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>results = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    x = mice.next_sample()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    results.append(x)</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+        
+      
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/nezha.jpg" alt="Wilen Wu 比特币">
+        <p>比特币</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Wilen Wu</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wilenwu.github.io/posts/python/PythonNotebook(Machine-Learning)--statsmodels(ContingencyTables-and-MultipleImputation).html" title="Python手册(Machine Learning)--statsmodels(Contingency Tables and Multiple Imputation)">https://wilenwu.github.io/posts/python/PythonNotebook(Machine-Learning)--statsmodels(ContingencyTables-and-MultipleImputation).html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/python/" rel="tag"># python</a>
+            
+              <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+            
+              <a href="/tags/statsmodels/" rel="tag"># statsmodels</a>
+            
+              <a href="/tags/列联表/" rel="tag"># 列联表</a>
+            
+              <a href="/tags/多重插补/" rel="tag"># 多重插补</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(Graphics).html" rel="next" title="Python手册(Machine Learning)--statsmodels(Graphics)">
+                  <i class="fa fa-chevron-left"></i> Python手册(Machine Learning)--statsmodels(Graphics)
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(MultivariateStatistics).html" rel="prev" title="Python手册(Machine Learning)--statsmodels(MultivariateStatistics)">
+                  Python手册(Machine Learning)--statsmodels(MultivariateStatistics) <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+          
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+          
+            <li class="tab"><a href="#comment-valine">valine</a></li>
+          
+        </ul>
+        <div class="tab-content">
+          
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
+          
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="comments"></div>
+            </div>
+          
+        </div>
+      </div>
+      <script>
+        window.addEventListener('tabs:register', () => {
+          let activeClass = 'gitalk';
+          
+            activeClass = localStorage.getItem('comments_active') || activeClass;
+          
+          if (activeClass) {
+            let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+            if (activeTab) {
+              activeTab.click();
+            }
+          }
+        });
+        
+        window.addEventListener('tabs:click', event => {
+          let commentClass = event.target.classList[1];
+          localStorage.setItem('comments_active', commentClass);
+        });
+        
+      </script>
+    
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#contingency-tables列联表"><span class="nav-number">1.</span> <span class="nav-text"> Contingency Tables(列联表)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#independence独立性"><span class="nav-number">1.1.</span> <span class="nav-text"> Independence(独立性)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#symmetry-and-homogeneity对称性和同质性"><span class="nav-number">1.2.</span> <span class="nav-text"> Symmetry and homogeneity(对称性和同质性)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a-single-2x2-table单个2x2表"><span class="nav-number">1.3.</span> <span class="nav-text"> A single 2x2 table(单个2x2表)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stratified-2x2-tables分层2x2表"><span class="nav-number">1.4.</span> <span class="nav-text"> Stratified 2x2 tables(分层2x2表)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multiple-imputation多重插补"><span class="nav-number">2.</span> <span class="nav-text"> Multiple Imputation(多重插补)</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/header.jpg"
+      alt="Wilen Wu">
+  <p class="site-author-name" itemprop="name">Wilen Wu</p>
+  <div class="site-description" itemprop="description">个人技术博客</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/wilenwu" title="GitHub &rarr; https://github.com/wilenwu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/qq_41518277" title="CSDN &rarr; https://blog.csdn.net/qq_41518277" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>CSDN</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:597379201@qq.com" title="E-Mail &rarr; mailto:597379201@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/" title="Weibo &rarr; https://weibo.com/" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.easyicon.net/" title="https://www.easyicon.net/" rel="noopener" target="_blank">easyicon</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.fontawesome.com.cn/" title="http://www.fontawesome.com.cn/" rel="noopener" target="_blank">Font Awesome</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wilen Wu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">206k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:07</span>
+</div>
+
+        
+
+
+
+
+
+
+  
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+            
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI',
+            'X-LC-Key': '6EzBICTWxLbjiGsbNAa8Fv2s',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+        if (localhost.test(document.URL)) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: '3be7aa98d992907175cbd79c194399f2',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+
+  
+
+  
+    
+      
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css">
+
+    
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: 'd1972158b46e88b9a66932b86c466670',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI',
+    appKey: '6EzBICTWxLbjiGsbNAa8Fv2s',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

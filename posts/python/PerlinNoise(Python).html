@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_apple.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github32.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github16.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Wilen's Blog" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Great Vibes:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="柏林噪声   Perlin Noise是Ken Perlin在1983年开发的一种梯度噪音，这是一种用于在计算机生成的表面上产生自然出现纹理的技术，使用Perlin噪声合成的纹理通常用于CGI，通过模仿自然界中纹理的受控随机外观，使计算机生成的视觉元素（如物体表面，火焰，烟雾或云）看起来更自然。−−Wiki--Wiki−−Wiki">
+<meta name="keywords" content="python,柏林噪声">
+<meta property="og:type" content="article">
+<meta property="og:title" content="柏林噪声(Python)">
+<meta property="og:url" content="https://wilenwu.github.io/posts/python/PerlinNoise(Python).html">
+<meta property="og:site_name" content="Wilen&#39;s Blog">
+<meta property="og:description" content="柏林噪声   Perlin Noise是Ken Perlin在1983年开发的一种梯度噪音，这是一种用于在计算机生成的表面上产生自然出现纹理的技术，使用Perlin噪声合成的纹理通常用于CGI，通过模仿自然界中纹理的受控随机外观，使计算机生成的视觉元素（如物体表面，火焰，烟雾或云）看起来更自然。−−Wiki--Wiki−−Wiki">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-18T10:58:44.971Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="柏林噪声(Python)">
+<meta name="twitter:description" content="柏林噪声   Perlin Noise是Ken Perlin在1983年开发的一种梯度噪音，这是一种用于在计算机生成的表面上产生自然出现纹理的技术，使用Perlin噪声合成的纹理通常用于CGI，通过模仿自然界中纹理的受控随机外观，使计算机生成的视觉元素（如物体表面，火焰，烟雾或云）看起来更自然。−−Wiki--Wiki−−Wiki">
+  <link rel="canonical" href="https://wilenwu.github.io/posts/python/PerlinNoise(Python)">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<script> 
+ (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+  <title>柏林噪声(Python) | Wilen's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?873a3ba02856122b60c91114a489f967";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wilen's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">∞</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">51</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">9</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">30</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-bookshelf">
+      
+    
+      
+    
+
+    <a href="/bookshelf/" rel="section"><i class="menu-item-icon fa fa-fw fa-windows"></i> <br>书架</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-bookmarks">
+      
+    
+      
+    
+
+    <a href="/bookmarks/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏夹</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/wilenwu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/python/PerlinNoise(Python).html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wilen Wu">
+      <meta itemprop="description" content="个人技术博客">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wilen's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">柏林噪声(Python)
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-19 22:35:52" itemprop="dateCreated datePublished" datetime="2018-09-19T22:35:52+08:00">2018-09-19</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-18 18:58:44" itemprop="dateModified" datetime="2019-09-18T18:58:44+08:00">2019-09-18</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/Scientific-Computing/" itemprop="url" rel="index"><span itemprop="name">Scientific Computing</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/posts/python/PerlinNoise(Python).html" class="post-meta-item leancloud_visitors" data-flag-title="柏林噪声(Python)" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/python/PerlinNoise(Python).html#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/posts/python/PerlinNoise(Python).html" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>8k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>7 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="柏林噪声"><a class="markdownIt-Anchor" href="#柏林噪声"></a> 柏林噪声</h1>
+<p>  Perlin Noise是Ken Perlin在1983年开发的一种梯度噪音，这是一种用于在计算机生成的表面上产生自然出现纹理的技术，使用Perlin噪声合成的纹理通常用于CGI，通过模仿自然界中纹理的受控随机外观，使计算机生成的视觉元素（如物体表面，火焰，烟雾或云）看起来更自然。<a href="https://en.wikipedia.org/wiki/Perlin_noise" target="_blank" rel="noopener"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mo>−</mo><mi>W</mi><mi>i</mi><mi>k</mi><mi>i</mi></mrow><annotation encoding="application/x-tex">--Wiki</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">i</span></span></span></span></a></p>
+<a id="more"></a>
+<h1 id="理论知识链接"><a class="markdownIt-Anchor" href="#理论知识链接"></a> 理论知识链接</h1>
+<p><a href="Noisehttp://www.cnblogs.com/babyrender/archive/2008/10/27/BabyRender.html" target="_blank" rel="noopener">噪音 - Perlin</a><br>
+<a href="https://www.cnblogs.com/leoin2012/p/7218033.html" target="_blank" rel="noopener">一篇文章搞懂柏林噪声算法，附代码讲解</a><br>
+<a href="http://libnoise.sourceforge.net/index.html" target="_blank" rel="noopener">http://libnoise.sourceforge.net/index.html</a><br>
+<a href="https://blog.csdn.net/qq_34302921/article/details/80849139" target="_blank" rel="noopener">不只是噪声，更是数学美 —浅谈Perlin Noise</a>（理论知识完美）<br>
+<a href="https://zhuanlan.zhihu.com/p/22337544" target="_blank" rel="noopener">不只是噪音–知乎</a>（写的超棒！！）</p>
+<h1 id="代码实现python"><a class="markdownIt-Anchor" href="#代码实现python"></a> 代码实现(Python)</h1>
+<blockquote>
+<p>由Ken Perlin 2002年原始JAVA代码改编而来</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding:utf8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># PYTHON REFERENCE IMPLEMENTATION OF IMPROVED NOISE - COPYRIGHT 2002 KEN PERLIN.</span></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">PerlinNoise</span><span class="params">(x,y,z, octaves=<span class="number">6</span>, persistence=<span class="number">0.5</span>)</span>:</span></span><br><span class="line">    <span class="comment"># Sum of Noise Function = Perlin Noise</span></span><br><span class="line">    <span class="comment"># Each successive noise function you add is known as an octave</span></span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line">    p = persistence  <span class="comment"># reference value:  1/4, 1/2 ,3/4 </span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(octaves):</span><br><span class="line">        frequency=<span class="number">2</span>**i</span><br><span class="line">        amplitude=p**i</span><br><span class="line">        octave=ImprovedNoise(x * frequency, y * frequency, z * frequency) * amplitude</span><br><span class="line">        total+=octave</span><br><span class="line">    <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ImprovedNoise</span><span class="params">(x, y, z)</span>:</span></span><br><span class="line">    <span class="comment"># frequency=1/wavelength</span></span><br><span class="line">    <span class="comment"># It returns floating point numbers between -1.0 and 1.0</span></span><br><span class="line">    <span class="comment"># FIND UNIT CUBE THAT CONTAINS POINT.</span></span><br><span class="line">    X = int(math.floor(x)) &amp; <span class="number">255</span></span><br><span class="line">    Y = int(math.floor(y)) &amp; <span class="number">255</span></span><br><span class="line">    Z = int(math.floor(z)) &amp; <span class="number">255</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># FIND RELATIVE X,Y,Z OF POINT IN CUBE.</span></span><br><span class="line">    x -= math.floor(x)</span><br><span class="line">    y -= math.floor(y)</span><br><span class="line">    z -= math.floor(z)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># COMPUTE FADE CURVES FOR EACH OF X,Y,Z.</span></span><br><span class="line">    u,v,w = fade(x),fade(y),fade(z)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># HASH COORDINATES OF THE 8 CUBE CORNERS</span></span><br><span class="line">    <span class="comment"># AND ADD BLENDED RESULTS FROM  8 CORNERS OF CUBE</span></span><br><span class="line">    A = p[X  ]+Y; AA = p[A]+Z; AB = p[A+<span class="number">1</span>]+Z;</span><br><span class="line">    B = p[X+<span class="number">1</span>]+Y; BA = p[B]+Z; BB = p[B+<span class="number">1</span>]+Z;</span><br><span class="line">    <span class="keyword">return</span> lerp(w, lerp(v, lerp(u, grad(p[AA  ], x  , y  , z   ),</span><br><span class="line">                                   grad(p[BA  ], x<span class="number">-1</span>, y  , z   )),</span><br><span class="line">                           lerp(u, grad(p[AB  ], x  , y<span class="number">-1</span>, z   ),</span><br><span class="line">                                   grad(p[BB  ], x<span class="number">-1</span>, y<span class="number">-1</span>, z   ))),</span><br><span class="line">                   lerp(v, lerp(u, grad(p[AA+<span class="number">1</span>], x  , y  , z<span class="number">-1</span> ),</span><br><span class="line">                                   grad(p[BA+<span class="number">1</span>], x<span class="number">-1</span>, y  , z<span class="number">-1</span> )),</span><br><span class="line">                           lerp(u, grad(p[AB+<span class="number">1</span>], x  , y<span class="number">-1</span>, z<span class="number">-1</span> ),</span><br><span class="line">                                   grad(p[BB+<span class="number">1</span>], x<span class="number">-1</span>, y<span class="number">-1</span>, z<span class="number">-1</span> ))))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fade</span><span class="params">(t)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> t * t * t * (t * (t * <span class="number">6</span> - <span class="number">15</span>) + <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lerp</span><span class="params">(t, a, b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + t * (b - a)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">grad</span><span class="params">(hash, x, y, z)</span>:</span></span><br><span class="line">    <span class="comment"># CONVERT LO 4 BITS OF HASH CODE INTO 12 GRADIENT DIRECTIONS.</span></span><br><span class="line">    h = hash &amp; <span class="number">15</span></span><br><span class="line">    u = x <span class="keyword">if</span> h &lt; <span class="number">8</span> <span class="keyword">else</span> y</span><br><span class="line">    v = y <span class="keyword">if</span> h &lt; <span class="number">4</span> <span class="keyword">else</span> x <span class="keyword">if</span> h==<span class="number">12</span> <span class="keyword">or</span> h==<span class="number">14</span> <span class="keyword">else</span> z</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (u <span class="keyword">if</span> (h&amp;<span class="number">1</span>)==<span class="number">0</span> <span class="keyword">else</span> -u)+(v <span class="keyword">if</span> (h&amp;<span class="number">2</span>)==<span class="number">0</span> <span class="keyword">else</span> -v)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">permutation = [ <span class="number">151</span>,<span class="number">160</span>,<span class="number">137</span>,<span class="number">91</span>,<span class="number">90</span>,<span class="number">15</span>,</span><br><span class="line"><span class="number">131</span>,<span class="number">13</span>,<span class="number">201</span>,<span class="number">95</span>,<span class="number">96</span>,<span class="number">53</span>,<span class="number">194</span>,<span class="number">233</span>,<span class="number">7</span>,<span class="number">225</span>,<span class="number">140</span>,<span class="number">36</span>,<span class="number">103</span>,<span class="number">30</span>,<span class="number">69</span>,<span class="number">142</span>,<span class="number">8</span>,<span class="number">99</span>,<span class="number">37</span>,<span class="number">240</span>,<span class="number">21</span>,<span class="number">10</span>,<span class="number">23</span>,</span><br><span class="line"><span class="number">190</span>, <span class="number">6</span>,<span class="number">148</span>,<span class="number">247</span>,<span class="number">120</span>,<span class="number">234</span>,<span class="number">75</span>,<span class="number">0</span>,<span class="number">26</span>,<span class="number">197</span>,<span class="number">62</span>,<span class="number">94</span>,<span class="number">252</span>,<span class="number">219</span>,<span class="number">203</span>,<span class="number">117</span>,<span class="number">35</span>,<span class="number">11</span>,<span class="number">32</span>,<span class="number">57</span>,<span class="number">177</span>,<span class="number">33</span>,</span><br><span class="line"><span class="number">88</span>,<span class="number">237</span>,<span class="number">149</span>,<span class="number">56</span>,<span class="number">87</span>,<span class="number">174</span>,<span class="number">20</span>,<span class="number">125</span>,<span class="number">136</span>,<span class="number">171</span>,<span class="number">168</span>, <span class="number">68</span>,<span class="number">175</span>,<span class="number">74</span>,<span class="number">165</span>,<span class="number">71</span>,<span class="number">134</span>,<span class="number">139</span>,<span class="number">48</span>,<span class="number">27</span>,<span class="number">166</span>,</span><br><span class="line"><span class="number">77</span>,<span class="number">146</span>,<span class="number">158</span>,<span class="number">231</span>,<span class="number">83</span>,<span class="number">111</span>,<span class="number">229</span>,<span class="number">122</span>,<span class="number">60</span>,<span class="number">211</span>,<span class="number">133</span>,<span class="number">230</span>,<span class="number">220</span>,<span class="number">105</span>,<span class="number">92</span>,<span class="number">41</span>,<span class="number">55</span>,<span class="number">46</span>,<span class="number">245</span>,<span class="number">40</span>,<span class="number">244</span>,</span><br><span class="line"><span class="number">102</span>,<span class="number">143</span>,<span class="number">54</span>, <span class="number">65</span>,<span class="number">25</span>,<span class="number">63</span>,<span class="number">161</span>, <span class="number">1</span>,<span class="number">216</span>,<span class="number">80</span>,<span class="number">73</span>,<span class="number">209</span>,<span class="number">76</span>,<span class="number">132</span>,<span class="number">187</span>,<span class="number">208</span>, <span class="number">89</span>,<span class="number">18</span>,<span class="number">169</span>,<span class="number">200</span>,<span class="number">196</span>,</span><br><span class="line"><span class="number">135</span>,<span class="number">130</span>,<span class="number">116</span>,<span class="number">188</span>,<span class="number">159</span>,<span class="number">86</span>,<span class="number">164</span>,<span class="number">100</span>,<span class="number">109</span>,<span class="number">198</span>,<span class="number">173</span>,<span class="number">186</span>, <span class="number">3</span>,<span class="number">64</span>,<span class="number">52</span>,<span class="number">217</span>,<span class="number">226</span>,<span class="number">250</span>,<span class="number">124</span>,<span class="number">123</span>,</span><br><span class="line"><span class="number">5</span>,<span class="number">202</span>,<span class="number">38</span>,<span class="number">147</span>,<span class="number">118</span>,<span class="number">126</span>,<span class="number">255</span>,<span class="number">82</span>,<span class="number">85</span>,<span class="number">212</span>,<span class="number">207</span>,<span class="number">206</span>,<span class="number">59</span>,<span class="number">227</span>,<span class="number">47</span>,<span class="number">16</span>,<span class="number">58</span>,<span class="number">17</span>,<span class="number">182</span>,<span class="number">189</span>,<span class="number">28</span>,<span class="number">42</span>,</span><br><span class="line"><span class="number">223</span>,<span class="number">183</span>,<span class="number">170</span>,<span class="number">213</span>,<span class="number">119</span>,<span class="number">248</span>,<span class="number">152</span>, <span class="number">2</span>,<span class="number">44</span>,<span class="number">154</span>,<span class="number">163</span>, <span class="number">70</span>,<span class="number">221</span>,<span class="number">153</span>,<span class="number">101</span>,<span class="number">155</span>,<span class="number">167</span>, <span class="number">43</span>,<span class="number">172</span>,<span class="number">9</span>,</span><br><span class="line"><span class="number">129</span>,<span class="number">22</span>,<span class="number">39</span>,<span class="number">253</span>, <span class="number">19</span>,<span class="number">98</span>,<span class="number">108</span>,<span class="number">110</span>,<span class="number">79</span>,<span class="number">113</span>,<span class="number">224</span>,<span class="number">232</span>,<span class="number">178</span>,<span class="number">185</span>, <span class="number">112</span>,<span class="number">104</span>,<span class="number">218</span>,<span class="number">246</span>,<span class="number">97</span>,<span class="number">228</span>,</span><br><span class="line"><span class="number">251</span>,<span class="number">34</span>,<span class="number">242</span>,<span class="number">193</span>,<span class="number">238</span>,<span class="number">210</span>,<span class="number">144</span>,<span class="number">12</span>,<span class="number">191</span>,<span class="number">179</span>,<span class="number">162</span>,<span class="number">241</span>, <span class="number">81</span>,<span class="number">51</span>,<span class="number">145</span>,<span class="number">235</span>,<span class="number">249</span>,<span class="number">14</span>,<span class="number">239</span>,<span class="number">107</span>,</span><br><span class="line"><span class="number">49</span>,<span class="number">192</span>,<span class="number">214</span>, <span class="number">31</span>,<span class="number">181</span>,<span class="number">199</span>,<span class="number">106</span>,<span class="number">157</span>,<span class="number">184</span>, <span class="number">84</span>,<span class="number">204</span>,<span class="number">176</span>,<span class="number">115</span>,<span class="number">121</span>,<span class="number">50</span>,<span class="number">45</span>,<span class="number">127</span>, <span class="number">4</span>,<span class="number">150</span>,<span class="number">254</span>,</span><br><span class="line"><span class="number">138</span>,<span class="number">236</span>,<span class="number">205</span>,<span class="number">93</span>,<span class="number">222</span>,<span class="number">114</span>,<span class="number">67</span>,<span class="number">29</span>,<span class="number">24</span>,<span class="number">72</span>,<span class="number">243</span>,<span class="number">141</span>,<span class="number">128</span>,<span class="number">195</span>,<span class="number">78</span>,<span class="number">66</span>,<span class="number">215</span>,<span class="number">61</span>,<span class="number">156</span>,<span class="number">180</span></span><br><span class="line">]</span><br><span class="line">p=permutation*<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h1 id="perlin-noise-library-for-python"><a class="markdownIt-Anchor" href="#perlin-noise-library-for-python"></a> Perlin noise library for Python</h1>
+<p>该包旨在为您提供简单易用的快速函数，用于<br>
+在Python程序中生成Perlin噪声。</p>
+<h2 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h2>
+<p><strong>安装前先下载微软开发环境</strong><br>
+<a href="https://visualstudio.microsoft.com/downloads/" target="_blank" rel="noopener">https://visualstudio.microsoft.com/downloads/</a><br>
+找到 <strong>Other Tools and Frameworks</strong> 点开，<br>
+下载 <strong>Microsoft Visual C++ Redistributable for Visual Studio 2017</strong>安装即可。</p>
+<p><strong>pip安装</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip indtsll noise</span><br></pre></td></tr></table></figure>
+<p><strong>本地安装</strong><br>
+<a href="https://github.com/caseman/noise" target="_blank" rel="noopener">GitHub</a>下载源文件，然后运行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
+<p><strong>安装错误：</strong> <code>Failed building wheel for noise</code><br>
+<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#noise" target="_blank" rel="noopener">https://www.lfd.uci.edu/~gohlke/pythonlibs/#noise</a><br>
+下载对应版本，安装解析环境，cp后面是Python的版本号</p>
+<blockquote>
+<p>noise-1.2.2-cp36-cp36m-win32.whl<br>
+noise-1.2.2-cp36-cp36m-win_amd64.whl<br>
+noise-1.2.2-cp37-cp37m-win32.whl<br>
+noise-1.2.2-cp37-cp37m-win_amd64.whl</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install C:\Users\Admin\Anaconda3\Scripts\noise<span class="number">-1.2</span><span class="number">.2</span>-cp36-cp36m-win_amd64.whl</span><br></pre></td></tr></table></figure>
+<h2 id="示例代码"><a class="markdownIt-Anchor" href="#示例代码"></a> 示例代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding:utf8 -*-</span></span><br><span class="line"><span class="keyword">from</span> noise <span class="keyword">import</span> pnoise2,pnoise3</span><br><span class="line"><span class="keyword">import</span> numpy  <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span>  numpy <span class="keyword">import</span> sin,cos,arccos,arcsin,sqrt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timer</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="keyword">import</span> datetime</span><br><span class="line">    <span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"></span><br><span class="line"><span class="meta">    @wraps(func)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorated</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        starttime = datetime.datetime.now()</span><br><span class="line">        res=func(*args, **kwargs)</span><br><span class="line">        endtime = datetime.datetime.now()</span><br><span class="line">        print(<span class="string">'time used &#123;&#125; sec'</span>.format((endtime - starttime).seconds))</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    <span class="keyword">return</span> decorated</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sphere</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,radius)</span>:</span></span><br><span class="line">        self.radius=radius</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">coord_trans</span><span class="params">(self,longitude,latitude,radius=None)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        coordinate transformation</span></span><br><span class="line"><span class="string">        Cartesian coordinates</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        lat,lon=latitude,longitude</span><br><span class="line">        <span class="keyword">if</span> radius <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            r=self.radius</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            r=radius</span><br><span class="line"></span><br><span class="line">        x = r * cos(lat) * cos(lon)</span><br><span class="line">        y = r * cos(lat) * sin(lon)</span><br><span class="line">        z = r * sin(lat)</span><br><span class="line">        <span class="keyword">return</span> x,y,z</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">distance</span><span class="params">(self,lon,lat,angle=<span class="string">'degrees'</span>,radius=None)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> angle==<span class="string">'degrees'</span>:</span><br><span class="line">            lon,lat=np.radians([lon,lat])</span><br><span class="line"></span><br><span class="line">        a1,a2=lat</span><br><span class="line">        b1,b2=lon</span><br><span class="line">        <span class="keyword">if</span> radius <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            r1=r2 =self.radius</span><br><span class="line">        <span class="keyword">elif</span> isinstance(radius,(int,float)):</span><br><span class="line">            r1=r2 = radius</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            r1,r2,*_=radius</span><br><span class="line"></span><br><span class="line">        <span class="string">'Cartesian distance'</span></span><br><span class="line">        tmp = cos(a1) * cos(a2) * cos(b1 - b2) + sin(a1) * sin(a2)</span><br><span class="line">        L = sqrt(r1 ** <span class="number">2</span> + r2 ** <span class="number">2</span> - <span class="number">2</span> * r1 * r2 * tmp)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> r1==r2:</span><br><span class="line">            <span class="string">'spherical distance'</span></span><br><span class="line">            S = r1 * arccos(tmp)</span><br><span class="line">            <span class="keyword">return</span> L,S</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> L,<span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @timer</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">create_sphere</span><span class="params">(self,unit=<span class="number">0.1</span>,multiplier=<span class="number">1.0</span>,stretch=<span class="number">1.0</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      seed=None,*args,**kwargs)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        Spherical coordinate system (lon,lat,r)</span></span><br><span class="line"><span class="string">        0 &lt;= r &lt; math.inf</span></span><br><span class="line"><span class="string">        0 &lt;= lon &lt;= PI * 2</span></span><br><span class="line"><span class="string">        -PI / 2 &lt;= lat &lt;= PI / 2</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line"></span><br><span class="line">        lon=np.arange(<span class="number">-180</span>,<span class="number">180</span>,unit)</span><br><span class="line">        lat=np.arange(<span class="number">-90</span>,<span class="number">90</span>+unit,unit)</span><br><span class="line"></span><br><span class="line">        <span class="string">'coordinate transformation'</span></span><br><span class="line">        <span class="comment"># coord = pd.MultiIndex.from_product([lon, lat], names=['lon', 'lat'])</span></span><br><span class="line">        <span class="comment"># coord = pd.DataFrame(index=coord).reset_index()</span></span><br><span class="line">        lon1,lat1=np.meshgrid(lon,lat)</span><br><span class="line">        x, y, z = self.coord_trans(np.radians(lon1), np.radians(lat1), radius=stretch)</span><br><span class="line"></span><br><span class="line">        <span class="string">'default arguments'</span></span><br><span class="line">        <span class="keyword">if</span> seed <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            seed=random.randint(<span class="number">0</span>,<span class="number">256</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            seed=int(seed)</span><br><span class="line"></span><br><span class="line">        <span class="string">'Define numpy ufunc(universal function)'</span></span><br><span class="line">        ufunc_pnoise3=<span class="keyword">lambda</span> x,y,z:pnoise3(x, y, z,base=seed,*args,**kwargs)</span><br><span class="line">        self.ufunc_pnoise3=np.frompyfunc(ufunc_pnoise3, <span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        h = self.ufunc_pnoise3(x,y,z)</span><br><span class="line">        <span class="comment"># h=pd.pivot(coord.lat, coord.lon, h)</span></span><br><span class="line"></span><br><span class="line">        print(<span class="string">'seed=&#123;&#125;'</span>.format(seed))</span><br><span class="line">        <span class="keyword">return</span> lon,lat,h</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_sphere</span><span class="params">(self,lon,lat,h,map=<span class="string">'ellipse'</span>)</span>:</span></span><br><span class="line">        <span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">        h1=h.copy()</span><br><span class="line">        h2=h.copy()</span><br><span class="line">        h1[h&lt;<span class="number">0</span>]=<span class="literal">None</span></span><br><span class="line">        h2[h&gt;<span class="number">0</span>]=<span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        fig=plt.figure()</span><br><span class="line">        <span class="keyword">if</span> map==<span class="string">'ellipse'</span>:</span><br><span class="line">            lon,lat=np.meshgrid(lon,lat)</span><br><span class="line">            lon=sqrt(<span class="number">1</span>-(lat/<span class="number">90</span>)**<span class="number">2</span>)*lon</span><br><span class="line">            plt.contourf(lon, lat, h1, cmap=<span class="string">'Greens_r'</span>)</span><br><span class="line">            plt.contourf(lon, lat, h2, cmap=<span class="string">'Blues_r'</span>)</span><br><span class="line">        <span class="keyword">elif</span> map==<span class="string">'cosine'</span>:</span><br><span class="line">            lon,lat=np.meshgrid(lon,lat)</span><br><span class="line">            lon=cos(np.radians(lat))*lon</span><br><span class="line">            plt.contourf(lon, lat, h1, cmap=<span class="string">'Greens_r'</span>)</span><br><span class="line">            plt.contourf(lon, lat, h2, cmap=<span class="string">'Blues_r'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            plt.contourf(lon, lat, h1, cmap=<span class="string">'Greens_r'</span>)</span><br><span class="line">            plt.contourf(lon, lat, h2, cmap=<span class="string">'Blues_r'</span>)</span><br><span class="line">        plt.show()</span><br><span class="line"></span><br><span class="line">earth=Sphere(radius=<span class="number">2</span>)</span><br><span class="line">lon,lat,h=earth.create_sphere(octaves=<span class="number">10</span>, persistence=<span class="number">0.5</span>,multiplier=<span class="number">2</span>,seed=<span class="number">57</span>)</span><br><span class="line">earth.draw_sphere(lon,lat,h,map=<span class="string">'ellipse'</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt="map" data-src="map.png"></p>
+
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+        
+      
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/nezha.jpg" alt="Wilen Wu 比特币">
+        <p>比特币</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Wilen Wu</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wilenwu.github.io/posts/python/PerlinNoise(Python).html" title="柏林噪声(Python)">https://wilenwu.github.io/posts/python/PerlinNoise(Python).html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/python/" rel="tag"># python</a>
+            
+              <a href="/tags/柏林噪声/" rel="tag"># 柏林噪声</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/posts/python/PythonNotebook(Python-Basics)--common-editor.html" rel="next" title="Python手册(IDE)--常用的Python IDE">
+                  <i class="fa fa-chevron-left"></i> Python手册(IDE)--常用的Python IDE
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/posts/python/PythonNotebook(Scientific-Computing)--SymPy.html" rel="prev" title="Python手册(Scientific Computing)--SymPy">
+                  Python手册(Scientific Computing)--SymPy <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+          
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+          
+            <li class="tab"><a href="#comment-valine">valine</a></li>
+          
+        </ul>
+        <div class="tab-content">
+          
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
+          
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="comments"></div>
+            </div>
+          
+        </div>
+      </div>
+      <script>
+        window.addEventListener('tabs:register', () => {
+          let activeClass = 'gitalk';
+          
+            activeClass = localStorage.getItem('comments_active') || activeClass;
+          
+          if (activeClass) {
+            let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+            if (activeTab) {
+              activeTab.click();
+            }
+          }
+        });
+        
+        window.addEventListener('tabs:click', event => {
+          let commentClass = event.target.classList[1];
+          localStorage.setItem('comments_active', commentClass);
+        });
+        
+      </script>
+    
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#柏林噪声"><span class="nav-number">1.</span> <span class="nav-text"> 柏林噪声</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理论知识链接"><span class="nav-number">2.</span> <span class="nav-text"> 理论知识链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码实现python"><span class="nav-number">3.</span> <span class="nav-text"> 代码实现(Python)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#perlin-noise-library-for-python"><span class="nav-number">4.</span> <span class="nav-text"> Perlin noise library for Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">4.1.</span> <span class="nav-text"> 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例代码"><span class="nav-number">4.2.</span> <span class="nav-text"> 示例代码</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/header.jpg"
+      alt="Wilen Wu">
+  <p class="site-author-name" itemprop="name">Wilen Wu</p>
+  <div class="site-description" itemprop="description">个人技术博客</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/wilenwu" title="GitHub &rarr; https://github.com/wilenwu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/qq_41518277" title="CSDN &rarr; https://blog.csdn.net/qq_41518277" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>CSDN</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:597379201@qq.com" title="E-Mail &rarr; mailto:597379201@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/" title="Weibo &rarr; https://weibo.com/" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.easyicon.net/" title="https://www.easyicon.net/" rel="noopener" target="_blank">easyicon</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.fontawesome.com.cn/" title="http://www.fontawesome.com.cn/" rel="noopener" target="_blank">Font Awesome</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wilen Wu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">206k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:07</span>
+</div>
+
+        
+
+
+
+
+
+
+  
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+            
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI',
+            'X-LC-Key': '6EzBICTWxLbjiGsbNAa8Fv2s',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+        if (localhost.test(document.URL)) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: '3be7aa98d992907175cbd79c194399f2',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: 'f2192e7da85ed04142dde454abc74080',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI',
+    appKey: '6EzBICTWxLbjiGsbNAa8Fv2s',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
