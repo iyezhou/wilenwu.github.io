@@ -402,9 +402,9 @@
             
             <tag> 机器学习 </tag>
             
-            <tag> statsmodels </tag>
-            
             <tag> 回归 </tag>
+            
+            <tag> statsmodels </tag>
             
         </tags>
       
@@ -652,9 +652,9 @@
             
             <tag> python </tag>
             
-            <tag> 机器学习 </tag>
-            
             <tag> sklearn </tag>
+            
+            <tag> 机器学习 </tag>
             
             <tag> 回归 </tag>
             

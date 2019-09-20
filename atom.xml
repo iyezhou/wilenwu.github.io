@@ -438,9 +438,9 @@ KaTeX支持很多（但不是全部）LaTeX语法和许多LaTeX软件包。&lt;/
     
       <category term="机器学习" scheme="https://wilenwu.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="statsmodels" scheme="https://wilenwu.github.io/tags/statsmodels/"/>
-    
       <category term="回归" scheme="https://wilenwu.github.io/tags/%E5%9B%9E%E5%BD%92/"/>
+    
+      <category term="statsmodels" scheme="https://wilenwu.github.io/tags/statsmodels/"/>
     
   </entry>
   
