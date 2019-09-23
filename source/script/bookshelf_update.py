@@ -1,12 +1,26 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*- 
-
+    
 import os
+import re
 import pandas as pd
 
-site_path='D:\\wilenwu.github.io\\'    
-with open(site_path+'_config.yml','r',encoding='utf-8') as f:
-    site_config=f.readlines()
+site_path='D:\\wilenwu.github.io\\'
+os.chdir(site_path)
+
+def get_info_inline(text):
+    lines=text.splitlines()
+    for line in lines:
+        line=line.split('#')[0].rstrip(' ')
+    if line.find(': ')>0:
+        key,value=line.split(': ')
+        value=value.strip(' ').replace('\n','')
+        
+        re.sub()
+        re.split()
+
+with open('_config.yml','r',encoding='utf-8') as f:
+    site_config=f.read()
     
 for line in site_config:
     n=line.find('#')
