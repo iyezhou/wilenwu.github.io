@@ -5,13 +5,11 @@ mathjax: false
 copyright: true
 date: 2018-05-10 23:00:51
 categories: 
-# test
-  - python # test
+ # test
+#测试
+  - python # test 测试
   - pandas
 sticky: false
-
-test: 
-  train: 1
 ---
 
 
