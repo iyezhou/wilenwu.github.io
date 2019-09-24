@@ -4,8 +4,14 @@ tags: [python,pandas,数据分析,dataframe]
 mathjax: false
 copyright: true
 date: 2018-05-10 23:00:51
-categories: [python,pandas]
+categories: 
+# test
+  - python # test
+  - pandas
 sticky: false
+
+test: 
+  train: 1
 ---
 
 
