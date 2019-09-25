@@ -69,13 +69,12 @@ def get_post_info(post_url,updateID=False):
     
     return yaml_dict
 
-post_info={}
+post_info=[]
 for url, dirs, files in os.walk(posts_path, topdown=False):
     for post_name in files:         
         print(post_name)
         post_url=os.path.join(url,post_name)  
         yaml_dict=get_post_info(post_url,updateID=False)
-        post_info[yaml_dict['ID']]=yaml_dict
+        post_info.append(yaml_dict)
 
-post_info=pd.DataFrame(post_info).T.set_index('ID')
-post_info.iloc[1]
+post_info=pd.DataFrame(post_info).set_index('ID')
