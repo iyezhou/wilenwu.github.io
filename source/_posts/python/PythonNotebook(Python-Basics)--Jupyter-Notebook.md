@@ -1,5 +1,5 @@
-
 ---
+ID: 55bb3a806d14cc2233d359ca511408f6
 title: Python手册(IDE)--Jupyter Notebook
 tags: [python,Jupyter Notebook,IDE]
 mathjax: false
@@ -8,9 +8,6 @@ date: 2018-04-30 11:39:49
 categories: [python,Python Basics]
 sticky: false
 ---
-
-
-
 # Anaconda
 Anaconda 是一个用于科学计算的 Python 发行版，支持 Linux, Mac, Windows, 包含了众多流行的科学计算、数据分析的 Python 包，还自带Spyder和Jupyter Notebook等IDE，不需要配置系统路径，安装后可直接运行。
 

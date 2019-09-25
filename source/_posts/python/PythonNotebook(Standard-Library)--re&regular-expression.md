@@ -1,4 +1,5 @@
 ---
+ID: 8a6b0cdf655c25dd3f11e361fcc8a0a8
 title: Python手册(Standard Library)--re & regular expression
 tags: [python,标准库,re,正则表达式]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-09 23:15:58
 categories: [python,Standard Library]
 sticky: false
 ---
-
 正则表达式是对字符串（包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为“元字符”））操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。正则表达式是一种文本模式，该模式描述在搜索文本时要匹配的一个或多个字符串。
 
 

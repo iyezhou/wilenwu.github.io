@@ -1,4 +1,5 @@
 ---
+ID: dafd70d96c47829db96c90f613a5c636
 title: Python手册(Standard Library)--日期和时间
 tags: [python,datetime,time,calendar,日期和时间]
 mathjax: false
@@ -7,8 +8,6 @@ date: 2018-05-09 22:49:26
 categories: [python,Standard Library]
 sticky: false
 ---
-
-
 Python 程序能用很多方式处理日期和时间，转换日期格式是一个常见的功能。
 Python 提供了一个 time 和 calendar 模块可以用于格式化日期和时间。
 时间间隔是以秒为单位的浮点小数。

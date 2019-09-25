@@ -1,4 +1,5 @@
 ---
+ID: 11b8d05e5aa6fe786dcb6a1c308d1940
 title: Python手册(Visualise)--seaborn
 tags: [python,seaborn,可视化]
 mathjax: false
@@ -7,9 +8,6 @@ date: 2018-05-10 23:20:12
 categories: [python,Visualise]
 sticky: false
 ---
-
-
-
 **Seaborn**是基于matplotlib的Python可视化库。它提供了一个高级界面来绘制有吸引力的统计图形。
 
 <!-- more -->

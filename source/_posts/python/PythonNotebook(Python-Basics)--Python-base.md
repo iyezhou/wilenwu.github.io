@@ -1,4 +1,5 @@
 ---
+ID: f60ac84d9061b41dcd04b167b62173f5
 title: Python手册(Python Basics)--Python基础
 tags: [python,数据类型,面向对象,语法]
 mathjax: true
@@ -7,7 +8,6 @@ date: 2018-05-09 00:10:30
 categories: [python,Python Basics]
 sticky: false
 ---
-
 **说明**：本手册所列包来自[Awesome-Python](https://awesome-python.com/) ，结合[GitHub](https://github.com/) 和官方文档，参考 [**菜鸟教程**](http://www.runoob.com/python3/python3-tutorial.html)，整理所得。
 
 <!-- more -->

@@ -1,5 +1,5 @@
-
 ---
+ID: 99bb4feb2dbfff3b153edf34328cf7ee
 title: Python手册(Machine Learning)--statsmodels(Survival)
 tags: [python,机器学习,statsmodels,生存分析]
 mathjax: false
@@ -8,9 +8,6 @@ date: 2018-12-19 16:55:15
 categories: [python,Machine Learning]
 sticky: false
 ---
-
-
-
 ## [生存分析](http://www.statsmodels.org/stable/duration.html)
 
 生存分析是用于分析直到一个或多个事件发生的预期持续时间的统计分支，例如生物有机体中的死亡和机械系统中的失败。本主题被称为可靠性理论和可靠性分析的工程，持续时间分析或持续时间建模在经济学和事件历史分析，在社会学。生存分析试图回答以下问题：在一定时间内存活的人口比例是多少？那些幸存下来的人会以什么样的速度死亡或失败？可以考虑多种死亡原因吗？具体情况或特征如何增加或减少生存的概率？[--*Wiki*](https://en.wikipedia.org/wiki/Survival_analysis)

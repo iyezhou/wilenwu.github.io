@@ -1,18 +1,15 @@
 ---
+ID: 92968d580ae6ece91f4e4cc2ab6fce43
 title: Python手册(Data Analysis)--pandas
 tags: [python,pandas,数据分析,dataframe]
 mathjax: false
 copyright: true
 date: 2018-05-10 23:00:51
 categories: 
- # test
-#测试
-  - python # test 测试
+  - python 
   - pandas
 sticky: false
 ---
-
-
 pandas兼具NumPy高性能的数组计算功能，提供高性能，易用的数据结构和数据分析工具。Pandas库有两个主要数据结构：Series和DataFrame。
 ```python
 import pandas as pd

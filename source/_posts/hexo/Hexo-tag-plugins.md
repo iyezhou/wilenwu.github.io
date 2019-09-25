@@ -1,11 +1,11 @@
 ---
+ID: a6be1f1f2719bfe477cd1420bd44b1c6
 title: Hexo tag 插件
 tags: [Hexo,NexT,Github pages]
 copyright: true
 date: 2019-09-11 14:10:48
 categories: [Hexo]
 ---
-
 「tag 插件」(Tag Plugin) 是 Hexo 提供的一种快速生成特定内容的方式。 例如，在标准 Markdown 语法中，我们无法指定图片的大小。这种情景，我们即可使用标签来解决。 Hexo 内置来许多标签来帮助写作者可以更快的书写， [完整的标签列表](https://hexo.io/docs/tag-plugins.html) 可以参考 Hexo 官网。 另外，Hexo 也开放来接口给主题，使主题有可能提供给写作者更简便的写作方法。 
 
 <!-- more -->

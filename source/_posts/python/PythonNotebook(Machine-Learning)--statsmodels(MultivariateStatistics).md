@@ -1,4 +1,5 @@
 ---
+ID: 0b1fe69e94852d237c61a3b3a5ea437d
 title: Python手册(Machine Learning)--statsmodels(MultivariateStatistics)
 tags: [python,机器学习,statsmodels,多变量统计]
 mathjax: false
@@ -7,8 +8,6 @@ date: 2018-12-23 18:17:37
 categories: [python,Machine Learning]
 sticky: false
 ---
-
-
 ## [多变量统计](https://www.statsmodels.org/stable/multivariate.html)
 
 

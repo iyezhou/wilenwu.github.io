@@ -1,4 +1,5 @@
 ---
+ID: a1430846c2de67ec1358768349bb2812
 title: Hexo博客搭建及配置
 tags: [Hexo,NexT,Github pages]
 copyright: true
@@ -6,7 +7,6 @@ date: 2019-09-10 13:48:53
 categories: [Hexo]
 sticky: 
 ---
-
 [Hexo](https://hexo.io/zh-cn/) 是高效的静态站点生成框架，基于 [Node.js](https://nodejs.org/)。 通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 [tag 插件](https://hexo.io/zh-cn/docs/tag-plugins.html) 来快速的插入特定形式的内容。Hexo 还拥有丰富的主题，任君部署。
 <!-- more -->
 

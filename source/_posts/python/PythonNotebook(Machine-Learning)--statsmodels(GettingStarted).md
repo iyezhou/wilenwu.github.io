@@ -1,5 +1,5 @@
-
 ---
+ID: cddb66f21b0e2ad29b0ff9b8491a24d0
 title: Python手册(Machine Learning)--statsmodels(GettingStarted)
 tags: [python,statsmodels,机器学习]
 mathjax: false
@@ -8,7 +8,6 @@ date: 2018-05-10 23:12:43
 categories: [python,Machine Learning]
 sticky: false
 ---
-
 与scikit-learn比较，statsmodels包含经典统计学和经济计量学的算法。包括如下子模块：
 
 -   回归模型：线性回归，广义线性模型，健壮线性模型，线性混合效应模型等等。

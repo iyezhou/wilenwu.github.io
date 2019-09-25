@@ -1,4 +1,5 @@
 ---
+ID: 667579e38e6f1d974c6c8f09efa072f4
 title: Python手册(IDE)--常用的Python IDE
 tags: [python,IDE]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-25 14:40:25
 categories: [python,Python Basics]
 sticky: false
 ---
-
 集成开发环境（IDE，Integrated Development Environment ）是用于提供程序开发环境的应用程序，一般包括代码编辑器、编译器、调试器和图形用户界面等工具。
 
 <!-- more -->

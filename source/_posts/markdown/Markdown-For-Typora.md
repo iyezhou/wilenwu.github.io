@@ -1,4 +1,5 @@
 ---
+ID: 0e6029e2073637a7855a25f015f618ef
 title: Markdown For Typora
 tags: [markdown,Typora]
 copyright: false
@@ -7,7 +8,6 @@ date: 2019-09-19 16:24:00
 categories: [markdown]
 sticky: false
 ---
-
 # Markdown For Typora
 
 ## Overview

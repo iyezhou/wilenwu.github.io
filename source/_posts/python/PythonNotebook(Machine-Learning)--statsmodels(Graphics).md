@@ -1,5 +1,5 @@
-
 ---
+ID: 65cece496a1f4d17a12eeb9799018583
 title: Python手册(Machine Learning)--statsmodels(Graphics)
 tags: [python,机器学习,statsmodels,可视化]
 mathjax: false
@@ -8,8 +8,6 @@ date: 2018-12-19 16:57:55
 categories: [python,Machine Learning]
 sticky: false
 ---
-
-
 ## 拟合图
 **Goodness of Fit Plots**| 拟合图
 :------|:------

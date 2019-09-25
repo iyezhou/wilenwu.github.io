@@ -1,4 +1,5 @@
 ---
+ID: 870f196d599cfaa4bde163b80704c519
 title: Python手册(Python Basics)--RPy2
 tags: [python,RPy2,R接口]
 mathjax: false
@@ -7,9 +8,6 @@ date: 2018-12-23 22:05:50
 categories: [python,Python Basics]
 sticky: false
 ---
-
-
-
 ## 概述
 
 [Python](http://www.python.org/)是一种流行的通用脚本语言，而[R](http://www.r-project.org/)(S/Splus语言的开源实现)是一种主要用于数据分析，统计和图形的脚本语言。[rpy2](https://rpy2.github.io/doc/latest/html/overview.html) 是一个嵌入在Python进程中的R接口.

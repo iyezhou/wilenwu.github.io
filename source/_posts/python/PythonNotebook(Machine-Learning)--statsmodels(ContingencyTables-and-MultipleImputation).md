@@ -1,5 +1,5 @@
-
 ---
+ID: c6ea01c9b1d2b08cda33cc8ffa59db38
 title: Python手册(Machine Learning)--statsmodels(Contingency Tables and Multiple Imputation)
 tags: [python,机器学习,statsmodels,列联表,多重插补]
 mathjax: true
@@ -8,10 +8,6 @@ date: 2018-12-19 16:59:00
 categories: [python,Machine Learning]
 sticky: false
 ---
-
-
-
-
 ## [Contingency Tables(列联表)](http://www.statsmodels.org/stable/contingency_tables.html)
 
 Statsmodels支持各种分析列联表的方法，包括评估独立性，对称性，同质性的方法，以及处理来自分层人群的表集合的方法。

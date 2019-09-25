@@ -1,5 +1,5 @@
-
 ---
+ID: 2ce37637a214d0c04199cae53398ffdd
 title: Python手册(Machine Learning)--sklearn
 tags: [python,sklearn,机器学习,回归,分类,聚类]
 mathjax: false
@@ -8,9 +8,6 @@ date: 2018-05-10 23:08:52
 categories: [python,Machine Learning]
 sticky: false
 ---
-
-
-
 **Scikit-Learn** : The most popular and widely used library for machine learning in Python.
 
 -   分类：SVM、近邻、随机森林、逻辑回归等等。

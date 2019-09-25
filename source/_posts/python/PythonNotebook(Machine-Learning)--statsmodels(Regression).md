@@ -1,4 +1,5 @@
 ---
+ID: 171d41b5d411a25392c1a3cfe7ed7891
 title: Python手册(Machine Learning)--statsmodels(Regression)
 tags: [python,机器学习,statsmodels,回归]
 mathjax: true
@@ -7,11 +8,6 @@ date: 2018-12-19 16:40:34
 categories: [python,Machine Learning]
 sticky: false
 ---
-
-
-
-
-
 # [Linear Regression(线性回归)](https://www.statsmodels.org/stable/regression.html)
 
 

@@ -1,4 +1,5 @@
 ---
+ID: 7727a875a5d38f44eca00490ea1e8a42
 title: KaTeX 数学符号列表
 tags: [math,markdown,katex,数学符号]
 mathjax: true
@@ -7,7 +8,6 @@ date: 2019-04-22 18:37:20
 categories: [markdown]
 sticky: true
 ---
-
 KaTeX是一个快速，易于使用的JavaScript库，用于在Web上进行TeX数学渲染。
 KaTeX兼容所有主流浏览器，包括Chrome，Safari，Firefox，Opera，Edge和IE 9-11。
 KaTeX支持很多（但不是全部）LaTeX语法和许多LaTeX软件包。

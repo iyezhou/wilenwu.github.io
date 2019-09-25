@@ -3,77 +3,79 @@
     
 import os
 import re
+import hashlib
 import pandas as pd
 
-site_path='D:\\wilenwu.github.io\\'
-os.chdir(site_path)
+root='D:\\wilenwu.github.io\\'
+os.chdir(root)
 
 website='https://wilenwu.github.io'
 permalink='posts/:title.html'
 source_dir='source'
-
 posts_path=source_dir+'\\_posts\\'
-post_info=pd.DataFrame()
 
-for urls, dirs, files in os.walk(posts_path, topdown=False):
-    for post_name in files:
-        post_url=os.path.join(urls,post_name)
-        post_info.loc[post_name,'post_url']=post_url
+def clean(line):
+    if len(line)==1:
+        line=line[0]
+        key_value=line.split(': ')
+        if len(key_value)==1:
+            key=line[:-1] if line.endswith(':') else line
+            return key.strip(' '),None
+        elif len(key_value)==2:
+            line=re.sub('(?<=: )\[|\]$','',line)
+            line=re.split(': |,',line)
+            key=line[0]
+            value=[i.strip(' ') for i in line[1:] if not i.isspace()]
+            value=value[0] if len(value)==1 else value
+            return key.strip(''),value
+    elif len(line)>1:
+        key=line[0][:-1] if line[0].endswith(':') else line[0]
+        value=[re.sub('^-\s','',i) for i in line[1:]]
+        value=[i.strip(' ') for i in value if not i.isspace()]
+        value=value[0] if len(value)==1 else value
+        return key.strip(' '),value    
+
+def get_post_info(post_url,updateID=False):
+    with open(post_url,'r',encoding='utf-8') as f:
+        post=f.read()
         
-        with open(post_url,'r',encoding='utf-8') as f:
-            post=f.readlines()
-        front_matter=re.search('^( *-{3,})\s*\n.*?(\s*-{3,}) *\n',post,re.DOTALL).group()
-        front_matter=re.sub('^( *-{3,})\s*\n|( *-{3,})\s*\n','',front_matter)  
-        
-        get_info_span(front_matter) 
-
-
-post_url=os.path.join(posts_path,'python\\PythonNotebook(Data-Analysis)--pandas.md')
-
-with open(post_url,'r',encoding='utf-8') as f:
-    post=f.read()
- 
-
-pattern='{b}.*?{b}'.format(b=' *-{3,}\n')
-front_matter=re.search(pattern,post,re.DOTALL).group()
-front_matter=front_matter.splitlines()[1:-1]
-front_matter=[re.sub(' *#.*$','',i) for i in front_matter]
-front_matter=[i.strip(' ') for i in front_matter if i.strip(' ')!='']
-
-col='PythonNotebook(Data-Analysis)--pandas.md'
-post=pd.DataFrame()
-
-for i in range(len(front_matter)):
-    pass
-
-def get_info_inline(str_inline):
-    key_value=str_inline.split(': ')
-    if len(key_value)==1:
-        key=key_value[0]
-        value=None
-    else:
-        key,value=key_value
-        value=re.sub('[\[\]]','',value.strip(' ')).split(',')
-        
-    key=key.strip(' ')     
-    return key,value
+    pattern='{b}.*?{b}'.format(b='\s*-{3,}\s*\n')
+    YAML=re.search(pattern,post,re.DOTALL).group()  # 匹配YAML
+    front_matter=re.sub('\s*-{3,}\s*\n','',YAML)  # 起始标记
+    front_matter=re.sub('#.*?(?=\n)','',front_matter)  # 去除注释
+    front_matter=re.sub('(\s*\n\s*)+','\n',front_matter) # 并去除行首行尾空白并合并
+    front_matter=re.split('\n(?!\s|-)',front_matter) # 分块
     
-for line in str_span:
-    line=re.sub(' *#[.\u4e00-\u9fa5]* *(?=\n)','',line).splitlines()
-    line=[i for i in line if i.replace(' ','')!='']
-                
-    if len(line)==1 and line[0].find(': ')>0:
-        key,value=get_info_inline(line[0])
-        cleaned[key]=value
-    elif len(line)>1 and line[1].lstrip(' ')[0]=='-':
-        key=line[0].replace(': ','').strip(' ')
-        value=[i.replace('-','').strip(' ') for i in line[1:]]
-        cleaned[key]=value
-    elif len(line)>1 and line[1].startswith(' '):
-        key=line[0].replace(': ','').strip(' ')
-        value={}
-        for string in line[1:]:
-            k,v=get_info_inline(string)
-            value[k]=v
-        cleaned[key]=value
-return cleaned      
+    lines=[i.splitlines() for i in front_matter]
+    
+    yaml_dict={}
+    for line in lines:
+        key,value=clean(line)
+        key=key.upper() if key.lower()=='id' else key
+        yaml_dict[key]=value
+    
+    ID=yaml_dict['date'].encode(encoding='UTF-8')
+    yaml_dict['ID']=hashlib.md5(ID).hexdigest()
+    
+    if updateID:
+        YAML=re.sub('^\n+','',YAML)
+        YAML=re.sub('\n+$','\n',YAML)
+        new_yaml=re.sub('ID: .*\n+','',YAML,flags=re.I)
+        new_yaml=re.sub('\n','\nID: '+yaml_dict['ID']+'\n',new_yaml,count=1)
+        new_post=re.sub(pattern,new_yaml,post,count=1,flags=re.DOTALL)
+        
+        with open(post_url,'w',encoding='utf-8') as f:
+            f.write(new_post)
+    
+    return yaml_dict
+
+post_info={}
+for url, dirs, files in os.walk(posts_path, topdown=False):
+    for post_name in files:         
+        print(post_name)
+        post_url=os.path.join(url,post_name)  
+        yaml_dict=get_post_info(post_url,updateID=False)
+        post_info[yaml_dict['ID']]=yaml_dict
+
+post_info=pd.DataFrame(post_info).T.set_index('ID')
+post_info.iloc[1]

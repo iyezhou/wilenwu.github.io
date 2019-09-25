@@ -1,4 +1,5 @@
 ---
+ID: 12500e129614bde2d1e7bca846392a4b
 title: Python手册(Machine Learning)--statsmodels(TimeSeries)
 tags: [python,机器学习,statsmodels,时间序列]
 mathjax: true
@@ -7,9 +8,6 @@ date: 2018-12-19 16:53:47
 categories: [python,Machine Learning]
 sticky: false
 ---
-
-
-
 时间序列分析是根据系统观测得到的时间序列数据，通过曲线拟合和参数估计来建立数学模型的理论和方法。它一般采用曲线拟合和参数估计方法（如非线性最小二乘法）进行。时间序列分析常用在国民经济宏观控制、区域综合发展规划、企业经营管理、市场潜量预测、气象预报、水文预报、地震前兆预报、农作物病虫灾害预报、环境污染控制、生态平衡、天文学和海洋学等方面。
 
 <!-- more -->
