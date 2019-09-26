@@ -16,7 +16,7 @@ timezone:                              # 网站的时区
 url: https://wilenwu.github.io                    # 网站的url，如果不在域名根目录，应包含子目录，且root要设置为`/子目录/`
 root: /                                           # 网站的根目录
 #permalink: :year/:month/:day/:title/              #文章永久链接的形成模版。每一篇文章都有唯一的url。
-permalink: posts/:title.html                       # title 文档名字 | post_title 文章标题 | id 文章随机ID
+permalink: posts/:title/                    # title 文档名字 | post_title 文章标题 | id 文章随机ID
 permalink_defaults:                               #文章永久链接中，各部分的默认值。
   lang: en
   

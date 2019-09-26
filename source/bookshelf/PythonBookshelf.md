@@ -11,20 +11,20 @@
 
 **IDE**
 
-- [ ] [常用的Python IDE][ide]
-- [x] [Jupyter Notebook][Jupyter]
+  - [ ] [常用的Python IDE][ide]
+  - [x] [Jupyter Notebook][Jupyter]
 
 [ide]: https://blog.csdn.net/qq_41518277/article/details/80451551
 [Jupyter]: https://blog.csdn.net/qq_41518277/article/details/80148292
 
 [**Python Basics**][title]
 
-- [x] [Python基础语法][Basics]
-- [x] [Python字符操作][str]
-- [x] [Python数据类型][Basics2]
-- [x] [Python内建函数][funs]
-- [x] [面向对象(Object Oriented,OO)][oo]
-- [ ] [rpy2][rpy2]：❤Python 通过rpy2调用 R语言
+  - [x] [Python基础语法][Basics]
+  - [x] [Python字符操作][str]
+  - [x] [Python数据类型][Basics2]
+  - [x] [Python内建函数][funs]
+  - [x] [面向对象(Object Oriented,OO)][oo]
+  - [ ] [rpy2][rpy2]：❤Python 通过rpy2调用 R语言
 
 [title]: https://docs.python.org/zh-cn/3.7/
 [Basics]: https://blog.csdn.net/qq_41518277/article/details/80247851
