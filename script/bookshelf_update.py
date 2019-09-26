@@ -30,7 +30,8 @@ def clean_span(line):
     return key.strip(' '),value
     
 def clean(content,YAML=True):
-    content=re.sub('#.*?(?=\n)','',content)  # 去除注释
+    content=re.sub('\s#.*?(?=\n)','',content)  # 去除注释(\s可以匹配到\n)
+    content=re.sub('\s#.*$','',content)  # 去除最后一行注释
     content=re.sub('(\s*\n)+','\n',content) # 删除行尾空白并合并
     content=re.split('\n(?!\s|-)',content) # 分块
     lines=[i.splitlines() for i in content] # 分行
@@ -129,8 +130,8 @@ def maps_collect(book,website,permalink,post_info):
     lines=book..splitlines()
     maps={}
     for line in lines:
-        line=re.sub('^\s','',line)
-        title_id=re.search('(?<=^\s*-\s)[.+][.+]',line)
+        line=re.sub('^(\s*-\s\[[ x]\])','',line)
+        title_id=re.search('[.+][.+]',line)
         if title_id is not None:
             title,shelfID=re.match('(?<=[).+(?=])',title_id.group()).groups()
             info_series=post_info.loc[post_info['post_title']==title,:]
@@ -151,20 +152,14 @@ def bookshelf_update(book,maps):
         else:
             newbook.append(line+'\n')
     return newbook
-            
-
-with open(url,'r',encoding='utf-8') as f:
-    book=f.read()
+ 
     
 books=['PythonBookshelf.md']
 books=[os.path.join(source_dir,'bookshelf',book) for book in books]
 
 for path in books:
-    with open(path,'r',encoding='utf-8') as f:
-        book=f.read()
-        
-    maps=maps_collect(book,website,permalink,post_info)
-    newbook=bookshelf_update(book,maps)
-    
-    with open(path,'a',encoding='utf-8') as f:
-        f.writelines()
+    with open(path,'r+',encoding='utf-8') as f:
+        book=f.read()        
+        maps=maps_collect(book,website,permalink,post_info)
+        newbook=bookshelf_update(book,maps)   
+        f.writelines(newbook)
