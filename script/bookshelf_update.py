@@ -9,8 +9,6 @@ import pandas as pd
 root='D:\\wilenwu.github.io\\'
 os.chdir(root)
 
-source_dir='source'
-
 def clean_inline(line):    
     key_value=line.split(': ')
     if len(key_value)==1:
@@ -20,32 +18,46 @@ def clean_inline(line):
         line=re.sub('(?<=: )\[|\]$','',line)
         line=re.split(': |,',line)
         key=line[0]
-        value=[i.strip(' ') for i in line[1:] if not i.isspace()]    
-        return key.strip(''),value    
+        value=[i.strip(' ') for i in line[1:] if not i.isspace()]
+    
+    value_is_list=['categories','tags']
+    value=value if key.lower() in value_is_list or len(value)>1 else value[0]
+        
+    return key.strip(''),value    
 
 def clean_span(line):
     key=line[0][:-1] if line[0].endswith(':') else line[0]
-    value=[re.sub('^(\s*-)\s','',i) for i in line[1:]]
-    value=[i.strip(' ') for i in value if not i.isspace()]
+    if re.search('^(\s*-)',line[1]) is not None:       
+        value=[re.sub('^(\s*-)\s','',i) for i in line[1:]]
+        value=[i for i in value if not i.isspace()]
+    else:
+        value=dict([clean_inline(i) for i in line[1:]])
+    
     return key.strip(' '),value
     
 def clean(content,YAML=True):
-    content=re.sub('\s#.*?(?=\n)','',content)  # 去除注释(\s可以匹配到\n)
-    content=re.sub('\s#.*$','',content)  # 去除最后一行注释
+    content=re.sub('#.*?(?=\n)','',content)  # 去除注释(\s可以匹配到\n)
+    content=re.sub('#.*$','',content)  # 去除最后一行注释
     content=re.sub('(\s*\n)+','\n',content) # 删除行尾空白并合并
-    content=re.split('\n(?!\s|-)',content) # 分块
-    lines=[i.splitlines() for i in content] # 分行
+    spans=re.split('\n(?![\s-])',content) # 分块
+    spans=[i for i in spans if re.sub('\s','',i)!='']
     
+    def split_span(span):
+        if re.search('\n\s*(?!-)',span) is not None:
+            space=re.search('\n\s*',span).group()
+            line=re.split(space,span)           
+        else:
+            line=span.splitlines()
+        return line
+    
+    lines=[split_span(i) for i in spans]  
     content_dict={}
-    for line in lines:        
+    for line in lines:
         if len(line)==1:
             line=line[0]
             key,value=clean_inline(line)
         elif len(line)>1:
             key,value=clean_span(line)
-        
-        if value is not None and key.lower() not in ['categories','tags']:
-            value=value[0] if len(value)==1 else value
             
         if YAML and key.lower()=='title':
             key='post_title'
@@ -58,11 +70,8 @@ def clean(content,YAML=True):
         
     return content_dict
 
-def get_config_info(root,keys):
-    pass
 
-
-
+#-----------------------------
 def get_post_info(post_url,updateID=False):
     with open(post_url,'r',encoding='utf-8') as f:
         post=f.read()
@@ -88,6 +97,17 @@ def get_post_info(post_url,updateID=False):
     
     return yaml_dict
 
+#--------------------------更新-------------------------- 
+with open('_config.yml','r',encoding='utf-8') as f:
+    config=f.read()
+config=clean(config,YAML=False)
+#content=config
+
+source_dir=config['source_dir']
+website=config['url']
+permalink=config['permalink']
+#permalink=':year/:month/:day/:title/'
+
 # 更新 post_info
 posts_dir=os.path.join(source_dir,'_posts').replace('\\','/')
 post_info=[]
@@ -104,13 +124,9 @@ post_info.to_csv(os.path.join(root,'script','post_info'),sep='\t',encoding='utf-
 
 
 # 更新bookshelf
-website='https://wilenwu.github.io'
-permalink='posts/:title.html'
-permalink=':year/:month/:day/:title/'
-
 def get_post_url(info_series,website,permalink): 
-    permalink=re.sub(':id(?=/|\.)',':ID',permalink.lower())
-    permalink=re.sub(':title(?=/|\.)',':post_name',permalink)
+    permalink=re.sub(':id(?=[/\.])',':ID',permalink.lower())
+    permalink=re.sub(':title(?=[/\.])',':post_name',permalink)
     link_keys=[i for i in permalink.split('/') if i.startswith(':') and i!='']
     
     for key in link_keys:
@@ -126,15 +142,16 @@ def get_post_url(info_series,website,permalink):
         permalink=permalink.replace(key,value)
     return '/'.join([website,permalink])
 
-def maps_collect(book,website,permalink,post_info): 
-    lines=book..splitlines()
+def maps_collect(book,website,permalink,post_info,checkbox=None): 
+    lines=book.splitlines()
     maps={}
+    checkbox='<input type="checkbox".*?/>' if checkbox=='html' else '-\s\[[ x]\]'
     for line in lines:
-        line=re.sub('^(\s*-\s\[[ x]\])','',line)
-        title_id=re.search('[.+][.+]',line)
+        line=re.sub('^(\s*{cb})'.format(cb=checkbox),'',line)
+        title_id=re.search('\[.+\]\[.+\]',line)
         if title_id is not None:
-            title,shelfID=re.match('(?<=[).+(?=])',title_id.group()).groups()
-            info_series=post_info.loc[post_info['post_title']==title,:]
+            title,shelfID=re.findall('(?<=\[).+?(?=\])',title_id.group())
+            info_series=post_info.loc[post_info['post_title']==title,:].T
             post_url=get_post_url(info_series,website,permalink)
             maps[shelfID]=post_url                                          
     return maps     

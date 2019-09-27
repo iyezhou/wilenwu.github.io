@@ -2,7 +2,7 @@
 0	a1430846c2de67ec1358768349bb2812	['Hexo']	true	2019-09-10 13:48:53		Hexo-setup&configuration.md	hexo	Hexo博客搭建及配置		['Hexo', 'NexT', 'Github pages']
 1	a6be1f1f2719bfe477cd1420bd44b1c6	['Hexo']	true	2019-09-11 14:10:48		Hexo-tag-plugins.md	hexo	Hexo tag 插件		['Hexo', 'NexT', 'Github pages']
 2	5980ef6822399cf8ecb3c84fd29d6252	['Hexo']	true	2019-09-11 14:14:04		theme-NexT-advanced.md	hexo	NexT主题进阶		['Hexo', 'NexT', 'Github pages']
-3	d097e5fc6d66b8ec546a7c44aa7f7c9b	['markdown']	true	2018-04-30 13:57:37	false	GitHub-Flavored-Markdown-Spec.md	markdown	GitHub Flavored Markdown 规范	true	['markdown']
+3	d097e5fc6d66b8ec546a7c44aa7f7c9b	['markdown']	true	2018-04-30 13:57:37	true	GitHub-Flavored-Markdown-Spec.md	markdown	GitHub Flavored Markdown 规范	true	['markdown']
 4	7727a875a5d38f44eca00490ea1e8a42	['markdown']	true	2019-04-22 18:37:20	true	KaTeX-math-symbols.md	markdown	KaTeX 数学符号列表	true	['math', 'markdown', 'katex', '数学符号']
 5	0e6029e2073637a7855a25f015f618ef	['markdown']	false	2019-09-19 16:24:00	false	Markdown-For-Typora.md	markdown	Markdown For Typora	false	['markdown', 'Typora']
 6	eb1a6cb0bf577319139c4023fd9fb4be	['python', '', 'Scientific Computing']	true	2018-09-19 22:35:52	false	PerlinNoise(Python).md	python	柏林噪声(Python)	false	['python', '柏林噪声']

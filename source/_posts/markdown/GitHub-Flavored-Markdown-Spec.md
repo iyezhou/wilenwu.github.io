@@ -3,14 +3,16 @@ ID: d097e5fc6d66b8ec546a7c44aa7f7c9b
 title: GitHub Flavored Markdown 规范
 tags: [markdown]
 copyright: true
-mathjax: false
+mathjax: true
 date: 2018-04-30 13:57:37
 categories: [markdown]
 sticky: true
 ---
+
 **Markdown**是一种轻量级**标记语言**，它以纯文本形式编写文档，易读（看起来舒服）、易写（语法简单）、易更改，并最终以HTML格式发布。由于markdown没有明确指定语法，随着编译器不一样，实现方式有很大差异。GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规范了markdown的语法和语义。
 
 <!-- more -->
+
 
 # Markdown 免费编辑器推荐
 
@@ -130,15 +132,17 @@ HTML 语法
 1. Item 1
 2. Item 2
 
-在每行前面添加`- [ ]`或 `- [x]`标记为任务列表。
+在每行前面添加`- [ ]`或 `- [x]`标记为任务列表，GFM暂不支持，需采用[HTML语法](#复选框(checkboxes))
 
 ```markdown
 - [ ] Incomplete item
 - [x] Complete item
 ```
+<form>
+<input type="checkbox" name="vehicle" /> Incomplete item<br />
+<input type="checkbox" name="vehicle" checked='checked' /> Complete item
+</form>
 
-- [ ] Incomplete item
-- [x] Complete item
 
 通过在一个列表项下面缩进一个或多个其他列表项，可创建嵌套列表。
 
@@ -176,7 +180,7 @@ HTML 语法
 ``There is a literal backtick (`) here.``
 ```
 
-如果要插入代码块，需要三个反引号开启和结束，我们建议在代码块的前后各留一个空白行，使原始格式更易辨读。
+如果要插入代码块，需要三个反引号( \`\`\` 或 \~\~\~ )开启和结束，我们建议在代码块的前后各留一个空白行，使原始格式更易辨读。
 
 您可以添加可选的语言标识符，以在代码块中启用语法高亮。
 
@@ -206,26 +210,26 @@ GFM中还可以显示 `diff`效果，即展示一个文件内容的增加与删�
 如果要写一小段行内数学公式，你可以用 `$` 把它包起来，例如
 
 ```markdown
-$\displaystyle\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt$
+$\begin{aligned}  f(x) &=(m+n)^2 \\ & =m^2+2m+n^2 \end{aligned}$
 ```
-
-$\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt$
+$\begin{aligned}  f(x) &=(m+n)^2 \\ & =m^2+2m+n^2 \end{aligned}$
 
 如果要插入数学公式块，需要两个 `$$`开启和结束，例如
 
 ```markdown
 $$
-\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
-\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\mathbf{V}_1 \times \mathbf{V}_2 =
+\begin{vmatrix}
+\mathrm{i} & \mathrm{j} & \mathrm{k} \\
 \frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\
 \frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\
 \end{vmatrix}
 $$
 ```
-
 $$
-\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
-\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\mathbf{V}_1 \times \mathbf{V}_2 =
+\begin{vmatrix}
+\mathrm{i} & \mathrm{j} & \mathrm{k} \\
 \frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\
 \frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\
 \end{vmatrix}
@@ -254,7 +258,7 @@ This is [an example][id] reference-style link.
 
 锚点
 
-每一个标题都是一个锚点，也可以用HTML方式定义锚点，不过要注意，引用时标题中的英文字母都要被转化为**小写字母**，空格换成 `-`。（GFM锚点也支持中文）
+每一个标题都是一个锚点，也可以用HTML方式定义锚点，不过要注意，引用时标题中的英文字母都要被转化为**小写字母**，空格换成 `-`（GFM锚点也支持中文）
 
 ```markdown
 [back to h1](#markdown-in-browser)
@@ -340,7 +344,7 @@ GitHub 自动从标准 URL 创建链接。如 www.baidu.com
 
 列表项目可以包含多个段落，每个项目下的段落都必须缩进 4 个空格或是 1 个制表符
 通过在文本行之间留一个空白行，可创建新段落。
-typora 按Shift+Enter创建一个换行符。然而，大多数的编辑器会忽略单行，为了让其它的Markdown编辑器识别你的换行符，可以在行尾留下两个空格或者插入`<br/>`。
+typora 按Shift+Enter创建一个换行符。然而，大多数的编辑器会忽略单行，为了让其它的Markdown编辑器识别你的换行符，可以在行尾留下两个空格或者插入`<br />`。
 HTML语法的段落标签为 `<p>paragraph </p>`
 
 ```markdown
@@ -420,7 +424,8 @@ StackEdit 支持生成目录，输入 `[toc]` 即可根据标题生成目录，�
 
 You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/).
 
-\`\`\`mermaid
+~~~markdown
+```mermaid
 sequenceDiagram
 Alice ->> Bob: Hello Bob, how are you?
 Bob-->>John: How about you John?
@@ -430,7 +435,8 @@ Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text d
 
 Bob-->>Alice: Checking with John...
 Alice->>John: Yes... John, how are you?
-​\`\`\`
+```
+~~~
 
 {% mermaid %}
 sequenceDiagram
@@ -447,14 +453,15 @@ Alice->>John: Yes... John, how are you?
 And this will produce a flow chart:
 
 
-
-\`\`\`mermaid
+~~~markdown
+```mermaid
 graph LR
 A[Square Rect] -- Link text --> B((Circle))
 A --> C(Round Rect)
 B --> D{Rhombus}
 C --> D
-​\`\`\`
+```
+~~~
 
 {% mermaid %}
 graph LR
@@ -463,7 +470,6 @@ A --> C(Round Rect)
 B --> D{Rhombus}
 C --> D
 {% endmermaid %}
-
 
 
 # 部分HTML语法
@@ -481,48 +487,56 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
 ## 文本背景色
 
 ```html
+<form>
 <table><tr><td bgcolor=yellow>背景色</td></tr></table>
+</form>
 ```
-
+<form>
 <table><tr><td bgcolor=yellow>背景色</td></tr></table>
+</form>
+
 ## 对齐方式
 
 ```html
+<form>
 <center>居中</center>
 <p align="right">右对齐</p>
-
+</form>
 ```
 
+<form>
 <center>居中</center>
 <p align="right">右对齐</p>
-## 单选按钮（Radio Buttons）
+</form>
+
+## 单选按钮(Radio Buttons)
 
 `<input type="radio">` 标签定义了表单单选框选项
 
 ```html
 <form>
-<input type="radio" name="sex" value="male">Male<br>
-<input type="radio" name="sex" value="female">Female
+<input type="radio" name="sex" value="male" checked='checked' /> Male<br>
+<input type="radio" name="sex" value="female" /> Female
 </form>
 ```
 <form>
-<input type="radio" name="sex" value="male">Male<br>
-<input type="radio" name="sex" value="female">Female
+<input type="radio" name="sex" value="male" checked='checked' /> Male<br>
+<input type="radio" name="sex" value="female" /> Female
 </form>
 
-## 复选框（Checkboxes）
+## 复选框(Checkboxes)
 
 `<input type="checkbox">` 定义了复选框. 用户需要从若干给定的选择中选取一个或若干选项。
 
 ```html
 <form>
-<input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
-<input type="checkbox" name="vehicle" value="Car">I have a car
+<input type="checkbox" name="vehicle" value="Bike" checked='checked' /> I have a bike<br />
+<input type="checkbox" name="vehicle" value="Car" /> I have a car
 </form>
 ```
 <form>
-<input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
-<input type="checkbox" name="vehicle" value="Car">I have a car
+<input type="checkbox" name="vehicle" value="Bike" checked='checked' /> I have a bike<br />
+<input type="checkbox" name="vehicle" value="Car" /> I have a car
 </form>
 
 ## HTML 框架
@@ -553,4 +567,5 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
 ```
 
 <i class="fa fa-download"></i>
+
 
