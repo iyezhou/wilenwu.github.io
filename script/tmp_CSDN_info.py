@@ -10,7 +10,7 @@ import re
 
 
 def post_move(name,out=r"./new/"):
-    f1 = open(name,'r+',encoding='utf-8')
+    f1 = open('./old/'+name,'r+',encoding='utf-8')
     title,end=os.path.splitext(name)
     
     if out+name in os.listdir(out):
@@ -25,19 +25,19 @@ def post_move(name,out=r"./new/"):
         if dt_list[i].find(title) != -1:
             date=dt_list[i+2].split(r' 阅读数')[0]
             break       
-        
-    cats=re.split('[()]',title)[1]
-    header='''
-    ---
-    title: {title}
-    tags: [python]
-    mathjax: false
-    copyright: true
-    date: {date}
-    categories: [python,{cats}]
-    sticky: false
-    ---
-    '''.format(title=title,date=date,cats=cats)
+    try:    
+        cats=re.split('[()]',title)[1]
+    except:
+        cats=None
+    header='''---
+title: {title}
+tags: [R]
+mathjax: false
+copyright: true
+date: {date}
+categories: [R,{cats}]
+sticky: false
+---'''.format(title=title,date=date,cats=cats)
     
     f2.write(header+'\n')
     
@@ -48,18 +48,22 @@ def post_move(name,out=r"./new/"):
             continue
         elif line.find(r'# ')!=-1 and more:
             more=False
-            f2.write('<!-- more -->\n\n')
+            f2.write('<!-- more -->\n')
             f2.write(line)
         else:
             f2.write(line)
-    link='''
-    参考链接：
-    [《利用Python进行数据分析·第2版》](https://www.jianshu.com/p/04d180d90a3f)
-    '''
+
     f2.write('\n\n\n')
     f1.close()
     f2.close()
 
+name='SQL手册.md'
+
+for name in os.listdir('./old/'):
+    print(name)
+    post_move(name)
+
+os.chdir('./new/')
 for old in os.listdir():
     new=old.replace(' ','-').replace('手册','Notebook')
     os.rename(old, new)

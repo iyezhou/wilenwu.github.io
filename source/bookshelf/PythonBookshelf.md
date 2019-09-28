@@ -14,8 +14,8 @@
   - [ ] [常用的Python IDE][ide]
   - [x] [Jupyter Notebook][Jupyter]
 
-[ide]: https://blog.csdn.net/qq_41518277/article/details/80451551
-[Jupyter]: https://blog.csdn.net/qq_41518277/article/details/80148292
+[ide]: https://wilenwu.github.io/posts/python/PythonNotebook(Python-Basics)--common-editor.html
+[Jupyter]: https://wilenwu.github.io/posts/python/PythonNotebook(Python-Basics)--Jupyter-Notebook.html
 
 [**Python Basics**][title]
 
@@ -32,7 +32,7 @@
 [str]: https://blog.csdn.net/qq_41518277/article/details/80382734
 [funs]: https://blog.csdn.net/qq_41518277/article/details/80382648
 [oo]: https://blog.csdn.net/qq_41518277/article/details/80786632
-[rpy2]: https://blog.csdn.net/qq_41518277/article/details/85226955
+[rpy2]: https://wilenwu.github.io/posts/python/PythonNotebook(Python-Basics)--RPy2.html
 
 **Standard Library（标准库）**
 
@@ -64,9 +64,9 @@
   - [ ] astropy：一个天文学 Python 库。
   - [ ] [noise](noise)：:yellow_heart:柏林噪声(Python)
 
-[NumPy]: https://blog.csdn.net/qq_41518277/article/details/80148446
-[SciPy]: https://blog.csdn.net/qq_41518277/article/details/80275194
-[SymPy]: https://blog.csdn.net/qq_41518277/article/details/83004203
+[NumPy]: https://wilenwu.github.io/posts/python/PythonNotebook(Scientific-Computing)--numpy.html
+[SciPy]: https://wilenwu.github.io/posts/python/PythonNotebook(Scientific-Computing)--scipy.html
+[SymPy]: https://wilenwu.github.io/posts/python/PythonNotebook(Scientific-Computing)--SymPy.html
 [noise]: https://blog.csdn.net/qq_41518277/article/details/82779516
 
 
@@ -77,7 +77,7 @@
   - [ ] blaze：:yellow_heart:NumPy 和 Pandas 的大数据接口。
   - [ ] orange：:yellow_heart:通过可视化编程或 Python 脚本进行数据挖掘，数据可视化，分析和机器学习。
 
-[pandas]: https://blog.csdn.net/qq_41518277/article/details/80275148
+[pandas]: https://wilenwu.github.io/posts/python/PythonNotebook(Data-Analysis)--pandas.html
 [time series]: https://blog.csdn.net/qq_41518277/article/details/80288031
 
 **Web Crawling**
@@ -101,8 +101,8 @@
   - [ ] pyecharts：基于百度 Echarts 的数据可视化库。
   - [ ] missingno：:yellow_heart:缺失数据图示。
 
-[matplotlib]: https://blog.csdn.net/qq_41518277/article/details/80382920
-[seaborn]: https://blog.csdn.net/qq_41518277/article/details/80275347
+[matplotlib]: https://wilenwu.github.io/posts/python/PythonNotebook(Visualise)--matplotlib.html
+[seaborn]: https://wilenwu.github.io/posts/python/PythonNotebook(Visualise)--seaborn.html
 [ggplot]: http://yhat.github.io/ggpy/
 
 **Machine Learning**
