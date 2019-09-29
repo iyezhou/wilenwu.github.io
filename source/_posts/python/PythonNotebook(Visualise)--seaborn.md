@@ -19,20 +19,19 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 %matplotlib inline
 ```
-> [Matplotlib进阶：Seaborn教程](https://blog.csdn.net/ice_martin/article/details/61617053)
+参考链接：[Matplotlib进阶：Seaborn教程](https://blog.csdn.net/ice_martin/article/details/61617053)
 
 
 ## Style frontend(前端样式)
 Seaborn将matplotlib参数分成两个独立的组。第一组设定美学样式，第二组规定图形的各种元素，以便它可以很容易地融入不同的情境。
 
-        
-|**美学样式**||
+|美学样式||
 |:------|:------|
-|sns.axes_style(style=None, rc=None)|获取当前样式，返回参数字典
-|sns.set_style(style=None, rc=None)|自定义seaborn样式，将参数字典传递给`rc`参数<br>**seaborn主题（style参数）：**<br>`{darkgrid(default), whitegrid, dark, white, ticks}`
-|**绘图元素**|设置绘图元素大小
-|sns.plotting_context(context=None, font_scale=1, rc=None)|获取当前设置，返回参数字典
-|sns.set_context(context=None, font_scale=1, rc=None)|控制着绘图元素的比例，四种预设，按相对大小的顺序，依次是`{paper, notebook(default), talk, poster}`
+|sns.axes_style(style=None, rc=None)|获取当前样式，返回参数字典|
+|sns.set_style(style=None, rc=None)|自定义seaborn样式，将参数字典传递给`rc`参数<br>**seaborn主题（style参数）：**<br>`{darkgrid(default), whitegrid, dark, white, ticks}`|
+|**绘图元素**|设置绘图元素大小|
+|sns.plotting_context(context=None, font_scale=1, rc=None)|获取当前设置，返回参数字典|
+|sns.set_context(context=None, font_scale=1, rc=None)|控制着绘图元素的比例，四种预设，按相对大小的顺序，依次是`{paper, notebook(default), talk, poster}`|
 
 
 > - 要切换到seaborn默认值，只需调用该`set()`函数即可。
@@ -65,10 +64,10 @@ with sns.axes_style("darkgrid"):
 > n_colors : int, optional
 > desat : float, optional
 
-|**分类调色板**||
+|分类调色板||
 |:------|:------|
-|sns.color_palette()|6分类主题`palette: {deep, muted, bright, pastel, dark, colorblind}`<br>多分类调色`palette: {hls, husl,Paired,Set2}`
-|sns.hls_palette(n_colors=6, h=0.01, l=0.6, s=0.65)|l: 亮度<br>s: 饱和度
+|sns.color_palette()|6分类主题`palette: {deep, muted, bright, pastel, dark, colorblind}`<br>多分类调色`palette: {hls, husl,Paired,Set2}`|
+|sns.hls_palette(n_colors=6, h=0.01, l=0.6, s=0.65)|l: 亮度<br>s: 饱和度|
 |sns.husl_palette(n_colors=6, h=0.01, s=0.9, l=0.65)|
 |sns.xkcd_palette(colors)|传递已命名颜色字符列表|
 |**连续调色板**||
@@ -94,7 +93,7 @@ sns.palplot(sns.color_palette("GnBu_d"))
 # 发散
 sns.palplot(sns.color_palette("coolwarm", 7))
 ```
-![colors](/images/color.png)
+![colors](/images/matplotlib/color.png)
 
 
 ## Distribution plots(分布图)

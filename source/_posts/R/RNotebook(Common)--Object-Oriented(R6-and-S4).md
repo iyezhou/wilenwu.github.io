@@ -1,5 +1,5 @@
 ---
-title: R手册(Common)--面向对象(R6 and S4)
+title: R手册(Common)--R6 and S4
 tags: [R,面向对象,R6,S4]
 mathjax: false
 copyright: true

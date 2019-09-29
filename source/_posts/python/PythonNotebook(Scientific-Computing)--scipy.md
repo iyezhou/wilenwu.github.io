@@ -1,6 +1,6 @@
 ---
 ID: c4de7b3a03d64f5f786433e8e6c7d158
-title: Python手册(Scientific Computing)--scipy
+title: Python手册(Scientific Computing)--SciPy
 tags: [python,scipy,科学计算]
 mathjax: false
 copyright: true
@@ -29,7 +29,6 @@ sparse|稀疏矩阵和求解器
 spatial|空间数据结构和算法
 special|特殊函数（如伽马函数）
 stats|统计分布和函数
-
 
 
 

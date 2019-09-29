@@ -1,6 +1,6 @@
 ---
 ID: 780de6f904e10557bb4f273bbf2f137c
-title: Python手册(Standard Library)--math & random
+title: Python手册(Standard Library)--math+random
 tags: [python,math,random]
 mathjax: false
 copyright: true

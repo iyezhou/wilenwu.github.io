@@ -8,9 +8,10 @@ categories: [R,Tidy+Transform]
 sticky: false
 ---
 
-
 **普通字符**：普通字符包括没有显式指定为元字符的所有可打印和不可打印字符。可直接匹配自身。
 **元字符**：元字符加斜杠\匹配自身(在R中斜杠为`\\`，匹配`+`应写为`\\+`
+
+Cheat Sheet：[Basic Regular Expressions in R ](https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
 
 <!-- more -->
 

@@ -1,14 +1,4 @@
----
-
-title: R手册(Visualise)--ggplot2 extensions
-tags: [R]
-mathjax: false
-copyright: true
-date: 2018-05-30 22:12:06
-categories: [R,Visualise]
-sticky: false
----
-
+﻿
 [**ggplot2  extensions 官网**][extensions]
 
 [extensions]: http://www.ggplot2-exts.org/ggiraph.html
@@ -38,6 +28,3 @@ sticky: false
 [ggforce]: https://blog.csdn.net/qq_41518277/article/details/80500200
 [geomnet]: https://blog.csdn.net/qq_41518277/article/details/80500215
 [GGally]: https://blog.csdn.net/qq_41518277/article/details/80517791
-
-
-

@@ -9,6 +9,7 @@ sticky: false
 ---
 
 R Markdown是通过R语言制作动态文档的文件格式
+ Cheat Sheet：[R Markdown](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 
 <!-- more -->
 

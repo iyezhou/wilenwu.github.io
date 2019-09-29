@@ -19,19 +19,11 @@
 
 [**Python Basics**][title]
 
-  - [x] [Python基础语法][Basics]
-  - [x] [Python字符操作][str]
-  - [x] [Python数据类型][Basics2]
-  - [x] [Python内建函数][funs]
-  - [x] [面向对象(Object Oriented,OO)][oo]
+  - [x] [Python基础][Base]
   - [ ] [rpy2][rpy2]：:yellow_heart:Python 通过rpy2调用 R语言
 
-[title]: https://docs.python.org/zh-cn/3.7/
-[Basics]: https://blog.csdn.net/qq_41518277/article/details/80247851
-[Basics2]: https://blog.csdn.net/qq_41518277/article/details/80256765
-[str]: https://blog.csdn.net/qq_41518277/article/details/80382734
-[funs]: https://blog.csdn.net/qq_41518277/article/details/80382648
-[oo]: https://blog.csdn.net/qq_41518277/article/details/80786632
+[base]: https://docs.python.org/zh-cn/3.7/
+https://blog.csdn.net/qq_41518277/article/details/80247851
 [rpy2]: https://wilenwu.github.io/posts/python/PythonNotebook(Python-Basics)--RPy2.html
 
 **Standard Library（标准库）**
@@ -73,7 +65,7 @@
 **Data Analysis**
 
   - [x] [pandas][pandas]：提供高性能，易用的数据结构和数据分析工具。
-  - [x] [pandas (for time series)][time series]: 时间序列数据处理工具。
+  - [x] [pandas (Time Series)][time series]: 时间序列数据处理工具。
   - [ ] blaze：:yellow_heart:NumPy 和 Pandas 的大数据接口。
   - [ ] orange：:yellow_heart:通过可视化编程或 Python 脚本进行数据挖掘，数据可视化，分析和机器学习。
 
@@ -107,7 +99,7 @@
 
 **Machine Learning**
 
-  - [x] [scikit-learn][scikit-learn]：基于 SciPy 构建的机器学习 Python 模块。
+  - [x] [sklearn][scikit-learn]：基于 SciPy 构建的机器学习 Python 模块。
   - [x] [statsmodels][statsmodels]：统计建模和计量经济学。
   - [ ] [xgboost][xgboost]： :yellow_heart:一种可扩展，可移植且分布式的渐变增强库
 
@@ -138,7 +130,6 @@
 
 **Documentation**
 
-  - [x] [Markdown编辑器推荐和语法(StackEdit)][mk]
   - [ ] MkDocs ： Markdown友好的文档生成器。
   - [ ] Python-Markdown2：纯 Python 实现的 Markdown 解析器，比 Python-Markdown 更快，更准确，可扩展
   - [ ] PyYAML： implementations for Python.

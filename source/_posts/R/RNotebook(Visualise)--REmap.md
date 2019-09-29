@@ -67,7 +67,7 @@ remapC(chinaIphone,
         markLineData = demoC,
         markPointData = demoC[,2])
 ```
-![](/images/remap_world.png)![](/images/remap_china.png)
+![](/images/echarts/remap_world.png)![](/images/echarts/remap_china.png)
 
 
 # 调用baiduAPI绘图
@@ -94,7 +94,7 @@ remapB(center = c(lon,lat)   #地图中心向量
 remapB(title = "Remap:  百度迁徙模拟", markPointData = demoC[,2])
 ```
 
-![](/images/baidumap.png)
+![](/images/echarts/baidumap.png)
 
 
 # For shiny

@@ -1,5 +1,5 @@
 ---
-title: R手册(Import)--for database
+title: R手册(Import)--DBI
 tags: [R,database,DBI]
 mathjax: false
 copyright: true

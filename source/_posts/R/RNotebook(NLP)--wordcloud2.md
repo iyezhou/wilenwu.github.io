@@ -1,10 +1,12 @@
- title: R手册(NLP)--wordcloud2
+---
+title: R手册(NLP)--wordcloud2
 tags: [R,NLP,wordcloud2,词云]
 mathjax: false
 copyright: true
 date: 2018-05-28 18:41:43
 categories: [R,NLP]
 sticky: false
+---
 
 **wordcloud2** :R interface to wordcloud for data visualization
 
@@ -14,9 +16,8 @@ Wordcloud2主要包括两个函数：
 
 <!-- more -->
 
-------
 
-**wordlcoud2函数**
+# wordlcoud2函数
 
 ```r
 wordcloud2(data, size = 1, minSize = 0, gridSize =  0,
@@ -26,6 +27,7 @@ wordcloud2(data, size = 1, minSize = 0, gridSize =  0,
     rotateRatio = 0.4, shape = 'circle', ellipticity = 0.65,
     widgetsize = NULL, figPath = NULL, hoverFunction = NULL)
 ```
+
 **参数**
 
 - data：包含每列中的word和freq的数据帧，按照word出现的顺序由内向外画图（可以按照freq降序美化wordcloud）。
@@ -64,13 +66,12 @@ wordcloud2(demoFreqC, size = 2, fontFamily = "微软雅黑",
 figPath = system.file("examples/t.png",package = "wordcloud2")
 wordcloud2(demoFreq, figPath = figPath, size = 1.5,color = "skyblue") 
 ```
-<img src="/images/Wordcloud1.png" style="zoom:50%;" /><img src="/images/Wordcloud2.png"  style="zoom:50%;" />
-<img src="/images/Wordcloud3.png" style="zoom:50%;" /><img src="/images/Wordcloud4.png"  style="zoom:50%;" />
-<img src="/images/Wordcloud5.png" style="zoom:50%;" />
 
--------
+<img src="/images/wordcloud2/Wordcloud1.png" style="zoom:50%;" /><img src="/images/wordcloud2/Wordcloud2.png"  style="zoom:50%;" />
+<img src="/images/wordcloud2/Wordcloud3.png" style="zoom:50%;" /><img src="/images/wordcloud2/Wordcloud4.png"  style="zoom:50%;" />
+<img src="/images/wordcloud2/Wordcloud5.png" style="zoom:50%;" />
 
-**letterCloud函数**
+# letterCloud函数
 
 ```r
 letterCloud(data, word, wordSize = 0, letterFont = NULL, ...)
@@ -86,11 +87,11 @@ letterCloud(data, word, wordSize = 0, letterFont = NULL, ...)
 ```r
 letterCloud(demoFreq, word = "WORDCLOUD2", wordSize = 1)
 ```
-![](/images/Wordcloud6.png)
 
-------
+![](/images/wordcloud2/Wordcloud6.png)
 
-**shiny支持**
+
+# shiny支持
 
 See Example:
 ```r

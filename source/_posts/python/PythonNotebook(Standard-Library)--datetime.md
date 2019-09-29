@@ -1,6 +1,6 @@
 ---
 ID: dafd70d96c47829db96c90f613a5c636
-title: Python手册(Standard Library)--日期和时间
+title: Python手册(Standard Library)--datetime+time+calendar
 tags: [python,datetime,time,calendar,日期和时间]
 mathjax: false
 copyright: true
@@ -220,7 +220,6 @@ fold|
 | tm_wday | 0到6 (0是周一)|
 | tm_yday | 1 到 366|
 | tm_isdst| 1(夏令时)0(不是夏令时)-1(未知)  |
-
 
 ----------
 

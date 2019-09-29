@@ -14,7 +14,7 @@ sticky: false
 
 <!-- more -->
 
-![figure](/images/figure.png)
+![figure](/images/matplotlib/figure.png)
 
 
 # Pyplot
@@ -45,7 +45,7 @@ import matploblib.pyplot as plt
 ```
 
 ## Figure and Axes
-![figure2](/images/figure2.png)
+![figure2](/images/matplotlib/figure2.png)
 一般通过`get_<part>`方法获得组件属性，`set_<part>`方法重设组件。
 
 ## Create Figure
@@ -84,7 +84,7 @@ ax4 = plt.subplot2grid((3,3), (2, 0))
 ax5 = plt.subplot2grid((3,3), (2, 1))  
 plt.suptitle("subplot2grid")  
 ```
-![subplot2grid](/images/subplot2grid.png)
+![subplot2grid](/images/matplotlib/subplot2grid.png)
 
 **plt.subplots**
 `plt.subplots(nrows=1, ncols=1, sharex=False, sharey=False,...)` Create a figure and a set of subplots
@@ -135,7 +135,7 @@ axes[1,0].axhline(0.5)
 axes[0,1].fill(x,y,color='blue')
 axes[1,1].fill_between(x,y,color='yellow')
 ```
-![图形](/images/img.png)
+![图形](/images/matplotlib/img.png)
 
 ```python
 import numpy as np
@@ -152,7 +152,7 @@ C = plt.contour(X, Y, Height, 8,colors = 'black') # 绘制等高线
 plt.clabel(C, inline = True, fontsize = 10) # 显示各等高线的数据标签
 plt.show()
 ```
-![等高线](/images/contourf.png)
+![等高线](/images/matplotlib/contourf.png)
 
 ## Parts of Axes
 
@@ -287,7 +287,7 @@ ax.set_title('Lagrange Mean Value Theorem',fontsize=15)
 
 plt.show()
 ```
-![拉格朗日中值定理](/images/lagrange.png)
+![拉格朗日中值定理](/images/matplotlib/lagrange.png)
 
 # Patches
 ```python
@@ -333,7 +333,7 @@ ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.viridis)
 plt.show()
 ```
 
-![3D](/images/3d.png)
+![3D](/images/matplotlib/3d.png)
 
 # Animation
 ```python

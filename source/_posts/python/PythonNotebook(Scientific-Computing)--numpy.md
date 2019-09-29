@@ -1,6 +1,6 @@
 ---
 ID: d859260c0fe970ebc86a3d154f116ebe
-title: Python手册(Scientific Computing)--numpy
+title: Python手册(Scientific Computing)--NumPy
 tags: [python,numpy,科学计算,随机]
 mathjax: false
 copyright: true

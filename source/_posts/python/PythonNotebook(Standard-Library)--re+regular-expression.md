@@ -1,6 +1,6 @@
 ---
 ID: 8a6b0cdf655c25dd3f11e361fcc8a0a8
-title: Python手册(Standard Library)--re & regular expression
+title: Python手册(Standard Library)--re+正则表达式
 tags: [python,标准库,re,正则表达式]
 mathjax: false
 copyright: true
@@ -49,7 +49,7 @@ re.finditer(pattern, string,  flags=0)# 类似findall，返回迭代器
 
 
  ## flags标志
- 
+
 | flags |说明|
 | ------------- | ------------- |
 | re.I | 使匹配对大小写不敏感 |
@@ -58,7 +58,6 @@ re.finditer(pattern, string,  flags=0)# 类似findall，返回迭代器
 | re.S | 使.(dot)匹配所有字符，包括换行  |
 | re.U | Unicode字符集解析  |
 | re.X ||
-
 
 ----------
 
