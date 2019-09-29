@@ -67,9 +67,7 @@ figPath = system.file("examples/t.png",package = "wordcloud2")
 wordcloud2(demoFreq, figPath = figPath, size = 1.5,color = "skyblue") 
 ```
 
-<img src="/images/wordcloud2/Wordcloud1.png" style="zoom:50%;" /><img src="/images/wordcloud2/Wordcloud2.png"  style="zoom:50%;" />
-<img src="/images/wordcloud2/Wordcloud3.png" style="zoom:50%;" /><img src="/images/wordcloud2/Wordcloud4.png"  style="zoom:50%;" />
-<img src="/images/wordcloud2/Wordcloud5.png" style="zoom:50%;" />
+<img src="/images/wordcloud2/Wordcloud1.png" style="zoom:50%;" /><img src="/images/wordcloud2/Wordcloud2.png"  style="zoom:50%;" /><img src="/images/wordcloud2/Wordcloud3.png" style="zoom:50%;" /><img src="/images/wordcloud2/Wordcloud4.png"  style="zoom:50%;" /><img src="/images/wordcloud2/Wordcloud5.png" style="zoom:50%;" />
 
 # letterCloud函数
 
