@@ -1,6 +1,5 @@
 ---
-
-title: R手册(Visualise)--ggplot2 (Part 2)
+title: R手册(Visualise)--ggplot2 (II)
 tags: [R]
 mathjax: false
 copyright: true
