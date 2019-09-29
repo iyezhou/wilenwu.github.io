@@ -1,4 +1,5 @@
 ---
+ID: 3bbb4331dce898699a6b620e8164d3af
 title: R手册(Machine Learning)--mlr
 tags: [R,mlr,机器学习]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-04 01:08:17
 categories: [R,Machine Learning]
 sticky: false
 ---
-
 ![mlr](/images/mlr.png)
 
 [R手册(Machine Learning)--mlr (I)][p1]

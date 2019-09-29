@@ -1,4 +1,5 @@
 ---
+ID: 19e03f0c094e5f23c7b1938746efa7a7
 
 title: R手册(Parallel Computing)--foreach
 tags: [R,foreach,并行运算]
@@ -8,7 +9,6 @@ date: 2018-05-04 00:34:33
 categories: [R,Parallel Computing]
 sticky: false
 ---
-
 foreach为R语言并行运算包
 
 <!-- more -->

@@ -1,4 +1,5 @@
 ---
+ID: 757f3b7958576ded4799579e50e6d65e
 title: R手册(Visualise)--RColorBrewer and extrafont
 tags: [R,RColorBrewer,extrafont,调色板,字体]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-03 22:16:10
 categories: [R,Visualise]
 sticky: false
 ---
-
 # RColorBrewer：调色板
 
 RColorBrewer是一个R包，使用网站 http://colorbrewer2.org/ 提供的颜色。

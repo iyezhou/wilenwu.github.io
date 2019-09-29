@@ -1,4 +1,5 @@
 ---
+ID: 262471c6cc5c287729e86615692f08e5
 title: R手册(NLP)--jiebaR
 tags: [R,jiebaR,NLP,分词]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-04 17:43:15
 categories: [R,NLP]
 sticky: false
 ---
-
 R语言词云和中文词典包。
 
 <!-- more -->

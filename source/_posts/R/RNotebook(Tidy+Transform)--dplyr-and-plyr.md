@@ -1,4 +1,5 @@
 ---
+ID: 88ae4d3eb130e21d512bd653032420a2
 title: R手册(Tidy+Transform)--dplyr and plyr
 tags: [R,数据清洗,dplyr,plyr]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-01 20:01:45
 categories: [R,Tidy+Transform]
 sticky: false
 ---
-
 dplyr: A Grammar of Data Manipulation
 A fast, consistent tool for working with data frame like objects, both in memory and out of memory.
 

@@ -1,4 +1,5 @@
 ---
+ID: 186c177fbbb58b650cc4beb19587e69d
 title: R手册(Common)--tidyverse+tibble
 tags: [R]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-04-30 22:07:52
 categories: [R,Common]
 sticky: false
 ---
-
 tidyverse是一系列包的组合，构建了一套完整的数据分析生态链，提供了一套整洁的数据导入，分析和建模方法，刷新了R语言原有的数据科学体系。
 
 ![tidyverse](/images/tidyverse.png)

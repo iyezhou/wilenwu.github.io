@@ -1,4 +1,5 @@
 ---
+ID: 168b7402946f2e7d5650790be4ca8226
 title: R手册(Tidy+Transform)--正则表达式
 tags: [R,正则表达式]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-01 18:26:12
 categories: [R,Tidy+Transform]
 sticky: false
 ---
-
 **普通字符**：普通字符包括没有显式指定为元字符的所有可打印和不可打印字符。可直接匹配自身。
 **元字符**：元字符加斜杠\匹配自身(在R中斜杠为`\\`，匹配`+`应写为`\\+`
 

@@ -1,4 +1,5 @@
 ---
+ID: ab8ec05998a2fb5954b82d3f3d89a886
 title: R手册(Time Series)--forecast and prophet
 tags: [R,orecast,prophet,时间序列]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-04 17:02:36
 categories: [R,Time Series]
 sticky: false
 ---
-
 时间序列分析(Time-Series Analysis)是指将原来的数据分解为四部分来看——趋势、周期、时期和不稳定因素， 然后综合这些因素， 提出预测。
 
 <!-- more -->

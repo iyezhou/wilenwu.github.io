@@ -37,9 +37,9 @@ https://blog.csdn.net/qq_41518277/article/details/80247851
   - [ ] [os][os]: :yellow_heart:文件和目录处理库([CSDN][csdn_os]参考链接)
   - [ ] [asyncio][asyncio]: 内置了对异步IO的支持 
 
-[datetime]: https://blog.csdn.net/qq_41518277/article/details/80261023
-[math]: https://blog.csdn.net/qq_41518277/article/details/80261109
-[re]: https://blog.csdn.net/qq_41518277/article/details/80261283
+[datetime]: https://wilenwu.github.io/posts/python/PythonNotebook(Standard-Library)--datetime.html
+[math]: https://wilenwu.github.io/posts/python/PythonNotebook(Standard-Library)--math+random.html
+[re]: https://wilenwu.github.io/posts/python/PythonNotebook(Standard-Library)--re+regular-expression.html
 [tk]: http://www.runoob.com/python/python-gui-tkinter.html
 [threading]: http://www.runoob.com/python3/python3-multithreading.html
 [mul]: http://python.jobbole.com/87760/
@@ -103,7 +103,7 @@ https://blog.csdn.net/qq_41518277/article/details/80247851
   - [x] [statsmodels][statsmodels]：统计建模和计量经济学。
   - [ ] [xgboost][xgboost]： :yellow_heart:一种可扩展，可移植且分布式的渐变增强库
 
-[scikit-learn]: https://blog.csdn.net/qq_41518277/article/details/80275241
+[scikit-learn]: https://wilenwu.github.io/posts/python/PythonNotebook(Machine-Learning)--sklearn.html
 [statsmodels]: https://blog.csdn.net/qq_41518277/article/details/80275280
 [xgboost]: http://xgboost.apachecn.org/#/
 

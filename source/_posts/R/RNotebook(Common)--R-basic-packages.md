@@ -1,4 +1,5 @@
 ---
+ID: bc07efdb6832af4578bc9968bb8c5787
 title: R手册(Common)--R语言基础包
 tags: [R,base,stats,基础包]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-04-30 17:22:51
 categories: [R,Common]
 sticky: false
 ---
-
 R语言基础包：`base, stats`
 
 <!-- more -->

@@ -1,4 +1,5 @@
 ---
+ID: 52cf326043a3c64c94c69027b0e8171a
 title: R手册(Syntax)--magrittr and purrr
 tags: [R,magrittr,purrr,管道]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-02 00:46:17
 categories: [R,Syntax]
 sticky: false
 ---
-
 **magrittr**:  pipe
 **purrr** : A functional programming(FP) toolkit for R
 

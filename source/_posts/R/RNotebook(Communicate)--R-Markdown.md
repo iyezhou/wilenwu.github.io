@@ -1,4 +1,5 @@
 ---
+ID: bda5cf0d070290c4d587c5a3a729b7bd
 title: R手册(Communicate)--R Markdown
 tags: [R,markdown]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-04-30 15:45:28
 categories: [R,Communicate]
 sticky: false
 ---
-
 R Markdown是通过R语言制作动态文档的文件格式
  Cheat Sheet：[R Markdown](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 

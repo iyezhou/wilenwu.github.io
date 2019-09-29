@@ -1,4 +1,5 @@
 ---
+ID: 39ef142e1b7cbb12e245c59a99c60fe6
 title: R手册(Visualise)--ggmap+baidumap
 tags: [R,ggmap,baidumap,地图]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-03 23:25:52
 categories: [R,Visualise]
 sticky: false
 ---
-
 # ggmap
 
 ggmap可以轻松地从流行的在线地图服务（如Google Maps， OpenStreetMap，Stamen Maps）获得地图图块，并使用ggplot2绘制**静态地图**。

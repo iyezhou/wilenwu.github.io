@@ -1,4 +1,5 @@
 ---
+ID: b6502175e60473c83b94636761ca6f6a
 title: R手册(NLP)--text2vec
 tags: [R,text2vec,NLP,分词]
 mathjax: false
@@ -7,8 +8,6 @@ date: 2018-05-28 18:44:11
 categories: [R,NLP]
 sticky: false
 ---
-
-
 [**text2vec**][t2v] 这个 R 包提供了高性能和简洁的 API 来进行文本分析、自然语言处理。
 
 [t2v]: https://cndocr.github.io/text2vec-doc-cn/index.html

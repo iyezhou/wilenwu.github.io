@@ -18,12 +18,12 @@
   - [ ] devtools：❤使开发R包变得更简单(Hadley) (Update according to [cheat sheets][sheet])
   - [ ] [rpy2][rpy2]：❤Python 通过rpy2调用 R语言
 
-[basic]: https://blog.csdn.net/qq_41518277/article/details/80464319
-[base]: https://blog.csdn.net/qq_41518277/article/details/80150625
-[tidyverse]: https://blog.csdn.net/qq_41518277/article/details/80152636
-[data.table]: https://blog.csdn.net/qq_41518277/article/details/80158005
+[basic]: https://wilenwu.github.io/posts/R/RNotebook(Common)--R-base.html
+[base]: https://wilenwu.github.io/posts/R/RNotebook(Common)--R-basic-packages.html
+[tidyverse]: https://wilenwu.github.io/posts/R/RNotebook(Common)--tidyverse+tibble.html
+[data.table]: https://wilenwu.github.io/posts/R/RNotebook(Common)--data.table.html
 [R6]: https://blog.csdn.net/qq_41518277/article/details/80158036
-[rpy2]: https://blog.csdn.net/qq_41518277/article/details/85226955
+[rpy2]: https://wilenwu.github.io/posts/python/PythonNotebook(Python-Basics)--RPy2.html
 
 
 # Syntax
@@ -55,7 +55,7 @@
   - [ ] [DBI][DBI]：❤数据库统一接口(Hadley)
   - [ ] RHive：❤通过Apache Hive促进分布式计算的R扩展
 
-[DBI]: https://blog.csdn.net/qq_41518277/article/details/80158078
+[DBI]: https://wilenwu.github.io/posts/R/RNotebook(Import)--DBI.html
 
 *WEB TECHNOLOGIES*
 
@@ -65,7 +65,7 @@
   - [x]  xml2：解析XML文件 (Hadley)  (Update according to GitHub)
 
 [httr]: https://blog.csdn.net/qq_41518277/article/details/80158123
-[rvest]: https://blog.csdn.net/qq_41518277/article/details/80158123
+[rvest]: https://wilenwu.github.io/posts/R/RNotebook(Import)--rvest.html
 
 # Tidy+Transform
 
@@ -84,13 +84,13 @@
   - [x] [naniar][naniar]：缺失数据概述和可视化
   - [x] [simputation][simputation]：缺失数据插补框架
 
-[tidyr]: https://blog.csdn.net/qq_41518277/article/details/80484244
+[tidyr]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--tidyr.html
 [dplyr]: https://blog.csdn.net/qq_41518277/article/details/80159020
-[stringr]: https://blog.csdn.net/qq_41518277/article/details/80160592
-[re]: https://blog.csdn.net/qq_41518277/article/details/80158351
+[stringr]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--stringr.html
+[re]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--regular-expression.html
 [lubridate]: https://blog.csdn.net/qq_41518277/article/details/80160857
 [hms]: https://blog.csdn.net/qq_41518277/article/details/80160857
-[forcats]: https://blog.csdn.net/qq_41518277/article/details/80484269
+[forcats]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--forcats.html
 [naniar]: https://blog.csdn.net/qq_41518277/article/details/80161089
 [simputation]: https://blog.csdn.net/qq_41518277/article/details/80161089
 
@@ -112,8 +112,8 @@
   - [x] [ggplot2 extensions][ggplot2 extensions]: ggplot2扩展，包括各种补充图形，坐标系统，主题等。
 
 [extrafont]: https://blog.csdn.net/qq_41518277/article/details/80188194
-[ggplot2]: https://blog.csdn.net/qq_41518277/article/details/80182022
-[ggmap]: https://blog.csdn.net/qq_41518277/article/details/80188948
+[ggplot2]: https://wilenwu.github.io/posts/R/RNotebook(Visualise)--ggplot2.html
+[ggmap]: https://wilenwu.github.io/posts/R/RNotebook(Visualise)--ggmap+baidumap.html
 [ggplot2 extensions]: http://www.ggplot2-exts.org/ggiraph.html
 
 *HTML WIDGETS*
@@ -125,14 +125,14 @@
   - [ ] rbokeh：R与Bokeh的接口。
   - [ ] plotly：❤R的交互式图形库，基于ggplot2 和shiny。
 
-[leaflet+leafletCN]: https://blog.csdn.net/qq_41518277/article/details/80189247
-[Remap]: https://blog.csdn.net/qq_41518277/article/details/80537172
+[leaflet+leafletCN]: https://wilenwu.github.io/posts/R/RNotebook(Visualise)--leaflet+leafletCN.html
+[Remap]: https://wilenwu.github.io/posts/R/RNotebook(Visualise)--REmap.html
 
 # Parallel Computing
 
   - [ ] [foreach][foreach]：❤在循环(loop)中并行化运算
 
-[foreach]: https://blog.csdn.net/qq_41518277/article/details/80189348
+[foreach]: https://wilenwu.github.io/posts/R/RNotebook(Parallel-Computing)--foreach.html
 
 # MapReduce
 
@@ -158,7 +158,7 @@
   - [ ] survival：生存分析模型
   - [ ] nnet：神经网络
 
-[mlr]: https://blog.csdn.net/qq_41518277/article/details/80189427
+[mlr]: https://wilenwu.github.io/posts/R/RNotebook(Machine-Learning)--mlr.html
 
 
 # Deep Learning
@@ -177,9 +177,9 @@
   - [ ] tidytex：❤简单文本挖掘，结合dplyr，ggplot2和其他简洁工具
   - [x] [text2vec][text2vec]：一个快速文本挖掘框架（jiebaR推荐包） (Update according to GitHub)
 
-[jiebaR]: https://blog.csdn.net/qq_41518277/article/details/80198407
-[wordcloud2]: https://blog.csdn.net/qq_41518277/article/details/80486990
-[text2vec]: https://blog.csdn.net/qq_41518277/article/details/80487013
+[jiebaR]: https://wilenwu.github.io/posts/R/RNotebook(NLP)--jiebaR.html
+[wordcloud2]: https://wilenwu.github.io/posts/R/RNotebook(NLP)--wordcloud2.html
+[text2vec]: https://wilenwu.github.io/posts/R/RNotebook(NLP)--text2vec.html
 
 # Time Series
 
@@ -211,7 +211,7 @@
 
 [rmarkdown]: https://blog.csdn.net/qq_41518277/article/details/80149789
 [mk]: https://blog.csdn.net/qq_41518277/article/details/80149002
-[shiny]: https://blog.csdn.net/qq_41518277/article/details/80428273
+[shiny]: https://wilenwu.github.io/posts/R/RNotebook(Communicate)--shiny.html
 
 # Others
 

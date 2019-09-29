@@ -1,4 +1,5 @@
 ---
+ID: 5f0d539f9a62ccf11baac51b8b948686
 title: R手册(Common)--data.table
 tags: [R,data.table]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-01 17:32:24
 categories: [R,Common]
 sticky: false
 ---
-
 R语言data.table包是自带包data.frame的升级版，用于数据框格式数据的处理，最大的特点快。
 包括两个方面，一方面是写的快，代码简洁，只要一行命令就可以完成诸多任务。
 另一方面是处理快，内部处理的步骤进行了程序上的优化，使用多线程，甚至很多函数是使用C写的，大大加快数据运行速度。因此，在对大数据处理上，使用data.table无疑具有极高的效率。

@@ -1,4 +1,5 @@
 ---
+ID: 55168f393f3ebb573995f516e38947c0
 title: 数据分析理论概览
 tags: [数据分析]
 mathjax: true
@@ -7,7 +8,6 @@ date: 2018-05-09 21:31:41
 categories: [Data Analysis]
 sticky: false
 ---
-
 数据分析术语的简单说明
 
 <!-- more -->

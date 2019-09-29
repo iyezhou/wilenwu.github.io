@@ -1,4 +1,5 @@
 ---
+ID: c0b20960bde2acb9d0731aebb9d2a8fb
 title: R手册(Visualise)--ggplot2
 tags: [R,ggplot2]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-03 16:26:14
 categories: [R,Visualise]
 sticky: false
 ---
-
 # Overview
 
 [ggplot2](http://ggplot2.tidyverse.org/) 基于**the grammar of graphics**思想，通过数据集、几何对象和坐标系统建立图形。

@@ -1,4 +1,5 @@
 ---
+ID: 8e8caf4837eb0cbdf947fb5ab876e402
 title: 二分类模型评价指标
 tags: [数据分析,二分类,混淆矩阵,ROC曲线]
 mathjax: true
@@ -7,7 +8,6 @@ date: 2018-09-16 12:07:49
 categories: [Data Analysis]
 sticky: false
 ---
-
 - **混淆矩阵**
 混淆矩阵(Confusion Matrix)也称误差矩阵，是表示精度评价的一种标准格式。
 

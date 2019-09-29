@@ -1,4 +1,5 @@
 ---
+ID: a296ec8f1cfcbeefff30974c495436c8
 title: 大数据手册(Spark)--Spark安装配置
 tags: [大数据,Spark]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-06-24 21:52:29
 categories: [Big Data]
 sticky: false
 ---
-
 Apache Spark 是专为大规模数据处理而设计的快速通用的计算引擎。
 
     Spark 是一种与 Hadoop 相似的开源集群计算环境，但是两者之间还存在一些不同之处，这些有用的不同之处使 Spark 在某些工作负载方面表现得更加优越，换句话说，Spark 启用了内存分布数据集，除了能够提供交互式查询外，它还可以优化迭代工作负载。

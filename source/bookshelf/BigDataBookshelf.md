@@ -32,8 +32,8 @@
 - [x] [HiveQL][HiveQL]
 - [ ] RHive：Apache Hive促进分布式计算的R扩展
 
-[sql]: sql
-[HiveQL]: https://blog.csdn.net/qq_41518277/article/details/80902191
+[sql]: https://wilenwu.github.io/posts/big-data/SQLNotebook.html
+[HiveQL]: https://wilenwu.github.io/posts/big-data/BigDataNotebook(Hive)--HiveQL.html
 [hivebasic]: https://blog.csdn.net/zhongqi2513/article/details/69388239
 
 **Spark**
@@ -46,6 +46,6 @@
 - [x] [PySpark][PySpark] : Apache Spark Python API
 - [ ] [Akka][akka]：Akka并发编程
 
-[spark]: https://blog.csdn.net/qq_41518277/article/details/80795049
+[spark]: https://wilenwu.github.io/posts/big-data/BigDataNotebook(Spark)--Spark-installation.html
 [akka]: https://blog.csdn.net/lovehuangjiaju/article/details/51039985
 [PySpark]: https://blog.csdn.net/qq_41518277/article/details/96487035

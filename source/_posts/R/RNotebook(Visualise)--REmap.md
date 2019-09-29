@@ -1,4 +1,5 @@
 ---
+ID: 72a689c6504caa9db44e4f114cb3b23a
 title: R手册(Visualise)--REmap
 tags: [R,REmap,地图]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-06-01 14:24:23
 categories: [R,Visualise]
 sticky: false
 ---
-
 **REmap**:（简单动态地图）Create html maps by Echarts
 
 REmap是一个基于Echarts http://echarts.baidu.com 的一个R包.主要的目的是为广大数据玩家提供一个简便的,可交互的地图数据可视化工具.目前托管在github, https://github.com/lchiffon/REmap

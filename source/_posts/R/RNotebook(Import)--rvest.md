@@ -1,4 +1,5 @@
 ---
+ID: 46266b3c282a41b71bae70d35c6021f4
 title: R手册(Import)--rvest
 tags: [R,rvest,爬虫]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-01 17:49:56
 categories: [R,Import]
 sticky: false
 ---
-
 rvest: Simple web scraping for R
 
 <!-- more -->

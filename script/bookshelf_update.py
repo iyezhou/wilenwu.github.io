@@ -15,10 +15,13 @@ def clean_inline(line):
         key=line[:-1] if line.endswith(':') else line
         return key.strip(' '),None
     elif len(key_value)==2:
-        line=re.sub('(?<=: )\[|\]$','',line)
-        line=re.split(': |,',line)
-        key=line[0]
-        value=[i.strip(' ') for i in line[1:] if not i.isspace()]
+        key,value=key_value
+        if re.search('\[.*\]',value) is not None:     
+            value=re.sub('[\[\]]','',value)
+            value=re.split(',',value)
+            value=[i.strip(' ') for i in value if not i.isspace()]
+        else:
+            value=[value]
     
     value_is_list=['categories','tags']
     value=value if key.lower() in value_is_list or len(value)>1 else value[0]
@@ -52,7 +55,7 @@ def clean(content,YAML=True):
     
     lines=[split_span(i) for i in spans]  
     content_dict={}
-    for line in lines:
+    for line in lines:   # line=lines[2]
         if len(line)==1:
             line=line[0]
             key,value=clean_inline(line)
@@ -81,7 +84,7 @@ def get_post_info(post_url,updateID=False):
     YAML=re.search(pattern,post,re.DOTALL).group()  # 匹配YAML
     front_matter=re.sub(boundary,'',YAML)    # 删除起始标记    
     
-    yaml_dict=clean(front_matter)
+    yaml_dict=clean(front_matter) # content=front_matter
     ID=yaml_dict['date'].encode(encoding='UTF-8')
     yaml_dict['ID']=hashlib.md5(ID).hexdigest()
     
@@ -185,14 +188,19 @@ for url, dirs, files in os.walk(posts_dir,topdown=False):
 post_info=pd.DataFrame(post_info)
 post_info.to_csv(os.path.join(root,'script','post_info'),sep='\t',encoding='utf-8')
 
-# 更新bookshelf    
-books=['PythonBookshelf.md']
-books=[os.path.join(source_dir,'bookshelf',book) for book in books]
+# url='source/_posts/R'
+# post_name='RNotebook(Import)--read-csv-xlsx-or-json.md'
+
+# 更新bookshelf
+os.chdir(os.path.join(source_dir,'bookshelf'))
+books=os.listdir()
+
+#path='PythonBookshelf.md'
 
 for path in books:
     with open(path,'r',encoding='utf-8') as f:
         book=f.read()        
-        maps=maps_collect(book,website,permalink,post_info)
-        newbook=bookshelf_update(book,maps)
+    maps=maps_collect(book,website,permalink,post_info)
+    newbook=bookshelf_update(book,maps)
     with open(path,'w',encoding='utf-8') as f:
         f.writelines(newbook)

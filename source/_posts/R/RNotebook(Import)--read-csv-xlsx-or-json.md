@@ -1,4 +1,5 @@
 ---
+ID: 5314cb2b58df7fcc17603b67989dc8ab
 title: R手册(Import)--for csv, xlsx and json
 tags: [R,csv,xlsx,json,readr]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-01 17:40:30
 categories: [R,Import]
 sticky: false
 ---
-
 R语言导入常用文件的包
 
 - readr: 可读取文本型文件

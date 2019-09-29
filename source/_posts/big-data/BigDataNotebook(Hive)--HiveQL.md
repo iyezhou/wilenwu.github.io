@@ -1,4 +1,5 @@
 ---
+ID: 93a63169509ac11fd77c443d5c8633e3
 title: 大数据手册(Hive)--HiveQL
 tags: [大数据,hive,SQL,hiveQL]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-07-03 17:57:36
 categories: [Big Data]
 sticky: true
 ---
-
 Hive是一个数据仓库基础工具，在Hadoop中用来处理结构化数据。
 
 <!-- more -->

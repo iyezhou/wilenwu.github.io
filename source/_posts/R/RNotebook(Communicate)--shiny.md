@@ -1,4 +1,5 @@
 ---
+ID: 0fe5dfb16482659f111fe9e47fbb1386
 title: R手册(Communicate)--shiny
 tags: [R,shiny]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-23 23:44:24
 categories: [R,Communicate]
 sticky: false
 ---
-
 Shiny是来自RStudio的软件包，它使得用R构建交互式Web应用程序变得非常简单。
 
 <!-- more -->

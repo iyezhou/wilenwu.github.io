@@ -1,4 +1,5 @@
 ---
+ID: e9159e236fc5a451035f6cf278723e0d
 title: SQL手册
 tags: [数据库,SQL]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-07-04 15:33:56
 categories: [Big Data]
 sticky: false
 ---
-
 结构化查询语言(Structured Query Language)简称SQL，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统。
 
 <!-- more -->

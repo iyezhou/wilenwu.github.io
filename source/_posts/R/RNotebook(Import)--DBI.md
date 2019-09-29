@@ -1,4 +1,5 @@
 ---
+ID: a01f20a958206ca8e2e17f762a7fe048
 title: R手册(Import)--DBI
 tags: [R,database,DBI]
 mathjax: false
@@ -7,9 +8,6 @@ date: 2018-05-01 17:42:54
 categories: [R,Import]
 sticky: false
 ---
-
-
-
 # DBI: definition for communication between R and RDBMSs
 
 DBI只使用 "front-end" API  ,通过调用”drivers”（其他包）与特定的 DBMSs (SQLite, MySQL, PostgreSQL, MonetDB, etc.) 通信 

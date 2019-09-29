@@ -1,4 +1,5 @@
 ---
+ID: d5d0cbbdefbe44f680526a0de67493a1
 title: R手册(Tidy+Transform)--forcats
 tags: [R,forcats,factor]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-28 16:35:03
 categories: [R,Tidy+Transform]
 sticky: false
 ---
-
 forcats: 分类变量数据处理
 
 <!-- more -->

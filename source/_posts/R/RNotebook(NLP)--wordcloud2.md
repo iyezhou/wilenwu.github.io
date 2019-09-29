@@ -1,4 +1,5 @@
 ---
+ID: 79f604db157ddd75a6cc4c8ddfade5a6
 title: R手册(NLP)--wordcloud2
 tags: [R,NLP,wordcloud2,词云]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-28 18:41:43
 categories: [R,NLP]
 sticky: false
 ---
-
 **wordcloud2** :R interface to wordcloud for data visualization
 
 Wordcloud2主要包括两个函数：

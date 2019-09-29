@@ -1,4 +1,5 @@
 ---
+ID: 589616204baeea3eca57bb16d1dc706f
 title: R手册(Tidy+Transform)--缺失数据处理(naniar and simputation)
 tags: [R,naniar,simputation,缺失值]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-01 23:37:57
 categories: [R,Tidy+Transform]
 sticky: false
 ---
-
 缺失值是指粗糙数据中由于缺少信息而造成的数据的聚类、分组、删失或截断。它指的是现有数据集中某个或某些属性的值是不完全的。
 
 缺失值从缺失的分布来讲可以分为完全随机缺失，随机缺失和完全非随机缺失。

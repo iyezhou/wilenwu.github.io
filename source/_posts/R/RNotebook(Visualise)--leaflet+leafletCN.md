@@ -1,4 +1,5 @@
 ---
+ID: 686bd1f02ac4bda72982ed799e4437e4
 title: R手册(Visualise)--leaflet+leafletCN
 tags: [R,leaflet,leafletCN,交互地图]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-04 00:13:03
 categories: [R,Visualise]
 sticky: false
 ---
-
 ![leaflet](/images/leaflet/logo.png)
 
 # leaflet

@@ -1,4 +1,5 @@
 ---
+ID: 3a5d91e9124d3889c9afef5c3e331c0d
 title: R手册(Tidy+Transform)--tidyr
 tags: [R,tidyr,数据清洗]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-28 16:33:39
 categories: [R,Tidy+Transform]
 sticky: false
 ---
-
 **tidyr**: Easily tidy data with spread and gather functions.
 
 <!-- more -->

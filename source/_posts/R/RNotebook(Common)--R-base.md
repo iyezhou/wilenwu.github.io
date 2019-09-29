@@ -1,4 +1,5 @@
 ---
+ID: d63f409e73e6e065eac6f193b98c1e79
 title: R手册(Common)--R语言入门
 tags: [R,基础]
 mathjax: false
@@ -7,7 +8,6 @@ date: 2018-05-26 19:29:50
 categories: [R,Common]
 sticky: false
 ---
-
 **说明：**本节中大部分内容摘自书籍《R语言实战（第2版）》
 
 <!-- more -->

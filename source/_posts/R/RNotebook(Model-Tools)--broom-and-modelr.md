@@ -1,4 +1,5 @@
 ---
+ID: d6f62644a1e9e76424deca9f72f3d51f
 title: R手册(Model Tools)--broom and modelr
 tags: [R,broom,modelr]
 mathjax: false
@@ -7,8 +8,6 @@ date: 2018-05-04 00:43:40
 categories: [R,Model Tools]
 sticky: false
 ---
-
-
 broom: 数据清洗工具
 modelr: 辅助管道建模工具
 
