@@ -64,7 +64,7 @@
 <meta property="og:site_name" content="Wilen&#39;s Blog">
 <meta property="og:description" content="Seaborn是基于matplotlib的Python可视化库。它提供了一个高级界面来绘制有吸引力的统计图形。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-18T10:48:22.371Z">
+<meta property="og:updated_time" content="2019-09-29T06:55:54.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python手册(Visualise)--seaborn">
 <meta name="twitter:description" content="Seaborn是基于matplotlib的Python可视化库。它提供了一个高级界面来绘制有吸引力的统计图形。">
@@ -192,7 +192,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">51</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">112</span></a>
 
   </li>
       
@@ -205,7 +205,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">9</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">23</span></a>
 
   </li>
       
@@ -218,7 +218,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">30</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">58</span></a>
 
   </li>
       
@@ -351,7 +351,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-18 18:48:22" itemprop="dateModified" datetime="2019-09-18T18:48:22+08:00">2019-09-18</time>
+                <time title="修改时间：2019-09-29 14:55:54" itemprop="dateModified" datetime="2019-09-29T14:55:54+08:00">2019-09-29</time>
               </span>
             
           
@@ -433,15 +433,13 @@
         <p><strong>Seaborn</strong>是基于matplotlib的Python可视化库。它提供了一个高级界面来绘制有吸引力的统计图形。</p>
 <a id="more"></a>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><a href="https://blog.csdn.net/ice_martin/article/details/61617053" target="_blank" rel="noopener">Matplotlib进阶：Seaborn教程</a></p>
-</blockquote>
+<p>参考链接：<a href="https://blog.csdn.net/ice_martin/article/details/61617053" target="_blank" rel="noopener">Matplotlib进阶：Seaborn教程</a></p>
 <h2 id="style-frontend前端样式"><a class="markdownIt-Anchor" href="#style-frontend前端样式"></a> Style frontend(前端样式)</h2>
 <p>Seaborn将matplotlib参数分成两个独立的组。第一组设定美学样式，第二组规定图形的各种元素，以便它可以很容易地融入不同的情境。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left"><strong>美学样式</strong></th>
+<th style="text-align:left">美学样式</th>
 <th style="text-align:left"></th>
 </tr>
 </thead>
@@ -505,7 +503,7 @@ desat : float, optional</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left"><strong>分类调色板</strong></th>
+<th style="text-align:left">分类调色板</th>
 <th style="text-align:left"></th>
 </tr>
 </thead>
@@ -573,7 +571,7 @@ desat : float, optional</p>
 </tbody>
 </table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分类</span></span><br><span class="line">sns.palplot(sns.color_palette(<span class="string">"husl"</span>, <span class="number">8</span>))</span><br><span class="line">sns.palplot(sns.color_palette(<span class="string">"Set2"</span>, <span class="number">10</span>))</span><br><span class="line">colors = [<span class="string">"windows blue"</span>, <span class="string">"amber"</span>, <span class="string">"greyish"</span>, <span class="string">"faded green"</span>, <span class="string">"dusty purple"</span>]</span><br><span class="line">sns.palplot(sns.xkcd_palette(colors))</span><br><span class="line"><span class="comment"># 连续</span></span><br><span class="line">sns.palplot(sns.color_palette(<span class="string">"GnBu_d"</span>))</span><br><span class="line"><span class="comment"># 发散</span></span><br><span class="line">sns.palplot(sns.color_palette(<span class="string">"coolwarm"</span>, <span class="number">7</span>))</span><br></pre></td></tr></table></figure>
-<p><img alt="colors" data-src="/images/color.png"></p>
+<p><img alt="colors" data-src="/images/matplotlib/color.png"></p>
 <h2 id="distribution-plots分布图"><a class="markdownIt-Anchor" href="#distribution-plots分布图"></a> Distribution plots(分布图)</h2>
 <p><code>sns.distplot(a,bins, hist, kde, rug, fit)</code> 单变量分布图</p>
 <blockquote>
@@ -728,8 +726,8 @@ xticklabels, yticklabels : “auto”, bool, list-like, or int, optional</p>
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(GettingStarted).html" rel="next" title="Python手册(Machine Learning)--statsmodels(GettingStarted)">
-                  <i class="fa fa-chevron-left"></i> Python手册(Machine Learning)--statsmodels(GettingStarted)
+                <a href="/posts/python/PythonNotebook(Machine-Learning)--sklearn.html" rel="next" title="Python手册(Machine Learning)--sklearn">
+                  <i class="fa fa-chevron-left"></i> Python手册(Machine Learning)--sklearn
                 </a>
               
             </div>
@@ -850,7 +848,7 @@ xticklabels, yticklabels : “auto”, bool, list-like, or int, optional</p>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -863,7 +861,7 @@ xticklabels, yticklabels : “auto”, bool, list-like, or int, optional</p>
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -876,7 +874,7 @@ xticklabels, yticklabels : “auto”, bool, list-like, or int, optional</p>
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">112</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -978,12 +976,12 @@ xticklabels, yticklabels : “auto”, bool, list-like, or int, optional</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">206k</span>
+    <span title="站点总字数">291k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:07</span>
+    <span title="站点阅读时长">4:25</span>
 </div>
 
         
@@ -1161,24 +1159,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '60decc199e52a19f035d',
-      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
-      repo: 'gitalk',
-      owner: 'wilenwu',
-      admin: ['wilenwu'],
-      id: '3be7aa98d992907175cbd79c194399f2',
-        language: 'zh-CN',
-      
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-</script>
 
 
   

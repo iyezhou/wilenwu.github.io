@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_apple.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github32.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github16.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Wilen's Blog" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Great Vibes:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="R手册(Machine Learning)–mlr (I) R手册(Machine Learning)–mlr (II)">
+<meta name="keywords" content="R,mlr,机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R手册(Machine Learning)--mlr">
+<meta property="og:url" content="https://wilenwu.github.io/posts/R/RNotebook(Machine-Learning)--mlr.html">
+<meta property="og:site_name" content="Wilen&#39;s Blog">
+<meta property="og:description" content="R手册(Machine Learning)–mlr (I) R手册(Machine Learning)–mlr (II)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-29T01:27:10.693Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R手册(Machine Learning)--mlr">
+<meta name="twitter:description" content="R手册(Machine Learning)–mlr (I) R手册(Machine Learning)–mlr (II)">
+  <link rel="canonical" href="https://wilenwu.github.io/posts/R/RNotebook(Machine-Learning)--mlr">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<script> 
+ (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+  <title>R手册(Machine Learning)--mlr | Wilen's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?873a3ba02856122b60c91114a489f967";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wilen's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">∞</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">112</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">23</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">58</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-bookshelf">
+      
+    
+      
+    
+
+    <a href="/bookshelf/" rel="section"><i class="menu-item-icon fa fa-fw fa-windows"></i> <br>书架</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-bookmarks">
+      
+    
+      
+    
+
+    <a href="/bookmarks/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏夹</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/wilenwu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(Machine-Learning)--mlr.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wilen Wu">
+      <meta itemprop="description" content="个人技术博客">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wilen's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">R手册(Machine Learning)--mlr
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-04 01:08:17" itemprop="dateCreated datePublished" datetime="2018-05-04T01:08:17+08:00">2018-05-04</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-29 09:27:10" itemprop="dateModified" datetime="2019-09-29T09:27:10+08:00">2019-09-29</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/posts/R/RNotebook(Machine-Learning)--mlr.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(Machine Learning)--mlr" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/R/RNotebook(Machine-Learning)--mlr.html#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/posts/R/RNotebook(Machine-Learning)--mlr.html" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>15k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>13 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img alt="mlr" data-src="/images/mlr.png"></p>
+<p><a href="http://wilenwu.github.io/r/RNotebook(Machine-Learning)--mlr-(I).html">R手册(Machine Learning)–mlr (I)</a><br>
+<a href="http://wilenwu.github.io/r/RNotebook(Machine-Learning)--mlr-(II).html">R手册(Machine Learning)–mlr (II)</a></p>
+<hr>
+<a id="more"></a>
+<h1 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h1>
+<p><a href="https://mlr-org.github.io/mlr/articles/mlr.html" target="_blank" rel="noopener">mlr官网链接</a><br>
+mlr提供机器学习的统一接口：tasks, learners, hyperparameters, etc</p>
+<ul>
+<li><strong>Tasks</strong>：建立任务，包括任务描述(classification, regression, clustering, etc)和数据集</li>
+<li><strong>Learners</strong>：建立学习者，指定机器学习算法(GLM, SVM, xgboost, etc)和参数</li>
+<li><strong>Hyperparameters</strong>：对Learners直接指定超参数或超参数调优。给Learners一个可能的参数集列表。</li>
+<li><strong>Wrapped Models</strong>：已封装模型，已经被训练可以预测的模型</li>
+<li><strong>Predictions</strong>：应用模型到新数据或者原始数据进行预测</li>
+<li><strong>Meastures</strong>：模型评估指标(RMSE, logloss, AUC, etc)</li>
+<li><strong>Resampling</strong>：重抽样，通过分离训练集来拟合通用的模型，通常包括<strong>holdout</strong> 验证，K折交叉验证(<strong>K-fold cross-validation</strong>)，留一交叉验证(<strong>LOOCV</strong>)</li>
+</ul>
+<p><strong>Workflow</strong><br>
+<img alt="wf" data-src="/images/mlr2.png"></p>
+<h1 id="preprocessing-data-预处理"><a class="markdownIt-Anchor" href="#preprocessing-data-预处理"></a> Preprocessing data (预处理)</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">createDummyFeatures(obj=,target=,method=,cols=)</td>
+<td style="text-align:left">为每一个非数值变量创建哑变量(0,1)，不包括目标变量target，也可以指定变量cols</td>
+</tr>
+<tr>
+<td style="text-align:left">normalizeFeatures(obj=,target=,method=,cols=, range=,on.constant=)</td>
+<td style="text-align:left">数字变量标准化，method: {“center”, “scale”,“standardize”,“range”(default range=c(0,1))  }</td>
+</tr>
+<tr>
+<td style="text-align:left">mergeSmallFactorLevels(task=,cols=,min.perc=)</td>
+<td style="text-align:left">组合进单一的factor level</td>
+</tr>
+<tr>
+<td style="text-align:left">summarizeColumns(obj=)</td>
+<td style="text-align:left">data.frame or Task的汇总说明</td>
+</tr>
+<tr>
+<td style="text-align:left">capLargeValues(obj,cols=NULL)</td>
+<td style="text-align:left">离群值转化（帽子法）</td>
+</tr>
+<tr>
+<td style="text-align:left">dropFeatures</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">removeConstantFeatures</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">summarizeLevels</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h1 id="task-and-learner"><a class="markdownIt-Anchor" href="#task-and-learner"></a> Task and Learner</h1>
+<h2 id="create-a-task"><a class="markdownIt-Anchor" href="#create-a-task"></a> Create a task</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">创建任务</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">makeClassifTask(data=,target=)</td>
+<td style="text-align:left">回归问题</td>
+</tr>
+<tr>
+<td style="text-align:left">makeRegrTask(data=,target=)</td>
+<td style="text-align:left">分类，目标列必须是一个factor</td>
+</tr>
+<tr>
+<td style="text-align:left">makeMultilabelTask(data=,target=)</td>
+<td style="text-align:left">多标签分类问题，每个对象可以同时属于多个类别</td>
+</tr>
+<tr>
+<td style="text-align:left">makeClusterTask(data=)</td>
+<td style="text-align:left">聚类分析</td>
+</tr>
+<tr>
+<td style="text-align:left">makeSurvTask(data=,target=c(“time”,“event”))</td>
+<td style="text-align:left">生存分析</td>
+</tr>
+<tr>
+<td style="text-align:left">makeCostSensTask(data=,costs=)</td>
+<td style="text-align:left">成本敏感的分类，分类中的标准目标是获得较高的预测准确度，即最小化分类器产生的错误数量</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>getTaskDesc(x)</strong></td>
+<td style="text-align:left">获得总的任务描述，查看positiv</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="task" data-src="/images/mlr3.png"></p>
+<p><strong>task的其他参数：</strong></p>
+<ul>
+<li><strong>weight</strong>：将权重向量应用到记录</li>
+<li><strong>block</strong>：传递因子向量将记录绑定到一块，重抽样的时候不会 被拆分</li>
+</ul>
+<h2 id="making-a-learner"><a class="markdownIt-Anchor" href="#making-a-learner"></a> Making a learner</h2>
+<p><code>makeLearner(cl,predict.type = &quot;response&quot;,predict.threshold = NULL, ...,par.vals)</code>指定机器学习算法，也能一次指定多个</p>
+<p><strong>参数：</strong></p>
+<ul>
+<li>cl：指定要使用的算法名，cl= <code>&lt;task_Type&gt;.&lt;R_method_name&gt;</code> (“classif.xgboost”,<br>
+“regr.randomForest” ,“cluster.kmeans”,etc)</li>
+<li>predict.type：&quot;response&quot;返回原始数据，&quot;prob&quot;返回分类问题的概率，&quot;se&quot;返回回归问题的标准误</li>
+<li>par.vals：传递超参数列表，也能直接传递(…)</li>
+<li>predict.threshold ：生成类标签的阈值</li>
+</ul>
+<p>mlr有超过170个不同的是<strong>算法</strong>：<a href="https://mlr-org.github.io/mlr-tutorial/devel/html/integrated_learners/index.html" target="_blank" rel="noopener">mlr已经集成的算法</a></p>
+<ul>
+<li>listLearners()：展示所有的learner</li>
+<li>listLearners(task)：task允许的所有learner</li>
+<li>listLearners(“classif”,properties=c(“prob”, “factors”))：展示所有的分类问题中，能输出概率&quot;prob&quot;，和因子“factors”</li>
+<li>See also getLearnerProperties()</li>
+</ul>
+<h1 id="training-testing-训练和测试"><a class="markdownIt-Anchor" href="#training-testing-训练和测试"></a> Training &amp; Testing (训练和测试)</h1>
+<h2 id="setting-hyperparameters-设置超参数"><a class="markdownIt-Anchor" href="#setting-hyperparameters-设置超参数"></a> Setting hyperparameters (设置超参数)</h2>
+<p><code>setHyperPars(learner=,...)</code>传递超参数给learner<br>
+<code>getParamSet(learner=)</code>获得learner可能的超参数文本(such as “classif.qda”)</p>
+<h2 id="train-a-model-and-predict-训练模型和预测"><a class="markdownIt-Anchor" href="#train-a-model-and-predict-训练模型和预测"></a> Train a model and predict (训练模型和预测)</h2>
+<p><code>train(learner, task,subset)</code>训练模型，subset设置训练集（默认是全部数据）<br>
+<code>getLearnerModel(model)</code>将底层的学习者模型纳入mlr</p>
+<p><code>predict(model,task,subset)</code>预测原始数据<br>
+<code>predict(model,newdata)</code>预测新数据<br>
+<code>as.data.frame(pred)</code>查看预测的结果</p>
+<p><code>pred2&lt;- setThreshold(pred, threshold)</code>重设分类问题的阈值，重新预测</p>
+<h2 id="measuring-performance-模型评估质量"><a class="markdownIt-Anchor" href="#measuring-performance-模型评估质量"></a> Measuring performance (模型评估质量)</h2>
+<p><code>performance(pred=,measures=)</code> 依照一个或几个指标评估模型<br>
+<code>getDefaultMeasure(task/learner)</code>查看默认指标<br>
+<code>listMeasures()</code>查看完整的指标列表<br>
+<code>listMeasures(task)</code>查看匹配指标</p>
+<blockquote>
+<p>通过参数measures=list(mse,medse,mae)指定评估指标</p>
+</blockquote>
+<ul>
+<li><strong>classif:</strong> acc auc bac ber brier[.scaled] f1 fdr fn<br>
+fnr fp fpr gmean multiclass[.au1u .aunp .aunu<br>
+.brier] npv ppv qsr ssr tn tnr tp tpr wkappa</li>
+<li><strong>regr:</strong>  arsq expvar kendalltau mae mape medae<br>
+medse mse msle rae rmse rmsle rrse rsq sae<br>
+spearmanrho sse</li>
+<li><strong>cluster:</strong> db dunn G1 G2 silhouette</li>
+<li><strong>multilabel:</strong>  multilabel[.f1 .subset01 .tpr .ppv<br>
+.acc .hamloss]</li>
+<li><strong>costsens:</strong> mcp meancosts</li>
+<li><strong>surv:</strong> cindex</li>
+<li><strong>other</strong>: featperc timeboth timepredict timetrain</li>
+</ul>
+<p><strong>分类任务的评估详情：</strong><br>
+<code>calculateConfusionMatrix(pred)</code>获得混淆矩阵<br>
+<code>calculateROCMeasures(pred)</code>ROC曲线</p>
+<h2 id="resampling-a-learner-重抽样"><a class="markdownIt-Anchor" href="#resampling-a-learner-重抽样"></a> Resampling a learner (重抽样)</h2>
+<p><code>makeResampleDesc(method=,...,stratify=)</code><br>
+<code>makeResampleInstance(desc=,task=)</code>确保每次抽样统一，以减少噪声值</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>method</strong></td>
+<td style="text-align:left">重抽样的方法</td>
+</tr>
+<tr>
+<td style="text-align:left">“CV”</td>
+<td style="text-align:left">cross-volidation（交叉验证），用<code>iters</code>指定k-folds（K折）数</td>
+</tr>
+<tr>
+<td style="text-align:left">“LOO”</td>
+<td style="text-align:left">leave-one-out cross-volidation（留一交叉验证），用<code>iters</code>指定k-folds数</td>
+</tr>
+<tr>
+<td style="text-align:left">“RepCV”</td>
+<td style="text-align:left">repeated cross-volidation（反复交叉验证），<code>reps</code>指定重复数，用<code>iters</code>指定k-folds数</td>
+</tr>
+<tr>
+<td style="text-align:left">“Subsample”</td>
+<td style="text-align:left">aka Monte-Carlo cross-volidation ,用<code>iters</code>指定k-folds数,<code>split</code>指定<code>train%</code></td>
+</tr>
+<tr>
+<td style="text-align:left">“Bootstrap”</td>
+<td style="text-align:left">out-of-bag bootstrap（袋装法），<code>iters</code></td>
+</tr>
+<tr>
+<td style="text-align:left">“Holdout”</td>
+<td style="text-align:left">for train% use <code>split</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>stratify</strong></td>
+<td style="text-align:left">保持目标变量的抽样比例</td>
+</tr>
+</tbody>
+</table>
+<p><code>resample(learner=,task=,resampling=,measures=)</code>通过指定重抽样训练和测试模型</p>
+<ul>
+<li>mlr有若干预先定义的重抽样：<br>
+<code>cv2</code>(2-koldscross-volidation),<br>
+<code>cv3, cv5, cv10, hout</code>(holdout with split 2/3 for traing, 1/3 for testing)</li>
+<li>也可以用重抽样函数传递给<code>resample()</code><br>
+<code>crossval() repcv() holdout() subsample()</code><br>
+<code>bootstrapOOB() bootstrapB632() bootstrapB632plus()</code></li>
+</ul>
+<h1 id="tuning-hyperparameters-超参数调优"><a class="markdownIt-Anchor" href="#tuning-hyperparameters-超参数调优"></a> Tuning hyperparameters (超参数调优)</h1>
+<h2 id="设定超参数搜索空间"><a class="markdownIt-Anchor" href="#设定超参数搜索空间"></a> 设定超参数搜索空间</h2>
+<p><code>makeParamSet(make&lt;type&gt;Param())</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><code>make&lt;type&gt;Param()</code></th>
+<th style="text-align:left">指定超参数搜索类型和范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">makeNumericParam(id=,lower=,upper=,trafo=)</td>
+<td style="text-align:left">数字</td>
+</tr>
+<tr>
+<td style="text-align:left">makeIntegerParam(id=,lower=,upper=,trafo=)</td>
+<td style="text-align:left">整数</td>
+</tr>
+<tr>
+<td style="text-align:left">makeIntegerVectorParam(id=,len=,lower=,upper=,trafo=)</td>
+<td style="text-align:left">整数向量</td>
+</tr>
+<tr>
+<td style="text-align:left">makeDiscreteParam(id=,values=c(…))</td>
+<td style="text-align:left">分类变量</td>
+</tr>
+<tr>
+<td style="text-align:left">Logical, LogicalVector, CharacterVector, DiscreteVector</td>
+<td style="text-align:left">其他类型</td>
+</tr>
+</tbody>
+</table>
+<p>参数<strong>trafo</strong>可以用一个指定函数转换输出：例如<code>lower=-2,upper=2,trafo=function(x) 10^x</code>，输出值between 0.01 and 100</p>
+<h2 id="设定超参数搜索算法"><a class="markdownIt-Anchor" href="#设定超参数搜索算法"></a> 设定超参数搜索算法</h2>
+<p><code>makeTuneControl&lt;type&gt;()</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><code>&lt;type&gt;</code></th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Grid(resolution=10L)</td>
+<td style="text-align:left">所有可能的网格点</td>
+</tr>
+<tr>
+<td style="text-align:left">Random(maxit=100)</td>
+<td style="text-align:left">随机抽样搜索空间</td>
+</tr>
+<tr>
+<td style="text-align:left">MBO(budget=)</td>
+<td style="text-align:left">Bayesion model-based optimization（基于贝叶斯模型的最优化）</td>
+</tr>
+<tr>
+<td style="text-align:left">Irace(n.instances=)</td>
+<td style="text-align:left">迭代比赛过程</td>
+</tr>
+<tr>
+<td style="text-align:left">CMAES()</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Design()</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">GenSA()</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="超参数调优"><a class="markdownIt-Anchor" href="#超参数调优"></a> 超参数调优</h2>
+<p><code>tuneParams(learner=,task=,resampling=,measures=,par.set=,control=)</code>超参数调优函数</p>
+<h1 id="quickstart"><a class="markdownIt-Anchor" href="#quickstart"></a> Quickstart</h1>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 预处理数据</span></span><br><span class="line"><span class="keyword">library</span>(mlbench)</span><br><span class="line">data(Soybean)</span><br><span class="line">soy = createDummyFeatures(Soybean,target=<span class="string">"Class"</span>) <span class="comment">#转化因子变量为哑变量(0,1)，对xgboost模型有用</span></span><br><span class="line">tsk = makeClassifTask(data=soy,target=<span class="string">"Class"</span>) <span class="comment"># 建立任务</span></span><br><span class="line">ho = makeResampleInstance(<span class="string">"Holdout"</span>,tsk) <span class="comment"># 设定训练集和测试集(default 2/3 for traing, 1/3 for testing</span></span><br><span class="line">tsk.train = subsetTask(tsk,ho$train.inds[[<span class="number">1</span>]])</span><br><span class="line">tsk.test = subsetTask(tsk,ho$test.inds[[<span class="number">1</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设定learner和评估指标</span></span><br><span class="line">lrn = makeLearner(<span class="string">"classif.xgboost"</span>,nrounds=<span class="number">10</span>)</span><br><span class="line">cv = makeResampleDesc(<span class="string">"CV"</span>,iters=<span class="number">5</span>) <span class="comment"># 5折交叉验证</span></span><br><span class="line">res = resample(lrn,tsk.train,cv,acc) <span class="comment"># 准确率作为评估指标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#超参数调优，重训练模型</span></span><br><span class="line">ps = makeParamSet(makeNumericParam(<span class="string">"eta"</span>,<span class="number">0</span>,<span class="number">1</span>), <span class="comment"># 调优超参数eta, lambda, max_depth</span></span><br><span class="line">  makeNumericParam(<span class="string">"lambda"</span>,<span class="number">0</span>,<span class="number">200</span>),</span><br><span class="line">  makeIntegerParam(<span class="string">"max_depth"</span>,<span class="number">1</span>,<span class="number">20</span>))</span><br><span class="line">tc = makeTuneControlMBO(budget=<span class="number">100</span>) <span class="comment"># 用MBO算法搜索</span></span><br><span class="line">tr = tuneParams(lrn,tsk.train,cv5,acc,ps,tc) <span class="comment"># 5折交叉验证调优</span></span><br><span class="line">lrn = setHyperPars(lrn,par.vals=tr$x)</span><br><span class="line"></span><br><span class="line">mdl = train(lrn,tsk.train) <span class="comment">#测试集训练模型</span></span><br><span class="line">prd = predict(mdl,tsk.test) <span class="comment"># 预测</span></span><br><span class="line">calculateConfusionMatrix(prd) <span class="comment"># 混淆矩阵评估模型</span></span><br><span class="line">mdl = train(lrn,tsk) <span class="comment"># 用所有的数据重新训练模型，投入实用</span></span><br></pre></td></tr></table></figure>
+<h1 id="configuration-配置"><a class="markdownIt-Anchor" href="#configuration-配置"></a> Configuration (配置)</h1>
+<p>用<code>getMlrOptions()</code>查看mlr 的现有设置<br>
+用<code>configureMlr()</code>更改mlr的默认设置</p>
+<p><strong>参数：</strong></p>
+<ul>
+<li><strong><a href="http://show.info" target="_blank" rel="noopener">show.info</a></strong>：(traning, tuning, resampling,etc)是否展示默认冗长的输出，默认TRUE</li>
+<li><strong>on.learner.error</strong>：怎样控制learner的错误， “stop”(default), “warn”, “quiet”</li>
+<li><strong>on.learner.warning</strong>：怎样控制learner的警告，“warn”(default) , “quiet”</li>
+<li><strong>on.par.without.desc</strong>：超参数控制，“stop”(default), “warn” ,“quiet”</li>
+<li><strong>on.par.out.of.bounds</strong>：超参数超出边界值，“stop”(default) ,“warn”, “quiet”</li>
+<li><strong>on.measure.not.applicable</strong>：评估指标对learner不适用，“stop”(default) , “warn”, “quiet”</li>
+<li><strong>show.learner.output</strong>：learner在训练的时候输出到控制台，默认TRUE</li>
+<li><strong>on.error.dump</strong>：是否为crashed learner创建一个error dump，当on.learner.error 没有被指定为&quot;stop&quot; 时，默认TRUE</li>
+</ul>
+<h1 id="parallelization-并行"><a class="markdownIt-Anchor" href="#parallelization-并行"></a> Parallelization (并行)</h1>
+<p>mlr结合parallelMap包利用多核和集群运算加快运行速度，mlr自动发现能进行并行的操作。</p>
+<p><strong>开始并行</strong>：<code>parallelStart(mode=,cpus=,level=)</code><br>
+<strong>结束并行</strong>：<code>parallelStop()</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>mode</strong></td>
+<td style="text-align:left">决定并行的方式</td>
+</tr>
+<tr>
+<td style="text-align:left">“local”</td>
+<td style="text-align:left">无并行性，简单的使用mapply</td>
+</tr>
+<tr>
+<td style="text-align:left">“multicore”</td>
+<td style="text-align:left">单机器上多核，使用parallel::mclapply，windows上不适用</td>
+</tr>
+<tr>
+<td style="text-align:left">“socket”</td>
+<td style="text-align:left">多核socked mode</td>
+</tr>
+<tr>
+<td style="text-align:left">“mpi”</td>
+<td style="text-align:left">一个或多个机器上集群运算，使用parallel::makeCluster and parallel::clusterMap</td>
+</tr>
+<tr>
+<td style="text-align:left">“BatchJobs”</td>
+<td style="text-align:left">批排队HPC集群，使用BatchJobs::batchMap</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>cpus</strong></td>
+<td style="text-align:left">使用的物理内核数</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>level</strong></td>
+<td style="text-align:left">控制并行，使用&quot;mlr.benchmark&quot; “mlr.resample” “mlr.selectFeatures” “mlr.tuneParams” “mlr.ensemble”</td>
+</tr>
+</tbody>
+</table>
+<h1 id="imputation-插补"><a class="markdownIt-Anchor" href="#imputation-插补"></a> Imputation (插补)</h1>
+<p><code>impute(obj=,target=,cols=,dummy.cols=,dummy.type=)</code><br>
+缺失的数据进行插补，返回一个列表，包括插补过额数据集或task，和插补描述</p>
+<p><code>reimpute(obj=,desc=)</code>用已被impute创建的插补描述(description, desc)插补缺失值</p>
+<ul>
+<li>obj= data.frame or task</li>
+<li>target= 指定目标变量，将不会被插补</li>
+<li>cols= 要插补的列名或逻辑列表</li>
+<li>dummy.cols= 建立NA(T/F)列的列名</li>
+<li>dummy.type= 设定&quot;numeric&quot;，用(0,1)代替(T/F)</li>
+<li>也能用classes 和dummy.classes 代替cols</li>
+</ul>
+<p>传递给cols或classes的list示例：<br>
+<code>cols=list(V1=imputeMean())</code> V1是要插补的列，imputeMean()为要插补的方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">允许的插补方法</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">imputeConst(const=)</td>
+<td style="text-align:left">常数</td>
+</tr>
+<tr>
+<td style="text-align:left">imputeMedian()</td>
+<td style="text-align:left">中位数</td>
+</tr>
+<tr>
+<td style="text-align:left">imputeMode()</td>
+<td style="text-align:left">众数</td>
+</tr>
+<tr>
+<td style="text-align:left">imputeMin(multiplier=)</td>
+<td style="text-align:left">最小值</td>
+</tr>
+<tr>
+<td style="text-align:left">imputeMax(multiplier=)</td>
+<td style="text-align:left">最大值</td>
+</tr>
+<tr>
+<td style="text-align:left">imputeNormal(mean=,sd=)</td>
+<td style="text-align:left">正态插补</td>
+</tr>
+<tr>
+<td style="text-align:left">imputeHist(breaks=,use.mids=)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">imputeLearner(learner=,features=)</td>
+<td style="text-align:left">模型插补</td>
+</tr>
+</tbody>
+</table>
+<h1 id="feature-extraction-特征提取"><a class="markdownIt-Anchor" href="#feature-extraction-特征提取"></a> Feature Extraction (特征提取)</h1>
+<h2 id="feature-filtering特征筛选"><a class="markdownIt-Anchor" href="#feature-filtering特征筛选"></a> Feature filtering(特征筛选)</h2>
+<p><img alt="filter" data-src="/images/mlr_ff.png"></p>
+<p><code>filterFeatures(task=,method=,perc=,abs=,threshold=)</code><br>
+按特征的重要性进行排序，选择其中的top n percent(<code>perc=</code>), top n(<code>abs=</code>) or 设定阈值(<code>threshold=</code>)，返回task，没有被筛选的特征将会被删除。</p>
+<p>默认的筛选方法为<code>&quot;randomForestSRC.rfsrc&quot;</code>，也可以设置其他方法：<br>
+“anova.test” “carscore” “cforest.importance”<br>
+“chi.squared” “gain.ratio” “information.gain”<br>
+“kruskal.test” “linear.correlation” “mrmr” “oneR”<br>
+“permutation.importance” “randomForest.importance”<br>
+“randomForestSRC.rfsrc” “randomForestSRC.var.select”<br>
+“rank.correlation” “relief”<br>
+“symmetrical.uncertainty” “univariate.model.score”<br>
+“variance”</p>
+<h2 id="feature-selection特征选择"><a class="markdownIt-Anchor" href="#feature-selection特征选择"></a> Feature selection(特征选择)</h2>
+<p><img alt="selection" data-src="/images/mlr_fs.png"></p>
+<p><code>selectFeatures(learner=,task=, resampling=,measures=,control=)</code><br>
+用一个特征选择算法(<code>control</code>)重抽样和建立模型，反复选择不同的特征集，直到找到最好的特征集。返回FeatSelResult对象，包括最佳选择和最佳路径。</p>
+<p><code>tsk = subsetTask(tsk,features=fsr$x)</code>应用最佳选择结果(fsr)到task(tsk)</p>
+<p><strong>特征选择算法(control)</strong>：</p>
+<ul>
+<li><code>makeFeatSelControlExhaustive(max.features=)</code>尝试每一种特征组合，可选参数max.features</li>
+<li><code>makeFeatSelControlRandom(maxit=,prob=,max.features=)</code>随机抽取特征集(概率<code>prob</code>,default 0.5) 迭代(<code>maxit</code>,default 100)，返回其中最好的。</li>
+<li><code>makeFeatSelControlSequential(method=,maxit=,max.features=,alpha=,beta=)</code>用以下的迭代算法搜寻，评估：<br>
+“sfs” forward search, “sffs” floating forward search,<br>
+“sbs” backward search , “sfbs”  floating backward search,<br>
+“alpha” 每次增加一个特征来改善评估，取最少特征集<br>
+“beta” 每次移除一个特征来改善评估，取最少特征集</li>
+<li><code>makeFeatSelControlGA(maxit=,max.features=,mu=,lambda=,crossover.rate=,mutation.rate=)</code>随机特征向量的遗传算法，然后利用最佳性能的交叉来产生后代，代代相传，参数：<br>
+mu是父系规模<br>
+lambda 是子系规模<br>
+crossover.rate 从第一亲本选择一点的概率<br>
+mutation.rate 是翻转的概率(on or off)</li>
+</ul>
+<h1 id="benchmarking-基准点"><a class="markdownIt-Anchor" href="#benchmarking-基准点"></a> Benchmarking (基准点)</h1>
+<p><code>benchmark(learners=,tasks=,resamplings=,measures=)</code><br>
+允许进行简单的比较：执行单一task的多重learner，执行多重task的单一learner，或者执行多重task的多重learner，返回一个基准结果对象。<br>
+基准结果被函数<code>getBMR&lt;object&gt;</code>接收：<br>
+AggrPerformance<br>
+FeatSelResults FilteredFeatures LearnerIds<br>
+LeanerShortNames Learners MeasureIds Measures<br>
+Models Performances Predictions TaskDescs TaskIds<br>
+TuneResults</p>
+<p>mlr内置了许多有趣的task，对基准学习很有帮助：<br>
+agri.task bc.task bh.task costiris.task iris.task<br>
+lung.task mtcars.task pid.task sonar.task<br>
+wpbc.task yeast.task</p>
+<h1 id="visualization-可视化"><a class="markdownIt-Anchor" href="#visualization-可视化"></a> Visualization (可视化)</h1>
+<p><strong>1. 可视化总表</strong></p>
+<table>
+<thead>
+<tr>
+<th>生成数据函数</th>
+<th>ggplot2绘图函数</th>
+<th>ggvis绘图函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>generateThreshVsPerfData</td>
+<td>plotThresVsPerf</td>
+<td>plotThreshVsPerfGGVIS</td>
+<td>性能</td>
+</tr>
+<tr>
+<td></td>
+<td>plotROCCurves</td>
+<td>-</td>
+<td>ROC分析</td>
+</tr>
+<tr>
+<td>generateCritDifferencesData</td>
+<td>plotCritDifferences</td>
+<td>-</td>
+<td>基准实验</td>
+</tr>
+<tr>
+<td>generateHyperParsEffectData</td>
+<td>plotHyperParsEffect</td>
+<td></td>
+<td>调整，超参数调整效果</td>
+</tr>
+<tr>
+<td>generateFilterValuesData</td>
+<td>plotFilterValues</td>
+<td>plotFilterValuesGGVIS</td>
+<td>功能选择</td>
+</tr>
+<tr>
+<td>generateLearningCurveData</td>
+<td>plotLearningCurve</td>
+<td>plotLearningCurveGGVIS</td>
+<td>学习曲线</td>
+</tr>
+<tr>
+<td>generatePartialDependenceData</td>
+<td>plotPartialDependence</td>
+<td>plotPartialDependenceGGVIS</td>
+<td>部分依赖情节</td>
+</tr>
+<tr>
+<td>generateFunctionalANOVAData</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>generateCalibrationData</td>
+<td>plotCalibration</td>
+<td>-</td>
+<td>分类器校准图</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. 可视化函数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>Performance</th>
+<th>表现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>generateThreshVsPerfData(obj=,measures=)</td>
+<td>获得二分类问题不同切分点评估质量，促使选出最优阈值(threshold)</td>
+</tr>
+<tr>
+<td>plotThreshVsPerf(obj)</td>
+<td>用ThreshVsPerfData数据作出阈值可视化表现</td>
+</tr>
+<tr>
+<td>plotROCCurves(obj)</td>
+<td>用ThreshVsPerfData数据做出ROC曲线，一定要设定measures=list(fpr,tpr)</td>
+</tr>
+<tr>
+<td><strong>Residuals</strong></td>
+<td>残差</td>
+</tr>
+<tr>
+<td>plotResiduals(obj=)</td>
+<td>为Prediction 或BenchmarkResult对象作残差</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">n = getTaskSize(sonar.task)</span><br><span class="line">train.set = sample(n, size = round(<span class="number">2</span>/<span class="number">3</span> * n))</span><br><span class="line">test.set = setdiff(seq_len(n), train.set)</span><br><span class="line"></span><br><span class="line">lrn1 = makeLearner(<span class="string">"classif.lda"</span>, predict.type = <span class="string">"prob"</span>)</span><br><span class="line">mod1 = train(lrn1, sonar.task, subset = train.set)</span><br><span class="line">pred1 = predict(mod1, task = sonar.task, subset = test.set)</span><br><span class="line"></span><br><span class="line">df = generateThreshVsPerfData(pred1, measures = list(fpr, tpr, mmce))</span><br><span class="line">performance(pred1, auc)</span><br><span class="line"><span class="comment">#&gt;      auc </span></span><br><span class="line"><span class="comment">#&gt; 0.847973</span></span><br><span class="line">plotThreshVsPerf(df)</span><br><span class="line"></span><br><span class="line">lrn2 = makeLearner(<span class="string">"classif.ksvm"</span>, predict.type = <span class="string">"prob"</span>)  <span class="comment"># 需要载入包kernlab</span></span><br><span class="line">mod2 = train(lrn2, sonar.task, subset = train.set)</span><br><span class="line">pred2 = predict(mod2, task = sonar.task, subset = test.set)</span><br><span class="line"></span><br><span class="line">df = generateThreshVsPerfData(list(lda = pred1, ksvm = pred2), measures = list(fpr, tpr))</span><br><span class="line">plotROCCurves(df)</span><br></pre></td></tr></table></figure>
+<p><img alt="阈值" data-src="/images/mlr_thresh.png"><br>
+<img alt="roc" data-src="/images/mlr_roc.png"></p>
+<table>
+<thead>
+<tr>
+<th>Learning curve</th>
+<th>学习曲线</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>generateLearningCurveData(learners=,task=,resampling=,percs=,measures=)</td>
+<td>获得不同百分比的task data上做模型评估质量数据</td>
+</tr>
+<tr>
+<td>plotLearningCurve(obj)</td>
+<td>比较数据的已使用和模型质量的关系，使用LearningCurveData对象</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">r = generateLearningCurveData(</span><br><span class="line">  learners = c(<span class="string">"classif.rpart"</span>, <span class="string">"classif.knn"</span>),</span><br><span class="line">  task = sonar.task,</span><br><span class="line">  percs = seq(<span class="number">0.1</span>, <span class="number">1</span>, by = <span class="number">0.2</span>),</span><br><span class="line">  measures = list(tp, fp, tn, fn),</span><br><span class="line">  resampling = makeResampleDesc(method = <span class="string">"CV"</span>, iters = <span class="number">5</span>),</span><br><span class="line">  show.info = <span class="literal">FALSE</span>)</span><br><span class="line">plotLearningCurve(r)</span><br></pre></td></tr></table></figure>
+<p><img alt="学习曲线" data-src="/images/mlr_lc.png"></p>
+<table>
+<thead>
+<tr>
+<th>Feature importance</th>
+<th>特征重要性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>generateFilterValuesData(task=,method=)</td>
+<td>用指定的选择方法获得排序的特征重要性</td>
+</tr>
+<tr>
+<td>plotFilterValues(obj=)</td>
+<td>可视化特征重要性，FilterValuesData对象</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fv = generateFilterValuesData(iris.task)</span><br><span class="line">plotFilterValues(fv)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/mlr_mv.png"></p>
+<table>
+<thead>
+<tr>
+<th>Hyperparameters tuning</th>
+<th>超参数调优</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>generateHyperParsEffectData(tune.result=)</td>
+<td>获得不同超参数的影响</td>
+</tr>
+<tr>
+<td>plotHyperParsEffect(hyperpars.effect.data=,x=,y=,z=)</td>
+<td>可视化超参数影响，HyperParsEffectData对象</td>
+</tr>
+<tr>
+<td>plotOptPath(op=)</td>
+<td>可视化最优进程详情，<code>&lt;obj&gt;$opt.path</code>对象， <code>&lt;obj&gt;</code>是 tuneResult或 featSelResult类的对象。</td>
+</tr>
+<tr>
+<td>plotTuneMultiCritResult(res=)</td>
+<td>展示pareto图，多重评估质量的调优结果</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ps = makeParamSet(</span><br><span class="line">  makeNumericParam(<span class="string">"C"</span>, lower = -<span class="number">5</span>, upper = <span class="number">5</span>, trafo = <span class="keyword">function</span>(x) <span class="number">2</span>^x)</span><br><span class="line">)</span><br><span class="line">ctrl = makeTuneControlGrid()</span><br><span class="line">rdesc = makeResampleDesc(<span class="string">"Holdout"</span>)</span><br><span class="line">lrn = makeTuneWrapper(<span class="string">"classif.ksvm"</span>, control = ctrl,</span><br><span class="line">                      measures = list(acc, mmce), resampling = rdesc, par.set = ps, show.info = <span class="literal">FALSE</span>)</span><br><span class="line">res = resample(lrn, task = pid.task, resampling = cv2, extract = getTuneResult, show.info = <span class="literal">FALSE</span>)</span><br><span class="line">data = generateHyperParsEffectData(res)</span><br><span class="line">plotHyperParsEffect(data, x = <span class="string">"C"</span>, y = <span class="string">"acc.test.mean"</span>, plot.type = <span class="string">"line"</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/mlr_cv.png"></p>
+<table>
+<thead>
+<tr>
+<th>Partial dependence</th>
+<th>部分依赖</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>generatePartialDependenceData(obj=,input=)</td>
+<td>获得模型(obj)的部分依赖预测，通过每一次的特征数据输入(input)</td>
+</tr>
+<tr>
+<td>plotPartialDependence(obj=)</td>
+<td>部分依赖图，PartialDependenceData对象</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">lrn.regr = makeLearner(<span class="string">"regr.ksvm"</span>)</span><br><span class="line">fit.regr = train(lrn.regr, bh.task)</span><br><span class="line">pd.regr = generatePartialDependenceData(fit.regr, bh.task, <span class="string">"lstat"</span>, fun = median)</span><br><span class="line">plotPartialDependence(pd.regr)</span><br><span class="line"></span><br><span class="line">lrn.classif = makeLearner(<span class="string">"classif.ksvm"</span>, predict.type = <span class="string">"prob"</span>)</span><br><span class="line">fit.classif = train(lrn.classif, iris.task)</span><br><span class="line">pd.classif = generatePartialDependenceData(fit.classif, iris.task, <span class="string">"Petal.Length"</span>, fun = median)</span><br><span class="line">plotPartialDependence(pd.classif)</span><br></pre></td></tr></table></figure>
+<p><img alt="reg" data-src="/images/mlr_reg.png"><img alt="calssfic" data-src="/images/mlr_calssfic.png"></p>
+<table>
+<thead>
+<tr>
+<th>Benchmarking</th>
+<th>基准点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plotBMRBoxplots(bmr=)</td>
+<td>表现的分类图</td>
+</tr>
+<tr>
+<td>plotBMRSummary(bmr=)</td>
+<td>平均表现的散点图</td>
+</tr>
+<tr>
+<td>plotBMRRanksAsBarChart(bmr=)</td>
+<td>learner 排序柱形图</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Other</th>
+<th>其他图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>generateCritDifferencesData(bmr=,measure=,p.value=,test=)</td>
+<td>执行临界差检验,用bonforroni-dunn(“bd”) 或&quot;Nemenyi&quot;检验</td>
+</tr>
+<tr>
+<td>plotCritDifferences(obj=)</td>
+<td>临界点检验可视化</td>
+</tr>
+<tr>
+<td>generateCalibrationData(obj=)</td>
+<td>评估概率预测与真实发生率的校准</td>
+</tr>
+<tr>
+<td>plotCalibration(obj=)</td>
+<td>校准图</td>
+</tr>
+</tbody>
+</table>
+<p><img alt data-src="/images/mlr4.png"><img alt data-src="/images/mlr5.png"></p>
+<h1 id="wrappers-封装器"><a class="markdownIt-Anchor" href="#wrappers-封装器"></a> Wrappers (封装器)</h1>
+<p>封装器使具有附加功能的学习者融合。mlr把带有封装器的learner看作一个单独的learner，超参数的封装也会与基础模型参数联合调谐。带包装的模型将应用于新数据。<br>
+<img alt="wrappers" data-src="/images/mlr_wrappers.png"></p>
+<table>
+<thead>
+<tr>
+<th>Preprocessing and imputation</th>
+<th>预处理和插补</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>makeDummyFeaturesWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeImputeWrapper(learner=,classes=,cols=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makePreprocWrapper(learner=,train=,predict=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makePreprocWrapperCaret(learner=,…)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeRemoveConstantFeaturesWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Class imbance</strong></td>
+<td>类别不平衡</td>
+</tr>
+<tr>
+<td>makeOverBaggingWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeSMOTEWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeUndersampleWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeWeightedClassesWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Cost-sensitive</strong></td>
+<td>成本分析</td>
+</tr>
+<tr>
+<td>makeCostSensClassifWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeCostSensRegrWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeCostSensWeightedPairsWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Multilabel classification</strong></td>
+<td>多标签分类</td>
+</tr>
+<tr>
+<td>makeMultilabelBinaryRelevanceWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeMultilabelClassifierChainsWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeMultilabelDBRWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeMultilabelNestedStackingWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeMultilabelStackingWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Other</strong></td>
+<td>其他</td>
+</tr>
+<tr>
+<td>makeBaggingWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeConstantClassWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeDownsampleWrapper(learner=,dw.perc=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeFeatSelWrapper(learner=,resampling=,control=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeFilterWrapper(learner=,fw.perc=,fw.abs=,fw.threshold=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeMultiClassWrapper(learner=)</td>
+<td></td>
+</tr>
+<tr>
+<td>makeTuneWrapper(learner=,resampling=,par.set=,control=)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="nested-resampling-嵌套重采样"><a class="markdownIt-Anchor" href="#nested-resampling-嵌套重采样"></a> Nested Resampling (嵌套重采样)</h1>
+<p>mlr支持嵌套重采样进行复杂操作，例如通过包装来调优和特征选择等。为了获得良好的泛化性能估计和避免数据泄漏，建议使用外部（用于调优/特征选择）和内部（对于基本模型）重采样过程。</p>
+<ul>
+<li>外部重采样能在resample, benchmark中被指定</li>
+<li>内部重采样能在makeTuneWrapper, makeFeatSelWrapper, etc中被指定</li>
+</ul>
+<h1 id="ensembles-集成"><a class="markdownIt-Anchor" href="#ensembles-集成"></a> Ensembles (集成)</h1>
+<p><code>makeStackedLearner(base.learners=,super.learner=,method=)</code>将多重learner集成</p>
+<p><strong>参数：</strong></p>
+<ul>
+<li>base.learners= 使用初始预测的learners</li>
+<li>super.learner= 使用最终预测的learners</li>
+<li>method= 组合base learners预测的方法<br>
+“average”：所有base learners的平均<br>
+“stack.nocv” “<a href="http://stack.cv" target="_blank" rel="noopener">stack.cv</a>”：在base learners的结果上训练super learner (with or without cross-validation)<br>
+“hill.climb”：搜索最优权重平均<br>
+“compress”：用神经网络实现更快的性能</li>
+</ul>
+
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+        
+      
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/nezha.jpg" alt="Wilen Wu 比特币">
+        <p>比特币</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Wilen Wu</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wilenwu.github.io/posts/R/RNotebook(Machine-Learning)--mlr.html" title="R手册(Machine Learning)--mlr">https://wilenwu.github.io/posts/R/RNotebook(Machine-Learning)--mlr.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/R/" rel="tag"># R</a>
+            
+              <a href="/tags/mlr/" rel="tag"># mlr</a>
+            
+              <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/posts/R/RNotebook(Model-Tools)--broom-and-modelr.html" rel="next" title="R手册(Model Tools)--broom and modelr">
+                  <i class="fa fa-chevron-left"></i> R手册(Model Tools)--broom and modelr
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/posts/R/RNotebook(Time-Series)--forecast-and-prophet.html" rel="prev" title="R手册(Time Series)--forecast and prophet">
+                  R手册(Time Series)--forecast and prophet <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+          
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+          
+            <li class="tab"><a href="#comment-valine">valine</a></li>
+          
+        </ul>
+        <div class="tab-content">
+          
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
+          
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="comments"></div>
+            </div>
+          
+        </div>
+      </div>
+      <script>
+        window.addEventListener('tabs:register', () => {
+          let activeClass = 'gitalk';
+          
+            activeClass = localStorage.getItem('comments_active') || activeClass;
+          
+          if (activeClass) {
+            let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+            if (activeTab) {
+              activeTab.click();
+            }
+          }
+        });
+        
+        window.addEventListener('tabs:click', event => {
+          let commentClass = event.target.classList[1];
+          localStorage.setItem('comments_active', commentClass);
+        });
+        
+      </script>
+    
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text"> Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#preprocessing-data-预处理"><span class="nav-number">2.</span> <span class="nav-text"> Preprocessing data (预处理)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#task-and-learner"><span class="nav-number">3.</span> <span class="nav-text"> Task and Learner</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#create-a-task"><span class="nav-number">3.1.</span> <span class="nav-text"> Create a task</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#making-a-learner"><span class="nav-number">3.2.</span> <span class="nav-text"> Making a learner</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#training-testing-训练和测试"><span class="nav-number">4.</span> <span class="nav-text"> Training &amp; Testing (训练和测试)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#setting-hyperparameters-设置超参数"><span class="nav-number">4.1.</span> <span class="nav-text"> Setting hyperparameters (设置超参数)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#train-a-model-and-predict-训练模型和预测"><span class="nav-number">4.2.</span> <span class="nav-text"> Train a model and predict (训练模型和预测)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#measuring-performance-模型评估质量"><span class="nav-number">4.3.</span> <span class="nav-text"> Measuring performance (模型评估质量)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#resampling-a-learner-重抽样"><span class="nav-number">4.4.</span> <span class="nav-text"> Resampling a learner (重抽样)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tuning-hyperparameters-超参数调优"><span class="nav-number">5.</span> <span class="nav-text"> Tuning hyperparameters (超参数调优)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设定超参数搜索空间"><span class="nav-number">5.1.</span> <span class="nav-text"> 设定超参数搜索空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设定超参数搜索算法"><span class="nav-number">5.2.</span> <span class="nav-text"> 设定超参数搜索算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超参数调优"><span class="nav-number">5.3.</span> <span class="nav-text"> 超参数调优</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#quickstart"><span class="nav-number">6.</span> <span class="nav-text"> Quickstart</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#configuration-配置"><span class="nav-number">7.</span> <span class="nav-text"> Configuration (配置)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#parallelization-并行"><span class="nav-number">8.</span> <span class="nav-text"> Parallelization (并行)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#imputation-插补"><span class="nav-number">9.</span> <span class="nav-text"> Imputation (插补)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#feature-extraction-特征提取"><span class="nav-number">10.</span> <span class="nav-text"> Feature Extraction (特征提取)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#feature-filtering特征筛选"><span class="nav-number">10.1.</span> <span class="nav-text"> Feature filtering(特征筛选)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#feature-selection特征选择"><span class="nav-number">10.2.</span> <span class="nav-text"> Feature selection(特征选择)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#benchmarking-基准点"><span class="nav-number">11.</span> <span class="nav-text"> Benchmarking (基准点)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#visualization-可视化"><span class="nav-number">12.</span> <span class="nav-text"> Visualization (可视化)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#wrappers-封装器"><span class="nav-number">13.</span> <span class="nav-text"> Wrappers (封装器)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nested-resampling-嵌套重采样"><span class="nav-number">14.</span> <span class="nav-text"> Nested Resampling (嵌套重采样)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ensembles-集成"><span class="nav-number">15.</span> <span class="nav-text"> Ensembles (集成)</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/header.jpg"
+      alt="Wilen Wu">
+  <p class="site-author-name" itemprop="name">Wilen Wu</p>
+  <div class="site-description" itemprop="description">个人技术博客</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">112</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/wilenwu" title="GitHub &rarr; https://github.com/wilenwu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/qq_41518277" title="CSDN &rarr; https://blog.csdn.net/qq_41518277" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>CSDN</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:597379201@qq.com" title="E-Mail &rarr; mailto:597379201@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/" title="Weibo &rarr; https://weibo.com/" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.easyicon.net/" title="https://www.easyicon.net/" rel="noopener" target="_blank">easyicon</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.fontawesome.com.cn/" title="http://www.fontawesome.com.cn/" rel="noopener" target="_blank">Font Awesome</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wilen Wu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">291k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:25</span>
+</div>
+
+        
+
+
+
+
+
+
+  
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+            
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI',
+            'X-LC-Key': '6EzBICTWxLbjiGsbNAa8Fv2s',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+        if (localhost.test(document.URL)) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: '36ffaccd9750f0ff608f16949f6bc943',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI',
+    appKey: '6EzBICTWxLbjiGsbNAa8Fv2s',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

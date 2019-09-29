@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_apple.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github32.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github16.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Wilen's Blog" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Great Vibes:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="dplyr: A Grammar of Data Manipulation A fast, consistent tool for working with data frame like objects, both in memory and out of memory.">
+<meta name="keywords" content="R,数据清洗,dplyr,plyr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R手册(Tidy+Transform)--dplyr and plyr">
+<meta property="og:url" content="https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--dplyr-and-plyr.html">
+<meta property="og:site_name" content="Wilen&#39;s Blog">
+<meta property="og:description" content="dplyr: A Grammar of Data Manipulation A fast, consistent tool for working with data frame like objects, both in memory and out of memory.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-29T01:27:10.697Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R手册(Tidy+Transform)--dplyr and plyr">
+<meta name="twitter:description" content="dplyr: A Grammar of Data Manipulation A fast, consistent tool for working with data frame like objects, both in memory and out of memory.">
+  <link rel="canonical" href="https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--dplyr-and-plyr">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<script> 
+ (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+  <title>R手册(Tidy+Transform)--dplyr and plyr | Wilen's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?873a3ba02856122b60c91114a489f967";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wilen's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">∞</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">112</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">23</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">58</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-bookshelf">
+      
+    
+      
+    
+
+    <a href="/bookshelf/" rel="section"><i class="menu-item-icon fa fa-fw fa-windows"></i> <br>书架</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-bookmarks">
+      
+    
+      
+    
+
+    <a href="/bookmarks/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏夹</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/wilenwu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--dplyr-and-plyr.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wilen Wu">
+      <meta itemprop="description" content="个人技术博客">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wilen's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">R手册(Tidy+Transform)--dplyr and plyr
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-01 20:01:45" itemprop="dateCreated datePublished" datetime="2018-05-01T20:01:45+08:00">2018-05-01</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-29 09:27:10" itemprop="dateModified" datetime="2019-09-29T09:27:10+08:00">2019-09-29</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/Tidy-Transform/" itemprop="url" rel="index"><span itemprop="name">Tidy+Transform</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/posts/R/RNotebook(Tidy+Transform)--dplyr-and-plyr.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(Tidy+Transform)--dplyr and plyr" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/R/RNotebook(Tidy+Transform)--dplyr-and-plyr.html#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/posts/R/RNotebook(Tidy+Transform)--dplyr-and-plyr.html" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>6k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>5 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>dplyr: A Grammar of Data Manipulation<br>
+A fast, consistent tool for working with data frame like objects, both in memory and out of memory.</p>
+<a id="more"></a>
+<h1 id="dplyr"><a class="markdownIt-Anchor" href="#dplyr"></a> dplyr</h1>
+<h2 id="转换和添加变量"><a class="markdownIt-Anchor" href="#转换和添加变量"></a> 转换和添加变量</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">mutate(data,…)</td>
+<td>添加新变量*(base::transform)*，可以用已存在的变量，可以和聚合函数配合使用</td>
+</tr>
+<tr>
+<td style="text-align:left">mutate_all(.tbl, .funs, …)</td>
+<td><code>.funs</code>: List of function calls generated by funs(), or a character vector of function names, or simply a function</td>
+</tr>
+<tr>
+<td style="text-align:left">mutate_if(.tbl, .predicate, .funs, …)</td>
+<td><code>.predicate</code>: A predicate function to be applied to the columns or a logical vector</td>
+</tr>
+<tr>
+<td style="text-align:left">mutate_at(.tbl, .vars, .funs, …)</td>
+<td><code>.vars</code>: A list of columns generated by vars(), a character vector of column names, a numeric vector of column positions</td>
+</tr>
+<tr>
+<td style="text-align:left">transmute(data,…)</td>
+<td>添加新变量，去除已有的变量</td>
+</tr>
+<tr>
+<td style="text-align:left">case_when(…)</td>
+<td>if…else if…else变体,条件按顺序判定依次执行</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>for example</strong></em></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mtcars&lt;-mutate(mtcars,x=ifelse(x&gt;<span class="number">100</span>,<span class="literal">NA</span>,x)) <span class="comment">#处理异常值</span></span><br><span class="line">mtcars&lt;-mutate(mtcars,x=<span class="literal">NULL</span>) <span class="comment">#赋值NULL表示删除变量</span></span><br><span class="line">mtcars%&gt;%group_by(cyl)%&gt;%mutate(m=mean(mpg)) <span class="comment"># 添加组内平均值</span></span><br><span class="line">iris %&gt;% mutate_at(vars(matches(<span class="string">"Sepal"</span>)), log)</span><br><span class="line">iris %&gt;% as_tibble() %&gt;% mutate_if(is.factor, as.character)</span><br><span class="line">iris %&gt;% group_by(Species) %&gt;% mutate_all(funs(inches = . / <span class="number">2.54</span>))</span><br><span class="line"></span><br><span class="line">data %&gt;%mutate(</span><br><span class="line">    newvar = case_when(</span><br><span class="line">            cond1 ~ value1,</span><br><span class="line">            cond2 ~ value2,</span><br><span class="line">            <span class="literal">TRUE</span> ~ other_value )<span class="comment">#相当于else语句</span></span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+<h2 id="筛选"><a class="markdownIt-Anchor" href="#筛选"></a> 筛选</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">filter(data,…)</td>
+<td style="text-align:left">筛选*(base::subset(x, subset, select))*</td>
+</tr>
+<tr>
+<td style="text-align:left">filter_all(.tbl, .vars_predicate)</td>
+<td style="text-align:left"><code>.vars_predicate</code>: A quoted predicate expression as returned by all_vars() or any_vars()</td>
+</tr>
+<tr>
+<td style="text-align:left">filter_if(.tbl, .predicate, .vars_predicate)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">filter_at(.tbl, .vars, .vars_predicate)</td>
+<td style="text-align:left"><code>.vars</code>: A list of columns generated by vars(), a character vector of column names, a numeric vector of column positions<br><code>popular_dests &lt;- flights %&gt;% group_by(dest) %&gt;% filter(n() &gt; 365)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">slice(.data,…)</td>
+<td style="text-align:left">切片<br><code>slice(mtcars, n())</code><br><code>slice(mtcars, 5:n())</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="select-and-rename"><a class="markdownIt-Anchor" href="#select-and-rename"></a> select  and rename</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">select()</td>
+<td style="text-align:left">用变量名选择变量<br><code>select(flights, -(year:day))</code></td>
+</tr>
+<tr>
+<td style="text-align:left">select_all(.tbl, .funs = list(), …)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">select_if(.tbl, .predicate, .funs = list(), …)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">select_at(.tbl, .vars, .funs = list(), …)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">rename()</td>
+<td style="text-align:left">keeps all variables<br><code>rename(iris, oldname = newname,...)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">rename_all(.tbl, .funs = list(), …)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">rename_if(.tbl, .predicate, .funs = list(), …)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">rename_at(.tbl, .vars, .funs = list(), …)</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>参数<code>.vars</code></strong>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">赋值</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ends_with()</td>
+<td style="text-align:left">ends with aprefix<br><code>select(iris, starts_with(&quot;Petal&quot;))</code></td>
+</tr>
+<tr>
+<td style="text-align:left">contains()</td>
+<td style="text-align:left">containsaliteralstring</td>
+</tr>
+<tr>
+<td style="text-align:left">matches()</td>
+<td style="text-align:left">匹配正则表达式(regularexpression)</td>
+</tr>
+<tr>
+<td style="text-align:left">num_range()</td>
+<td style="text-align:left">类数字区域likex01,x02,x03.</td>
+</tr>
+<tr>
+<td style="text-align:left">one_of()</td>
+<td style="text-align:left">variables in character vector.</td>
+</tr>
+<tr>
+<td style="text-align:left">everything()</td>
+<td style="text-align:left">换位置输出<br><code>select(flights, time_hour, air_time, everything())</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="分组"><a class="markdownIt-Anchor" href="#分组"></a> 分组</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">group_by(.data, …, add = FALSE)/</td>
+<td style="text-align:left">分组，大多数函数可用已分的组</td>
+</tr>
+<tr>
+<td style="text-align:left">group_by_all(.tbl, .funs = list(), …)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">group_by_at(.tbl, .vars, .funs = list(), …,)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">group_by_if(.tbl, .predicate, .funs = list(), …,)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">ungroup()</td>
+<td style="text-align:left">解除分组</td>
+</tr>
+<tr>
+<td style="text-align:left">base::by(data, INDICES, FUN)</td>
+<td style="text-align:left"><code>indices</code>:要分组的factor or factor list</td>
+</tr>
+</tbody>
+</table>
+<h2 id="聚合"><a class="markdownIt-Anchor" href="#聚合"></a> 聚合</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">summarise()</td>
+<td style="text-align:left">reduces multiple values down to a single summary.</td>
+</tr>
+<tr>
+<td style="text-align:left">summarise_all(.tbl, .funs, …)</td>
+<td style="text-align:left"><code>.funs</code>: List of function calls generated by funs(), or a character vector of function names, or simply a function</td>
+</tr>
+<tr>
+<td style="text-align:left">summarise_if(.tbl, .predicate, .funs, …)</td>
+<td style="text-align:left"><code>.predicate</code>: A predicate function to be applied to the columns or a logical vector</td>
+</tr>
+<tr>
+<td style="text-align:left">summarise_at(.tbl, .vars, .funs, …)</td>
+<td style="text-align:left"><code>.vars</code>: A list of columns generated by vars(), a character vector of column names, a numeric vector of column positions</td>
+</tr>
+<tr>
+<td style="text-align:left">do(data,…)</td>
+<td style="text-align:left">补充函数，可以聚合任何函数*(plyr::dlply)*<br><code>a&lt;-iris%&gt;%group_by(Species)%&gt;%do(s=summary(.))</code></td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>for example</strong></em></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mtcars %&gt;% group_by(cyl) %&gt;% summarise(a = n(), b = a + <span class="number">1</span>)</span><br><span class="line">iris %&gt;% group_by(Species) %&gt;% summarise_all(mean)</span><br><span class="line">iris %&gt;% group_by(Species)%&gt;% summarise_all(funs(min, max))</span><br><span class="line">iris %&gt;% group_by(Species)%&gt;% summarise_all(c(<span class="string">"min"</span>, <span class="string">"max"</span>))</span><br><span class="line">iris %&gt;% group_by(Species)%&gt;% summarise_all(funs(Q3 = quantile), probs = <span class="number">0.75</span>)</span><br><span class="line">starwars %&gt;% summarise_at(c(<span class="string">"height"</span>, <span class="string">"mass"</span>), mean, na.rm = <span class="literal">TRUE</span>)</span><br><span class="line">starwars %&gt;% summarise_at(vars(height:mass), mean, na.rm = <span class="literal">TRUE</span>)</span><br><span class="line">starwars %&gt;% summarise_if(is.numeric, mean, na.rm = <span class="literal">TRUE</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="排序和排名"><a class="markdownIt-Anchor" href="#排序和排名"></a> 排序和排名</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">排序</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>arrange(data,…, .by_group = FALSE)</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>arrange_all, arrange_at, arrange_if</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>desc(x)</code></td>
+<td style="text-align:left">降序</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>排名</strong></td>
+<td style="text-align:left"><em>(base::rank)</em></td>
+</tr>
+<tr>
+<td style="text-align:left">row_number(x)</td>
+<td style="text-align:left">先出现先排名</td>
+</tr>
+<tr>
+<td style="text-align:left">min_rank(x)</td>
+<td style="text-align:left">以最小的排名计</td>
+</tr>
+<tr>
+<td style="text-align:left">dense_rank(x)</td>
+<td style="text-align:left">like min_rank(), but with no gaps between ranks</td>
+</tr>
+<tr>
+<td style="text-align:left">percent_rank(x)</td>
+<td style="text-align:left">百分比排名</td>
+</tr>
+<tr>
+<td style="text-align:left">cume_dist(x)</td>
+<td style="text-align:left">累积百分比排名(&lt;=当前排名的比例)</td>
+</tr>
+<tr>
+<td style="text-align:left">ntile(x,n)</td>
+<td style="text-align:left">分成n级的粗略排名</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>for example</strong></em><br>
+<code>arrange(mtcars, cyl,desc(disp))</code></p>
+<h2 id="表连接"><a class="markdownIt-Anchor" href="#表连接"></a> 表连接</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">说明*(base::merge)*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">inner_join(x, y, by = NULL);<br>left_join; right_join; full_join;</td>
+<td style="text-align:left">1.连接键名相同时，by=c(‘id1’, ‘id2’)<br>2. 连接键名不相同时,by = c(“a” = “b”)</td>
+</tr>
+<tr>
+<td style="text-align:left">semi_join</td>
+<td style="text-align:left">返回y中匹配到的x(x only)</td>
+</tr>
+<tr>
+<td style="text-align:left">anti_join</td>
+<td style="text-align:left">返回y中没有匹配到的x(x only)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>行/列合并：</strong></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">bind_rows(…, .id = NULL)</td>
+<td style="text-align:left"><em>base::rbinds</em></td>
+</tr>
+<tr>
+<td style="text-align:left">bind_cols(…)</td>
+<td style="text-align:left"><em>base::colbinds</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="集合运算"><a class="markdownIt-Anchor" href="#集合运算"></a> 集合运算</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">intersect(x, y)</td>
+<td style="text-align:left">返回x和y交集。</td>
+</tr>
+<tr>
+<td style="text-align:left">union(x, y)</td>
+<td style="text-align:left">返回x和y并集。</td>
+</tr>
+<tr>
+<td style="text-align:left">setdiff(x, y)</td>
+<td style="text-align:left">返回在x，但不在y数据（差集）</td>
+</tr>
+<tr>
+<td style="text-align:left">setequle(x,y)</td>
+<td style="text-align:left">逻辑，x和y是否相等</td>
+</tr>
+</tbody>
+</table>
+<h2 id="计数"><a class="markdownIt-Anchor" href="#计数"></a> 计数</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">说明*(base::nrow)*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">n()</td>
+<td style="text-align:left">记录数，<code>summarise(), mutate() and filter()</code> 配合函数</td>
+</tr>
+<tr>
+<td style="text-align:left">n_distinct(…, na.rm = FALSE)</td>
+<td style="text-align:left">唯一值计数</td>
+</tr>
+<tr>
+<td style="text-align:left">tally(x, wt, sort = FALSE)</td>
+<td style="text-align:left">计数  <code>mtcars %&gt;% tally()</code></td>
+</tr>
+<tr>
+<td style="text-align:left">count(x, …, wt = NULL, sort = FALSE)</td>
+<td style="text-align:left">组内计数  group_by() + tally() <br> <code>mtcars %&gt;% count(cyl) # cyl分组计数</code></td>
+</tr>
+<tr>
+<td style="text-align:left">add_tally(x, wt, sort = FALSE)</td>
+<td style="text-align:left">添加计数变量  mutate()+tally() <br><code>mtcars %&gt;% add_tally()</code></td>
+</tr>
+<tr>
+<td style="text-align:left">add_count(x, …, wt = NULL, sort = FALSE)</td>
+<td style="text-align:left">添加组内计数变量  group_by() + add_tally() <br><code>mtcars %&gt;% add_count(cyl)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="去重"><a class="markdownIt-Anchor" href="#去重"></a> 去重</h2>
+<p><code>distinct(.data, ..., .keep_all = FALSE)</code><br>
+<em>(base::duplicated, base::unique)</em></p>
+<blockquote>
+<ul>
+<li>分组后组内去重</li>
+<li>…  : 指定要去重的列</li>
+<li>.keep_all  是否保留全部列</li>
+</ul>
+</blockquote>
+<p><code>df%&gt;%group_by(col1)%&gt;%distinct(col2,.keep_all=TRUE)</code></p>
+<h2 id="抽样dataframe"><a class="markdownIt-Anchor" href="#抽样dataframe"></a> 抽样(data.frame)</h2>
+<p><strong>for data.frame:</strong><br>
+<code>sample_n(tbl, size, replace = FALSE)</code><br>
+<code>sample_frac(tbl, size, replace = FALSE)</code></p>
+<blockquote>
+<p><strong>for vector:</strong><br>
+base::sample(x,size,replace=FALSE,prob=NULL)</p>
+</blockquote>
+<h2 id="其他函数"><a class="markdownIt-Anchor" href="#其他函数"></a> 其他函数</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">nth(x,n,order_by = NULL)<br>first();last()<br>top_n(x, n, wt)</td>
+<td style="text-align:left">提取 first, last or nth value from a vector<br>参数wt排序变量</td>
+</tr>
+<tr>
+<td style="text-align:left">lead(x,n)</td>
+<td style="text-align:left">偏移量</td>
+</tr>
+<tr>
+<td style="text-align:left">lag(x,n)</td>
+<td style="text-align:left">超前或滞后值</td>
+</tr>
+<tr>
+<td style="text-align:left">between(x, left, right)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">if_else(condition, true, false, missing = NULL)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">near(x, y)</td>
+<td style="text-align:left">判断浮点数相等</td>
+</tr>
+<tr>
+<td style="text-align:left">all_vars(expr),any_vars(expr)</td>
+<td style="text-align:left">Apply predicate to all variables</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>vars()</code></strong></td>
+<td style="text-align:left">Select variables</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>funs()</code></strong></td>
+<td style="text-align:left">Create a list of functions calls</td>
+</tr>
+</tbody>
+</table>
+<h1 id="plyr-tools-for-splitting-applying-and-combining-data"><a class="markdownIt-Anchor" href="#plyr-tools-for-splitting-applying-and-combining-data"></a> plyr: Tools for Splitting, Applying and Combining Data</h1>
+<p><strong>函数统一格式：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* * ply</span><br><span class="line">|  ---&gt;data structure be processed</span><br><span class="line">----&gt; data structure be returned</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>a: array<br>
+l: list<br>
+d: data.frame<br>
+m: multiple inputs<br>
+r: repeat multiple times<br>
+_: nothing</p>
+</blockquote>
+<p><em><strong>for example</strong></em></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">aaply(.data, .margins, .fun = <span class="literal">NULL</span>, <span class="keyword">...</span>,.progress = <span class="string">"none"</span>)</span><br><span class="line">ddply(.data, .variables, .fun = <span class="literal">NULL</span>, <span class="keyword">...</span>, .progress = <span class="string">"none"</span>)</span><br><span class="line">mdply(cbind(mean = <span class="number">1</span>:<span class="number">5</span>, sd = <span class="number">1</span>:<span class="number">5</span>), rnorm, n = <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>参数.progress</code> in (“none”/”text”/”tk”/”win”)</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+        
+      
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/nezha.jpg" alt="Wilen Wu 比特币">
+        <p>比特币</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Wilen Wu</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--dplyr-and-plyr.html" title="R手册(Tidy+Transform)--dplyr and plyr">https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--dplyr-and-plyr.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/R/" rel="tag"># R</a>
+            
+              <a href="/tags/数据清洗/" rel="tag"># 数据清洗</a>
+            
+              <a href="/tags/dplyr/" rel="tag"># dplyr</a>
+            
+              <a href="/tags/plyr/" rel="tag"># plyr</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/posts/R/RNotebook(Tidy+Transform)--regular-expression.html" rel="next" title="R手册(Tidy+Transform)--正则表达式">
+                  <i class="fa fa-chevron-left"></i> R手册(Tidy+Transform)--正则表达式
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/posts/R/RNotebook(Tidy+Transform)--stringr.html" rel="prev" title="R手册(Tidy+Transform)--stringr">
+                  R手册(Tidy+Transform)--stringr <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+          
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+          
+            <li class="tab"><a href="#comment-valine">valine</a></li>
+          
+        </ul>
+        <div class="tab-content">
+          
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
+          
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="comments"></div>
+            </div>
+          
+        </div>
+      </div>
+      <script>
+        window.addEventListener('tabs:register', () => {
+          let activeClass = 'gitalk';
+          
+            activeClass = localStorage.getItem('comments_active') || activeClass;
+          
+          if (activeClass) {
+            let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+            if (activeTab) {
+              activeTab.click();
+            }
+          }
+        });
+        
+        window.addEventListener('tabs:click', event => {
+          let commentClass = event.target.classList[1];
+          localStorage.setItem('comments_active', commentClass);
+        });
+        
+      </script>
+    
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#dplyr"><span class="nav-number">1.</span> <span class="nav-text"> dplyr</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#转换和添加变量"><span class="nav-number">1.1.</span> <span class="nav-text"> 转换和添加变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#筛选"><span class="nav-number">1.2.</span> <span class="nav-text"> 筛选</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#select-and-rename"><span class="nav-number">1.3.</span> <span class="nav-text"> select  and rename</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分组"><span class="nav-number">1.4.</span> <span class="nav-text"> 分组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#聚合"><span class="nav-number">1.5.</span> <span class="nav-text"> 聚合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序和排名"><span class="nav-number">1.6.</span> <span class="nav-text"> 排序和排名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表连接"><span class="nav-number">1.7.</span> <span class="nav-text"> 表连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合运算"><span class="nav-number">1.8.</span> <span class="nav-text"> 集合运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计数"><span class="nav-number">1.9.</span> <span class="nav-text"> 计数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#去重"><span class="nav-number">1.10.</span> <span class="nav-text"> 去重</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽样dataframe"><span class="nav-number">1.11.</span> <span class="nav-text"> 抽样(data.frame)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他函数"><span class="nav-number">1.12.</span> <span class="nav-text"> 其他函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#plyr-tools-for-splitting-applying-and-combining-data"><span class="nav-number">2.</span> <span class="nav-text"> plyr: Tools for Splitting, Applying and Combining Data</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/header.jpg"
+      alt="Wilen Wu">
+  <p class="site-author-name" itemprop="name">Wilen Wu</p>
+  <div class="site-description" itemprop="description">个人技术博客</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">112</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/wilenwu" title="GitHub &rarr; https://github.com/wilenwu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/qq_41518277" title="CSDN &rarr; https://blog.csdn.net/qq_41518277" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>CSDN</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:597379201@qq.com" title="E-Mail &rarr; mailto:597379201@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/" title="Weibo &rarr; https://weibo.com/" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.easyicon.net/" title="https://www.easyicon.net/" rel="noopener" target="_blank">easyicon</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.fontawesome.com.cn/" title="http://www.fontawesome.com.cn/" rel="noopener" target="_blank">Font Awesome</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wilen Wu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">291k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:25</span>
+</div>
+
+        
+
+
+
+
+
+
+  
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+            
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI',
+            'X-LC-Key': '6EzBICTWxLbjiGsbNAa8Fv2s',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+        if (localhost.test(document.URL)) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: '2dc3258ba338455533116f172c51d754',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI',
+    appKey: '6EzBICTWxLbjiGsbNAa8Fv2s',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

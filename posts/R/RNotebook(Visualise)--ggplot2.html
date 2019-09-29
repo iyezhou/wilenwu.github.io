@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_apple.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github32.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github16.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Wilen's Blog" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Great Vibes:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Overview ggplot2 基于the grammar of graphics思想，通过数据集、几何对象和坐标系统建立图形。 所有的ggplot2绘图都以ggplot()开始， 默认由aes()将数据集映射至几何对象。在行尾+添加图层：几何，比例尺，坐标和面等。要将绘图保存，请使用ggsave()">
+<meta name="keywords" content="R,ggplot2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R手册(Visualise)--ggplot2">
+<meta property="og:url" content="https://wilenwu.github.io/posts/R/RNotebook(Visualise)--ggplot2.html">
+<meta property="og:site_name" content="Wilen&#39;s Blog">
+<meta property="og:description" content="Overview ggplot2 基于the grammar of graphics思想，通过数据集、几何对象和坐标系统建立图形。 所有的ggplot2绘图都以ggplot()开始， 默认由aes()将数据集映射至几何对象。在行尾+添加图层：几何，比例尺，坐标和面等。要将绘图保存，请使用ggsave()">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-29T06:35:29.177Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R手册(Visualise)--ggplot2">
+<meta name="twitter:description" content="Overview ggplot2 基于the grammar of graphics思想，通过数据集、几何对象和坐标系统建立图形。 所有的ggplot2绘图都以ggplot()开始， 默认由aes()将数据集映射至几何对象。在行尾+添加图层：几何，比例尺，坐标和面等。要将绘图保存，请使用ggsave()">
+  <link rel="canonical" href="https://wilenwu.github.io/posts/R/RNotebook(Visualise)--ggplot2">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<script> 
+ (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+  <title>R手册(Visualise)--ggplot2 | Wilen's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?873a3ba02856122b60c91114a489f967";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wilen's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">∞</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">112</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">23</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">58</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-bookshelf">
+      
+    
+      
+    
+
+    <a href="/bookshelf/" rel="section"><i class="menu-item-icon fa fa-fw fa-windows"></i> <br>书架</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-bookmarks">
+      
+    
+      
+    
+
+    <a href="/bookmarks/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏夹</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/wilenwu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(Visualise)--ggplot2.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wilen Wu">
+      <meta itemprop="description" content="个人技术博客">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wilen's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">R手册(Visualise)--ggplot2
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-03 16:26:14" itemprop="dateCreated datePublished" datetime="2018-05-03T16:26:14+08:00">2018-05-03</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-29 14:35:29" itemprop="dateModified" datetime="2019-09-29T14:35:29+08:00">2019-09-29</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/Visualise/" itemprop="url" rel="index"><span itemprop="name">Visualise</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/posts/R/RNotebook(Visualise)--ggplot2.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(Visualise)--ggplot2" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/R/RNotebook(Visualise)--ggplot2.html#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/posts/R/RNotebook(Visualise)--ggplot2.html" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>18k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>16 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="overview"><a class="markdownIt-Anchor" href="#overview"></a> Overview</h1>
+<p><a href="http://ggplot2.tidyverse.org/" target="_blank" rel="noopener">ggplot2</a> 基于<strong>the grammar of graphics</strong>思想，通过数据集、几何对象和坐标系统建立图形。</p>
+<p>所有的ggplot2绘图都以<code>ggplot()</code>开始， 默认由<code>aes()</code>将数据集映射至几何对象。在行尾<code>+</code>添加图层：几何，比例尺，坐标和面等。要将绘图保存，请使用<code>ggsave()</code></p>
+<a id="more"></a>
+<p>完整的ggplot2图形包括：</p>
+<ul>
+<li><code>ggplot(data,aes(...))</code>: Create a new ggplot (required)</li>
+<li><code>geom_&lt;FUNC&gt;(aes(...),data,stat,position)</code>: Geometric object (required)<br>
+<code>or stat_&lt;FUNC&gt;(aes(...),data,geom,position)</code>: Statistical transformation (required)</li>
+<li><code>coord_&lt;FUNC&gt;(...)</code>: Coordinate systems</li>
+<li><code>facet_&lt;FUNC&gt;(...)</code>: Facetting</li>
+<li><code>scale_&lt;FUNC&gt;(...)</code>: Scales</li>
+<li><code>theme_&lt;FUNC&gt;(...)</code>:  Themes</li>
+</ul>
+<blockquote>
+<p><code>data, aes</code>参数可以在<code>ggplot, geom_&lt;FUNC&gt;, stat_&lt;FUNC&gt;</code>任一函数中加载</p>
+</blockquote>
+<p><code>aes()</code> 控制数据中的<strong>变量</strong>映射到几何图形。<code>aes()</code>映射可以在<code>ggplot()</code>和<code>geom</code>图层中设置。常用参数：alpha, color, group, linetype, size</p>
+<p><code>ggsave(filename, plot = last_plot(),path=NULL,width, height, units= c(&quot;in&quot;, &quot;cm&quot;, &quot;mm&quot;))</code>保存ggplot2图形，默认保存最后一个图</p>
+<p><code>qplot(),quickplot()</code>: Quick plot</p>
+<hr>
+<h1 id="geoms"><a class="markdownIt-Anchor" href="#geoms"></a> Geoms</h1>
+<p>用geom函数表现图形，geom中的aes参数映射数据，每一个geom函数添加一个图层。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">geom常用几何参数</th>
+<th style="text-align:left">常量赋值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">color/fill</td>
+<td style="text-align:left">color/fill=NA 消除线条或填充</td>
+</tr>
+<tr>
+<td style="text-align:left">alpha</td>
+<td style="text-align:left">0 &lt;= alpha &lt;= 1</td>
+</tr>
+<tr>
+<td style="text-align:left">linetype</td>
+<td style="text-align:left">线条形式(1:6)</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">点的尺寸和线的宽度</td>
+</tr>
+<tr>
+<td style="text-align:left">shape</td>
+<td style="text-align:left">点的形状(0:25)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="基本图形"><a class="markdownIt-Anchor" href="#基本图形"></a> 基本图形</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">geom_blank()</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">空白</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_curve(aes(yend,xend,curvature))<br>geom_segment(aes(yend,xend))</td>
+<td style="text-align:left">x, xend, y, yend, alpha, angle, color, curvature(曲率), linetype, size, arrow</td>
+<td style="text-align:left">曲线<br>线段</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_path(lineend, linejoin, linemitre)</td>
+<td style="text-align:left">x, y, alpha, color, group, linetype, size(x为分类变量时必须设置group=1)</td>
+<td style="text-align:left">路径</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_polygon(aes(group))</td>
+<td style="text-align:left">x, y, alpha, color, fill, group, linetype, size</td>
+<td style="text-align:left">多边形</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_rect(aes(xmin, ymin, xmax, ymax))</td>
+<td style="text-align:left">xmax, xmin, ymax, ymin, alpha, color, fill, linetype, size</td>
+<td style="text-align:left">矩形</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_ribbon(aes(ymin, ymax))</td>
+<td style="text-align:left">x, ymax, ymin, alpha, color, fill, group, linetype, size</td>
+<td style="text-align:left">丝带图</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_abline(aes(intercept, slope))</td>
+<td style="text-align:left">x, y, alpha, color, linetype, size</td>
+<td style="text-align:left">斜线</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_hline(aes(yintercept))</td>
+<td style="text-align:left">x, y, alpha, color, linetype, size</td>
+<td style="text-align:left">水平线</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_vline(aes(xintercept))</td>
+<td style="text-align:left">x, y, alpha, color, linetype, size</td>
+<td style="text-align:left">垂直线</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_segment(aes(yend, xend))</td>
+<td style="text-align:left">x, y, alpha, color, linetype, size</td>
+<td style="text-align:left">线段</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_spoke(aes(angle, radius))</td>
+<td style="text-align:left">x, y, alpha, color, linetype, size</td>
+<td style="text-align:left">辐条</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">them_blank &lt;- theme(axis.text=element_blank(),</span><br><span class="line">                 axis.title = element_blank()</span><br><span class="line">                 axis.ticks=element_blank())</span><br><span class="line"></span><br><span class="line">p1=ggplot()+</span><br><span class="line">  geom_spoke(aes(x=<span class="number">0</span>,y=<span class="number">0</span>,angle = <span class="number">1</span>:<span class="number">8</span>, radius = <span class="number">5</span>))+</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_spoke'</span>)</span><br><span class="line">a &lt;- ggplot(economics, aes(date, unemploy)) </span><br><span class="line">a + geom_ribbon(aes(ymin=unemploy - <span class="number">900</span>, ymax=unemploy + <span class="number">900</span>))+</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_ribbon'</span>)</span><br><span class="line">a + geom_path(lineend=<span class="string">"butt"</span>, linejoin=<span class="string">"round"</span>, linemitre=<span class="number">1</span>)+</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_path'</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/geom_lines.png"></p>
+<h2 id="单变量"><a class="markdownIt-Anchor" href="#单变量"></a> 单变量</h2>
+<p>stat参数 :  <code>bin/count/identity</code></p>
+<ul>
+<li>若x为连续变量：stat= ”bin”</li>
+<li>若x离散变量：stat = “count”或stat = “identity”</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">continuous</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">geom_area()</td>
+<td style="text-align:left">x, y, alpha, color, fill,  linetype, size，stat={identity,bin}</td>
+<td style="text-align:left">面积图</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_density(kernel = “gaussian”)</td>
+<td style="text-align:left">x, y, alpha, color, fill, group, linetype, size, weight, <code>adjust=1/2</code>(调整带宽倍率), stat={density,count,scaled (密度估计值)}</td>
+<td style="text-align:left">核密度图</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_dotplot()</td>
+<td style="text-align:left">x, y, alpha, color, fill</td>
+<td style="text-align:left">点状分布图</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_freqpoly()</td>
+<td style="text-align:left">x, y, alpha, color, group, linetype, size</td>
+<td style="text-align:left">频率多边形(类似直方图)</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_histogram(binwidth)</td>
+<td style="text-align:left">x, y, alpha, color, fill, linetype, size, weight</td>
+<td style="text-align:left">直方图</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_qq(aes(sample))</td>
+<td style="text-align:left">x, y, alpha, color, fill, linetype, size, weight</td>
+<td style="text-align:left">qq图(检测正态分布)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>discrete</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">geom_bar()</td>
+<td style="text-align:left">x, alpha, color, fill, linetype, size, weight, stat={count,prop (分组比例)}</td>
+<td style="text-align:left">柱状图</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">c &lt;- ggplot(mpg, aes(hwy)); c2 &lt;- ggplot(mpg) </span><br><span class="line">c + geom_density()+</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_density'</span>)</span><br><span class="line">c + geom_dotplot() +</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_dotplot'</span>)</span><br><span class="line">c + geom_freqpoly()+</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_freqpoly'</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/one_var.png"></p>
+<h2 id="双变量"><a class="markdownIt-Anchor" href="#双变量"></a> 双变量</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">continuous x <br>continuous y</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">geom_jitter(height , width)</td>
+<td style="text-align:left">x, y, alpha, color, fill, shape, size</td>
+<td style="text-align:left">抖点图（避免重合），stat = “identity”</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_point()</td>
+<td style="text-align:left">x, y, alpha, color, fill, shape, size, stroke</td>
+<td style="text-align:left">散点图stat = “identity”</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_quantile()</td>
+<td style="text-align:left">x, y, alpha, color, group, linetype, size, weight</td>
+<td style="text-align:left">四分位图</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_rug(sides)</td>
+<td style="text-align:left">x, y, alpha, color, linetype, size,sides(地毯位置)</td>
+<td style="text-align:left">地毯图</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_smooth()</td>
+<td style="text-align:left">x, y, alpha, color, fill, group, linetype, size, weight</td>
+<td style="text-align:left">拟合曲线，自动计算变量：y/ymin/ymax/se(标准误)</td>
+</tr>
+</tbody>
+</table>
+<p><code>geom_smooth(method = &quot;auto&quot;, formula = y ~ x)</code></p>
+<blockquote>
+<p>参数：<br>
+method: eg. “lm”, “glm”, “gam”, “loess”, “rlm”<br>
+formula :eg. y ~ x, y ~ poly(x, 2), y ~ log(x)<br>
+se : 是否绘制置信区间（默认为TRUE）<br>
+level : 用的置信区间水平（默认为95%）</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!<span class="keyword">require</span>(quantreg)) install.packages(<span class="string">"quantreg"</span>)<span class="comment">#四分位图必须的包</span></span><br><span class="line">e &lt;- ggplot(mpg, aes(cty, hwy))</span><br><span class="line">e + geom_jitter(height = <span class="number">2</span>, width = <span class="number">2</span>)  +</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_jitter'</span>)</span><br><span class="line">e + geom_quantile() +</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_quantile'</span>)</span><br><span class="line">e + geom_smooth()+</span><br><span class="line">  geom_rug(sides = <span class="string">"bl"</span>)+</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_smooth'</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/two_vars.png"></p>
+<table>
+<thead>
+<tr>
+<th>两连续变量分布图</th>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>geom_density2d()</td>
+<td>x, y, alpha, colour, group, linetype, size, fill=…level…(自动计算变量)</td>
+<td>分布密度</td>
+</tr>
+<tr>
+<td>geom_bin2d(binwidth)</td>
+<td>x, y, alpha, color, fill, linetype, size, weight</td>
+<td>矩形箱，stat = “bin2d”</td>
+</tr>
+<tr>
+<td>geom_hex()</td>
+<td>x, y, alpha, colour, fill, size</td>
+<td>六角仓，stat = “binhex”</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!<span class="keyword">require</span>(hexbin)) install.packages(<span class="string">"hexbin"</span>)<span class="comment">#六角仓必须的包</span></span><br><span class="line">df &lt;- data.frame(x=rnorm(<span class="number">1000</span>,<span class="number">0</span>,<span class="number">100</span>),y=rnorm(<span class="number">1000</span>,<span class="number">10</span>,<span class="number">50</span>))</span><br><span class="line"></span><br><span class="line">h &lt;- ggplot(df, aes(x, y))</span><br><span class="line">h + geom_bin2d() +</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_bin2d'</span>)</span><br><span class="line">h + geom_hex()+</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_hex'</span>)</span><br><span class="line">h + geom_density2d() +</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_density2d'</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/two_con.png"></p>
+<table>
+<thead>
+<tr>
+<th>两连续变量函数图</th>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>geom_area()</td>
+<td>x, y, alpha, color, fill, linetype, size</td>
+<td>面积图</td>
+</tr>
+<tr>
+<td>geom_line()</td>
+<td>x, y, alpha, color, group, linetype, size</td>
+<td>折线图</td>
+</tr>
+<tr>
+<td>geom_step(direction = “hv”)</td>
+<td>x, y, alpha, color, group, linetype, size</td>
+<td>阶梯图</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">recent &lt;- economics[economics$date &gt; as.Date(<span class="string">"2013-01-01"</span>), ]</span><br><span class="line">p &lt;- ggplot(recent, aes(date, unemploy))</span><br><span class="line"></span><br><span class="line">p + geom_area() +</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_area'</span>)</span><br><span class="line">p + geom_line()+</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_line'</span>)</span><br><span class="line">p + geom_step(direction = <span class="string">"hv"</span>) +</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_step'</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/two_con_fun.png"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">discrete x <br>continuous y</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">geom_col()</td>
+<td style="text-align:left">x, y, alpha, color, fill, group, linetype, size</td>
+<td style="text-align:left">柱状图</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_boxplot()</td>
+<td style="text-align:left">x, y, lower, middle, upper, ymax, ymin, alpha, color, fill, group, linetype, shape, size, weight, notch(是否缺口), width,outlier</td>
+<td style="text-align:left">箱线图</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_dotplot(binaxis = “y”, stackdir = “center”)</td>
+<td style="text-align:left">x, y, alpha, color, fill, group</td>
+<td style="text-align:left">点状分布图（不重合）</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_violin(scale = “area”)</td>
+<td style="text-align:left">x, y, alpha, color, fill, group, linetype, size, weight</td>
+<td style="text-align:left">小提琴图</td>
+</tr>
+<tr>
+<td style="text-align:left">ggforce::geom_sina()</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">点状小提琴图</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">p &lt;-  ggplot(mpg, aes(class, hwy)) </span><br><span class="line"></span><br><span class="line">p +geom_col() +</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_col'</span>)</span><br><span class="line">p +geom_boxplot()+</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_line'</span>)</span><br><span class="line">p +geom_dotplot(binaxis = <span class="string">"y"</span>, stackdir = <span class="string">"center"</span>) +</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_dotplot'</span>)</span><br><span class="line">p +geom_violin(scale = <span class="string">"area"</span>)+</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_violin'</span>)</span><br><span class="line">p +ggforce::geom_sina()+</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_sina'</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/two_dis.png"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">discrete x<br>discrete y</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">geom_count()</td>
+<td style="text-align:left">x, y, alpha, color, fill, shape, size, stroke</td>
+<td style="text-align:left">计数图</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ggplot(diamonds, aes(cut, color))+</span><br><span class="line">  geom_count()</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/two_dis_count.png"></p>
+<h2 id="三变量"><a class="markdownIt-Anchor" href="#三变量"></a> 三变量</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">geom_contour(aes(z))</td>
+<td style="text-align:left">x, y, z, alpha, colour, group, linetype, size, weight,bins(等高线数量),binwidth(等高线宽度)</td>
+<td style="text-align:left">等高线图， …level…(轮廓高度，自动计算变量)</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_raster(aes(fill))</td>
+<td style="text-align:left">x,y,alpha,fill</td>
+<td style="text-align:left">光栅(热力图)</td>
+</tr>
+<tr>
+<td style="text-align:left">geom_tile(aes(fill))</td>
+<td style="text-align:left">x, y, alpha, color, fill, linetype, size, width</td>
+<td style="text-align:left">瓦片(热力图)</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">p &lt;-  ggplot(faithfuld, aes(waiting, eruptions))</span><br><span class="line"></span><br><span class="line">p +geom_contour(aes(z = density)) +</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_contour'</span>)</span><br><span class="line">p +geom_raster(aes(fill = density), hjust=<span class="number">0.5</span>, vjust=<span class="number">0.5</span>, interpolate=<span class="literal">FALSE</span>) +</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_raster'</span>)</span><br><span class="line">p + geom_tile(aes(fill = density)) +</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'geom_tile'</span>)</span><br><span class="line">p + geom_raster(aes(fill = density)) +</span><br><span class="line">  geom_contour(aes(z = density),colour = <span class="string">"white"</span>)+</span><br><span class="line">  them_blank+</span><br><span class="line">  ggtitle(<span class="string">'raster+contour'</span>) <span class="comment">#图层顺序很重要</span></span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/three_vars.png"></p>
+<h2 id="文本"><a class="markdownIt-Anchor" href="#文本"></a> 文本</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">geom_text(aes(label), nudge_x, nudge_y, check_overlap = TRUE)</td>
+<td style="text-align:left">x, y, label, alpha, angle, color, family, fontface, hjust, lineheight, size, vjust</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">geom_label(aes(label), nudge_x, nudge_y, check_overlap = TRUE)</td>
+<td style="text-align:left">x, y, label, alpha, angle, color, family, fontface, hjust, lineheight, size, vjust</td>
+<td style="text-align:left">有背景框</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>参数：<br>
+nudge_x, nudge_y: 微调<br>
+check_overlap：是否过重叠<br>
+vjust,hjust: 对齐方式(0:1)<br>
+angle: 角度<br>
+lineheight：行间距<br>
+family: 字体<br>
+size: 字体大小<br>
+fontface: 字体格式(1:4, plain标准,bold加粗,italic斜体,bold.italic)</p>
+</blockquote>
+<p><strong>ggrepel包 : 文字不重叠</strong><br>
+<code>ggrepel:: geom_label_repel()</code><br>
+<code>ggrepel:: geom_text_repel()</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">df=data.frame(x=c(1,1,3),y=c(3,2,1),t=c(&apos;A&apos;,&apos;B&apos;,&apos;C&apos;))</span><br><span class="line"></span><br><span class="line">e=ggplot(df,aes(x,y))</span><br><span class="line">e + geom_label(aes(label = t)) +</span><br><span class="line">  them_blank+lims(x=c(0,5),y=c(0,5))+</span><br><span class="line">  ggtitle(&apos;geom_label&apos;)</span><br><span class="line">e + geom_text(aes(label = t)) +</span><br><span class="line">  them_blank+lims(x=c(0,5),y=c(0,5))+</span><br><span class="line">  ggtitle(&apos;geom_text&apos;)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/text.png"></p>
+<h2 id="误差可视化"><a class="markdownIt-Anchor" href="#误差可视化"></a> 误差可视化</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">geom_crossbar(fatten)</td>
+<td style="text-align:left">x, y, ymax, ymin, alpha, color, fill, group, linetype, size</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">geom_errorbar()</td>
+<td style="text-align:left">x, ymax, ymin, alpha, color, group, linetype, size, width (also geom_errorbarh())</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">geom_linerange()</td>
+<td style="text-align:left">x, ymin, ymax, alpha, color, group, linetype, size</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">geom_pointrange()</td>
+<td style="text-align:left">x, y, ymin, ymax, alpha, color, fill, group, linetype, shape, size</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><code>aes(ymin,ymax)</code> : ymin,ymax需要在aes参数内赋值</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">df &lt;- data.frame(</span><br><span class="line">  trt = factor(c(<span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'B'</span>)),</span><br><span class="line">  resp = c(<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">4</span>),</span><br><span class="line">  group = factor(c(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>)),</span><br><span class="line">  upper = c(<span class="number">1.1</span>, <span class="number">5.3</span>, <span class="number">3.3</span>, <span class="number">4.2</span>),</span><br><span class="line">  lower = c(<span class="number">0.8</span>, <span class="number">4.6</span>, <span class="number">2.4</span>, <span class="number">3.6</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">dodge &lt;- position_dodge(width=<span class="number">0.9</span>) <span class="comment">#位置微调</span></span><br><span class="line">p &lt;- ggplot(df, aes(trt, resp, fill = group,ymin = lower, ymax = upper))+</span><br><span class="line">  geom_col(position = dodge)</span><br><span class="line">  </span><br><span class="line">p + geom_crossbar(fatten = <span class="number">2</span>,position = dodge) +</span><br><span class="line">  ggtitle(<span class="string">'geom_crossbar'</span>)</span><br><span class="line">p + geom_errorbar(position = dodge, width = <span class="number">0.25</span>) +</span><br><span class="line">  ggtitle(<span class="string">'geom_errorbar'</span>)</span><br><span class="line">p +geom_linerange(position = dodge) +</span><br><span class="line">  ggtitle(<span class="string">'geom_linerange'</span>)</span><br><span class="line">p +geom_pointrange(position = dodge) +</span><br><span class="line">  ggtitle(<span class="string">'geom_pointrange'</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/error.png"></p>
+<h2 id="地图"><a class="markdownIt-Anchor" href="#地图"></a> 地图</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">geom_map(aes(map_id), map)</td>
+<td style="text-align:left">map_id, alpha, color, fill, linetype, size</td>
+<td style="text-align:left">地图</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>参数：<br>
+map_id：id/region<br>
+map: data.frame(x/long, y/lat, id/region) 或sp空间数据<br>
+Tips:<br>
+<code>sf::st_read</code> 读取sp或json文件<br>
+<code>sf::st_transform</code> 转换sf文件<br>
+地图素材：<br>
+<a href="https://freevectormaps.com/" target="_blank" rel="noopener">矢量地图素材链接</a><br>
+shp数据地图：GitHub  ,GADM<br>
+Json数据地图：阿里云,  百度Echarts</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!<span class="keyword">require</span>(maps)) install.packages(<span class="string">"maps"</span>) <span class="comment"># 载入地图包（版本过老）</span></span><br><span class="line">data &lt;- data.frame(murder = USArrests$Murder,state = tolower(rownames(USArrests)))</span><br><span class="line"></span><br><span class="line">map &lt;- maps::map_data(<span class="string">"state"</span>)</span><br><span class="line">ggplot(data, aes(fill = murder))+</span><br><span class="line">  geom_map(aes(map_id = state), map = map) + </span><br><span class="line">  expand_limits(x = map$long, y = map$lat)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/geom_map.png"></p>
+<hr>
+<h1 id="stats"><a class="markdownIt-Anchor" href="#stats"></a> Stats</h1>
+<p>ggplot2还提供一种替代方案，建立一个图层用<code>stat</code>计算新变量 (e.g., count, prop)作图。</p>
+<ul>
+<li>改变geom函数的stat默认值，如<code>geom_bar(stat=&quot;count&quot;)</code></li>
+<li>调用<code>stat_&lt;FUNC&gt;</code>，如 <code>stat_count(geom=&quot;bar&quot;)</code></li>
+<li>用<code>..name..</code>的语法格式，将stat计算变量映射到几何对象，如<code>stat_density2d(aes(fill = ..level..), geom = &quot;polygon&quot;)</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">计算变量</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">stat_bin(binwidth, origin)</td>
+<td style="text-align:left">x, y</td>
+<td style="text-align:left">…count…, …ncount…, …density…, …ndensity…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">stat_count(width = 1)</td>
+<td style="text-align:left">x, y</td>
+<td style="text-align:left">…count…, …prop…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">stat_density(adjust = 1, kernel = “gaussian&quot;)</td>
+<td style="text-align:left">x, y</td>
+<td style="text-align:left">…count…, …density…, …scaled…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">------</td>
+<td style="text-align:left">------</td>
+<td style="text-align:left">------</td>
+<td style="text-align:left">------</td>
+</tr>
+<tr>
+<td style="text-align:left">stat_bin_2d(bins, drop = TRUE)</td>
+<td style="text-align:left">x, y, fill</td>
+<td style="text-align:left">…count…, …density…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">stat_bin_hex(bins)</td>
+<td style="text-align:left">x, y, fill</td>
+<td style="text-align:left">…count…, …density…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">stat_density_2d(contour = TRUE, n = 100)</td>
+<td style="text-align:left">x, y, color, size</td>
+<td style="text-align:left">…level…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">stat_ellipse(level, segments, type = “t”)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">计算正常置信度椭圆</td>
+</tr>
+<tr>
+<td style="text-align:left">------</td>
+<td style="text-align:left">------</td>
+<td style="text-align:left">------</td>
+<td style="text-align:left">------</td>
+</tr>
+<tr>
+<td style="text-align:left">stat_contour(aes(z))</td>
+<td style="text-align:left">x, y, z, order</td>
+<td style="text-align:left">…level…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">stat_summary_hex(aes(z), bins, fun = max)</td>
+<td style="text-align:left">x, y, z, fill</td>
+<td style="text-align:left">…value…</td>
+<td style="text-align:left">六边形</td>
+</tr>
+<tr>
+<td style="text-align:left">stat_summary_2d(aes(z), bins, fun = mean)</td>
+<td style="text-align:left">x, y, z, fill</td>
+<td style="text-align:left">…value…</td>
+<td style="text-align:left">矩形</td>
+</tr>
+<tr>
+<td style="text-align:left">stat_boxplot(coef)</td>
+<td style="text-align:left">x, y</td>
+<td style="text-align:left">…lower…,  …middle…, …upper…, …width… , …ymin…, …ymax…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">stat_ydensity(kernel = “gaussian”, scale = “area&quot;)</td>
+<td style="text-align:left">x, y</td>
+<td style="text-align:left">…density…, …scaled…, …count…, …n…, …violinwidth…, …width…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">------</td>
+<td style="text-align:left">------</td>
+<td style="text-align:left">------</td>
+<td style="text-align:left">------</td>
+</tr>
+<tr>
+<td style="text-align:left">stat_ecdf(n)</td>
+<td style="text-align:left">x, y</td>
+<td style="text-align:left">…x…, …y…</td>
+<td style="text-align:left">计算经验累积分布</td>
+</tr>
+<tr>
+<td style="text-align:left">stat_quantile(quantiles = c(0.1, 0.9), formula = y ~ log(x), method = “rq”)</td>
+<td style="text-align:left">x, y</td>
+<td style="text-align:left">…quantile…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">stat_smooth(method = “lm”, formula = y ~ x, se=T, level=0.95)</td>
+<td style="text-align:left">x, y</td>
+<td style="text-align:left">…se…, …x…, …y…, …ymin…, …ymax…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">------</td>
+<td style="text-align:left">------</td>
+<td style="text-align:left">------</td>
+<td style="text-align:left">------</td>
+</tr>
+<tr>
+<td style="text-align:left">stat_function(aes(x = -3:3), n = 99,  fun = dnorm, args = list(sd=0.5))</td>
+<td style="text-align:left">x</td>
+<td style="text-align:left">…x…, …y…</td>
+<td style="text-align:left">计算每个x值的函数</td>
+</tr>
+<tr>
+<td style="text-align:left">stat_identity(na.rm = TRUE)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">保持原样</td>
+</tr>
+<tr>
+<td style="text-align:left">stat_qq(aes(sample=1:100), dist = qt, dparam=list(df=5))</td>
+<td style="text-align:left">sample, x, y</td>
+<td style="text-align:left">…sample…, …theoretical…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">stat_sum()</td>
+<td style="text-align:left">x, y, size</td>
+<td style="text-align:left">…n…, …prop…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">stat_summary(fun.data = “mean_cl_boot”)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">将y值汇总在唯一x中</td>
+</tr>
+<tr>
+<td style="text-align:left">stat_summary_bin(fun.y = “mean”, geom = “bar”)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">将y值汇总在分箱x中</td>
+</tr>
+<tr>
+<td style="text-align:left">stat_unique()</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">删除重复项</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">set.seed(<span class="number">1492</span>)</span><br><span class="line">df &lt;- data.frame(</span><br><span class="line">  x = rnorm(<span class="number">100</span>)</span><br><span class="line">)</span><br><span class="line">ggplot(df, aes(x)) + geom_density()+</span><br><span class="line">  stat_function(fun = dnorm, colour = <span class="string">"red"</span>)+</span><br><span class="line">  ggtitle(<span class="string">'density vs. function'</span>)</span><br><span class="line"></span><br><span class="line">ggplot(faithful, aes(waiting, eruptions, color = eruptions &gt; <span class="number">3</span>)) +</span><br><span class="line">  geom_point() +</span><br><span class="line">  stat_ellipse(type = <span class="string">"norm"</span>, linetype = <span class="number">2</span>) +</span><br><span class="line">  stat_ellipse(type = <span class="string">"t"</span>)+</span><br><span class="line">  ggtitle(<span class="string">'stat_ellipse'</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/stats.png"></p>
+<h1 id="scales"><a class="markdownIt-Anchor" href="#scales"></a> Scales</h1>
+<p>Scales传递数据给几何对象，改变图形的默认标尺。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">p &lt;- ggplot(mpg, aes(fl)) +</span><br><span class="line">  geom_bar(aes(fill = fl))</span><br><span class="line"></span><br><span class="line">p + scale_fill_manual( </span><br><span class="line"><span class="comment"># scale: scale, fill: 几何对象, manual: 预处理的scale类型</span></span><br><span class="line">  values = c(<span class="string">"skyblue"</span>, <span class="string">"royalblue"</span>, <span class="string">"blue"</span>,<span class="string">"navy"</span>), <span class="comment">#scale参数</span></span><br><span class="line">  limits = c(<span class="string">"d"</span>, <span class="string">"e"</span>, <span class="string">"p"</span>, <span class="string">"r"</span>), <span class="comment">#限制范围</span></span><br><span class="line">  breaks =c(<span class="string">"d"</span>, <span class="string">"e"</span>, <span class="string">"p"</span>, <span class="string">"r"</span>), <span class="comment">#breaks to use in legend/axis</span></span><br><span class="line">  labels = c(<span class="string">"D"</span>, <span class="string">"E"</span>, <span class="string">"P"</span>, <span class="string">"R"</span>), <span class="comment">#labels to use in legend/axis</span></span><br><span class="line">  name = <span class="string">"fuel"</span>) <span class="comment">#legend/axis 标题</span></span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/scale_fill.png"></p>
+<h2 id="常用标尺格式"><a class="markdownIt-Anchor" href="#常用标尺格式"></a> 常用标尺格式</h2>
+<p><strong>type</strong>: color,size,fill,shape,linetype,alpha,etc</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scale_&lt;type&gt;_continuous() <span class="comment">#连续变量映射</span></span><br><span class="line">scale_&lt;type&gt;_discrete() <span class="comment">#离散变量映射</span></span><br><span class="line">scale_&lt;type&gt;_identity() <span class="comment">#原始数据直接映射</span></span><br><span class="line">scale_&lt;type&gt;_manual(value=c(…)) <span class="comment">#自定义值范围</span></span><br></pre></td></tr></table></figure>
+<h2 id="坐标轴标尺"><a class="markdownIt-Anchor" href="#坐标轴标尺"></a> 坐标轴标尺</h2>
+<table>
+<thead>
+<tr>
+<th>X &amp; Y location scales</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lims(x,y)/xlim()/ylim()</td>
+<td></td>
+</tr>
+<tr>
+<td>scale_x_continuous(breaks, labels,limits)</td>
+<td>刻度,标签,值的范围</td>
+</tr>
+<tr>
+<td>scale_x_discrete(breaks, labels,limits)</td>
+<td></td>
+</tr>
+<tr>
+<td>scale_x_date(date_breaks , date_labels)</td>
+<td>日期间隔（“2 weeks”），日期显示格式（<code>%m/%d</code>）</td>
+</tr>
+<tr>
+<td>scale_x_datetime()</td>
+<td>时间日期，参数同date</td>
+</tr>
+<tr>
+<td>scale_x_log10()</td>
+<td>log10 标尺</td>
+</tr>
+<tr>
+<td>scale_x_reverse()</td>
+<td>x轴方向颠倒</td>
+</tr>
+<tr>
+<td>scale_x_sqrt()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="color-and-fill-scales"><a class="markdownIt-Anchor" href="#color-and-fill-scales"></a> Color and fill scales</h2>
+<table>
+<thead>
+<tr>
+<th>Continuous</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scale_fill_distiller(palette = “Blues”)</td>
+<td></td>
+</tr>
+<tr>
+<td>scale_fill_gradient(low,high)</td>
+<td>渐变色调控</td>
+</tr>
+<tr>
+<td>scale_fill_gradient2(low,mid,high,midpoint)</td>
+<td>2极渐变色</td>
+</tr>
+<tr>
+<td>scale_fill_gradientn(values)</td>
+<td>n极渐变色</td>
+</tr>
+<tr>
+<td><strong>Discrete</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>scale_fill_hue()</td>
+<td>离散色阶</td>
+</tr>
+<tr>
+<td>scale_fill_brewer(palette = “Blues”)</td>
+<td>调色板</td>
+</tr>
+<tr>
+<td>scale_fill_grey(start, end)</td>
+<td>灰色调</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>调色板离散色阶palette选择：<br>
+RColorBrewer::display.brewer.all()<br>
+连续色阶选择：<br>
+Also: rainbow(), heat.colors(), terrain.colors(), cm.colors()<br>
+RColorBrewer::brewer.pal()</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#离散色阶</span></span><br><span class="line">p &lt;- ggplot(mpg, aes(fl)) +</span><br><span class="line">  geom_bar(aes(fill = fl))</span><br><span class="line"></span><br><span class="line">p +scale_fill_brewer(palette = <span class="string">"Blues"</span>)+</span><br><span class="line">  ggtitle(<span class="string">'scale_fill_brewer'</span>)</span><br><span class="line">p + scale_fill_grey(start = <span class="number">0.2</span>, end = <span class="number">0.8</span>,na.value = <span class="string">"red"</span>) +</span><br><span class="line">  ggtitle(<span class="string">'scale_fill_grey'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#连续色阶</span></span><br><span class="line">p &lt;- ggplot(mpg, aes(hwy))+ </span><br><span class="line">  geom_dotplot(aes(fill = ..x..))</span><br><span class="line"></span><br><span class="line">p + scale_fill_distiller(palette = <span class="string">"Blues"</span>)  +</span><br><span class="line">  ggtitle(<span class="string">'scale_fill_distiller'</span>)</span><br><span class="line">p + scale_fill_gradient(low=<span class="string">"red"</span>, high=<span class="string">"yellow"</span>)  +</span><br><span class="line">  ggtitle(<span class="string">'scale_fill_gradient'</span>)</span><br><span class="line">p + scale_fill_gradient2(low=<span class="string">"red"</span>, high=<span class="string">"blue"</span>, mid = <span class="string">"white"</span>, midpoint = <span class="number">25</span>) +</span><br><span class="line">  ggtitle(<span class="string">'scale_fill_gradient2'</span>)</span><br><span class="line">p +scale_fill_gradientn(colours=topo.colors(<span class="number">6</span>)) +</span><br><span class="line">  ggtitle(<span class="string">'scale_fill_gradientn'</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/scale_fill_con.png"></p>
+<p><img alt data-src="/images/ggplot2/scale_fill_dis.png"></p>
+<h2 id="shape-and-size-scales"><a class="markdownIt-Anchor" href="#shape-and-size-scales"></a> Shape and size scales</h2>
+<table>
+<thead>
+<tr>
+<th>shape</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scale_shape()</td>
+<td>形状</td>
+</tr>
+<tr>
+<td>scale_shape_manual(values)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>size</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>scale_size()</td>
+<td>大小</td>
+</tr>
+<tr>
+<td>scale_radius(range)</td>
+<td>半径</td>
+</tr>
+</tbody>
+</table>
+<p><strong>shape:</strong><br>
+<img alt="shape" data-src="/images/ggplot2/shape_scale.png"></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df &lt;- data.frame(x=<span class="number">1</span>:<span class="number">10</span>,y=sample(<span class="number">1</span>:<span class="number">10</span>,<span class="number">10</span>),</span><br><span class="line">                 s1=rnorm(<span class="number">10</span>),</span><br><span class="line">                 s2=sample(<span class="number">1</span>:<span class="number">4</span>,<span class="number">10</span>,replace = <span class="literal">TRUE</span>))</span><br><span class="line">p &lt;- ggplot(df, aes(x, y))+</span><br><span class="line">  geom_point(aes(shape = factor(s2), size = s1, color=factor(s2)))</span><br><span class="line">p + scale_shape_manual(values = c(<span class="number">3</span>:<span class="number">7</span>))</span><br><span class="line">p + scale_radius(range = c(<span class="number">1</span>,<span class="number">6</span>))</span><br></pre></td></tr></table></figure>
+<h1 id="coordinate-systems"><a class="markdownIt-Anchor" href="#coordinate-systems"></a> Coordinate Systems</h1>
+<table>
+<thead>
+<tr>
+<th>Coordinate Systems</th>
+<th style="text-align:left">参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>coord_cartesian()</td>
+<td style="text-align:left">xlim,ylim</td>
+<td>笛卡尔坐标（默认）</td>
+</tr>
+<tr>
+<td>coord_fixed()</td>
+<td style="text-align:left">radio,xlim,ylim</td>
+<td>具有固定纵横比的直角坐标</td>
+</tr>
+<tr>
+<td>coord_flip</td>
+<td style="text-align:left">xlim,ylim</td>
+<td>x和y翻转(笛卡尔坐标)</td>
+</tr>
+<tr>
+<td>coord_polar</td>
+<td style="text-align:left">theta, start, direction</td>
+<td>极坐标</td>
+</tr>
+<tr>
+<td>coord_trans()</td>
+<td style="text-align:left">xtrans, ytrans，xlim,ylim</td>
+<td>变换笛卡尔坐标系，xtrans, ytrans接收函数名</td>
+</tr>
+<tr>
+<td>coord_quickmap()<br>coord_map(projection = “ortho”,orientation )</td>
+<td style="text-align:left">projection, orienztation, xlim, ylim</td>
+<td>地图投影 projections:{mercator (default), azequalarea, lagrange, etc.}</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ggplot(mpg, aes(fl)) + them_blank+</span><br><span class="line">  geom_bar()+</span><br><span class="line">  coord_polar(theta = <span class="string">"x"</span>, direction=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">world &lt;- map_data(<span class="string">"world"</span>)</span><br><span class="line">worldmap &lt;- ggplot(world, aes(x = long, y = lat, group = group)) +</span><br><span class="line">  geom_path() +</span><br><span class="line">  scale_y_continuous(breaks = (-<span class="number">2</span>:<span class="number">2</span>) * <span class="number">30</span>) +</span><br><span class="line">  scale_x_continuous(breaks = (-<span class="number">4</span>:<span class="number">4</span>) * <span class="number">45</span>)</span><br><span class="line">worldmap + coord_map(<span class="string">"ortho"</span>, orientation = c(<span class="number">41</span>, -<span class="number">74</span>, <span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/coord_polar.png">  <img alt data-src="/images/ggplot2/coord_map.png"></p>
+<h1 id="position-adjustments"><a class="markdownIt-Anchor" href="#position-adjustments"></a> Position Adjustments</h1>
+<p>Position adjustments 对geoms进行位置调整。</p>
+<p><strong>geom参数赋值字符串</strong></p>
+<p>字符串: identity,jitterdodge (同时闪避和抖动),nudge(微距点固定距离)</p>
+<table>
+<thead>
+<tr>
+<th>geom</th>
+<th>position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>geom_bar/aera/density</td>
+<td>dodge(并排), stack/fill(堆叠)</td>
+</tr>
+<tr>
+<td>geom_point</td>
+<td>jitter(减少点重叠)</td>
+</tr>
+<tr>
+<td>geom_label</td>
+<td>nudge(轻推来自点的标签)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>geom参数赋值position函数</strong></p>
+<table>
+<thead>
+<tr>
+<th>position函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>position_dodge(width)</td>
+<td>抖动宽度(geom默认width=0.9,调用此函数时,width应设为0.9)</td>
+</tr>
+<tr>
+<td>position_identity()</td>
+<td>不调整</td>
+</tr>
+<tr>
+<td>position_jitter(width , height )</td>
+<td></td>
+</tr>
+<tr>
+<td>position_jitterdodge()</td>
+<td></td>
+</tr>
+<tr>
+<td>position_nudge(x = 0, y = 0)</td>
+<td>平移距离</td>
+</tr>
+<tr>
+<td>position_stack(vjust = 1)</td>
+<td>对齐方式</td>
+</tr>
+<tr>
+<td>position_fill(vjust = 1)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">p &lt;- ggplot(mpg, aes(fl, fill = drv))</span><br><span class="line"></span><br><span class="line">p +  geom_bar(position = <span class="string">"dodge"</span>)+</span><br><span class="line">  ggtitle(<span class="string">'position = "dodge"'</span>)</span><br><span class="line">p +  geom_bar(position = <span class="string">"fill"</span>)+</span><br><span class="line">  ggtitle(<span class="string">'position = "fill"'</span>)</span><br><span class="line">p +   geom_bar(position = <span class="string">"stack"</span>)+</span><br><span class="line">  ggtitle(<span class="string">'position = "stack"'</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/geom_bar.png"></p>
+<h1 id="themes"><a class="markdownIt-Anchor" href="#themes"></a> Themes</h1>
+<p><code>theme(…)</code><br>
+设置主题包括title,axis,legend, panel, background,etc</p>
+<table>
+<thead>
+<tr>
+<th>主题函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>theme_bw(base_size,base_family)</td>
+<td>黑白主题</td>
+</tr>
+<tr>
+<td>theme_grey()</td>
+<td>灰色主题（默认）</td>
+</tr>
+<tr>
+<td>theme_dark()</td>
+<td>黑色主题</td>
+</tr>
+<tr>
+<td>theme_void()</td>
+<td>空主题</td>
+</tr>
+<tr>
+<td>theme_minimal()</td>
+<td>最小主题</td>
+</tr>
+<tr>
+<td>ggtech::theme_tech()</td>
+<td>技术主题</td>
+</tr>
+</tbody>
+</table>
+<p><strong>控制theme元素函数(作为主题组件的参数出现)：</strong></p>
+<table>
+<thead>
+<tr>
+<th>元素函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>element_blank</td>
+<td>清空</td>
+</tr>
+<tr>
+<td>element_rect(fill,color,size,linetype)</td>
+<td>边框和背景</td>
+</tr>
+<tr>
+<td>element_text(family,face, color, size,hjust, vjust,angle,lineheight, margin, debug)</td>
+<td>文字，参数：lineheight(行高), margin(边缘), debug(是否矩形背景)</td>
+</tr>
+<tr>
+<td>element_line(color,size,linetype,lineend,arrow)</td>
+<td>Line end style (round, butt, square)，添加箭头: grid::arrow(angle,length,ends=“last”/“first”/“both”)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="faceting"><a class="markdownIt-Anchor" href="#faceting"></a> Faceting</h1>
+<p>刻面通过类别变量将图形分块显示。</p>
+<table>
+<thead>
+<tr>
+<th>刻面函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>facet_grid(var.row~var.col,scales,labeller)</td>
+<td>网格图，单变量时var.row或var.col用点填充</td>
+</tr>
+<tr>
+<td>facet_wrap(~var+var,nrow,ncol,scales,labeller)</td>
+<td>将1d的面板卷成2d网格(nrow*ncol)</td>
+</tr>
+<tr>
+<td>ggforce::facet_zoom(x, y, xy, split = FALSE, zoom.size = 2)</td>
+<td>子集zoom，x,y,xy 赋值（逻辑值）：选取x轴，y轴，xy交叉子集</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">t &lt;- ggplot(mpg, aes(cty, hwy)) + geom_point() </span><br><span class="line">t + facet_grid(year ~ fl)  </span><br><span class="line"><span class="comment"># ggforce::facet_zoom</span></span><br><span class="line">ggplot(iris, aes(Petal.Length, Petal.Width, colour = Species)) +</span><br><span class="line">    geom_point() +</span><br><span class="line">    ggforce::facet_zoom(x = Species == <span class="string">"versicolor"</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/ggplot2/facet_grid.png"><img alt data-src="/images/ggplot2/facet_zoom.png"></p>
+<p>**scales参数：**坐标刻度自由<br>
+“fixed”(default，坐标尺度统一), “free”(坐标尺度自由)，“free_x”,“free_y”</p>
+<p><strong>labeller参数</strong>: 调整刻面标签<br>
+<img alt data-src="/images/ggplot2/labeller.png"></p>
+<h1 id="annotations-and-labels"><a class="markdownIt-Anchor" href="#annotations-and-labels"></a> Annotations and Labels</h1>
+<table>
+<thead>
+<tr>
+<th>Labels</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ggtitle(label, subtitle = NULL)</td>
+<td>图标题</td>
+</tr>
+<tr>
+<td>labs(x,y,title,subtitle,caption)</td>
+<td>x/y轴标题</td>
+</tr>
+<tr>
+<td>xlab(label)/ylab(label)</td>
+<td>x/y轴标题</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Annotations</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>annotate(geom,…)</td>
+<td>geom注释，其余参数为geom参数</td>
+</tr>
+<tr>
+<td>annotate(“text”,x,y,label, parse=FALSE)</td>
+<td>文本注释</td>
+</tr>
+<tr>
+<td>annotate(“pointrange”, x , y, ymin, ymax)</td>
+<td></td>
+</tr>
+<tr>
+<td>annotate(“rect”, xmin, xmax, ymin, ymax)</td>
+<td>矩形注释</td>
+</tr>
+<tr>
+<td>annotate(“segment”,x, xend, y, yend, arrow)</td>
+<td>线段注释</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>文本注释参数parse：是否数学表达式, 更多公式语法可参考?plotmath<br>
+线段注释参数arrow:  添加箭头grid::arrow(angle,length,ends=”last” / ”first”/”both”)</p>
+</blockquote>
+<h1 id="legends"><a class="markdownIt-Anchor" href="#legends"></a> Legends</h1>
+<p><code>theme(legend.position = &quot;none&quot;/&quot;bottom&quot;/&quot;top&quot;/&quot;left&quot;/&quot;right&quot;)</code> 在主题中设置 Legend<br>
+<code>guides(…)</code>设置legends几何组件：colorbar, legend, or none (no legend)</p>
+<table>
+<thead>
+<tr>
+<th>guide函数</th>
+<th>作为scale或guides()的参数设置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>guide_colorbar(title,label…)</td>
+<td>连续型变量</td>
+</tr>
+<tr>
+<td>guide_legend(title,label…)</td>
+<td>离散型变量</td>
+</tr>
+</tbody>
+</table>
+<h1 id="vector-helpers"><a class="markdownIt-Anchor" href="#vector-helpers"></a> Vector helpers</h1>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stats::recoder(x_char,x_num,order=FALSE)</td>
+<td>重排序,返回factor/ord.factor</td>
+</tr>
+<tr>
+<td>cut_interval(x,n,length)</td>
+<td>n组有相同宽度的观测值</td>
+</tr>
+<tr>
+<td>cut_number(x,n)</td>
+<td>n组有相同数量的观测值</td>
+</tr>
+<tr>
+<td>cut_width(x,width,center,boundary, closed = c(“right”,“left”))</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="混合图"><a class="markdownIt-Anchor" href="#混合图"></a> 混合图</h1>
+<p><code>gridExtra</code>包可以将多个ggplot2对象组合到一张图中</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gridExtra::grid.arrange(plot1,plot2,…,nrow,ncol)</span><br></pre></td></tr></table></figure>
+<h1 id="ggplot2-extensions"><a class="markdownIt-Anchor" href="#ggplot2-extensions"></a> <a href="http://www.ggplot2-exts.org/ggiraph.html" target="_blank" rel="noopener">ggplot2 extensions</a></h1>
+<p>ggplot2 now has an official extension mechanism. This means that others can now easily create their own stats, geoms and positions, and provide them in other packages. This should allow the ggplot2 community to flourish, even as less development work happens in ggplot2 itself. This page showcases these extensions.</p>
+
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+        
+      
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/nezha.jpg" alt="Wilen Wu 比特币">
+        <p>比特币</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Wilen Wu</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wilenwu.github.io/posts/R/RNotebook(Visualise)--ggplot2.html" title="R手册(Visualise)--ggplot2">https://wilenwu.github.io/posts/R/RNotebook(Visualise)--ggplot2.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/R/" rel="tag"># R</a>
+            
+              <a href="/tags/ggplot2/" rel="tag"># ggplot2</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/posts/R/RNotebook(Syntax)--magrittr-and-purrr.html" rel="next" title="R手册(Syntax)--magrittr and purrr">
+                  <i class="fa fa-chevron-left"></i> R手册(Syntax)--magrittr and purrr
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/posts/R/RNotebook(Visualise)--RColorBrewer-and-extrafont.html" rel="prev" title="R手册(Visualise)--RColorBrewer and extrafont">
+                  R手册(Visualise)--RColorBrewer and extrafont <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+          
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+          
+            <li class="tab"><a href="#comment-valine">valine</a></li>
+          
+        </ul>
+        <div class="tab-content">
+          
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
+          
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="comments"></div>
+            </div>
+          
+        </div>
+      </div>
+      <script>
+        window.addEventListener('tabs:register', () => {
+          let activeClass = 'gitalk';
+          
+            activeClass = localStorage.getItem('comments_active') || activeClass;
+          
+          if (activeClass) {
+            let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+            if (activeTab) {
+              activeTab.click();
+            }
+          }
+        });
+        
+        window.addEventListener('tabs:click', event => {
+          let commentClass = event.target.classList[1];
+          localStorage.setItem('comments_active', commentClass);
+        });
+        
+      </script>
+    
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#overview"><span class="nav-number">1.</span> <span class="nav-text"> Overview</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#geoms"><span class="nav-number">2.</span> <span class="nav-text"> Geoms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本图形"><span class="nav-number">2.1.</span> <span class="nav-text"> 基本图形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单变量"><span class="nav-number">2.2.</span> <span class="nav-text"> 单变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双变量"><span class="nav-number">2.3.</span> <span class="nav-text"> 双变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三变量"><span class="nav-number">2.4.</span> <span class="nav-text"> 三变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本"><span class="nav-number">2.5.</span> <span class="nav-text"> 文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#误差可视化"><span class="nav-number">2.6.</span> <span class="nav-text"> 误差可视化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地图"><span class="nav-number">2.7.</span> <span class="nav-text"> 地图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stats"><span class="nav-number">3.</span> <span class="nav-text"> Stats</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#scales"><span class="nav-number">4.</span> <span class="nav-text"> Scales</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用标尺格式"><span class="nav-number">4.1.</span> <span class="nav-text"> 常用标尺格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#坐标轴标尺"><span class="nav-number">4.2.</span> <span class="nav-text"> 坐标轴标尺</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#color-and-fill-scales"><span class="nav-number">4.3.</span> <span class="nav-text"> Color and fill scales</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shape-and-size-scales"><span class="nav-number">4.4.</span> <span class="nav-text"> Shape and size scales</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#coordinate-systems"><span class="nav-number">5.</span> <span class="nav-text"> Coordinate Systems</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#position-adjustments"><span class="nav-number">6.</span> <span class="nav-text"> Position Adjustments</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#themes"><span class="nav-number">7.</span> <span class="nav-text"> Themes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#faceting"><span class="nav-number">8.</span> <span class="nav-text"> Faceting</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#annotations-and-labels"><span class="nav-number">9.</span> <span class="nav-text"> Annotations and Labels</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#legends"><span class="nav-number">10.</span> <span class="nav-text"> Legends</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vector-helpers"><span class="nav-number">11.</span> <span class="nav-text"> Vector helpers</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#混合图"><span class="nav-number">12.</span> <span class="nav-text"> 混合图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ggplot2-extensions"><span class="nav-number">13.</span> <span class="nav-text"> ggplot2 extensions</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/header.jpg"
+      alt="Wilen Wu">
+  <p class="site-author-name" itemprop="name">Wilen Wu</p>
+  <div class="site-description" itemprop="description">个人技术博客</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">112</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/wilenwu" title="GitHub &rarr; https://github.com/wilenwu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/qq_41518277" title="CSDN &rarr; https://blog.csdn.net/qq_41518277" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>CSDN</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:597379201@qq.com" title="E-Mail &rarr; mailto:597379201@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/" title="Weibo &rarr; https://weibo.com/" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.easyicon.net/" title="https://www.easyicon.net/" rel="noopener" target="_blank">easyicon</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.fontawesome.com.cn/" title="http://www.fontawesome.com.cn/" rel="noopener" target="_blank">Font Awesome</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wilen Wu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">291k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:25</span>
+</div>
+
+        
+
+
+
+
+
+
+  
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+            
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI',
+            'X-LC-Key': '6EzBICTWxLbjiGsbNAa8Fv2s',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+        if (localhost.test(document.URL)) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: '6ec351a76c1b5f36bcc8e2454426bac5',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI',
+    appKey: '6EzBICTWxLbjiGsbNAa8Fv2s',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

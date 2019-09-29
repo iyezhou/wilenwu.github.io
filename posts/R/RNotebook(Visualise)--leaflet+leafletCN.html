@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_apple.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github32.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github16.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Wilen's Blog" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Great Vibes:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="leaflet Leaflet是一个用于交互式地图的开源JavaScript库。这个R包可以很容易地从R创建Leaflet地图。 语法：leaflet通过管道操作%&amp;gt;%叠加图层作图。 官网链接">
+<meta name="keywords" content="R,leaflet,leafletCN,交互地图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R手册(Visualise)--leaflet+leafletCN">
+<meta property="og:url" content="https://wilenwu.github.io/posts/R/RNotebook(Visualise)--leaflet+leafletCN.html">
+<meta property="og:site_name" content="Wilen&#39;s Blog">
+<meta property="og:description" content="leaflet Leaflet是一个用于交互式地图的开源JavaScript库。这个R包可以很容易地从R创建Leaflet地图。 语法：leaflet通过管道操作%&amp;gt;%叠加图层作图。 官网链接">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-29T01:27:10.705Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R手册(Visualise)--leaflet+leafletCN">
+<meta name="twitter:description" content="leaflet Leaflet是一个用于交互式地图的开源JavaScript库。这个R包可以很容易地从R创建Leaflet地图。 语法：leaflet通过管道操作%&amp;gt;%叠加图层作图。 官网链接">
+  <link rel="canonical" href="https://wilenwu.github.io/posts/R/RNotebook(Visualise)--leaflet+leafletCN">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<script> 
+ (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+  <title>R手册(Visualise)--leaflet+leafletCN | Wilen's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?873a3ba02856122b60c91114a489f967";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wilen's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">∞</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">112</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">23</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">58</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-bookshelf">
+      
+    
+      
+    
+
+    <a href="/bookshelf/" rel="section"><i class="menu-item-icon fa fa-fw fa-windows"></i> <br>书架</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-bookmarks">
+      
+    
+      
+    
+
+    <a href="/bookmarks/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏夹</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/wilenwu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(Visualise)--leaflet+leafletCN.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wilen Wu">
+      <meta itemprop="description" content="个人技术博客">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wilen's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">R手册(Visualise)--leaflet+leafletCN
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-04 00:13:03" itemprop="dateCreated datePublished" datetime="2018-05-04T00:13:03+08:00">2018-05-04</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-29 09:27:10" itemprop="dateModified" datetime="2019-09-29T09:27:10+08:00">2019-09-29</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/Visualise/" itemprop="url" rel="index"><span itemprop="name">Visualise</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/posts/R/RNotebook(Visualise)--leaflet+leafletCN.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(Visualise)--leaflet+leafletCN" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/R/RNotebook(Visualise)--leaflet+leafletCN.html#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/posts/R/RNotebook(Visualise)--leaflet+leafletCN.html" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>6.9k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>6 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img alt="leaflet" data-src="/images/leaflet/logo.png"></p>
+<h1 id="leaflet"><a class="markdownIt-Anchor" href="#leaflet"></a> leaflet</h1>
+<p>Leaflet是一个用于交互式地图的开源JavaScript库。这个R包可以很容易地从R创建Leaflet地图。<br>
+语法：leaflet通过管道操作<code>%&gt;%</code>叠加图层作图。<br>
+<a href="http://rstudio.github.io/leaflet/" target="_blank" rel="noopener">官网链接</a></p>
+<a id="more"></a>
+<h2 id="基本用法"><a class="markdownIt-Anchor" href="#基本用法"></a> 基本用法</h2>
+<p>您使用以下基本步骤创建Leaflet地图：</p>
+<ol>
+<li>通过<code>leaflet()</code>调用创建地图小部件。</li>
+<li>通过使用层功能（例如，addTiles，addMarkers，addPolygons）添加层到地图，来修改窗口小部件的地图。</li>
+<li>根据需要重复步骤2。</li>
+<li>打印地图小部件以显示它。</li>
+</ol>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(leaflet)</span><br><span class="line">m &lt;- leaflet() %&gt;%</span><br><span class="line">  addTiles() %&gt;%  <span class="comment"># Add default OpenStreetMap map tiles</span></span><br><span class="line">  addMarkers(lng=<span class="number">174.768</span>, lat=-<span class="number">36.852</span>, popup=<span class="string">"The birthplace of R"</span>)</span><br><span class="line">m  <span class="comment"># Print the map</span></span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/leaflet/map.png"></p>
+<h2 id="map-widget地图控件"><a class="markdownIt-Anchor" href="#map-widget地图控件"></a> Map Widget：地图控件</h2>
+<blockquote>
+<p><a href="http://blog.csdn.net/itas109/article/details/70054588?locationNum=10&amp;fps=1" target="_blank" rel="noopener">已整理的组件用法链接</a></p>
+</blockquote>
+<p><strong>Initialization (初始化)</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>leaflet()</td>
+<td>标准函数</td>
+</tr>
+<tr>
+<td>center</td>
+<td>Initial geographic center of the map</td>
+</tr>
+<tr>
+<td>zoom</td>
+<td>Initial map zoom level</td>
+</tr>
+<tr>
+<td>minZoom</td>
+<td>Minimum zoom level of themap</td>
+</tr>
+<tr>
+<td>maxZoom</td>
+<td>Maximum zoom level of thema</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">leaflet(data = <span class="literal">NULL</span>,width = <span class="literal">NULL</span>, height = <span class="literal">NULL</span>, </span><br><span class="line">  padding = <span class="number">0</span>,options = leafletOptions())</span><br></pre></td></tr></table></figure>
+<p><strong>Map Methods (作图方法)</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>setView(map,lng,lat,zoom,	options	=	list()) )</td>
+<td>设置地图视图的中心和缩放级别</td>
+</tr>
+<tr>
+<td>fitBounds(map, lng1, lat1, lng2, lat2)</td>
+<td>设定边界经纬度</td>
+</tr>
+<tr>
+<td>clearBounds(map)</td>
+<td>清除边界，从地图元素中自动设定</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Data Object (数据对象)</strong></p>
+<p><strong>leaflet()<strong>图层和</strong>map</strong>图层都有一个data参数，用来接收空间数据，data的格式如下：</p>
+<ul>
+<li><strong>Base R</strong> : data.frame对象</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> df &lt;-data.frame(lat = <span class="keyword">...</span>, lng= <span class="keyword">...</span> ) </span><br><span class="line">leaflet(df) %&gt;% addTiles() %&gt;% addCircles()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p><strong>sp package</strong> library(sp) Useful functions<br>
+<code>SpatialPoints, SpatialLines, SpatialPolygons, ...</code></p>
+</li>
+<li>
+<p><strong>maps package</strong> library(maps)</p>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mapStates &lt;-map(<span class="string">"state"</span>, fill = <span class="literal">TRUE</span>, plot = <span class="literal">FALSE</span>)</span><br><span class="line">leaflet(mapStates) %&gt;% </span><br><span class="line">  addTiles() %&gt;% </span><br><span class="line">  addPolygons(fillColor = topo.colors(<span class="number">10</span>, alpha = <span class="literal">NULL</span>), stroke = <span class="literal">FALSE</span>)`</span><br></pre></td></tr></table></figure>
+<p><strong>示例</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(maps)</span><br><span class="line">mapStates = map(<span class="string">"state"</span>, fill = <span class="literal">TRUE</span>, plot = <span class="literal">FALSE</span>)</span><br><span class="line">leaflet(data = mapStates) %&gt;% addTiles() %&gt;%</span><br><span class="line">  addPolygons(fillColor = topo.colors(<span class="number">10</span>, alpha = <span class="literal">NULL</span>), stroke = <span class="literal">FALSE</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/leaflet/us_map.png"></p>
+<h2 id="basemaps底图"><a class="markdownIt-Anchor" href="#basemaps底图"></a> Basemaps：底图</h2>
+<p><code>addTiles()</code> 添加地图瓦片，默认OpenStreetMap图块<br>
+<code>addProviderTiles(map, provider)</code> 添加<a href="http://leaflet-extras.github.io/leaflet-providers/preview/index.html" target="_blank" rel="noopener">第三方图块</a><br>
+<code>addWMSTiles()</code> 添加WMS (Web Map Service) 图块</p>
+<blockquote>
+<p>names(providers) : 查看所有第三方图块<br>
+参数provider = c(providers$Stamen.Toner, CartoDB.Positron, Esri.NatGeoWorldMap)</p>
+</blockquote>
+<p><img alt data-src="/images/leaflet/basemap.png"></p>
+<h2 id="markers标记"><a class="markdownIt-Anchor" href="#markers标记"></a> Markers：标记</h2>
+<p>接收经纬度坐标latitude/longitude ，标记出icons or  circles，data数据来自向量或已赋值data.frame或sp对象。</p>
+<p><strong>1. Icon Markers</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加默认标记</span></span><br><span class="line">addMarkers(map, lng = <span class="literal">NULL</span>, lat = <span class="literal">NULL</span>,icon = <span class="literal">NULL</span>, </span><br><span class="line">  popup = <span class="literal">NULL</span>, label = <span class="literal">NULL</span>,clusterOptions = <span class="literal">NULL</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment">#定制标记</span></span><br><span class="line">makeIcon/icons(iconUrl, iconWidth, iconHeight, iconAnchorX, iconAnchorY, shadowUrl, shadowWidth, shadowHeight, <span class="keyword">...</span> ) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建图表列表，通过位置或名称从该列表中进行选择</span></span><br><span class="line">iconList(icon1= makeIcon(…), icon2= makeIcon(…)) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义标记</span></span><br><span class="line">addAwesomeMarkers, makeAwesomeIcon, awesomeIcons, awesomeIconList</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>addMarkers()参数：<br>
+icon, popup : 点击时要显示的消息<br>
+label : 鼠标静止时显示的信息<br>
+clusterOptions = markerClusterOptions()  : 大量标记时集群显示选项</p>
+</blockquote>
+<p><strong>示例 1</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认markers</span></span><br><span class="line">data(quakes) <span class="comment"># Show first 20 rows from the `quakes` dataset</span></span><br><span class="line">leaflet(data = quakes[<span class="number">1</span>:<span class="number">20</span>,]) %&gt;% addTiles() %&gt;%</span><br><span class="line">  addMarkers(~long, ~lat, popup = ~as.character(mag), label = ~as.character(mag))</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/leaflet/marker1.png"></p>
+<p><strong>示例 2</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">quakes1 &lt;- quakes[<span class="number">1</span>:<span class="number">10</span>,]</span><br><span class="line"></span><br><span class="line">leafIcons &lt;- icons(</span><br><span class="line">  iconUrl = ifelse(quakes1$mag &lt; <span class="number">4.6</span>,</span><br><span class="line">    <span class="string">"http://leafletjs.com/examples/custom-icons/leaf-green.png"</span>,</span><br><span class="line">    <span class="string">"http://leafletjs.com/examples/custom-icons/leaf-red.png"</span></span><br><span class="line">  ),</span><br><span class="line">  iconWidth = <span class="number">38</span>, iconHeight = <span class="number">95</span>,</span><br><span class="line">  iconAnchorX = <span class="number">22</span>, iconAnchorY = <span class="number">94</span>,</span><br><span class="line">  shadowUrl = <span class="string">"http://leafletjs.com/examples/custom-icons/leaf-shadow.png"</span>,</span><br><span class="line">  shadowWidth = <span class="number">50</span>, shadowHeight = <span class="number">64</span>,</span><br><span class="line">  shadowAnchorX = <span class="number">4</span>, shadowAnchorY = <span class="number">62</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">leaflet(data = quakes1) %&gt;% addTiles() %&gt;%</span><br><span class="line">  addMarkers(~long, ~lat, icon = leafIcons)</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/leaflet/marker2.png"></p>
+<p><strong>示例 3</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">leaflet(quakes) %&gt;% addTiles() %&gt;% addMarkers(</span><br><span class="line">  clusterOptions = markerClusterOptions()</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><img alt="cl" data-src="/images/leaflet/marker3.png"></p>
+<p><strong>2. Circle Markers</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">addCircleMarkers(map, color, radius, stroke, opacity, <span class="keyword">...</span> )</span><br><span class="line"><span class="comment">#设定原标记的颜色，半径，点击，模糊度</span></span><br></pre></td></tr></table></figure>
+<p><strong>示例 4</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create a palette that maps factor levels to colors</span></span><br><span class="line">pal &lt;- colorFactor(c(<span class="string">"navy"</span>, <span class="string">"red"</span>), domain = c(<span class="string">"ship"</span>, <span class="string">"pirate"</span>))</span><br><span class="line"></span><br><span class="line">leaflet(df) %&gt;% addTiles() %&gt;%</span><br><span class="line">  addCircleMarkers(</span><br><span class="line">    radius = ~ifelse(type == <span class="string">"ship"</span>, <span class="number">6</span>, <span class="number">10</span>),</span><br><span class="line">    color = ~pal(type),</span><br><span class="line">    stroke = <span class="literal">FALSE</span>, fillOpacity = <span class="number">0.5</span></span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/leaflet/marker4.png"></p>
+<h2 id="popups-and-labels弹出窗口和标签"><a class="markdownIt-Anchor" href="#popups-and-labels弹出窗口和标签"></a> Popups and Labels：弹出窗口和标签</h2>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">addPopups(map, lng, lat, ...content..., options)<span class="comment">#添加标准弹出窗口</span></span><br><span class="line"><span class="comment"># options = popupOptions(closeButton=FALSE)</span></span><br><span class="line"></span><br><span class="line">addMarkers(<span class="keyword">...</span>, popup, <span class="keyword">...</span> ) <span class="comment">#在markers中添加窗口</span></span><br><span class="line">addMarkers(<span class="keyword">...</span>, label, labelOptions... ) <span class="comment">#在markers中添加标签 </span></span><br><span class="line"><span class="comment"># labelOptions = labelOptions(noHide,	textOnly,	textsize,	direction,	style) </span></span><br><span class="line"></span><br><span class="line">addLabelOnlyMarkers() <span class="comment">#只添加标签</span></span><br></pre></td></tr></table></figure>
+<p><strong>示例</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">content &lt;- paste(sep = <span class="string">"&lt;br/&gt;"</span>,</span><br><span class="line">  <span class="string">"&lt;b&gt;&lt;a href='http://www.samurainoodle.com'&gt;Samurai Noodle&lt;/a&gt;&lt;/b&gt;"</span>,</span><br><span class="line">  <span class="string">"606 5th Ave. S"</span>,</span><br><span class="line">  <span class="string">"Seattle, WA 98138"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">leaflet() %&gt;% addTiles() %&gt;%</span><br><span class="line">  addPopups(-<span class="number">122.327298</span>, <span class="number">47.597131</span>, content,</span><br><span class="line">    options = popupOptions(closeButton = <span class="literal">FALSE</span>)</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/leaflet/popup.png"></p>
+<h2 id="lines-and-shapes线条和几何形状"><a class="markdownIt-Anchor" href="#lines-and-shapes线条和几何形状"></a> Lines and Shapes：线条和几何形状</h2>
+<p><strong>Polygons and Polylines</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">addPolygons(map, lng = <span class="literal">NULL</span>, lat = <span class="literal">NULL</span> ,</span><br><span class="line">  color = <span class="string">"03F"</span>, weight = <span class="number">5</span>, opacity = <span class="number">0.5</span>,    <span class="comment">#线条颜色，粗细，不透明度</span></span><br><span class="line">  fill = <span class="literal">TRUE</span>, fillColor = color, fillOpacity = <span class="number">0.2</span>, </span><br><span class="line">  popup = <span class="literal">NULL</span>,highlightOptions,<span class="keyword">...</span>)</span><br><span class="line"><span class="comment"># highlightOptions(color, weight=2, bringToFront=TRUE) 高亮图形</span></span><br><span class="line"><span class="comment"># 使用rmapshaper::ms_simplify 简化复杂的图形</span></span><br></pre></td></tr></table></figure>
+<p><strong>Circles and Rectangles</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">addCircles(map,lng = <span class="literal">NULL</span>,lat = <span class="literal">NULL</span>,radius = <span class="number">10</span>,<span class="keyword">...</span>)<span class="comment"># 圆形，半径以米为单位</span></span><br><span class="line">addRectangles(map, lng1, lat1, lng2, lat2,<span class="keyword">...</span>)<span class="comment"># 对角线参数指定矩形</span></span><br></pre></td></tr></table></figure>
+<p><strong>示例</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cities &lt;- read.csv(textConnection(<span class="string">"</span></span><br><span class="line"><span class="string">City,Lat,Long,Pop</span></span><br><span class="line"><span class="string">Boston,42.3601,-71.0589,645966</span></span><br><span class="line"><span class="string">Hartford,41.7627,-72.6743,125017</span></span><br><span class="line"><span class="string">New York City,40.7127,-74.0059,8406000</span></span><br><span class="line"><span class="string">Philadelphia,39.9500,-75.1667,1553000</span></span><br><span class="line"><span class="string">Pittsburgh,40.4397,-79.9764,305841</span></span><br><span class="line"><span class="string">Providence,41.8236,-71.4222,177994</span></span><br><span class="line"><span class="string">"</span>))</span><br><span class="line"></span><br><span class="line">leaflet(cities) %&gt;% addTiles() %&gt;%</span><br><span class="line">  addCircles(lng = ~Long, lat = ~Lat, weight = <span class="number">1</span>,</span><br><span class="line">    radius = ~sqrt(Pop) * <span class="number">30</span>, popup = ~City</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+<p><img alt data-src="/images/leaflet/circle.png"></p>
+<h2 id="其他组件"><a class="markdownIt-Anchor" href="#其他组件"></a> 其他组件</h2>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addLegend()</td>
+<td>图例</td>
+</tr>
+<tr>
+<td>addMeasure()</td>
+<td>测量插件</td>
+</tr>
+<tr>
+<td>addGraticule()</td>
+<td>网格线</td>
+</tr>
+<tr>
+<td>addTerminator()</td>
+<td>日夜线</td>
+</tr>
+<tr>
+<td>addMiniMap()</td>
+<td>迷你地图</td>
+</tr>
+</tbody>
+</table>
+<h2 id="geojson-and-topojson"><a class="markdownIt-Anchor" href="#geojson-and-topojson"></a> GeoJSON and TopoJSON</h2>
+<p>有两种方法来使用GeoJSON/TopoJSON data</p>
+<ul>
+<li>使用geojsonio or rgdal package 读入sp 对象<br>
+<code>geojsonio :: geojson_read (..., what =“ sp ”)</code><br>
+<code>rgdal :: readOGR (...,“ OGRGeoJSON ”)</code></li>
+<li>使用本包 addGeoJSON() and addTopoJSON() 函数<br>
+<code>addTopoJSON / addGeoJSON (... weight , color , fill , opacity , fillOpacity ... )</code></li>
+<li>另外的包RJSONIO and jsonlite 也能很快解析</li>
+</ul>
+<h2 id="shiny-integration"><a class="markdownIt-Anchor" href="#shiny-integration"></a> Shiny Integration</h2>
+<p><strong>UI 部分</strong>：leafletOutput(“name”)<br>
+<strong>server 部分</strong>：renderLeaflet(…)<br>
+<strong>渲染</strong>：renderLeaflet ()  返回Leaflet map 对象</p>
+<p><strong>修改</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数举例</th>
+<th>在serve中修改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>leafletProxy()</td>
+<td>通用修改</td>
+</tr>
+<tr>
+<td>fitBounds(0, 0, 11, 11)</td>
+<td>配置边界</td>
+</tr>
+<tr>
+<td>addCircles(1:10, 1:10, layerId = LETTERS[1:10])</td>
+<td>添加圆形</td>
+</tr>
+<tr>
+<td>removeShape(c(“B”, “F”))</td>
+<td>移除形状</td>
+</tr>
+<tr>
+<td>clearShapes()</td>
+<td>清除形状</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Inputs/Events</strong></p>
+<ul>
+<li>对象事件<br>
+<code>input$MAPID_OBJCATEGORY_EVENTNAME</code>抓取事件变化的值赋给shiny变量<br>
+<code>OBJCATEGORY</code>:  marker, shape, geojson and topojson<br>
+<code>EVENTNAME</code>:  click, mouseover and mouseout.</li>
+</ul>
+<p>所有这些事件都被设为<code>NULL</code>或<code>list(lat,lng,id)</code>（被触发时）</p>
+<ul>
+<li>地图事件<br>
+<code>input$MAPID_click</code>：地图背景或basemap被敲击时提供<code>list(lat,lng)</code><br>
+<code>input$MAPID_bounds</code>：list(north,east,south,west)<br>
+<code>input$MAPID_zoom</code>：zoom level</li>
+</ul>
+<h1 id="leafletcn"><a class="markdownIt-Anchor" href="#leafletcn"></a> leafletCN</h1>
+<p>leafletCN是一个基于leaflet的中国扩展包, 里面保存了一些适用于中国的区域划分数据以及一些有帮助的函数, 地理区划数据来源于github的[geojson-map-china][chinamap]项目. 数据细分到县级市.<br>
+[chinamap]: <a href="https://github.com/longwosion/geojson-map-china" target="_blank" rel="noopener">https://github.com/longwosion/geojson-map-china</a></p>
+<h2 id="自带地图数据geojson"><a class="markdownIt-Anchor" href="#自带地图数据geojson"></a> 自带地图数据（GeoJSON）</h2>
+<p><code>regionNames(mapName)</code>返回地图的区域名，细分到县(world,china,city,…)</p>
+<h2 id="绘图leaflet封装"><a class="markdownIt-Anchor" href="#绘图leaflet封装"></a> 绘图（leaflet封装）</h2>
+<p><code>demomap (mapName)</code> 传入地图名绘制地图，等同于(leaflet包， leaflet+addTiles +addPolygons)</p>
+<p><strong>示例</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">demomap(<span class="string">"上海"</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt="sh" data-src="/images/leaflet/sh1.png"></p>
+<p><code>geojsonMap(dat, mapName)</code> 底图+填色地图，dat赋值data.frame(regions,values)</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sh = regionNames(<span class="string">"上海"</span>)</span><br><span class="line">dat = data.frame(name = sh,value = rnorm(length(sh)))</span><br><span class="line">geojsonMap(dat,<span class="string">"上海"</span>)</span><br></pre></td></tr></table></figure>
+<p><img alt="sh2" data-src="/images/leaflet/sh2.png"></p>
+<h2 id="辅助函数"><a class="markdownIt-Anchor" href="#辅助函数"></a> 辅助函数</h2>
+<p><code>amap(map)</code>高德地图底图，方便leaflet包调用<br>
+<code>read.geoShape(geojson)</code> 读取一个geojson的对象，保存成sp对象<br>
+<code>leafletGeo(mapName,dat = NULL)</code> 用地图名和数据框把地图和数值组合在一起</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">system.file(<span class="string">"geojson/china.json"</span>,package = <span class="string">"leafletCN"</span>)%&gt;%</span><br><span class="line">  read.geoShape()%&gt;%</span><br><span class="line">  plot()</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+        
+      
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/nezha.jpg" alt="Wilen Wu 比特币">
+        <p>比特币</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Wilen Wu</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wilenwu.github.io/posts/R/RNotebook(Visualise)--leaflet+leafletCN.html" title="R手册(Visualise)--leaflet+leafletCN">https://wilenwu.github.io/posts/R/RNotebook(Visualise)--leaflet+leafletCN.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/R/" rel="tag"># R</a>
+            
+              <a href="/tags/leaflet/" rel="tag"># leaflet</a>
+            
+              <a href="/tags/leafletCN/" rel="tag"># leafletCN</a>
+            
+              <a href="/tags/交互地图/" rel="tag"># 交互地图</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/posts/R/RNotebook(Visualise)--ggmap+baidumap.html" rel="next" title="R手册(Visualise)--ggmap+baidumap">
+                  <i class="fa fa-chevron-left"></i> R手册(Visualise)--ggmap+baidumap
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/posts/R/RNotebook(Parallel-Computing)--foreach.html" rel="prev" title="R手册(Parallel Computing)--foreach">
+                  R手册(Parallel Computing)--foreach <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+          
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+          
+            <li class="tab"><a href="#comment-valine">valine</a></li>
+          
+        </ul>
+        <div class="tab-content">
+          
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
+          
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="comments"></div>
+            </div>
+          
+        </div>
+      </div>
+      <script>
+        window.addEventListener('tabs:register', () => {
+          let activeClass = 'gitalk';
+          
+            activeClass = localStorage.getItem('comments_active') || activeClass;
+          
+          if (activeClass) {
+            let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+            if (activeTab) {
+              activeTab.click();
+            }
+          }
+        });
+        
+        window.addEventListener('tabs:click', event => {
+          let commentClass = event.target.classList[1];
+          localStorage.setItem('comments_active', commentClass);
+        });
+        
+      </script>
+    
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leaflet"><span class="nav-number">1.</span> <span class="nav-text"> leaflet</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本用法"><span class="nav-number">1.1.</span> <span class="nav-text"> 基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-widget地图控件"><span class="nav-number">1.2.</span> <span class="nav-text"> Map Widget：地图控件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#basemaps底图"><span class="nav-number">1.3.</span> <span class="nav-text"> Basemaps：底图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markers标记"><span class="nav-number">1.4.</span> <span class="nav-text"> Markers：标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#popups-and-labels弹出窗口和标签"><span class="nav-number">1.5.</span> <span class="nav-text"> Popups and Labels：弹出窗口和标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lines-and-shapes线条和几何形状"><span class="nav-number">1.6.</span> <span class="nav-text"> Lines and Shapes：线条和几何形状</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他组件"><span class="nav-number">1.7.</span> <span class="nav-text"> 其他组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#geojson-and-topojson"><span class="nav-number">1.8.</span> <span class="nav-text"> GeoJSON and TopoJSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shiny-integration"><span class="nav-number">1.9.</span> <span class="nav-text"> Shiny Integration</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#leafletcn"><span class="nav-number">2.</span> <span class="nav-text"> leafletCN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自带地图数据geojson"><span class="nav-number">2.1.</span> <span class="nav-text"> 自带地图数据（GeoJSON）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘图leaflet封装"><span class="nav-number">2.2.</span> <span class="nav-text"> 绘图（leaflet封装）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#辅助函数"><span class="nav-number">2.3.</span> <span class="nav-text"> 辅助函数</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/header.jpg"
+      alt="Wilen Wu">
+  <p class="site-author-name" itemprop="name">Wilen Wu</p>
+  <div class="site-description" itemprop="description">个人技术博客</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">112</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/wilenwu" title="GitHub &rarr; https://github.com/wilenwu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/qq_41518277" title="CSDN &rarr; https://blog.csdn.net/qq_41518277" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>CSDN</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:597379201@qq.com" title="E-Mail &rarr; mailto:597379201@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/" title="Weibo &rarr; https://weibo.com/" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.easyicon.net/" title="https://www.easyicon.net/" rel="noopener" target="_blank">easyicon</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.fontawesome.com.cn/" title="http://www.fontawesome.com.cn/" rel="noopener" target="_blank">Font Awesome</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wilen Wu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">291k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:25</span>
+</div>
+
+        
+
+
+
+
+
+
+  
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+            
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI',
+            'X-LC-Key': '6EzBICTWxLbjiGsbNAa8Fv2s',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+        if (localhost.test(document.URL)) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: 'e282e926c917568cb17e4c78a7210be9',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI',
+    appKey: '6EzBICTWxLbjiGsbNAa8Fv2s',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

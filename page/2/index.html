@@ -190,7 +190,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">51</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">112</span></a>
 
   </li>
       
@@ -203,7 +203,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">9</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">23</span></a>
 
   </li>
       
@@ -216,7 +216,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">30</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">58</span></a>
 
   </li>
       
@@ -309,7 +309,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/python/PythonNotebook(Machine-Learning)--statsmodels(ANOVA).html">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/data-analysis/classification-mse.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wilen Wu">
@@ -323,7 +323,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(ANOVA).html" class="post-title-link" itemprop="url">Python手册(Machine Learning)--statsmodels(ANOVA)</a>
+            <a href="/posts/data-analysis/classification-mse.html" class="post-title-link" itemprop="url">二分类模型评价指标</a>
           
         </h2>
 
@@ -338,7 +338,7 @@
                 
               
 
-              <time title="创建时间：2018-12-19 16:56:17" itemprop="dateCreated datePublished" datetime="2018-12-19T16:56:17+08:00">2018-12-19</time>
+              <time title="创建时间：2018-09-16 12:07:49" itemprop="dateCreated datePublished" datetime="2018-09-16T12:07:49+08:00">2018-09-16</time>
             </span>
           
             
@@ -349,7 +349,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-18 18:39:51" itemprop="dateModified" datetime="2019-09-18T18:39:51+08:00">2019-09-18</time>
+                <time title="修改时间：2019-09-29 09:27:10" itemprop="dateModified" datetime="2019-09-29T09:27:10+08:00">2019-09-29</time>
               </span>
             
           
@@ -359,14 +359,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Data-Analysis/" itemprop="url" rel="index"><span itemprop="name">Data Analysis</span></a></span>
 
                 
                 
@@ -375,7 +368,7 @@
           
 
           
-            <span id="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(ANOVA).html" class="post-meta-item leancloud_visitors" data-flag-title="Python手册(Machine Learning)--statsmodels(ANOVA)" title="热度">
+            <span id="/posts/data-analysis/classification-mse.html" class="post-meta-item leancloud_visitors" data-flag-title="二分类模型评价指标" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -393,7 +386,280 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>1.9k</span>
+              <span>1.5k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><strong>混淆矩阵</strong><br>
+混淆矩阵(Confusion Matrix)也称误差矩阵，是表示精度评价的一种标准格式。</li>
+</ul>
+<p><img alt="cm" data-src="/images/ConfusionMatrix.png"></p>
+<blockquote>
+<p>TP（实际为正预测为正），FP（实际为负但预测为正），TN（实际为负预测为负），FN（实际为正但预测为负）</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/data-analysis/classification-mse.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/big-data/SQLNotebook.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wilen Wu">
+      <meta itemprop="description" content="个人技术博客">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wilen's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+            
+            <a href="/posts/big-data/SQLNotebook.html" class="post-title-link" itemprop="url">SQL手册</a>
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-04 15:33:56" itemprop="dateCreated datePublished" datetime="2018-07-04T15:33:56+08:00">2018-07-04</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-29 09:27:10" itemprop="dateModified" datetime="2019-09-29T09:27:10+08:00">2019-09-29</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/posts/big-data/SQLNotebook.html" class="post-meta-item leancloud_visitors" data-flag-title="SQL手册" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1.5k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>结构化查询语言(Structured Query Language)简称SQL，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/big-data/SQLNotebook.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/big-data/BigDataNotebook(Spark)--Spark-installation.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wilen Wu">
+      <meta itemprop="description" content="个人技术博客">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wilen's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+            
+            <a href="/posts/big-data/BigDataNotebook(Spark)--Spark-installation.html" class="post-title-link" itemprop="url">大数据手册(Spark)--Spark安装配置</a>
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-24 21:52:29" itemprop="dateCreated datePublished" datetime="2018-06-24T21:52:29+08:00">2018-06-24</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-29 09:27:10" itemprop="dateModified" datetime="2019-09-29T09:27:10+08:00">2019-09-29</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/posts/big-data/BigDataNotebook(Spark)--Spark-installation.html" class="post-meta-item leancloud_visitors" data-flag-title="大数据手册(Spark)--Spark安装配置" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.1k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -416,13 +682,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>方差分析(Analysis of Variance，简称ANOVA)，又称“变异数分析”，为数据分析中常见的统计模型，主要为探讨连续型（Continuous）因变量（Dependent variable）与类别型自变量（Independent variable）的关系。当自变量的因子等于或超过三个类别时，检验各类别平均值是否相等，采用方差分析。<br>
-广义t检验中，方差相等（Equality of variance）的合并t检验（Pooled T-test）视为是方差分析的一种。t检验分析两组平均数是否相等，方差分析也采用相同的计算概念，实际上，当方差分析套用在合并t检验的分析上时，产生的F值则会等于t检验的平方项。</p>
-<p>总偏差平方和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>S</mi><mi>t</mi><mo>=</mo><mi>S</mi><mi>S</mi><mi>b</mi><mo>+</mo><mi>S</mi><mi>S</mi><mi>w</mi></mrow><annotation encoding="application/x-tex">SSt = SSb + SSw</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span></span></span></span></p>
+          <p>Apache Spark 是专为大规模数据处理而设计的快速通用的计算引擎。</p>
+<pre><code>Spark 是一种与 Hadoop 相似的开源集群计算环境，但是两者之间还存在一些不同之处，这些有用的不同之处使 Spark 在某些工作负载方面表现得更加优越，换句话说，Spark 启用了内存分布数据集，除了能够提供交互式查询外，它还可以优化迭代工作负载。
+</code></pre>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(ANOVA).html#more" rel="contents">
+              <a class="btn" href="/posts/big-data/BigDataNotebook(Spark)--Spark-installation.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -451,7 +717,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/python/PythonNotebook(Machine-Learning)--statsmodels(Survival).html">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(Visualise)--REmap.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wilen Wu">
@@ -465,7 +731,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(Survival).html" class="post-title-link" itemprop="url">Python手册(Machine Learning)--statsmodels(Survival)</a>
+            <a href="/posts/R/RNotebook(Visualise)--REmap.html" class="post-title-link" itemprop="url">R手册(Visualise)--REmap</a>
           
         </h2>
 
@@ -480,7 +746,7 @@
                 
               
 
-              <time title="创建时间：2018-12-19 16:55:15" itemprop="dateCreated datePublished" datetime="2018-12-19T16:55:15+08:00">2018-12-19</time>
+              <time title="创建时间：2018-06-01 14:24:23" itemprop="dateCreated datePublished" datetime="2018-06-01T14:24:23+08:00">2018-06-01</time>
             </span>
           
             
@@ -491,7 +757,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-18 18:41:40" itemprop="dateModified" datetime="2019-09-18T18:41:40+08:00">2019-09-18</time>
+                <time title="修改时间：2019-09-29 15:01:30" itemprop="dateModified" datetime="2019-09-29T15:01:30+08:00">2019-09-29</time>
               </span>
             
           
@@ -501,14 +767,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/Visualise/" itemprop="url" rel="index"><span itemprop="name">Visualise</span></a></span>
 
                 
                 
@@ -517,7 +783,7 @@
           
 
           
-            <span id="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(Survival).html" class="post-meta-item leancloud_visitors" data-flag-title="Python手册(Machine Learning)--statsmodels(Survival)" title="热度">
+            <span id="/posts/R/RNotebook(Visualise)--REmap.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(Visualise)--REmap" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -535,7 +801,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>3.1k</span>
+              <span>2.3k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -545,7 +811,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>3 分钟</span>
+              <span>2 分钟</span>
             </span>
           
 
@@ -558,12 +824,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="生存分析"><a class="markdownIt-Anchor" href="#生存分析"></a> <a href="http://www.statsmodels.org/stable/duration.html" target="_blank" rel="noopener">生存分析</a></h2>
-<p>生存分析是用于分析直到一个或多个事件发生的预期持续时间的统计分支，例如生物有机体中的死亡和机械系统中的失败。本主题被称为可靠性理论和可靠性分析的工程，持续时间分析或持续时间建模在经济学和事件历史分析，在社会学。生存分析试图回答以下问题：在一定时间内存活的人口比例是多少？那些幸存下来的人会以什么样的速度死亡或失败？可以考虑多种死亡原因吗？具体情况或特征如何增加或减少生存的概率？<a href="https://en.wikipedia.org/wiki/Survival_analysis" target="_blank" rel="noopener">–<em>Wiki</em></a></p>
+          <p><strong>REmap</strong>:（简单动态地图）Create html maps by Echarts</p>
+<p>REmap是一个基于Echarts <a href="http://echarts.baidu.com" target="_blank" rel="noopener">http://echarts.baidu.com</a> 的一个R包.主要的目的是为广大数据玩家提供一个简便的,可交互的地图数据可视化工具.目前托管在github, <a href="https://github.com/lchiffon/REmap" target="_blank" rel="noopener">https://github.com/lchiffon/REmap</a></p>
+<p><a href="http://langdawei.com/REmap/2015/07/intro" target="_blank" rel="noopener">REmap官网链接（中文）</a></p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(Survival).html#more" rel="contents">
+              <a class="btn" href="/posts/R/RNotebook(Visualise)--REmap.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -592,7 +859,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/python/PythonNotebook(Machine-Learning)--statsmodels(TimeSeries).html">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(NLP)--text2vec.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wilen Wu">
@@ -606,7 +873,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(TimeSeries).html" class="post-title-link" itemprop="url">Python手册(Machine Learning)--statsmodels(TimeSeries)</a>
+            <a href="/posts/R/RNotebook(NLP)--text2vec.html" class="post-title-link" itemprop="url">R手册(NLP)--text2vec</a>
           
         </h2>
 
@@ -621,7 +888,7 @@
                 
               
 
-              <time title="创建时间：2018-12-19 16:53:47" itemprop="dateCreated datePublished" datetime="2018-12-19T16:53:47+08:00">2018-12-19</time>
+              <time title="创建时间：2018-05-28 18:44:11" itemprop="dateCreated datePublished" datetime="2018-05-28T18:44:11+08:00">2018-05-28</time>
             </span>
           
             
@@ -632,7 +899,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-19 09:44:25" itemprop="dateModified" datetime="2019-09-19T09:44:25+08:00">2019-09-19</time>
+                <time title="修改时间：2019-09-29 09:27:10" itemprop="dateModified" datetime="2019-09-29T09:27:10+08:00">2019-09-29</time>
               </span>
             
           
@@ -642,14 +909,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a></span>
 
                 
                 
@@ -658,7 +925,7 @@
           
 
           
-            <span id="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(TimeSeries).html" class="post-meta-item leancloud_visitors" data-flag-title="Python手册(Machine Learning)--statsmodels(TimeSeries)" title="热度">
+            <span id="/posts/R/RNotebook(NLP)--text2vec.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(NLP)--text2vec" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -676,290 +943,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>13k</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>12 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>时间序列分析是根据系统观测得到的时间序列数据，通过曲线拟合和参数估计来建立数学模型的理论和方法。它一般采用曲线拟合和参数估计方法（如非线性最小二乘法）进行。时间序列分析常用在国民经济宏观控制、区域综合发展规划、企业经营管理、市场潜量预测、气象预报、水文预报、地震前兆预报、农作物病虫灾害预报、环境污染控制、生态平衡、天文学和海洋学等方面。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(TimeSeries).html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/python/PythonNotebook(Machine-Learning)--statsmodels(Regression).html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wilen Wu">
-      <meta itemprop="description" content="个人技术博客">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wilen's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(Regression).html" class="post-title-link" itemprop="url">Python手册(Machine Learning)--statsmodels(Regression)</a>
-          
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-19 16:40:34" itemprop="dateCreated datePublished" datetime="2018-12-19T16:40:34+08:00">2018-12-19</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-18 19:21:43" itemprop="dateModified" datetime="2019-09-18T19:21:43+08:00">2019-09-18</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            <span id="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(Regression).html" class="post-meta-item leancloud_visitors" data-flag-title="Python手册(Machine Learning)--statsmodels(Regression)" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-          
-  
-  
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>8k</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>7 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="linear-regression线性回归"><a class="markdownIt-Anchor" href="#linear-regression线性回归"></a> <a href="https://www.statsmodels.org/stable/regression.html" target="_blank" rel="noopener">Linear Regression(线性回归)</a></h1>
-<p><code>import statsmodels.api as sm</code><br>
-适用于自变量X和因变量Y为线性关系，具体来说，画出散点图可以用一条直线来近似拟合。一般线性模型要求观测值之间相互独立、残差(因变量)服从正态分布、残差(因变量)方差齐性<br>
-统计模型被假定为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi><mo>=</mo><mi>X</mi><mi>β</mi><mo>+</mo><mi>μ</mi><mo separator="true">,</mo><mi>μ</mi><mo>∼</mo><mi>N</mi><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mi mathvariant="normal">Σ</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Y=Xβ+μ,  μ\sim N(0,Σ)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">μ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">μ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">Σ</span><span class="mclose">)</span></span></span></span></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/python/PythonNotebook(Machine-Learning)--statsmodels(Regression).html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/python/PythonNotebook(Scientific-Computing)--SymPy.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wilen Wu">
-      <meta itemprop="description" content="个人技术博客">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wilen's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/posts/python/PythonNotebook(Scientific-Computing)--SymPy.html" class="post-title-link" itemprop="url">Python手册(Scientific Computing)--SymPy</a>
-          
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-10 22:06:53" itemprop="dateCreated datePublished" datetime="2018-10-10T22:06:53+08:00">2018-10-10</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-18 18:57:24" itemprop="dateModified" datetime="2019-09-18T18:57:24+08:00">2019-09-18</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/Scientific-Computing/" itemprop="url" rel="index"><span itemprop="name">Scientific Computing</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            <span id="/posts/python/PythonNotebook(Scientific-Computing)--SymPy.html" class="post-meta-item leancloud_visitors" data-flag-title="Python手册(Scientific Computing)--SymPy" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-          
-  
-  
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>362</span>
+              <span>1.6k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -982,11 +966,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>SymPy</strong>（Symbol Python的简称）是一个用于符号数学的Python库。它旨在成为一个功能齐全的计算机代数系统（CAS），同时保持代码尽可能简单，以便易于理解和易于扩展。SymPy完全用Python编写，不依赖于外部库。</p>
+          <p><a href="https://cndocr.github.io/text2vec-doc-cn/index.html" target="_blank" rel="noopener"><strong>text2vec</strong></a> 这个 R 包提供了高性能和简洁的 API 来进行文本分析、自然语言处理。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/posts/python/PythonNotebook(Scientific-Computing)--SymPy.html#more" rel="contents">
+              <a class="btn" href="/posts/R/RNotebook(NLP)--text2vec.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1015,7 +999,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/python/PerlinNoise(Python).html">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(NLP)--wordcloud2.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wilen Wu">
@@ -1029,7 +1013,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/posts/python/PerlinNoise(Python).html" class="post-title-link" itemprop="url">柏林噪声(Python)</a>
+            <a href="/posts/R/RNotebook(NLP)--wordcloud2.html" class="post-title-link" itemprop="url">R手册(NLP)--wordcloud2</a>
           
         </h2>
 
@@ -1044,7 +1028,7 @@
                 
               
 
-              <time title="创建时间：2018-09-19 22:35:52" itemprop="dateCreated datePublished" datetime="2018-09-19T22:35:52+08:00">2018-09-19</time>
+              <time title="创建时间：2018-05-28 18:41:43" itemprop="dateCreated datePublished" datetime="2018-05-28T18:41:43+08:00">2018-05-28</time>
             </span>
           
             
@@ -1055,7 +1039,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-18 18:58:44" itemprop="dateModified" datetime="2019-09-18T18:58:44+08:00">2019-09-18</time>
+                <time title="修改时间：2019-09-29 15:00:38" itemprop="dateModified" datetime="2019-09-29T15:00:38+08:00">2019-09-29</time>
               </span>
             
           
@@ -1065,14 +1049,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/Scientific-Computing/" itemprop="url" rel="index"><span itemprop="name">Scientific Computing</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a></span>
 
                 
                 
@@ -1081,7 +1065,7 @@
           
 
           
-            <span id="/posts/python/PerlinNoise(Python).html" class="post-meta-item leancloud_visitors" data-flag-title="柏林噪声(Python)" title="热度">
+            <span id="/posts/R/RNotebook(NLP)--wordcloud2.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(NLP)--wordcloud2" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1099,7 +1083,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>8k</span>
+              <span>2.6k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -1109,7 +1093,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>7 分钟</span>
+              <span>2 分钟</span>
             </span>
           
 
@@ -1122,12 +1106,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="柏林噪声"><a class="markdownIt-Anchor" href="#柏林噪声"></a> 柏林噪声</h1>
-<p>  Perlin Noise是Ken Perlin在1983年开发的一种梯度噪音，这是一种用于在计算机生成的表面上产生自然出现纹理的技术，使用Perlin噪声合成的纹理通常用于CGI，通过模仿自然界中纹理的受控随机外观，使计算机生成的视觉元素（如物体表面，火焰，烟雾或云）看起来更自然。<a href="https://en.wikipedia.org/wiki/Perlin_noise" target="_blank" rel="noopener"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mo>−</mo><mi>W</mi><mi>i</mi><mi>k</mi><mi>i</mi></mrow><annotation encoding="application/x-tex">--Wiki</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">i</span></span></span></span></a></p>
+          <p><strong>wordcloud2</strong> :R interface to wordcloud for data visualization</p>
+<p>Wordcloud2主要包括两个函数：</p>
+<ol>
+<li><code>wordcloud2</code>：用HTML5提供传统的wordcloud</li>
+<li><code>letterCloud</code>：用选定的单词（字母）提供wordcloud</li>
+</ol>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/posts/python/PerlinNoise(Python).html#more" rel="contents">
+              <a class="btn" href="/posts/R/RNotebook(NLP)--wordcloud2.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1156,7 +1144,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/python/PythonNotebook(Python-Basics)--common-editor.html">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(Time-Series)--zoo-and-xts.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wilen Wu">
@@ -1170,7 +1158,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/posts/python/PythonNotebook(Python-Basics)--common-editor.html" class="post-title-link" itemprop="url">Python手册(IDE)--常用的Python IDE</a>
+            <a href="/posts/R/RNotebook(Time-Series)--zoo-and-xts.html" class="post-title-link" itemprop="url">R手册(Time Series)--zoo and xts</a>
           
         </h2>
 
@@ -1185,7 +1173,7 @@
                 
               
 
-              <time title="创建时间：2018-05-25 14:40:25" itemprop="dateCreated datePublished" datetime="2018-05-25T14:40:25+08:00">2018-05-25</time>
+              <time title="创建时间：2018-05-28 16:55:01" itemprop="dateCreated datePublished" datetime="2018-05-28T16:55:01+08:00">2018-05-28</time>
             </span>
           
             
@@ -1196,7 +1184,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-18 18:51:24" itemprop="dateModified" datetime="2019-09-18T18:51:24+08:00">2019-09-18</time>
+                <time title="修改时间：2019-09-29 09:27:10" itemprop="dateModified" datetime="2019-09-29T09:27:10+08:00">2019-09-29</time>
               </span>
             
           
@@ -1206,14 +1194,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/Python-Basics/" itemprop="url" rel="index"><span itemprop="name">Python Basics</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/Time-Series/" itemprop="url" rel="index"><span itemprop="name">Time Series</span></a></span>
 
                 
                 
@@ -1222,7 +1210,7 @@
           
 
           
-            <span id="/posts/python/PythonNotebook(Python-Basics)--common-editor.html" class="post-meta-item leancloud_visitors" data-flag-title="Python手册(IDE)--常用的Python IDE" title="热度">
+            <span id="/posts/R/RNotebook(Time-Series)--zoo-and-xts.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(Time Series)--zoo and xts" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1240,7 +1228,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>755</span>
+              <span>1.1k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -1263,11 +1251,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>集成开发环境（IDE，Integrated Development Environment ）是用于提供程序开发环境的应用程序，一般包括代码编辑器、编译器、调试器和图形用户界面等工具。</p>
+          <p>zoo和xts是对日期型数据进行清洗的R包</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/posts/python/PythonNotebook(Python-Basics)--common-editor.html#more" rel="contents">
+              <a class="btn" href="/posts/R/RNotebook(Time-Series)--zoo-and-xts.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1296,7 +1284,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/python/PythonNotebook(Visualise)--matplotlib.html">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--forcats.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wilen Wu">
@@ -1310,7 +1298,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/posts/python/PythonNotebook(Visualise)--matplotlib.html" class="post-title-link" itemprop="url">Python手册(Visualise)--matplotlib</a>
+            <a href="/posts/R/RNotebook(Tidy+Transform)--forcats.html" class="post-title-link" itemprop="url">R手册(Tidy+Transform)--forcats</a>
           
         </h2>
 
@@ -1325,7 +1313,7 @@
                 
               
 
-              <time title="创建时间：2018-05-20 15:52:03" itemprop="dateCreated datePublished" datetime="2018-05-20T15:52:03+08:00">2018-05-20</time>
+              <time title="创建时间：2018-05-28 16:35:03" itemprop="dateCreated datePublished" datetime="2018-05-28T16:35:03+08:00">2018-05-28</time>
             </span>
           
             
@@ -1336,7 +1324,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-18 18:48:10" itemprop="dateModified" datetime="2019-09-18T18:48:10+08:00">2019-09-18</time>
+                <time title="修改时间：2019-09-29 09:27:10" itemprop="dateModified" datetime="2019-09-29T09:27:10+08:00">2019-09-29</time>
               </span>
             
           
@@ -1346,14 +1334,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/Visualise/" itemprop="url" rel="index"><span itemprop="name">Visualise</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/Tidy-Transform/" itemprop="url" rel="index"><span itemprop="name">Tidy+Transform</span></a></span>
 
                 
                 
@@ -1362,7 +1350,7 @@
           
 
           
-            <span id="/posts/python/PythonNotebook(Visualise)--matplotlib.html" class="post-meta-item leancloud_visitors" data-flag-title="Python手册(Visualise)--matplotlib" title="热度">
+            <span id="/posts/R/RNotebook(Tidy+Transform)--forcats.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(Tidy+Transform)--forcats" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1380,7 +1368,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>6.9k</span>
+              <span>287</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -1390,7 +1378,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>6 分钟</span>
+              <span>1 分钟</span>
             </span>
           
 
@@ -1403,11 +1391,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a href="https://matplotlib.org/api/index.html" target="_blank" rel="noopener">Matplotlib</a> 是一个Python 2D绘图库，它可以在各种平台上以各种硬拷贝格式和交互式环境生成出具有出版品质的图形。 Matplotlib可用于Python脚本，Python和IPython shell，Jupyter笔记本，Web应用程序服务器和四个图形用户界面工具包</p>
+          <p>forcats: 分类变量数据处理</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/posts/python/PythonNotebook(Visualise)--matplotlib.html#more" rel="contents">
+              <a class="btn" href="/posts/R/RNotebook(Tidy+Transform)--forcats.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1436,7 +1424,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries).html">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--tidyr.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wilen Wu">
@@ -1450,7 +1438,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries).html" class="post-title-link" itemprop="url">Python手册(Time Series)--pandas(Time Series)</a>
+            <a href="/posts/R/RNotebook(Tidy+Transform)--tidyr.html" class="post-title-link" itemprop="url">R手册(Tidy+Transform)--tidyr</a>
           
         </h2>
 
@@ -1465,7 +1453,7 @@
                 
               
 
-              <time title="创建时间：2018-05-12 00:49:34" itemprop="dateCreated datePublished" datetime="2018-05-12T00:49:34+08:00">2018-05-12</time>
+              <time title="创建时间：2018-05-28 16:33:39" itemprop="dateCreated datePublished" datetime="2018-05-28T16:33:39+08:00">2018-05-28</time>
             </span>
           
             
@@ -1476,7 +1464,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-18 19:00:52" itemprop="dateModified" datetime="2019-09-18T19:00:52+08:00">2019-09-18</time>
+                <time title="修改时间：2019-09-29 09:27:10" itemprop="dateModified" datetime="2019-09-29T09:27:10+08:00">2019-09-29</time>
               </span>
             
           
@@ -1486,14 +1474,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/pandas/" itemprop="url" rel="index"><span itemprop="name">pandas</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/Tidy-Transform/" itemprop="url" rel="index"><span itemprop="name">Tidy+Transform</span></a></span>
 
                 
                 
@@ -1502,7 +1490,7 @@
           
 
           
-            <span id="/posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries).html" class="post-meta-item leancloud_visitors" data-flag-title="Python手册(Time Series)--pandas(Time Series)" title="热度">
+            <span id="/posts/R/RNotebook(Tidy+Transform)--tidyr.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(Tidy+Transform)--tidyr" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1520,7 +1508,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>10k</span>
+              <span>891</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -1530,7 +1518,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>10 分钟</span>
+              <span>1 分钟</span>
             </span>
           
 
@@ -1543,17 +1531,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>时间序列（time series）数据是一种重要的结构化数据形式，具体的应用场景，主要有以下几种：</p>
-<ul>
-<li>时间戳（timestamp），特定的时刻。</li>
-<li>固定时期（period），如2007年1月或2010年全年。</li>
-<li>时间间隔（interval），由起始和结束时间戳表示。时期（period）可以被看做间隔（interval）的特例。</li>
-<li>实验或过程时间，每个时间点都是相对于特定起始时间的一个度量。例如，从放入烤箱时起，每秒钟饼干的直径。</li>
-</ul>
+          <p><strong>tidyr</strong>: Easily tidy data with spread and gather functions.</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries).html#more" rel="contents">
+              <a class="btn" href="/posts/R/RNotebook(Tidy+Transform)--tidyr.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1582,7 +1564,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/python/PythonNotebook(Visualise)--seaborn.html">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(Common)--R-base.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wilen Wu">
@@ -1596,7 +1578,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/posts/python/PythonNotebook(Visualise)--seaborn.html" class="post-title-link" itemprop="url">Python手册(Visualise)--seaborn</a>
+            <a href="/posts/R/RNotebook(Common)--R-base.html" class="post-title-link" itemprop="url">R手册(Common)--R语言入门</a>
           
         </h2>
 
@@ -1611,7 +1593,7 @@
                 
               
 
-              <time title="创建时间：2018-05-10 23:20:12" itemprop="dateCreated datePublished" datetime="2018-05-10T23:20:12+08:00">2018-05-10</time>
+              <time title="创建时间：2018-05-26 19:29:50" itemprop="dateCreated datePublished" datetime="2018-05-26T19:29:50+08:00">2018-05-26</time>
             </span>
           
             
@@ -1622,7 +1604,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-18 18:48:22" itemprop="dateModified" datetime="2019-09-18T18:48:22+08:00">2019-09-18</time>
+                <time title="修改时间：2019-09-29 09:27:10" itemprop="dateModified" datetime="2019-09-29T09:27:10+08:00">2019-09-29</time>
               </span>
             
           
@@ -1632,14 +1614,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/Visualise/" itemprop="url" rel="index"><span itemprop="name">Visualise</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/Common/" itemprop="url" rel="index"><span itemprop="name">Common</span></a></span>
 
                 
                 
@@ -1648,7 +1630,7 @@
           
 
           
-            <span id="/posts/python/PythonNotebook(Visualise)--seaborn.html" class="post-meta-item leancloud_visitors" data-flag-title="Python手册(Visualise)--seaborn" title="热度">
+            <span id="/posts/R/RNotebook(Common)--R-base.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(Common)--R语言入门" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1666,7 +1648,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>5.8k</span>
+              <span>4.2k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -1676,7 +1658,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>5 分钟</span>
+              <span>4 分钟</span>
             </span>
           
 
@@ -1689,11 +1671,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>Seaborn</strong>是基于matplotlib的Python可视化库。它提供了一个高级界面来绘制有吸引力的统计图形。</p>
+          <p>**说明：**本节中大部分内容摘自书籍《R语言实战（第2版）》</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/posts/python/PythonNotebook(Visualise)--seaborn.html#more" rel="contents">
+              <a class="btn" href="/posts/R/RNotebook(Common)--R-base.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1721,7 +1703,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1769,7 +1751,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1782,7 +1764,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1795,7 +1777,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">112</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1897,12 +1879,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">206k</span>
+    <span title="站点总字数">291k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:07</span>
+    <span title="站点阅读时长">4:25</span>
 </div>
 
         
@@ -2080,24 +2062,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '60decc199e52a19f035d',
-      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
-      repo: 'gitalk',
-      owner: 'wilenwu',
-      admin: ['wilenwu'],
-      id: '3be7aa98d992907175cbd79c194399f2',
-        language: 'zh-CN',
-      
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-</script>
 
 
   
