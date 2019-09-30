@@ -6,12 +6,14 @@ copyright: true
 date: 2019-09-11 14:14:04
 categories: [Hexo]
 ---
-NexT 是Hexo框架中最为流行的主题之一。精于心，简于形。
+
+<div align="center"><a title="NexT website repository" href="https://github.com/theme-next/theme-next.org"><img align="center" width="60" height="60" src="https://raw.githubusercontent.com/theme-next/hexo-theme-next/master/source/images/logo.svg?sanitize=true"></a><font  size=5><b>e x T</b></font></div>
+
+NexT 是 [Hexo](http://hexo.io) 框架中最为流行的主题之一。精于心，简于形。
 NexT 支持多种常见第三方服务，使用 **第三方服务** 来扩展站点的功能 。
 除了 Markdown 支持的语法之外，NexT 借助 Hexo 提供的 **tag 插件**， 为您提供在书写文档时快速插入带特殊样式的内容。
 
 <!-- more -->
-
 
 # 安装主题
 
