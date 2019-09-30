@@ -1,12 +1,10 @@
 ---
-layout: true
 title: {{ title }}
 date: {{ date }}
-updated: 
 comments: true
 tags: []
 categories: 
-permalink:
+permalink: 
  
 copyright: true 
 mathjax: false
