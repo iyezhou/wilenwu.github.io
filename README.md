@@ -91,7 +91,7 @@ git config --global user.email "github注册邮箱"
 npm install hexo-deployer-git --save
 ```
 
-- 修改{% label primary@站点配置文件 %}
+- 修改站点配置文件
 ```sh
 deploy:
   type: git
