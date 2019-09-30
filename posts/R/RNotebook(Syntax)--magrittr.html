@@ -56,19 +56,19 @@
   };
 </script>
 
-  <meta name="description" content="broom: 数据清洗工具 modelr: 辅助管道建模工具">
-<meta name="keywords" content="R,broom,modelr">
+  <meta name="description" content="magrittr:  管道语法 (pipe)">
+<meta name="keywords" content="R,magrittr,管道">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R手册(Model Tools)--broom and modelr">
-<meta property="og:url" content="https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--broom-and-modelr.html">
+<meta property="og:title" content="R手册(Syntax)--magrittr">
+<meta property="og:url" content="https://wilenwu.github.io/posts/R/RNotebook(Syntax)--magrittr.html">
 <meta property="og:site_name" content="Wilen&#39;s Blog">
-<meta property="og:description" content="broom: 数据清洗工具 modelr: 辅助管道建模工具">
+<meta property="og:description" content="magrittr:  管道语法 (pipe)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-29T01:27:10.694Z">
+<meta property="og:updated_time" content="2019-09-30T06:39:03.825Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R手册(Model Tools)--broom and modelr">
-<meta name="twitter:description" content="broom: 数据清洗工具 modelr: 辅助管道建模工具">
-  <link rel="canonical" href="https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--broom-and-modelr">
+<meta name="twitter:title" content="R手册(Syntax)--magrittr">
+<meta name="twitter:description" content="magrittr:  管道语法 (pipe)">
+  <link rel="canonical" href="https://wilenwu.github.io/posts/R/RNotebook(Syntax)--magrittr">
 
 
 <script id="page-configurations">
@@ -92,7 +92,7 @@
     })();
 </script>
 
-  <title>R手册(Model Tools)--broom and modelr | Wilen's Blog</title>
+  <title>R手册(Syntax)--magrittr | Wilen's Blog</title>
   
 
 
@@ -192,7 +192,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">112</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">111</span></a>
 
   </li>
       
@@ -218,7 +218,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">58</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">60</span></a>
 
   </li>
       
@@ -312,7 +312,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--broom-and-modelr.html">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(Syntax)--magrittr.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wilen Wu">
@@ -324,7 +324,7 @@
       <meta itemprop="name" content="Wilen's Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">R手册(Model Tools)--broom and modelr
+        <h2 class="post-title" itemprop="name headline">R手册(Syntax)--magrittr
 
           
         </h2>
@@ -340,7 +340,7 @@
                 
               
 
-              <time title="创建时间：2018-05-04 00:43:40" itemprop="dateCreated datePublished" datetime="2018-05-04T00:43:40+08:00">2018-05-04</time>
+              <time title="创建时间：2018-05-02 00:46:17" itemprop="dateCreated datePublished" datetime="2018-05-02T00:46:17+08:00">2018-05-02</time>
             </span>
           
             
@@ -351,7 +351,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-29 09:27:10" itemprop="dateModified" datetime="2019-09-29T09:27:10+08:00">2019-09-29</time>
+                <time title="修改时间：2019-09-30 14:39:03" itemprop="dateModified" datetime="2019-09-30T14:39:03+08:00">2019-09-30</time>
               </span>
             
           
@@ -368,7 +368,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/Model-Tools/" itemprop="url" rel="index"><span itemprop="name">Model Tools</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/Syntax/" itemprop="url" rel="index"><span itemprop="name">Syntax</span></a></span>
 
                 
                 
@@ -377,7 +377,7 @@
           
 
           
-            <span id="/posts/R/RNotebook(Model-Tools)--broom-and-modelr.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(Model Tools)--broom and modelr" title="热度">
+            <span id="/posts/R/RNotebook(Syntax)--magrittr.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(Syntax)--magrittr" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -395,7 +395,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/R/RNotebook(Model-Tools)--broom-and-modelr.html#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/posts/R/RNotebook(Model-Tools)--broom-and-modelr.html" itemprop="commentCount"></span></a>
+    <a title="valine" href="/posts/R/RNotebook(Syntax)--magrittr.html#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/posts/R/RNotebook(Syntax)--magrittr.html" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -407,7 +407,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>3.7k</span>
+              <span>647</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -417,7 +417,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
           
 
@@ -430,43 +430,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>broom: 数据清洗工具<br>
-modelr: 辅助管道建模工具</p>
+        <p><strong>magrittr</strong>:  管道语法 (pipe)</p>
 <a id="more"></a>
-<h1 id="broomconvert-statistical-analysis-objects-into-tidy-format"><a class="markdownIt-Anchor" href="#broomconvert-statistical-analysis-objects-into-tidy-format"></a> broom：Convert statistical analysis objects into tidy format</h1>
-<p>这个软件包提供了三种完成三种不同类型整理的S3方法：<a href="https://github.com/tidyverse/broom" target="_blank" rel="noopener">GitHub链接</a></p>
-<ul>
-<li><strong>tidy:</strong> 构建一个总结模型或检验整洁的统计信息data.frame。这包括回归中coefficients and p-values，聚类中的每个集群信息per-cluster或multtest函数的每个测试信息per-test等</li>
-<li><strong>augment:</strong> 将列添加到建模的原始数据中。这包括预测，残差和集群分配等(predictions, residuals, and cluster assignments)</li>
-<li><strong>glance:</strong> 构建一个简洁的模型的单行摘要。这通常包含构建整个模型的计算值such as R^2, adjusted R^2, and residual <strong>standard error</strong></li>
-</ul>
-<p>考虑一个说明性的例子，对内置mtcars数据集进行线性拟合。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">lmfit &lt;- lm(mpg ~ wt, mtcars)</span><br><span class="line"></span><br><span class="line"><span class="keyword">library</span>(broom)</span><br><span class="line">tidy(lmfit)</span><br><span class="line"><span class="comment">##          term  estimate std.error statistic      p.value</span></span><br><span class="line"><span class="comment">## 1 (Intercept) 37.285126  1.877627 19.857575 8.241799e-19</span></span><br><span class="line"><span class="comment">## 2          wt -5.344472  0.559101 -9.559044 1.293959e-10</span></span><br><span class="line"></span><br><span class="line">head(augment(lmfit))</span><br><span class="line"><span class="comment">##           .rownames  mpg    wt  .fitted   .se.fit     .resid       .hat</span></span><br><span class="line"><span class="comment">## 1         Mazda RX4 21.0 2.620 23.28261 0.6335798 -2.2826106 0.04326896</span></span><br><span class="line"><span class="comment">## 2     Mazda RX4 Wag 21.0 2.875 21.91977 0.5714319 -0.9197704 0.03519677</span></span><br><span class="line"><span class="comment">## 3        Datsun 710 22.8 2.320 24.88595 0.7359177 -2.0859521 0.05837573</span></span><br><span class="line"><span class="comment">## 4    Hornet 4 Drive 21.4 3.215 20.10265 0.5384424  1.2973499 0.03125017</span></span><br><span class="line"><span class="comment">## 5 Hornet Sportabout 18.7 3.440 18.90014 0.5526562 -0.2001440 0.03292182</span></span><br><span class="line"><span class="comment">## 6           Valiant 18.1 3.460 18.79325 0.5552829 -0.6932545 0.03323551</span></span><br><span class="line"><span class="comment">##     .sigma      .cooksd  .std.resid</span></span><br><span class="line"><span class="comment">## 1 3.067494 1.327407e-02 -0.76616765</span></span><br><span class="line"><span class="comment">## 2 3.093068 1.723963e-03 -0.30743051</span></span><br><span class="line"><span class="comment">## 3 3.072127 1.543937e-02 -0.70575249</span></span><br><span class="line"><span class="comment">## 4 3.088268 3.020558e-03  0.43275114</span></span><br><span class="line"><span class="comment">## 5 3.097722 7.599578e-05 -0.06681879</span></span><br><span class="line"><span class="comment">## 6 3.095184 9.210650e-04 -0.23148309</span></span><br><span class="line"></span><br><span class="line">glance(lmfit)</span><br><span class="line"><span class="comment">##   r.squared adj.r.squared    sigma statistic      p.value df    logLik</span></span><br><span class="line"><span class="comment">## 1 0.7528328     0.7445939 3.045882  91.37533 1.293959e-10  2 -80.01471</span></span><br><span class="line"><span class="comment">##        AIC      BIC deviance df.residual</span></span><br><span class="line"><span class="comment">## 1 166.0294 170.4266 278.3219          30</span></span><br></pre></td></tr></table></figure>
-<h1 id="modelr-辅助管道建模"><a class="markdownIt-Anchor" href="#modelr-辅助管道建模"></a> modelr ：辅助管道建模</h1>
-<p>modelr软件包提供的功能可以帮助您在建模时创建精美的流水线。</p>
-<h2 id="分区和采样"><a class="markdownIt-Anchor" href="#分区和采样"></a> 分区和采样</h2>
-<p><code>resample(data, idx)</code> 抽取idx向量指定的观测值<br>
-<code>resample_partition(data, p)</code> 按p向量给定的值分区</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">rs &lt;- resample(mtcars, <span class="number">1</span>:<span class="number">10</span>)</span><br><span class="line">as.data.frame(rs)</span><br><span class="line"></span><br><span class="line">ex &lt;- resample_partition(mtcars, c(test = <span class="number">0.3</span>, train = <span class="number">0.7</span>))</span><br><span class="line">lapply(ex, dim)</span><br><span class="line"></span><br><span class="line">bootstrap(mtcars, <span class="number">100</span>)%&gt;%</span><br><span class="line"> map( ~ lm(mpg ~ wt, data = .))%&gt;%</span><br><span class="line"> map_df( broom::tidy)</span><br></pre></td></tr></table></figure>
-<h2 id="交叉验证抽样"><a class="markdownIt-Anchor" href="#交叉验证抽样"></a> 交叉验证抽样</h2>
-<p><code>bootstrap(data, n, id = &quot;.id&quot;)</code> 生成n个bootstrap副本<br>
-<code>crossv_kfold(data, k = 5, id = &quot;.id&quot;)</code>将数据拆分为k独占分区，并将每个分区用于测试训练拆分<br>
-<code>crossv_mc(data, n, test = 0.2, id = &quot;.id&quot;)</code>生成n组数据，交叉验证模型，test为测试集比例</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bootstrap</span></span><br><span class="line">boot &lt;- bootstrap(mtcars, <span class="number">100</span>)</span><br><span class="line"><span class="comment"># k-fold cross-validation</span></span><br><span class="line">cv1 &lt;- crossv_kfold(mtcars, <span class="number">5</span>)</span><br><span class="line"><span class="comment"># Monte Carlo cross-validation</span></span><br><span class="line">cv2 &lt;- crossv_mc(mtcars, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">crossv_mc(mtcars, <span class="number">100</span>)%&gt;%</span><br><span class="line">  map(cv2$train, ~ lm(mpg ~ wt, data = .))%&gt;%   <span class="comment">#模型</span></span><br><span class="line">  map2_dbl(cv2$test, rmse)%&gt;%</span><br><span class="line">  hist()</span><br></pre></td></tr></table></figure>
-<h2 id="模型质量指标"><a class="markdownIt-Anchor" href="#模型质量指标"></a> 模型质量指标</h2>
-<p><code>rmse(model, data)</code> 均方根误差<br>
-<code>mae(model, data)</code> 平均绝对误差<br>
-<code>rsquare(model, data)</code> R^2预测的方差除以响应的方差<br>
-<code>qae(model, data, probs)</code>误差的分位数</p>
-<h2 id="与模型交互"><a class="markdownIt-Anchor" href="#与模型交互"></a> 与模型交互</h2>
-<p>一组函数使您可以无缝地将预测和残差添加为现有数据框的附加列：<br>
-<code>add_predictions(data, model)</code>向数据框添加预测<br>
-<code>add_residuals(data, model)</code>向数据框添加残差</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">df &lt;- tibble::data_frame(</span><br><span class="line">  x = sort(runif(<span class="number">100</span>)),</span><br><span class="line">  y = <span class="number">5</span> * x + <span class="number">0.5</span> * x ^ <span class="number">2</span> + <span class="number">3</span> + rnorm(length(x))</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">mod &lt;- lm(y ~ x, data = df)</span><br><span class="line">df %&gt;% add_predictions(mod)</span><br><span class="line">df %&gt;% add_residuals(mod)</span><br></pre></td></tr></table></figure>
-<p>为了可视化目的，通常使用数据中均匀间隔的网格点<br>
-<code>data_grid(data, ..., .model = NULL)</code>展开数据框，包含所有值的组合，对可视化模型有用<br>
-<code>seq_range(x, n, by, trim = NULL, expand = NULL, pretty = FALSE)</code>在矢量范围内生成一个序列</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对连续性变量， seq_range函数很有用</span></span><br><span class="line">mtcars_mod &lt;- lm(mpg ~ wt + cyl + vs, data = mtcars)</span><br><span class="line">data_grid(mtcars, wt = seq_range(wt, <span class="number">10</span>), cyl, vs) %&gt;%   </span><br><span class="line">  add_predictions(mtcars_mod)%&gt;%</span><br><span class="line">  head()</span><br><span class="line"><span class="comment">#&gt; # A tibble: 60 x 4</span></span><br><span class="line"><span class="comment">#&gt;       wt   cyl    vs  pred</span></span><br><span class="line"><span class="comment">#&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span><br><span class="line"><span class="comment">#&gt;  1  1.51     4     0  28.4</span></span><br><span class="line"><span class="comment">#&gt;  2  1.51     4     1  28.9</span></span><br><span class="line"><span class="comment">#&gt;  3  1.51     6     0  25.6</span></span><br><span class="line"><span class="comment">#&gt;  4  1.51     6     1  26.2</span></span><br><span class="line"><span class="comment">#&gt;  5  1.51     8     0  22.9</span></span><br></pre></td></tr></table></figure>
+<h1 id="magrittr-pipe"><a class="markdownIt-Anchor" href="#magrittr-pipe"></a> magrittr:  pipe</h1>
+<p><strong><code>lhs %&gt;% rhs</code> forward-pipe</strong></p>
+<ol>
+<li>lhs为rhs第一个参数时：<code>x %&gt;% f(y)等价于 f(x, y)</code></li>
+<li>lhs在任意位置时，用点(.)代替：<code>z %&gt;% f(x, y, arg = .)等价于 f(x, y, arg = z)</code></li>
+<li>rhs为代码块：<code>rnorm(100) %&gt;% {c(min(.), mean(.), max(.))} %&gt;% floor</code></li>
+</ol>
+<p><strong><code>lhs %&lt;&gt;% rhs</code>复合赋值管道运算符</strong></p>
+<p><code>%&lt;&gt;%</code>用于首先将<code>lhs</code>传递给<code>rhs</code>表达式，最后将值重新赋给<code>lhs</code>。<code>some_object %&lt;&gt;% foo %&gt;% bar</code><br>
+相当于<code>some_object &lt;- some_object %&gt;% foo %&gt;% bar</code></p>
+<p><strong><code>lhs ％$％ rhs</code></strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iris %&gt;%</span><br><span class="line">  subset(Sepal.Length &gt; mean(Sepal.Length)) %$%</span><br><span class="line">  cor(Sepal.Length, Sepal.Width)</span><br></pre></td></tr></table></figure>
+<p><strong><code>lhs ％T&gt;％ rhs</code> T运算符</strong><br>
+返回<code>lhs</code>本身，而不是<code>rhs</code>函数或表达式，对于<code>print</code>或者<code>plot</code>类似函数非常有用。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rnorm（<span class="number">200</span>）％&gt;％</span><br><span class="line">  matrix（ncol  =  <span class="number">2</span>）％<span class="literal">T</span>&gt;％</span><br><span class="line">  plot  ％&gt;％ ＃plot通常不返回任何内容。</span><br><span class="line">  colSums</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -505,7 +485,7 @@ modelr: 辅助管道建模工具</p>
     <strong>本文作者： </strong>Wilen Wu</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--broom-and-modelr.html" title="R手册(Model Tools)--broom and modelr">https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--broom-and-modelr.html</a>
+    <a href="https://wilenwu.github.io/posts/R/RNotebook(Syntax)--magrittr.html" title="R手册(Syntax)--magrittr">https://wilenwu.github.io/posts/R/RNotebook(Syntax)--magrittr.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -522,9 +502,9 @@ modelr: 辅助管道建模工具</p>
             
               <a href="/tags/R/" rel="tag"># R</a>
             
-              <a href="/tags/broom/" rel="tag"># broom</a>
+              <a href="/tags/magrittr/" rel="tag"># magrittr</a>
             
-              <a href="/tags/modelr/" rel="tag"># modelr</a>
+              <a href="/tags/管道/" rel="tag"># 管道</a>
             
           </div>
         
@@ -534,8 +514,8 @@ modelr: 辅助管道建模工具</p>
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/posts/R/RNotebook(Parallel-Computing)--foreach.html" rel="next" title="R手册(Parallel Computing)--foreach">
-                  <i class="fa fa-chevron-left"></i> R手册(Parallel Computing)--foreach
+                <a href="/posts/R/RNotebook(Tidy+Transform)--for-missing-data(naniar-and-simputation).html" rel="next" title="R手册(Tidy+Transform)--缺失数据处理(naniar and simputation)">
+                  <i class="fa fa-chevron-left"></i> R手册(Tidy+Transform)--缺失数据处理(naniar and simputation)
                 </a>
               
             </div>
@@ -544,8 +524,8 @@ modelr: 辅助管道建模工具</p>
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/posts/R/RNotebook(Machine-Learning)--mlr.html" rel="prev" title="R手册(Machine Learning)--mlr">
-                  R手册(Machine Learning)--mlr <i class="fa fa-chevron-right"></i>
+                <a href="/posts/R/RNotebook(Syntax)--purrr.html" rel="prev" title="R手册(Syntax)--purrr">
+                  R手册(Syntax)--purrr <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -638,7 +618,7 @@ modelr: 辅助管道建模工具</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#broomconvert-statistical-analysis-objects-into-tidy-format"><span class="nav-number">1.</span> <span class="nav-text"> broom：Convert statistical analysis objects into tidy format</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#modelr-辅助管道建模"><span class="nav-number">2.</span> <span class="nav-text"> modelr ：辅助管道建模</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分区和采样"><span class="nav-number">2.1.</span> <span class="nav-text"> 分区和采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交叉验证抽样"><span class="nav-number">2.2.</span> <span class="nav-text"> 交叉验证抽样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型质量指标"><span class="nav-number">2.3.</span> <span class="nav-text"> 模型质量指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与模型交互"><span class="nav-number">2.4.</span> <span class="nav-text"> 与模型交互</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#magrittr-pipe"><span class="nav-number">1.</span> <span class="nav-text"> magrittr:  pipe</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -656,7 +636,7 @@ modelr: 辅助管道建模工具</p>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -682,7 +662,7 @@ modelr: 辅助管道建模工具</p>
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">112</span>
+        <span class="site-state-item-count">111</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -825,8 +805,14 @@ modelr: 辅助管道建模工具</p>
                 console.log('Failed to save visitor count', error);
               })
           } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
             
           }
         })
@@ -967,6 +953,24 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
 
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: '3be7aa98d992907175cbd79c194399f2',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 
   
@@ -987,7 +991,7 @@ if (document.querySelectorAll('pre.mermaid').length) {
       repo: 'gitalk',
       owner: 'wilenwu',
       admin: ['wilenwu'],
-      id: 'beb5e2fd9578fd38d21c8761a01bbda0',
+      id: 'a5214e754d32d90fceb8252e18bc9e5d',
         language: 'zh-CN',
       
       distractionFreeMode: 'true'

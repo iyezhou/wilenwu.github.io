@@ -4,6 +4,6 @@
 - [x] [KaTeX 数学符号列表][katex]
 - [ ] [Markdown For Typora][mft]
 
-[md]: 1
-[katex]: 2 
-[mft]: 3
+[md]: https://wilenwu.github.io/posts/markdown/GitHub-Flavored-Markdown-Spec.html
+[katex]: https://wilenwu.github.io/posts/markdown/KaTeX-math-symbols.html
+[mft]: https://wilenwu.github.io/posts/markdown/Markdown-For-Typora.html

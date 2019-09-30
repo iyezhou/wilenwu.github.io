@@ -1,7 +1,7 @@
 
 说明：本手册所列包基本来自[AwesomeR][AwesomeR] ，结合[GitHub][GitHub]和`help(package="pk_name")`官方文档整理所得，有助于使用时下最实用的包对R进行深入的学习。
 
-其中，标记 <kbd>⭐</kbd>的是本人的必学包，❤为待选包。
+其中，标记 <input type="checkbox" checked='checked' />的是本人的必学包，❤为待选包。
 
 致谢，[ApacheCN 中文开源组织](http://www.apachecn.org/#)：致力于官方文档及AI书籍中文翻译。
 
@@ -18,12 +18,12 @@
   - [ ] devtools：❤使开发R包变得更简单(Hadley) (Update according to [cheat sheets][sheet])
   - [ ] [rpy2][rpy2]：❤Python 通过rpy2调用 R语言
 
-[basic]: https://blog.csdn.net/qq_41518277/article/details/80464319
-[base]: https://blog.csdn.net/qq_41518277/article/details/80150625
-[tidyverse]: https://blog.csdn.net/qq_41518277/article/details/80152636
-[data.table]: https://blog.csdn.net/qq_41518277/article/details/80158005
-[R6]: https://blog.csdn.net/qq_41518277/article/details/80158036
-[rpy2]: https://blog.csdn.net/qq_41518277/article/details/85226955
+[basic]: https://wilenwu.github.io/posts/R/RNotebook(Common)--R-base.html
+[base]: https://wilenwu.github.io/posts/R/RNotebook(Common)--R-basic-packages.html
+[tidyverse]: https://wilenwu.github.io/posts/R/RNotebook(Common)--tidyverse+tibble.html
+[data.table]: https://wilenwu.github.io/posts/R/RNotebook(Common)--data.table.html
+[R6]: https://wilenwu.github.io/posts/R/RNotebook(Common)--Object-Oriented(R6-and-S4).html
+[rpy2]: https://wilenwu.github.io/posts/python/PythonNotebook(Python-Basics)--RPy2.html
 
 
 # Syntax
@@ -33,8 +33,8 @@
   - [x] [magrittr][magrittr]：Let’s pipe it
   - [ ] pipeR：❤多范式管道编程
 
-[purrr]: https://blog.csdn.net/qq_41518277/article/details/80161309
-[magrittr]: https://blog.csdn.net/qq_41518277/article/details/80161309
+[purrr]: https://wilenwu.github.io/posts/R/RNotebook(Syntax)--purrr.html
+[magrittr]: https://wilenwu.github.io/posts/R/RNotebook(Syntax)--magrittr.html
 
 # Import
 
@@ -45,17 +45,17 @@
   - [ ] haven：for SPSS,SAS and Stata files.(Hadley)
   - [ ] feather：❤for sharing with Python and other languages.(Hadley)
 
-[readr]: https://blog.csdn.net/qq_41518277/article/details/80158061
-[readxl]: https://blog.csdn.net/qq_41518277/article/details/80158061
-[openxlsx]: https://blog.csdn.net/qq_41518277/article/details/80158061
-[jsonlite]: https://blog.csdn.net/qq_41518277/article/details/80158061
+[readr]: https://wilenwu.github.io/posts/R/RNotebook(Import)--read-csv-xlsx-or-json.html#readr:-read-rectangular-text-data
+[readxl]: https://wilenwu.github.io/posts/R/RNotebook(Import)--read-csv-xlsx-or-json.html#readxl:-for-excel
+[openxlsx]: https://wilenwu.github.io/posts/R/RNotebook(Import)--read-csv-xlsx-or-json.html#openxlsx:-xlsx-reading,-writing-and-editing
+[jsonlite]: https://wilenwu.github.io/posts/R/RNotebook(Import)--read-csv-xlsx-or-json.html#jsonlite:-for-json
 
 *DATABASE MANAGEMENT*
 
   - [ ] [DBI][DBI]：❤数据库统一接口(Hadley)
   - [ ] RHive：❤通过Apache Hive促进分布式计算的R扩展
 
-[DBI]: https://blog.csdn.net/qq_41518277/article/details/80158078
+[DBI]: https://wilenwu.github.io/posts/R/RNotebook(Import)--DBI.html
 
 *WEB TECHNOLOGIES*
 
@@ -64,8 +64,8 @@
   - [x] [rvest][rvest]：web scraping (Hadley)  (Update according to GitHub)
   - [x]  xml2：解析XML文件 (Hadley)  (Update according to GitHub)
 
-[httr]: https://blog.csdn.net/qq_41518277/article/details/80158123
-[rvest]: https://blog.csdn.net/qq_41518277/article/details/80158123
+[httr]: https://httr.r-lib.org/
+[rvest]: https://wilenwu.github.io/posts/R/RNotebook(Import)--rvest.html
 
 # Tidy+Transform
 
@@ -77,22 +77,20 @@
   - [x] [stringr][stringr]：for strings.(Hadley)
   - [ ] utf8：处理和修复R中的多种文本编码问题 
   - [x] [正则表达式][re]：Regular Expression
-  - [x] [lubridate][lubridate]：for date and times(Hadley)
-  - [x] [hms][hms]：for times(Hadley)
+  - [x] [lubridate+hms][lubridate]：for date and times(Hadley)
   - [x] [forcats][forcats]：for factors(Hadley)
   - [ ] sjmisc：各种实用功能的集合，支持数据重编码，缺失值处理等，与dplyr包无缝协作。
   - [x] [naniar][naniar]：缺失数据概述和可视化
   - [x] [simputation][simputation]：缺失数据插补框架
 
-[tidyr]: https://blog.csdn.net/qq_41518277/article/details/80484244
-[dplyr]: https://blog.csdn.net/qq_41518277/article/details/80159020
-[stringr]: https://blog.csdn.net/qq_41518277/article/details/80160592
-[re]: https://blog.csdn.net/qq_41518277/article/details/80158351
-[lubridate]: https://blog.csdn.net/qq_41518277/article/details/80160857
-[hms]: https://blog.csdn.net/qq_41518277/article/details/80160857
-[forcats]: https://blog.csdn.net/qq_41518277/article/details/80484269
-[naniar]: https://blog.csdn.net/qq_41518277/article/details/80161089
-[simputation]: https://blog.csdn.net/qq_41518277/article/details/80161089
+[tidyr]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--tidyr.html
+[dplyr]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--dplyr-and-plyr.html
+[stringr]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--stringr.html
+[re]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--regular-expression.html
+[lubridate]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--lubridate+hms.html
+[forcats]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--forcats.html
+[naniar]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--for-missing-data(naniar-and-simputation).html
+[simputation]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--for-missing-data(naniar-and-simputation).html
 
 *LARGE DATASETS*
 
@@ -111,9 +109,9 @@
   - [x] [ggplot2][ggplot2]：强大的绘图系统，并实现了许多扩展(Hadley)
   - [x] [ggplot2 extensions][ggplot2 extensions]: ggplot2扩展，包括各种补充图形，坐标系统，主题等。
 
-[extrafont]: https://blog.csdn.net/qq_41518277/article/details/80188194
-[ggplot2]: https://blog.csdn.net/qq_41518277/article/details/80182022
-[ggmap]: https://blog.csdn.net/qq_41518277/article/details/80188948
+[extrafont]: https://wilenwu.github.io/posts/R/RNotebook(Visualise)--RColorBrewer-and-extrafont.html
+[ggplot2]: https://wilenwu.github.io/posts/R/RNotebook(Visualise)--ggplot2.html
+[ggmap]: https://wilenwu.github.io/posts/R/RNotebook(Visualise)--ggmap+baidumap.html
 [ggplot2 extensions]: http://www.ggplot2-exts.org/ggiraph.html
 
 *HTML WIDGETS*
@@ -125,19 +123,19 @@
   - [ ] rbokeh：R与Bokeh的接口。
   - [ ] plotly：❤R的交互式图形库，基于ggplot2 和shiny。
 
-[leaflet+leafletCN]: https://blog.csdn.net/qq_41518277/article/details/80189247
-[Remap]: https://blog.csdn.net/qq_41518277/article/details/80537172
+[leaflet+leafletCN]: https://wilenwu.github.io/posts/R/RNotebook(Visualise)--leaflet+leafletCN.html
+[Remap]: https://wilenwu.github.io/posts/R/RNotebook(Visualise)--REmap.html
 
 # Parallel Computing
 
   - [ ] [foreach][foreach]：❤在循环(loop)中并行化运算
 
-[foreach]: https://blog.csdn.net/qq_41518277/article/details/80189348
+[foreach]: https://wilenwu.github.io/posts/R/RNotebook(Parallel-Computing)--foreach.html
 
 # MapReduce
 
   - [ ] SparkR：❤Spark的R前端
-  - [ ] sparklyr：❤来自RStudio的Apache Spark的R接口，提供dplyr后端 (Update according to [cheat sheets][sheet])
+  - [ ] sparklyr：❤来自RStudio的Apache Spark的R接口，提供dplyr后端
 
 # Model Tools
 
@@ -145,8 +143,8 @@
   - [x] [modelr][modelr]：管道建模辅助包(Hadley)
   - [ ] caret：❤分类和回归问题的数据训练综合工具包（包括交叉验证，网格搜索等）
 
-[broom]: https://blog.csdn.net/qq_41518277/article/details/80189381
-[modelr]: https://blog.csdn.net/qq_41518277/article/details/80189381
+[broom]: https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--broom.html
+[modelr]: https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--modelr.html
 
 
 # Machine Learning
@@ -158,14 +156,13 @@
   - [ ] survival：生存分析模型
   - [ ] nnet：神经网络
 
-[mlr]: https://blog.csdn.net/qq_41518277/article/details/80189427
-
+[mlr]: https://wilenwu.github.io/posts/R/RNotebook(Machine-Learning)--mlr.html
 
 # Deep Learning
 
   - [ ] tensorflow：❤Google开源的最受欢迎的深度学习框架
   - [ ] h2o：❤深度学习框架 (Update according to [cheat sheets][sheet])
-  - [ ] keras：❤以 tensorflow/theano/CNTK 为后端的深度学习封装库  (Update according to [cheat sheets][sheet])
+  - [ ] keras：❤以 tensorflow/theano/CNTK 为后端的深度学习封装库 
 
 # NLP (Natural Language Processing)
 
@@ -177,23 +174,24 @@
   - [ ] tidytex：❤简单文本挖掘，结合dplyr，ggplot2和其他简洁工具
   - [x] [text2vec][text2vec]：一个快速文本挖掘框架（jiebaR推荐包） (Update according to GitHub)
 
-[jiebaR]: https://blog.csdn.net/qq_41518277/article/details/80198407
-[wordcloud2]: https://blog.csdn.net/qq_41518277/article/details/80486990
-[text2vec]: https://blog.csdn.net/qq_41518277/article/details/80487013
+[jiebaR]: https://wilenwu.github.io/posts/R/RNotebook(NLP)--jiebaR.html
+[wordcloud2]: https://wilenwu.github.io/posts/R/RNotebook(NLP)--wordcloud2.html
+[text2vec]: https://wilenwu.github.io/posts/R/RNotebook(NLP)--text2vec.html
 
 # Time Series
 
   - [x] [zoo][zoo]：定义了规则和不规则时间序列S3类  (Update according to GitHub)
-  - [ ] xts：❤对时间序列数据(zoo)的一种扩展实现，统一时间序列的操作接口  (Update according to GitHub)
+  - [ ] [xts][xts]：❤对时间序列数据(zoo)的一种扩展实现，统一时间序列的操作接口  (Update according to GitHub)
   - [x] [prophet][prophet]：线性或非线性模型高质量时间序列预测，它最适合日常数据
   - [x] [forecast][forecast]：时间序列建模和预测
   - [x] [forecastHybrid][forecastHybrid]：结合forcast包时间序列模型混合预测
   - [ ] CausalImpact：使用贝叶斯结构时间序列模型进行因果推理
 
-[zoo]: https://blog.csdn.net/qq_41518277/article/details/80484661
-[prophet]: https://blog.csdn.net/qq_41518277/article/details/80197687
-[forecast]: https://blog.csdn.net/qq_41518277/article/details/80197687
-[forecastHybrid]: https://blog.csdn.net/qq_41518277/article/details/80197687
+[zoo]: https://wilenwu.github.io/posts/R/RNotebook(Time-Series)--zoo.html
+[xts]: http://joshuaulrich.github.io/xts/
+[prophet]: https://wilenwu.github.io/posts/R/RNotebook(Time-Series)--forecast-and-prophet.html
+[forecast]: https://wilenwu.github.io/posts/R/RNotebook(Time-Series)--forecast-and-prophet.html
+[forecastHybrid]: https://wilenwu.github.io/posts/R/RNotebook(Time-Series)--forecast-and-prophet.html
 
 # Finance
 
@@ -209,9 +207,8 @@
   - [ ] knitr：用于在PDF和HTML文档中嵌入R代码块
   - [x] [shiny][shiny]：使用R语言开发交互式web应用程序的工具
 
-[rmarkdown]: https://blog.csdn.net/qq_41518277/article/details/80149789
-[mk]: https://blog.csdn.net/qq_41518277/article/details/80149002
-[shiny]: https://blog.csdn.net/qq_41518277/article/details/80428273
+[rmarkdown]: https://wilenwu.github.io/posts/R/RNotebook(Communicate)--R-Markdown.html
+[shiny]: https://wilenwu.github.io/posts/R/RNotebook(Communicate)--shiny.html
 
 # Others
 
@@ -222,7 +219,6 @@
   - [x] [RStudio Cheat Sheets][sheets] 
   - [x] [TaskViews][task]：CRAN Task Views
   - [x] [Search][Search]：Google search engine
-  - [x] [GitHub][GitHub]：Built for developers
 
 
 [Advanced R]: http://adv-r.had.co.nz/
@@ -233,7 +229,6 @@
 [task]: https://cran.r-project.org/web/views/
 [Search]: https://cran.r-project.org/search.html
 [GitHub]: https://github.com/
-[sheet]: https://blog.csdn.net/qq_41518277/article/details/80215702
 
 ----------
 

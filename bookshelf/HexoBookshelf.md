@@ -4,6 +4,6 @@
 - [x] [Hexo tag 插件][tags]
 - [x] [NexT主题进阶][NexT]
 
-[hexo]: 1
-[tags]: 2 
-[NexT]: 3
+[hexo]: https://wilenwu.github.io/posts/hexo/Hexo-setup&configuration.html
+[tags]: https://wilenwu.github.io/posts/hexo/Hexo-tag-plugins.html
+[NexT]: https://wilenwu.github.io/posts/hexo/theme-NexT-advanced.html

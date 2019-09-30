@@ -190,7 +190,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">112</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">111</span></a>
 
   </li>
       
@@ -216,7 +216,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">58</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">60</span></a>
 
   </li>
       
@@ -358,8 +358,37 @@
 
       <h3 class="post-title">
         
-          <a class="post-title-link" href="/posts/R/RNotebook(Syntax)--magrittr-and-purrr.html" itemprop="url">
-            <span itemprop="name">R手册(Syntax)--magrittr and purrr</span>
+          <a class="post-title-link" href="/posts/R/RNotebook(Syntax)--purrr.html" itemprop="url">
+            <span itemprop="name">R手册(Syntax)--purrr</span>
+          </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-05-02T00:46:18+08:00"
+              content="2018-05-02">
+          05-02
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+  
+  
+
+  
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+          <a class="post-title-link" href="/posts/R/RNotebook(Syntax)--magrittr.html" itemprop="url">
+            <span itemprop="name">R手册(Syntax)--magrittr</span>
           </a>
         
       </h3>
@@ -431,7 +460,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -457,7 +486,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">112</span>
+        <span class="site-state-item-count">111</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -600,8 +629,14 @@
                 console.log('Failed to save visitor count', error);
               })
           } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
             
           }
         })
@@ -742,6 +777,24 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
 
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: '3be7aa98d992907175cbd79c194399f2',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 
   

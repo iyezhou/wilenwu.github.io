@@ -56,19 +56,19 @@
   };
 </script>
 
-  <meta name="description" content="magrittr:  pipe purrr : A functional programming(FP) toolkit for R">
-<meta name="keywords" content="R,magrittr,purrr,管道">
+  <meta name="description" content="broom：Convert statistical analysis objects into tidy format 这个软件包提供了三种完成三种不同类型整理的S3方法：GitHub链接  tidy: 构建一个总结模型或检验整洁的统计信息data.frame。这包括回归中coefficients and p-values，聚类中的每个集群信息per-cluster或multtest函数的每个测">
+<meta name="keywords" content="R,broom">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R手册(Syntax)--magrittr and purrr">
-<meta property="og:url" content="https://wilenwu.github.io/posts/R/RNotebook(Syntax)--magrittr-and-purrr.html">
+<meta property="og:title" content="R手册(Model Tools)--broom">
+<meta property="og:url" content="https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--broom.html">
 <meta property="og:site_name" content="Wilen&#39;s Blog">
-<meta property="og:description" content="magrittr:  pipe purrr : A functional programming(FP) toolkit for R">
+<meta property="og:description" content="broom：Convert statistical analysis objects into tidy format 这个软件包提供了三种完成三种不同类型整理的S3方法：GitHub链接  tidy: 构建一个总结模型或检验整洁的统计信息data.frame。这包括回归中coefficients and p-values，聚类中的每个集群信息per-cluster或multtest函数的每个测">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-29T01:27:10.697Z">
+<meta property="og:updated_time" content="2019-09-30T06:39:03.825Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R手册(Syntax)--magrittr and purrr">
-<meta name="twitter:description" content="magrittr:  pipe purrr : A functional programming(FP) toolkit for R">
-  <link rel="canonical" href="https://wilenwu.github.io/posts/R/RNotebook(Syntax)--magrittr-and-purrr">
+<meta name="twitter:title" content="R手册(Model Tools)--broom">
+<meta name="twitter:description" content="broom：Convert statistical analysis objects into tidy format 这个软件包提供了三种完成三种不同类型整理的S3方法：GitHub链接  tidy: 构建一个总结模型或检验整洁的统计信息data.frame。这包括回归中coefficients and p-values，聚类中的每个集群信息per-cluster或multtest函数的每个测">
+  <link rel="canonical" href="https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--broom">
 
 
 <script id="page-configurations">
@@ -92,7 +92,7 @@
     })();
 </script>
 
-  <title>R手册(Syntax)--magrittr and purrr | Wilen's Blog</title>
+  <title>R手册(Model Tools)--broom | Wilen's Blog</title>
   
 
 
@@ -192,7 +192,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">112</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">111</span></a>
 
   </li>
       
@@ -218,7 +218,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">58</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">60</span></a>
 
   </li>
       
@@ -312,7 +312,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(Syntax)--magrittr-and-purrr.html">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--broom.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wilen Wu">
@@ -324,7 +324,7 @@
       <meta itemprop="name" content="Wilen's Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">R手册(Syntax)--magrittr and purrr
+        <h2 class="post-title" itemprop="name headline">R手册(Model Tools)--broom
 
           
         </h2>
@@ -340,7 +340,7 @@
                 
               
 
-              <time title="创建时间：2018-05-02 00:46:17" itemprop="dateCreated datePublished" datetime="2018-05-02T00:46:17+08:00">2018-05-02</time>
+              <time title="创建时间：2018-05-04 00:43:40" itemprop="dateCreated datePublished" datetime="2018-05-04T00:43:40+08:00">2018-05-04</time>
             </span>
           
             
@@ -351,7 +351,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-29 09:27:10" itemprop="dateModified" datetime="2019-09-29T09:27:10+08:00">2019-09-29</time>
+                <time title="修改时间：2019-09-30 14:39:03" itemprop="dateModified" datetime="2019-09-30T14:39:03+08:00">2019-09-30</time>
               </span>
             
           
@@ -368,7 +368,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/Syntax/" itemprop="url" rel="index"><span itemprop="name">Syntax</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/Model-Tools/" itemprop="url" rel="index"><span itemprop="name">Model Tools</span></a></span>
 
                 
                 
@@ -377,7 +377,7 @@
           
 
           
-            <span id="/posts/R/RNotebook(Syntax)--magrittr-and-purrr.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(Syntax)--magrittr and purrr" title="热度">
+            <span id="/posts/R/RNotebook(Model-Tools)--broom.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(Model Tools)--broom" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -395,7 +395,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/R/RNotebook(Syntax)--magrittr-and-purrr.html#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/posts/R/RNotebook(Syntax)--magrittr-and-purrr.html" itemprop="commentCount"></span></a>
+    <a title="valine" href="/posts/R/RNotebook(Model-Tools)--broom.html#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/posts/R/RNotebook(Model-Tools)--broom.html" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -407,7 +407,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>4.6k</span>
+              <span>1.7k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -417,7 +417,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>4 分钟</span>
+              <span>2 分钟</span>
             </span>
           
 
@@ -430,283 +430,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>magrittr</strong>:  pipe<br>
-<strong>purrr</strong> : A functional programming(FP) toolkit for R</p>
+        <h1 id="broomconvert-statistical-analysis-objects-into-tidy-format"><a class="markdownIt-Anchor" href="#broomconvert-statistical-analysis-objects-into-tidy-format"></a> broom：Convert statistical analysis objects into tidy format</h1>
+<p>这个软件包提供了三种完成三种不同类型整理的S3方法：<a href="https://github.com/tidyverse/broom" target="_blank" rel="noopener">GitHub链接</a></p>
+<ul>
+<li><strong>tidy:</strong> 构建一个总结模型或检验整洁的统计信息data.frame。这包括回归中coefficients and p-values，聚类中的每个集群信息per-cluster或multtest函数的每个测试信息per-test等</li>
+<li><strong>augment:</strong> 将列添加到建模的原始数据中。这包括预测，残差和集群分配等(predictions, residuals, and cluster assignments)</li>
+<li><strong>glance:</strong> 构建一个简洁的模型的单行摘要。这通常包含构建整个模型的计算值such as R^2, adjusted R^2, and residual <strong>standard error</strong></li>
+</ul>
 <a id="more"></a>
-<h1 id="magrittr-pipe"><a class="markdownIt-Anchor" href="#magrittr-pipe"></a> magrittr:  pipe</h1>
-<p><strong><code>lhs %&gt;% rhs</code> forward-pipe</strong></p>
-<ol>
-<li>lhs为rhs第一个参数时：<code>x %&gt;% f(y)等价于 f(x, y)</code></li>
-<li>lhs在任意位置时，用点(.)代替：<code>z %&gt;% f(x, y, arg = .)等价于 f(x, y, arg = z)</code></li>
-<li>rhs为代码块：<code>rnorm(100) %&gt;% {c(min(.), mean(.), max(.))} %&gt;% floor</code></li>
-</ol>
-<p><strong><code>lhs %&lt;&gt;% rhs</code>复合赋值管道运算符</strong></p>
-<p><code>%&lt;&gt;%</code>用于首先将<code>lhs</code>传递给<code>rhs</code>表达式，最后将值重新赋给<code>lhs</code>。<code>some_object %&lt;&gt;% foo %&gt;% bar</code><br>
-相当于<code>some_object &lt;- some_object %&gt;% foo %&gt;% bar</code></p>
-<p>**<code>lhs ％$％ rhs</code>  **</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iris %&gt;%</span><br><span class="line">  subset(Sepal.Length &gt; mean(Sepal.Length)) %$%</span><br><span class="line">  cor(Sepal.Length, Sepal.Width)</span><br></pre></td></tr></table></figure>
-<p><strong><code>lhs ％T&gt;％ rhs</code> T运算符</strong><br>
-返回<code>lhs</code>本身，而不是<code>rhs</code>函数或表达式，对于<code>print</code>或者<code>plot</code>类似函数非常有用。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rnorm（<span class="number">200</span>）％&gt;％</span><br><span class="line">  matrix（ncol  =  <span class="number">2</span>）％<span class="literal">T</span>&gt;％</span><br><span class="line">  plot  ％&gt;％ ＃plot通常不返回任何内容。</span><br><span class="line">  colSums</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="purrr-a-functional-programmingfp-toolkit-for-r"><a class="markdownIt-Anchor" href="#purrr-a-functional-programmingfp-toolkit-for-r"></a> purrr : A functional programming(FP) toolkit for R</h1>
-<h2 id="apply-functions"><a class="markdownIt-Anchor" href="#apply-functions"></a> Apply Functions</h2>
-<p><code>map(.x, .f, ...)</code> Apply a function to <strong>each element</strong> of <strong>a list</strong> or <strong>vector</strong><br>
-<code>map2(.x,.y,.f,…)</code>  Apply a function to <strong>pairs of elements</strong> from <strong>two lists</strong><br>
-<code>pmap(.x, .f, ...)</code> Apply a function to <strong>groups of elements</strong> from <strong>list of lists</strong><br>
-<code>imap(.x, .f, ...)</code>  Apply a function to <strong>each element</strong> of a <strong>vector, and its index</strong><br>
-<code>invoke_map(.f, .x = list(NULL) )</code>   调用不同的函数<br>
-<code>walk(.x, .f), walk2(), pwalk()</code>  并行处理</p>
-<p><code>map_if(.x, .p, .f, ...)</code>   <code>map_at(.x, .at, .f, ...)</code>  其他系列同map</p>
-<p><strong>Parameters:</strong></p>
-<blockquote>
-<p><code>.f</code> : a function, formula, or atomic vector<br>
-<code>…</code> :  其他参数（<code>.x</code>为没有被<code>...</code>指定的第一个参数）</p>
-</blockquote>
-<p><strong><code>.f</code> 参数：</strong></p>
-<blockquote>
-<p><strong>function</strong>：<code>as.character %&gt;% map(iris)</code></p>
-<p><strong>formula</strong>：<code>~ .x</code>becomes <code>function(x)</code><br>
-<code>map(l, ~ 2 +.x)</code><br>
-<code>~ .x .y</code> becomes <code>function(.x, .y)</code>, e.g.<br>
-<strong>character</strong>：<br>
-<code>map(x,&quot;y&quot;)</code>becomes <code>x[[&quot;y&quot;]]</code><br>
-<code>map(x,c(&quot;a&quot;,&quot;b&quot;))</code> becomes <code>x[[&quot;a&quot;]][[&quot;b&quot;]]</code><br>
-<strong>integer</strong>：<br>
-<code>map(x,2)</code> becomes <code>x[[2]]</code></p>
-</blockquote>
-<p><strong>Output</strong></p>
-<table>
-<thead>
-<tr>
-<th>function</th>
-<th>returns</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>map</td>
-<td>list</td>
-</tr>
-<tr>
-<td>map_chr</td>
-<td>character vector</td>
-</tr>
-<tr>
-<td>map_dbl</td>
-<td>double (numeric) vector</td>
-</tr>
-<tr>
-<td>map_df</td>
-<td>data frame(auto)</td>
-</tr>
-<tr>
-<td>map_dfc</td>
-<td>data frame (column bind)</td>
-</tr>
-<tr>
-<td>map_dfr</td>
-<td>data frame (row bind)</td>
-</tr>
-<tr>
-<td>map_int</td>
-<td>integer vector</td>
-</tr>
-<tr>
-<td>map_lgl</td>
-<td>logical vector</td>
-</tr>
-<tr>
-<td>walk</td>
-<td>返回指定的类型</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>map2, pmap, imap, invoke_map 系列函数同map</p>
-</blockquote>
-<p>Examples:</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>:<span class="number">10</span> %&gt;%</span><br><span class="line"> map(rnorm, n = <span class="number">10</span>) %&gt;%</span><br><span class="line"> map_dbl(mean)</span><br><span class="line"> </span><br><span class="line">tribble(mean=c(<span class="number">5</span>,<span class="number">10</span>,<span class="number">3</span>),sd=c(<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>),n=c(<span class="number">2</span>,<span class="number">3</span>,<span class="number">8</span>)%&gt;%</span><br><span class="line">  pmap(rnorm) <span class="comment">#生成三组不同参数的正态分布</span></span><br><span class="line"></span><br><span class="line">df &lt;- tibble(</span><br><span class="line">  f = c(<span class="string">"runif"</span>, <span class="string">"rpois"</span>, <span class="string">"rnorm"</span>),</span><br><span class="line">  params = list(</span><br><span class="line">    list(n = <span class="number">10</span>),</span><br><span class="line">    list(n = <span class="number">5</span>, lambda = <span class="number">10</span>),</span><br><span class="line">    list(n = <span class="number">10</span>, mean = -<span class="number">3</span>, sd = <span class="number">10</span>))</span><br><span class="line">)</span><br><span class="line">invoke_map(df$f, df$params)</span><br><span class="line"></span><br><span class="line">`list(1,"a",3)%&gt;% walk(print)` <span class="comment">#并行打印</span></span><br></pre></td></tr></table></figure>
-<h2 id="work-with-lists"><a class="markdownIt-Anchor" href="#work-with-lists"></a> Work with Lists</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">filter lists</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">pluck(.x, …, .default=NULL)</td>
-<td>按名字或者索引筛选<code>x, pluck(x,&quot;b&quot;)</code></td>
-</tr>
-<tr>
-<td style="text-align:left">keep(.x, .p, …)<br>discard(.x, .p, …)</td>
-<td>逻辑值筛选<code>keep(x, is.na)</code><br>keep的否定结果<code>discard(x, is.na)</code></td>
-</tr>
-<tr>
-<td style="text-align:left">compact(.x, .p = identity)</td>
-<td>删除空元素</td>
-</tr>
-<tr>
-<td style="text-align:left">head_while(.x, .p, …)<br>tail_while</td>
-<td>找到所有头部/尾部满足匹配的值</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">logic</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">every(.x, .p, …) <br>some(.x, .p, …)</td>
-<td>列表中的每一个/某些元素是否满足要求(返回一个FALSE/TRUE)<br><code>mtcars %&gt;% some(is_numeric)</code></td>
-</tr>
-<tr>
-<td style="text-align:left">has_element(.x, .y)</td>
-<td>列表包含一个元素<code>has_element(x, &quot;foo&quot;)</code></td>
-</tr>
-<tr>
-<td style="text-align:left">detect(.x, .f, …, .right=FALSE,.p)<br>detect_index(.x, .f, …, .right= FALSE, .p)</td>
-<td>返回第一个判断为TRUE的元素<code>detect(x, is.character)</code><br>返回索引</td>
-</tr>
-<tr>
-<td style="text-align:left">vec_depth(x)</td>
-<td>Return depth(number of levels of indexes)</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">reshape lists</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">flatten(.x)</td>
-<td>将列表降低一个维度</td>
-</tr>
-<tr>
-<td style="text-align:left">flatten_lgl(), flatten_int(), flatten_dbl(), flatten_chr()<br>flatten_df,flatten_dfr(),flatten_dfc()</td>
-<td>返回向量<br>返回data.frame</td>
-</tr>
-<tr>
-<td style="text-align:left">transpose(.list, .names = NULL)</td>
-<td>转置一个列表</td>
-</tr>
-<tr>
-<td style="text-align:left">simplify(.x, .type = NULL)</td>
-<td>列表强制成向量</td>
-</tr>
-<tr>
-<td style="text-align:left">simplify_all(.x, .type = NULL)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">combine</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">append(x, values, afer =length(x))</td>
-<td>末尾追加<code>append(x, list(d = 1))</code></td>
-</tr>
-<tr>
-<td style="text-align:left">prepend(x, values, before =1)</td>
-<td>起始追加<code>prepend(x, list(d = 1))</code></td>
-</tr>
-<tr>
-<td style="text-align:left">splice(…)</td>
-<td>合并到一个列表</td>
-</tr>
-</tbody>
-</table>
-<h2 id="reduce-lists"><a class="markdownIt-Anchor" href="#reduce-lists"></a> Reduce Lists</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">递归</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>reduce</strong>(.x,.f,…init)</td>
-<td>将.x的子元素递归，返回单个值<br><code>.x</code>列表或原子矢量，<br><code>init</code>开始积累的第一个值</td>
-</tr>
-<tr>
-<td style="text-align:left">reduce_right(.x,.f,…init)</td>
-<td>从右往左递归</td>
-</tr>
-<tr>
-<td style="text-align:left">reduce2(.x, .y, .f, …, .init)<br>reduce2_right(.x, .y, .f, …, .init)</td>
-<td>三参数递归</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>accumulate</strong>(.x, .f, …, .init)</td>
-<td>将.x的子元素递归，返回中间值</td>
-</tr>
-<tr>
-<td style="text-align:left">accumulate_right(.x, .f, …, .init)</td>
-<td>从右往左递归</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list(data1,data2,data3) %&gt;% </span><br><span class="line">   reduce(left_join,by = c(&quot;first&quot;,&quot;last&quot;))</span><br></pre></td></tr></table></figure>
-<h2 id="debug"><a class="markdownIt-Anchor" href="#debug"></a> Debug</h2>
-<table>
-<thead>
-<tr>
-<th>调试</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>safely(.f, otherwise = NULL, quiet = TRUE)</code></td>
-<td>return list of results and errors</td>
-</tr>
-<tr>
-<td><code>quietly(.f)</code></td>
-<td>return list of results, output, messages, warnings.</td>
-</tr>
-<tr>
-<td><code>possibly(.f, otherwise, quiet = TRUE)</code></td>
-<td>continue with default value (instead of error) and return list of results,error</td>
-</tr>
-<tr>
-<td><code>base::stop(message)</code></td>
-<td>stop and return message</td>
-</tr>
-<tr>
-<td><code>base::stopifnot(logit1,logit2,logit3…)</code></td>
-<td>检查每个参数为TRUE，否则停止执行当前表达式返回message</td>
-</tr>
-</tbody>
-</table>
-<h2 id="work-with-tibbles"><a class="markdownIt-Anchor" href="#work-with-tibbles"></a> Work with Tibbles</h2>
-<p><strong>Nested Data</strong></p>
-<p><img alt="nest" data-src="/images/nested_data.png"></p>
-<p><code>tidyr::nest(data, ..., .key = data)</code><br>
-For grouped data, moves groups into cells as data frames.</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n_iris &lt;- iris %&gt;% group_by(Species) %&gt;% nest()</span><br></pre></td></tr></table></figure>
-<p><code>tidyr::unnest(data, ..., .drop = NA, .id=NULL, .sep=NULL)</code><br>
-Unnests a nested data frame.</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n_iris %&gt;% unnest()</span><br></pre></td></tr></table></figure>
-<p><strong>List Column Workflow</strong></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># step 1 Make a list column</span></span><br><span class="line">n_iris &lt;- iris %&gt;%</span><br><span class="line"> group_by(Species) %&gt;%</span><br><span class="line"> nest()</span><br><span class="line"></span><br><span class="line"><span class="comment"># step 2 Work with list columns</span></span><br><span class="line">mod_fun &lt;- <span class="keyword">function</span>(df)</span><br><span class="line"> lm(Sepal.Length ~ ., data = df)</span><br><span class="line">m_iris &lt;- n_iris %&gt;%</span><br><span class="line"> mutate(model = map(data, mod_fun))</span><br><span class="line"> </span><br><span class="line"><span class="comment"># step 3 Simplify the list column</span></span><br><span class="line">b_fun &lt;- <span class="keyword">function</span>(mod)</span><br><span class="line"> coefficients(mod)[[<span class="number">1</span>]]</span><br><span class="line">m_iris %&gt;% transmute(Species,</span><br><span class="line"> beta = map_dbl(model, b_fun))</span><br></pre></td></tr></table></figure>
-
+<p>考虑一个说明性的例子，对内置mtcars数据集进行线性拟合。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">lmfit &lt;- lm(mpg ~ wt, mtcars)</span><br><span class="line"></span><br><span class="line"><span class="keyword">library</span>(broom)</span><br><span class="line">tidy(lmfit)</span><br><span class="line"><span class="comment">##          term  estimate std.error statistic      p.value</span></span><br><span class="line"><span class="comment">## 1 (Intercept) 37.285126  1.877627 19.857575 8.241799e-19</span></span><br><span class="line"><span class="comment">## 2          wt -5.344472  0.559101 -9.559044 1.293959e-10</span></span><br><span class="line"></span><br><span class="line">head(augment(lmfit))</span><br><span class="line"><span class="comment">##           .rownames  mpg    wt  .fitted   .se.fit     .resid       .hat</span></span><br><span class="line"><span class="comment">## 1         Mazda RX4 21.0 2.620 23.28261 0.6335798 -2.2826106 0.04326896</span></span><br><span class="line"><span class="comment">## 2     Mazda RX4 Wag 21.0 2.875 21.91977 0.5714319 -0.9197704 0.03519677</span></span><br><span class="line"><span class="comment">## 3        Datsun 710 22.8 2.320 24.88595 0.7359177 -2.0859521 0.05837573</span></span><br><span class="line"><span class="comment">## 4    Hornet 4 Drive 21.4 3.215 20.10265 0.5384424  1.2973499 0.03125017</span></span><br><span class="line"><span class="comment">## 5 Hornet Sportabout 18.7 3.440 18.90014 0.5526562 -0.2001440 0.03292182</span></span><br><span class="line"><span class="comment">## 6           Valiant 18.1 3.460 18.79325 0.5552829 -0.6932545 0.03323551</span></span><br><span class="line"><span class="comment">##     .sigma      .cooksd  .std.resid</span></span><br><span class="line"><span class="comment">## 1 3.067494 1.327407e-02 -0.76616765</span></span><br><span class="line"><span class="comment">## 2 3.093068 1.723963e-03 -0.30743051</span></span><br><span class="line"><span class="comment">## 3 3.072127 1.543937e-02 -0.70575249</span></span><br><span class="line"><span class="comment">## 4 3.088268 3.020558e-03  0.43275114</span></span><br><span class="line"><span class="comment">## 5 3.097722 7.599578e-05 -0.06681879</span></span><br><span class="line"><span class="comment">## 6 3.095184 9.210650e-04 -0.23148309</span></span><br><span class="line"></span><br><span class="line">glance(lmfit)</span><br><span class="line"><span class="comment">##   r.squared adj.r.squared    sigma statistic      p.value df    logLik</span></span><br><span class="line"><span class="comment">## 1 0.7528328     0.7445939 3.045882  91.37533 1.293959e-10  2 -80.01471</span></span><br><span class="line"><span class="comment">##        AIC      BIC deviance df.residual</span></span><br><span class="line"><span class="comment">## 1 166.0294 170.4266 278.3219          30</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -744,7 +477,7 @@ Unnests a nested data frame.</p>
     <strong>本文作者： </strong>Wilen Wu</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://wilenwu.github.io/posts/R/RNotebook(Syntax)--magrittr-and-purrr.html" title="R手册(Syntax)--magrittr and purrr">https://wilenwu.github.io/posts/R/RNotebook(Syntax)--magrittr-and-purrr.html</a>
+    <a href="https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--broom.html" title="R手册(Model Tools)--broom">https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--broom.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -761,11 +494,7 @@ Unnests a nested data frame.</p>
             
               <a href="/tags/R/" rel="tag"># R</a>
             
-              <a href="/tags/magrittr/" rel="tag"># magrittr</a>
-            
-              <a href="/tags/purrr/" rel="tag"># purrr</a>
-            
-              <a href="/tags/管道/" rel="tag"># 管道</a>
+              <a href="/tags/broom/" rel="tag"># broom</a>
             
           </div>
         
@@ -775,8 +504,8 @@ Unnests a nested data frame.</p>
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/posts/R/RNotebook(Tidy+Transform)--for-missing-data(naniar-and-simputation).html" rel="next" title="R手册(Tidy+Transform)--缺失数据处理(naniar and simputation)">
-                  <i class="fa fa-chevron-left"></i> R手册(Tidy+Transform)--缺失数据处理(naniar and simputation)
+                <a href="/posts/R/RNotebook(Parallel-Computing)--foreach.html" rel="next" title="R手册(Parallel Computing)--foreach">
+                  <i class="fa fa-chevron-left"></i> R手册(Parallel Computing)--foreach
                 </a>
               
             </div>
@@ -785,8 +514,8 @@ Unnests a nested data frame.</p>
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/posts/R/RNotebook(Visualise)--ggplot2.html" rel="prev" title="R手册(Visualise)--ggplot2">
-                  R手册(Visualise)--ggplot2 <i class="fa fa-chevron-right"></i>
+                <a href="/posts/R/RNotebook(Model-Tools)--modelr.html" rel="prev" title="R手册(Model Tools)--modelr">
+                  R手册(Model Tools)--modelr <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -879,7 +608,7 @@ Unnests a nested data frame.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#magrittr-pipe"><span class="nav-number">1.</span> <span class="nav-text"> magrittr:  pipe</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#purrr-a-functional-programmingfp-toolkit-for-r"><span class="nav-number">2.</span> <span class="nav-text"> purrr : A functional programming(FP) toolkit for R</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#apply-functions"><span class="nav-number">2.1.</span> <span class="nav-text"> Apply Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#work-with-lists"><span class="nav-number">2.2.</span> <span class="nav-text"> Work with Lists</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reduce-lists"><span class="nav-number">2.3.</span> <span class="nav-text"> Reduce Lists</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debug"><span class="nav-number">2.4.</span> <span class="nav-text"> Debug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#work-with-tibbles"><span class="nav-number">2.5.</span> <span class="nav-text"> Work with Tibbles</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#broomconvert-statistical-analysis-objects-into-tidy-format"><span class="nav-number">1.</span> <span class="nav-text"> broom：Convert statistical analysis objects into tidy format</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -897,7 +626,7 @@ Unnests a nested data frame.</p>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -923,7 +652,7 @@ Unnests a nested data frame.</p>
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">112</span>
+        <span class="site-state-item-count">111</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1066,8 +795,14 @@ Unnests a nested data frame.</p>
                 console.log('Failed to save visitor count', error);
               })
           } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
             
           }
         })
@@ -1208,6 +943,24 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
 
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: '3be7aa98d992907175cbd79c194399f2',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 
   
@@ -1228,7 +981,7 @@ if (document.querySelectorAll('pre.mermaid').length) {
       repo: 'gitalk',
       owner: 'wilenwu',
       admin: ['wilenwu'],
-      id: '2b018b9a3e07280fbbaa57a66fc8a233',
+      id: '803e62a1ac7153237a182d827400311a',
         language: 'zh-CN',
       
       distractionFreeMode: 'true'

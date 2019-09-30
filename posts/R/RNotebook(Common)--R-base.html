@@ -64,7 +64,7 @@
 <meta property="og:site_name" content="Wilen&#39;s Blog">
 <meta property="og:description" content="**说明：**本节中大部分内容摘自书籍《R语言实战（第2版）》">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-29T01:27:10.672Z">
+<meta property="og:updated_time" content="2019-09-30T06:39:03.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R手册(Common)--R语言入门">
 <meta name="twitter:description" content="**说明：**本节中大部分内容摘自书籍《R语言实战（第2版）》">
@@ -192,7 +192,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">112</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">111</span></a>
 
   </li>
       
@@ -218,7 +218,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">58</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">60</span></a>
 
   </li>
       
@@ -351,7 +351,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-29 09:27:10" itemprop="dateModified" datetime="2019-09-29T09:27:10+08:00">2019-09-29</time>
+                <time title="修改时间：2019-09-30 14:39:03" itemprop="dateModified" datetime="2019-09-30T14:39:03+08:00">2019-09-30</time>
               </span>
             
           
@@ -1020,7 +1020,7 @@ R语言data.table包是自带包data.frame的升级版，用于数据框格式�
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1046,7 +1046,7 @@ R语言data.table包是自带包data.frame的升级版，用于数据框格式�
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">112</span>
+        <span class="site-state-item-count">111</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1189,8 +1189,14 @@ R语言data.table包是自带包data.frame的升级版，用于数据框格式�
                 console.log('Failed to save visitor count', error);
               })
           } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
             
           }
         })
@@ -1331,6 +1337,24 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
 
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: '3be7aa98d992907175cbd79c194399f2',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 
   
