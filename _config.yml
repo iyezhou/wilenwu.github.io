@@ -128,7 +128,6 @@ leancloud_counter_security:
   enable_sync: true
   app_id: xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI
   app_key: 6EzBICTWxLbjiGsbNAa8Fv2s
-  username:   # 部署时会询问是否留空
-  password:   # 建议留空。部署时会询问是否留空
+
   
   
