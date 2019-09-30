@@ -5,5 +5,5 @@
 - [x] [NexT主题进阶][NexT]
 
 [hexo]: https://wilenwu.github.io/posts/hexo/Hexo-setup&configuration.html
-[tags]: 2 
+[tags]: https://wilenwu.github.io/posts/hexo/Hexo-tag-plugins.html
 [NexT]: https://wilenwu.github.io/posts/hexo/theme-NexT-advanced.html

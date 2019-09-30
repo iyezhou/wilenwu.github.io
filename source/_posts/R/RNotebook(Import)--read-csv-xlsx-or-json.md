@@ -115,7 +115,7 @@ x <- read_csv("file.csv", col_types = cols(
 x$A <- parse_number(x$A)
 ```
 
-# readxl : for excel
+# readxl: for excel
 
 ```r
 # 读取excel文件
@@ -144,7 +144,7 @@ read_excel(path, range = cell_cols(2))
 read_excel(path, range = cell_limits(c(4, 3), c(NA, NA)))
 ```
 
-# openxlsx : xlsx reading, writing and editing
+# openxlsx: xlsx reading, writing and editing
 
 openxlsx包括读写及编辑excel文件，集成极为丰富的函数。
 

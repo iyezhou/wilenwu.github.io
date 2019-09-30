@@ -180,7 +180,7 @@ post_info=[]
 for url, dirs, files in os.walk(posts_dir,topdown=False):
     for post_name in files:      
         post_url=os.path.join(url,post_name)
-        yaml_dict=get_post_info(post_url,updateID=False)
+        yaml_dict=get_post_info(post_url,updateID=True)
         yaml_dict['post_name']=post_name
         yaml_dict['post_path']=re.sub(posts_dir+'/','',url.replace('\\','/'))
         post_info.append(yaml_dict)

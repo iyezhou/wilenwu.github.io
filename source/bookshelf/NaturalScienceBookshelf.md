@@ -1,5 +1,5 @@
-﻿![黑洞](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9nc3MzLmJkc3RhdGljLmNvbS83UG8zZFNhZ194STRraEdrcG9XSzFIRjZoaHkvYmFpa2UvYzAlM0RiYWlrZTE4MCUyQzUlMkM1JTJDMTgwJTJDNjAvc2lnbj1hZmQxNDg3YjM4N2FkYWI0MjlkZDEzMTFlYWJkZDg3OS8wOWZhNTEzZDI2OTc1OWVlNmFhNTliOThiY2ZiNDMxNjZjMjJkZmU4LmpwZw =200x)
-其中，标记<kbd>⭐</kbd>的是本人必修课，❤为选修课
+
+其中，标记<input type="checkbox" checked='checked' />的是本人必修课，❤为选修课
 
 # math
 - [x] [初等数学]( https://blog.csdn.net/qq_41518277/article/details/89397900)
@@ -28,7 +28,7 @@
 - [ ] 混沌理论 ❤
 - [ ] 计算物理学 ❤
 - [ ] 张量分析(多重线性代数) 
- 
+
 [c1]: https://blog.csdn.net/qq_41518277/article/details/89397964
 [c2]: https://blog.csdn.net/qq_41518277/article/details/89761069
 [c3]: https://blog.csdn.net/qq_41518277/article/details/90029881

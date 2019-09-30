@@ -1,7 +1,7 @@
 ---
 ID: 30c49ba6e569e6086bd1ee4c36760044
-title: R手册(Time Series)--zoo and xts
-tags: [R,zoo,xts,日期和时间,时间序列,数据清洗]
+title: R手册(Time Series)--zoo
+tags: [R,zoo,日期和时间,时间序列,数据清洗]
 mathjax: false
 copyright: true
 date: 2018-05-28 16:55:01

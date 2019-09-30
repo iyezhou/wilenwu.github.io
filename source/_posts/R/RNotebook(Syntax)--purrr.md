@@ -1,52 +1,18 @@
 ---
-ID: 52cf326043a3c64c94c69027b0e8171a
-title: R手册(Syntax)--magrittr and purrr
-tags: [R,magrittr,purrr,管道]
+ID: c7be577142716ed4cbac9d54f1022765
+title: R手册(Syntax)--purrr
+tags: [R,purrr]
 mathjax: false
 copyright: true
-date: 2018-05-02 00:46:17
+date: 2018-05-02 00:46:18
 categories: [R,Syntax]
 sticky: false
 ---
-**magrittr**:  pipe
 **purrr** : A functional programming(FP) toolkit for R
 
 <!-- more -->
 
-# magrittr:  pipe
-
-**`lhs %>% rhs` forward-pipe**
-
-1. lhs为rhs第一个参数时：`x %>% f(y)等价于 f(x, y)`
-2. lhs在任意位置时，用点(.)代替：`z %>% f(x, y, arg = .)等价于 f(x, y, arg = z)`
-3. rhs为代码块：`rnorm(100) %>% {c(min(.), mean(.), max(.))} %>% floor`
-
-**`lhs %<>% rhs`复合赋值管道运算符**
-
-`%<>%`用于首先将`lhs`传递给`rhs`表达式，最后将值重新赋给`lhs`。`some_object %<>% foo %>% bar `
-相当于`some_object <- some_object %>% foo %>% bar`
-
-**`lhs  ％$％ rhs`  **
-```r
-iris %>%
-  subset(Sepal.Length > mean(Sepal.Length)) %$%
-  cor(Sepal.Length, Sepal.Width)
-```
-
-**`lhs  ％T>％ rhs` T运算符**
-返回`lhs`本身，而不是`rhs`函数或表达式，对于`print`或者`plot`类似函数非常有用。
-```r
-rnorm（200）％>％
-  matrix（ncol  =  2）％T>％
-  plot  ％>％ ＃plot通常不返回任何内容。
-  colSums
-```
-
-----------
-
-# purrr : A functional programming(FP) toolkit for R
-
-## Apply Functions
+# Apply Functions
 
 `map(.x, .f, ...)` Apply a function to **each element** of **a list** or **vector**
 `map2(.x,.y,.f,…)`  Apply a function to **pairs of elements** from **two lists**
@@ -111,7 +77,7 @@ invoke_map(df$f, df$params)
 `list(1,"a",3)%>% walk(print)` #并行打印
 ```
 
-## Work with Lists
+# Work with Lists
 
 filter lists|说明
 :---|---
@@ -142,7 +108,7 @@ prepend(x, values, before =1) |起始追加`prepend(x, list(d = 1))`
 splice(…) |合并到一个列表
 
 
-## Reduce Lists
+# Reduce Lists
 
 递归|说明
 :---|---
@@ -157,7 +123,7 @@ list(data1,data2,data3) %>%
    reduce(left_join,by = c("first","last"))
 ```
 
-## Debug
+# Debug
 
 调试|说明
 ------|------
@@ -168,7 +134,7 @@ list(data1,data2,data3) %>%
 `base::stopifnot(logit1,logit2,logit3…)`|检查每个参数为TRUE，否则停止执行当前表达式返回message
 
 
-## Work with Tibbles
+# Work with Tibbles
 
 **Nested Data**
 

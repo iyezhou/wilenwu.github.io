@@ -1,13 +1,7 @@
 ﻿![bigdata](https://img-blog.csdn.net/20180625094806495?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTE4Mjc3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
-其中，标记 <kbd>⭐</kbd> 是本人的必学包 ❤为待选包。
+其中，标记 <input type="checkbox" checked='checked' /> 是本人的必学包 :yellow_heart:为待选包。
 致谢，[ApacheCN 中文开源组织](http://www.apachecn.org/#)：致力于官方文档及AI书籍中文翻译。
-
-机器学习路线 spark & tableau > tensorflow > karas
-[ApacheCN 学习资源汇总 2018.12](https://blog.csdn.net/wizardforcel/article/details/85317667)
-[ApacheCN](http://www.apachecn.org/#)
-[TensorflowCN](https://tensorflow.google.cn/tutorials/?hl=zh-cn)
-[Cheat Sheets](https://blog.csdn.net/qq_41518277/article/details/80215702)
 
 
 **Linux**
@@ -39,13 +33,22 @@
 **Spark**
 
 - [x] [Spark安装配置][spark]
-- [x] [Spark基础知识](https://blog.csdn.net/qq_41518277/article/details/84558396)
-- [ ] scala：❤
-- [ ] sparkR： ❤Apache Spark R API
-- [ ] sparklyr：❤来自RStudio的Apache Spark的R接口，提供dplyr后端
+- [x] [Spark基础知识][spark_base]
+- [ ] scala：:yellow_heart:
+- [ ] sparkR： :yellow_heart:Apache Spark R API
+- [ ] sparklyr：:yellow_heart:来自RStudio的Apache Spark的R接口，提供dplyr后端
 - [x] [PySpark][PySpark] : Apache Spark Python API
 - [ ] [Akka][akka]：Akka并发编程
 
 [spark]: https://wilenwu.github.io/posts/big-data/BigDataNotebook(Spark)--Spark-installation.html
+[spark_base]: https://blog.csdn.net/qq_41518277/article/details/84558396
 [akka]: https://blog.csdn.net/lovehuangjiaju/article/details/51039985
 [PySpark]: https://blog.csdn.net/qq_41518277/article/details/96487035
+
+**Learn**
+
+机器学习路线 spark & tableau > tensorflow > karas
+[ApacheCN 学习资源汇总 2018.12](https://blog.csdn.net/wizardforcel/article/details/85317667)
+[ApacheCN](http://www.apachecn.org/#)
+[TensorflowCN](https://tensorflow.google.cn/tutorials/?hl=zh-cn)
+

@@ -283,7 +283,7 @@ This is <a href="http://example.com/" title="Title">an example</a>
 
 ## URLs
 
-GitHub 自动从标准 URL 创建链接。如 www.baidu.com
+GitHub 自动从标准 URL 创建链接。如 http://www.baidu.com
 也允许通过标签 `<`brackets`>` 创建链接
 
 `<i@typora.io>` becomes <i@typora.io>.
