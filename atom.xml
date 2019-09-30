@@ -210,9 +210,9 @@ KaTeX支持很多（但不是全部）LaTeX语法和许多LaTeX软件包。&lt;/
     
       <category term="python" scheme="https://wilenwu.github.io/tags/python/"/>
     
-      <category term="科学计算" scheme="https://wilenwu.github.io/tags/%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/"/>
-    
       <category term="SymPy" scheme="https://wilenwu.github.io/tags/SymPy/"/>
+    
+      <category term="科学计算" scheme="https://wilenwu.github.io/tags/%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/"/>
     
       <category term="符号计算" scheme="https://wilenwu.github.io/tags/%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97/"/>
     
@@ -388,9 +388,9 @@ KaTeX支持很多（但不是全部）LaTeX语法和许多LaTeX软件包。&lt;/
     
       <category term="R" scheme="https://wilenwu.github.io/tags/R/"/>
     
-      <category term="REmap" scheme="https://wilenwu.github.io/tags/REmap/"/>
-    
       <category term="地图" scheme="https://wilenwu.github.io/tags/%E5%9C%B0%E5%9B%BE/"/>
+    
+      <category term="REmap" scheme="https://wilenwu.github.io/tags/REmap/"/>
     
   </entry>
   
