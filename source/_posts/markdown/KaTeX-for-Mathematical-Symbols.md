@@ -8,17 +8,15 @@ date: 2019-04-22 18:37:20
 categories: [markdown]
 sticky: true
 ---
-KaTeX是一个快速，易于使用的JavaScript库，用于在Web上进行TeX数学渲染。
+KaTeX 是一个快速，易于使用的JavaScript库，用于在Web上进行TeX数学渲染。
 KaTeX兼容所有主流浏览器，包括Chrome，Safari，Firefox，Opera，Edge和IE 9-11。
 KaTeX支持很多（但不是全部）LaTeX语法和许多LaTeX软件包。
 
-<!-- more -->
-
 [katex官方文档](https://katex.org/docs/supported.html)
 
-# 字母(Letters)
+<!-- more -->
 
-## 希腊字母(Greek Letters)
+# 字母符号
 
 $\Alpha$ \Alpha|$\alpha$ \alpha|$\Tau$ \Tau|$\tau$ \tau
 ---|---|---|---
@@ -39,11 +37,7 @@ $\Omicron$ \Omicron|$\omicron$ \omicron|$\varUpsilon$ \varUpsilon|$\digamma$ \di
 $\Pi$ \Pi|$\pi$ \pi|$\varPsi$ \varPsi|
 $\Rho$ \Rho|$\rho$ \rho|$\varOmega$ \varOmega|
 $\Sigma$ \Sigma|$\sigma$ \sigma|$\mho$ \mho|
-
-## 其他字母
-
 $\imath$ \imath|$\nabla$ \nabla|$\Im$ \Im|$\Reals$ \Reals|$\text{\OE}$ \text{\OE}
----|---|---|---|---
 $\jmath$ \jmath|$\partial$ \partial|$\image$ \image|$\wp$ \wp|$\text{\o}$ \text{\o}
 $\aleph$ \aleph|$\Game$ \Game|$\Bbbk$ \Bbbk|$\weierp$ \weierp|$\text{\O}$ \text{\O}
 $\alef$ \alef|$\Finv$ \Finv|$\N$ \N|$\Z$ \Z|$\text{\ss}$ \text{\ss}
@@ -53,31 +47,9 @@ $\gimel$ \gimel|$\ell$ \ell|$\Re$ \Re|$\text{\ae}$ \text{\ae}|
 $\daleth$ \daleth|$\hbar$ \hbar|$\real$ \real|$\text{\AE}$ \text{\AE}|
 $\eth$ \eth|$\hslash$ \hslash|$\reals$ \reals|$\text{\oe}$ \text{\oe}|
 
-# 运算符
-
-运算符|定义|Latex
+符号|定义|Latex
 :---|:---|:---
-$=$|is equal to|=
-$\approx$|is approximately equal to|\approx
-$+$|plus|+
-$-$|minus|-
-$\pm; \mp$|plus-minus; minus-plus|\pm; \mp
-$\times$|multiplied by;cross product|\times
-$\cdot$|dot product|\cdot; \centerdot
-$*$||*;\ast
-$\div; /$|divided by|\div; /
-$<$|is less than|<;\lt
-$>$|is greater than|>;\gt
-$\ll;\lll$|远小于|\ll\lll
-$\gg;\ggg$|远大于|\gg;\ggg
-$\geqslant;\ge$|大于等于|\geqslant\ge
-$\leqslant;\le$|小于等于|\leqslant;\le
-$\propto$|正比于|\propto|
-$\triangleq$|定义|\triangleq|
-
-帽子|定义|Latex
-:---|:---|:---
-$\bar{a};\overline{a+bi}$|共轭|\bar{a}; \overline{a+bi}|$\overline{3+4i}=3-4i$
+$\bar{a};\overline{a+bi}$|共轭|\bar{a}; \overline{a+bi}
 $\underline{AB}$||\underline{AB}
 $\vec{a},\overrightarrow{AB};\overrightharpoon{ac}$|向量|\vec{a},\overrightarrow{AB};\overrightharpoon{ac}
 $\underrightarrow{AB}$||\underrightarrow{AB}
@@ -95,13 +67,35 @@ $\acute{a}$||\acute{a}
 $\grave{a}$||\grave{a}
 $\overgroup{AB};\undergroup{AB}$||\overgroup{AB};\undergroup{AB}
 
-由`\text{...}`函数生成帽子, 如  `text{\'{a}}`
-$\text{\'{a}}$ `\'{a}`|$\text{\~{a}}$ `\~{a}`|$\text{\.{a}}$ `\.{a}`|$\text{\H{a}}$ `\H{a}`
----|---|---|---
-$\text{\`{a}}$ ``\`{a}``|$\text{\={a}}$ `\={a}`|$\text{\"{a}}$ `\"{a}`|$\text{\v{a}}$ `\v{a}`
-$\text{\^{a}}$ `\^{a}`|$\text{\u{a}}$ `\u{a}`|$\text{\r{a}}$ `\r{a}`|
+# 运算符
 
-符号|定义|Latex
+二元运算|定义|Latex
+:---|:---|:---
+$=$|is equal to|=
+$\approx$|is approximately equal to|\approx
+$+$|plus|+
+$-$|minus|-
+$\pm; \mp$|plus-minus; minus-plus|\pm; \mp
+$\times$|multiplied by;cross product|\times
+$\cdot$|dot product|\cdot; \centerdot
+$*$||*;\ast
+$\div; /$|divided by|\div; /
+$<$|is less than|<;\lt
+$>$|is greater than|>;\gt
+$\ll;\lll$|远小于|\ll\lll
+$\gg;\ggg$|远大于|\gg;\ggg
+$\geqslant;\ge$|大于等于|\geqslant\ge
+$\leqslant;\le$|小于等于|\leqslant;\le
+$\propto$|正比于|\propto
+$\triangleq$|定义|\triangleq
+$\stackrel{!}{=}$|堆叠|\stackrel{!}{=}
+$\overset{!}{=}$|上方|\overset{!}{=}
+$\underset{!}{=}$|下方|\underset{!}{=}
+$a \atop b$||a \atop b
+$a\raisebox{0.25em}{b}c$||a\raisebox{0.25em}{b}c
+$\not=;\not\in$|前方加\not否定|\not=;\not\in
+
+运算|定义|Latex
 :---|:---|:---
 $\dfrac{b}{a}$|分数|\frac{b}{a}; \dfrac{b}{a}
 $\cfrac{a}{1 + \cfrac{1}{b}}$|复合分式|\cfrac{a}{1 + \cfrac{1}{b}}
@@ -113,23 +107,29 @@ $\displaystyle\sum_{k=0}^n \complement^k_n u^{n-k} v^k$|求和|`\displaystyle\su
 $\prod$|求积|\prod
 $\amalg$|合并|\amalg
 
-分隔符|定义|Latex|示例
+# 分隔符
+
+符号|定义|Latex|示例
 :---|:---|:---|:---
 $\mid a \mid$|绝对值|\vert; \mid; `|`;\vert; \rvert
-$\|a\|$|范数，模|\Vert; `\|`; \lVert\ ;rVert
-$\lceil a\rceil$|ceiling|\lceil a\rceil
+$\|a\|$|范数，模|\Vert; `\|`; \lVert\ ;rVert|
+$\lceil a\rceil$|ceiling|\lceil a\rceil|
 $\lfloor a\rfloor$|floor|\lfloor a\rfloor|⌊2.1⌋ = 2
 $\lfloor a\rceil$|最接近的整数|\lfloor a\rceil|⌊2.6⌉ = 3
-$\lmoustache\rmoustache$|胡须|\lmoustache\rmoustache
-$\ulcorner\urcorner$||\ulcorner\urcorner
-$\llcorner\lrcorner$||\llcorner\lrcorner
-$\uparrow;\downarrow;\updownarrow$||\uparrow;\downarrow;\updownarrow
-$\Uparrow;\Downarrow;\Updownarrow$||\uparrow;\downarrow;\updownarrow
+$\lmoustache\rmoustache$|胡须|\lmoustache\rmoustache|
+$\ulcorner\urcorner$||\ulcorner\urcorner|
+$\llcorner\lrcorner$||\llcorner\lrcorner|
+$\uparrow;\downarrow;\updownarrow$||\uparrow;\downarrow;\updownarrow|
+$\Uparrow;\Downarrow;\Updownarrow$||\uparrow;\downarrow;\updownarrow|
+
 **分隔符尺寸**
+
 $\left(\LARGE{AB}\right)$ `\left(\LARGE{AB}\right)`
 $( \big( \Big( \bigg( \Bigg($ `( \big( \Big( \bigg( \Bigg(`
 
-注释|定义|Latex
+# 注释
+
+符号|定义|Latex
 :---|:---|:---
 $\text{\sect}$|分节|\text{\sect}
 $\star$|星号|\star
@@ -140,85 +140,14 @@ $\sout{5}$|划线|sout{5}
 $\boxed{\pi=\frac c d}$|方框|\boxed{\pi=\frac c d}
 $\overbrace{a+b+c}^{\text{note}}$|上备注|\overbrace{a+b+c}^{\text{note}}
 $\underbrace{a+b+c}_{\text{note}}$|下备注|\underbrace{a+b+c}_{\text{note}}
-`\tag{hi} x+y^{2x}`$$\tag{hi} x+y^{2x}$$
-`\tag*{hi} x+y^{2x}`$$\tag*{hi} x+y^{2x}$$
 
-# 上下堆叠和否定(Overset, Underset & Not)
-位置|定义|Latex
-:---|:---|:---
-$_u^o$|上下标|_u^o
-$\stackrel{!}{=}$|堆叠|\stackrel{!}{=}
-$\overset{!}{=}$|上方|\overset{!}{=}
-$\underset{!}{=}$|下方|\underset{!}{=}
-$a \atop b$||a \atop b
-$a\raisebox{0.25em}{b}c$||a\raisebox{0.25em}{b}c
-$\not=;\not\in$|前方加\not否定|\not=;\not\in
+`\tag{hi} x+y^{2x}`
+$$x+y^{2x} \tag{hi}$$
 
-# 颜色和字体(Color and Font)
-$\textcolor{blue}{F=ma}$ `\textcolor{blue}{F=ma}`
-$\colorbox{aqua}{A}$ `\colorbox{aqua}{A}`
-$\fcolorbox{red}{aqua}{A}$ `\fcolorbox{red}{aqua}{A}`
+`\tag*{hi} x+y^{2x}`
+$$x+y^{2x}\tag*{hi}$$
 
-Font|Font|Font
-:---|:---|:---
-$\mathrm{Ab0}$  `\mathrm{Ab0}`|$\rm Ab0$  `\rm Ab0`|$\mathsf{Ab0}$  `\mathsf{Ab0}`
-$\mathbf{Ab0}$  `\mathbf{Ab0}`|$\bold{Ab0}$  `\bold{Ab0}`|$\mathtt{Ab0}$  `\mathtt{Ab0}`
-$\mathit{Ab}$  `\mathit{Ab}`|$\Bbb{AB}$  `\Bbb{AB}`|$\mathfrak{Ab0}$  `\mathfrak{Ab0}`
- `\mathnormal{Ab0}`|$\textnormal{Ab0}$  `\textnormal{Ab0}`|$\textsf{Ab0}$  `\textsf{Ab0}`
-$\textbf{Ab0}$  `\textbf{Ab0}`|$\boldsymbol{Ab}$  `\boldsymbol{Ab}`|$\texttt{Ab0}$  `\texttt{Ab0}`
-$\textit{Ab}$  `\textit{Ab}`|$\mathbb{AB}$  `\mathbb{AB}`|$\mathcal{AB0}$  `\mathcal{AB0}`
-$\textrm{Ab0}$  `\textrm{Ab0}`|$\text{Ab0}$  `\text{Ab0}`|$\sf Ab0$  `\sf Ab0`
-$\bf Ab0$  `\bf Ab0`|$\bm{Ab}$  `\bm{Ab}`|$\tt Ab0$  `\tt Ab0`
-$\it Ab$  `\it Ab`|$\frak{Ab0}$  `\frak{Ab0}`|$\mathscr{AB}$  `\mathscr{AB}`
-
-# 箭头(Arrows)
-$\circlearrowleft$  `\circlearrowleft`|$\leftharpoonup$  `\leftharpoonup`|$\rArr$  `\rArr`
-:---|:---|:---
-$\circlearrowright$  `\circlearrowright`|$\leftleftarrows$  `\leftleftarrows`|$\rarr$  `\rarr`
-$\curvearrowleft$  `\curvearrowleft`|$\leftrightarrow$  `\leftrightarrow`|$\restriction$  `\restriction`
-$\curvearrowright$  `\curvearrowright`|$\Leftrightarrow$  `\Leftrightarrow`|$\rightarrow$  `\rightarrow`
-$\Darr$  `\Darr`|$\leftrightarrows$  `\leftrightarrows`|$\Rightarrow$  `\Rightarrow`
-$\dArr$  `\dArr`|$\leftrightharpoons$  `\leftrightharpoons`|$\rightarrowtail$  `\rightarrowtail`
-$\darr$  `\darr`|$\leftrightsquigarrow$  `\leftrightsquigarrow`|$\rightharpoondown$  `\rightharpoondown`
-$\dashleftarrow$  `\dashleftarrow`|$\Lleftarrow$  `\Lleftarrow`|$\rightharpoonup$  `\rightharpoonup`
-$\dashrightarrow$  `\dashrightarrow`|$\longleftarrow$  `\longleftarrow`|$\rightleftarrows$  `\rightleftarrows`
-$\downarrow$  `\downarrow`|$\Longleftarrow$  `\Longleftarrow`|$\rightleftharpoons$  `\rightleftharpoons`
-$\Downarrow$  `\Downarrow`|$\longleftrightarrow$  `\longleftrightarrow`|$\rightrightarrows$  `\rightrightarrows`
-$\downdownarrows$  `\downdownarrows`|$\Longleftrightarrow$  `\Longleftrightarrow`|$\rightsquigarrow$  `\rightsquigarrow`
-$\downharpoonleft$  `\downharpoonleft`|$\longmapsto$  `\longmapsto`|$\Rrightarrow$  `\Rrightarrow`
-$\downharpoonright$  `\downharpoonright`|$\longrightarrow$  `\longrightarrow`|$\Rsh$  `\Rsh`
-$\gets$  `\gets`|$\Longrightarrow$  `\Longrightarrow`|$\searrow$  `\searrow`
-$\Harr$  `\Harr`|$\looparrowleft$  `\looparrowleft`|$\swarrow$  `\swarrow`
-$\hArr$  `\hArr`|$\looparrowright$  `\looparrowright`|$\to$  `\to`
-$\harr$  `\harr`|$\Lrarr$  `\Lrarr`|$\twoheadleftarrow$  `\twoheadleftarrow`
-$\hookleftarrow$  `\hookleftarrow`|$\lrArr$  `\lrArr`|$\twoheadrightarrow$  `\twoheadrightarrow`
-$\hookrightarrow$  `\hookrightarrow`|$\lrarr$  `\lrarr`|$\Uarr$  `\Uarr`
-$\iff$  `\iff`|$\Lsh$  `\Lsh`|$\uArr$  `\uArr`
-$\impliedby$  `\impliedby`|$\mapsto$  `\mapsto`|$\uarr$  `\uarr`
-$\implies$  `\implies`|$\nearrow$  `\nearrow`|$\uparrow$  `\uparrow`
-$\Larr$  `\Larr`|$\nleftarrow$  `\nleftarrow`|$\Uparrow$  `\Uparrow`
-$\lArr$  `\lArr`|$\nLeftarrow$  `\nLeftarrow`|$\updownarrow$  `\updownarrow`
-$\larr$  `\larr`|$\nleftrightarrow$  `\nleftrightarrow`|$\Updownarrow$  `\Updownarrow`
-$\leadsto$  `\leadsto`|$\nLeftrightarrow$  `\nLeftrightarrow`|$\upharpoonleft$  `\upharpoonleft`
-$\leftarrow$  `\leftarrow`|$\nrightarrow$  `\nrightarrow`|$\upharpoonright$  `\upharpoonright`
-$\Leftarrow$  `\Leftarrow`|$\nRightarrow$  `\nRightarrow`|$\upuparrows$  `\upuparrows`
-$\leftarrowtail$  `\leftarrowtail`|$\nwarrow$  `\nwarrow`|
-$\leftharpoondown$  `\leftharpoondown`|$\Rarr$  `\Rarr`|
-
-**扩展箭头(Extensible Arrows)**
-
-$\xleftarrow{abc}$  `\xleftarrow{abc}`|$\xrightarrow[under]{over}$  `\xrightarrow[under]{over} `
-:---|:---
-$\xLeftarrow{abc}$  `\xLeftarrow{abc}`|$\xRightarrow{abc}$  `\xRightarrow{abc} `
-$\xleftrightarrow{abc}$  `\xleftrightarrow{abc}`|$\xLeftrightarrow{abc}$  `\xLeftrightarrow{abc} `
-$\xhookleftarrow{abc}$  `\xhookleftarrow{abc}`|$\xhookrightarrow{abc}$  `\xhookrightarrow{abc} `
-$\xtwoheadleftarrow{abc}$  `\xtwoheadleftarrow{abc}`|$\xtwoheadrightarrow{abc}$  `\xtwoheadrightarrow{abc} `
-$\xleftharpoonup{abc}$  `\xleftharpoonup{abc}`|$\xrightharpoonup{abc}$  `\xrightharpoonup{abc} `
-$\xleftharpoondown{abc}$  `\xleftharpoondown{abc}`|$\xrightharpoondown{abc}$  `\xrightharpoondown{abc} `
-$\xleftrightharpoons{abc}$  `\xleftrightharpoons{abc}`|$\xrightleftharpoons{abc}$  `\xrightleftharpoons{abc} `
-$\xtofrom{abc}$  `\xtofrom{abc}`|$\xmapsto{abc}$  `\xmapsto{abc} `
-
-# 函数(Functions)
+# 函数
 
 $\arcsin$  `\arcsin`|$\cotg$  `\cotg`|$\ln$  `\ln`|$\det$  `\det`
 :---|:---|:---|:---
@@ -234,41 +163,40 @@ $\cosh$  `\cosh`|$\ker$  `\ker`|$\th$  `\th`|$\sup$  `\sup`
 $\cot$  `\cot`|$\lg$  `\lg`|$\operatorname{f}$  `\operatorname{f}`|$\arg\max$  `\arg\max`
 $\arg\min$  `\arg\min`|||
 
+# 逻辑理论
 
-# 逻辑理论(Logic Theory)
-
-离散数学|定义|Latex|示例
+符号|定义|Latex|示例
 :---|:---|:---|:---
-$\because$|因为|\because
-$\therefore$|所以|\therefore
+$\because$|因为|\because|
+$\therefore$|所以|\therefore|
 $\lnot; \sim$|逻辑非(negation)|\neg; \lnot; \sim|$\lnot(\lnot A)\iff A$
 $\land$|逻辑与|\land|n < 4 ∧ n > 2 ⇔ n = 3 when n is a natural number.
 $\lor$|逻辑或|\lor|n ≥ 4 ∨ n ≤ 2 ⇔ n ≠ 3 when n is a natural number.
 $\oplus; \veebar$|异或|\oplus; \veebar|$a\oplus b=(\lnot a\land b)\lor(a\land \lnot b)$
-$\iff; \leftrightarrow$|双条件，等价关系，当且仅当(if and only if)|\iff; \leftrightarrow
+$\iff; \leftrightarrow$|双条件，等价关系，当且仅当(if and only if)|\iff; \leftrightarrow|
 $\Rarr; \rarr$|条件运算,if ... then|\Rarr; \rarr ;\to|$x=6\Rightarrow x^2=36$
-$\Larr; \larr$|左箭头|\Larr; \larr; \gets
-$:=; :\Leftrightarrow$|定义|:
-$\implies; \impliedby$||\implies; \impliedby
+$\Larr; \larr$|左箭头|\Larr; \larr; \gets|
+$:=; :\Leftrightarrow$|定义|:=|
+$\implies; \impliedby$||\implies; \impliedby|
 $\forall$|任意|\forall|∀ n ∈ ℕ, n2 ≥ n
 $\exists$|存在|\exists|∃ n ∈ ℕ: n is even
 $\exists!$|唯一存在|\exists!|∃! n ∈ ℕ: n + 5 = 2n.
-$\vDash$|满足符|\vDash|$A\vDash B$（公式在A上有效，公式在B上可满足）
+$\vDash$|满足符|\vDash|$A\vDash B$
 $\vdash$|推断出|\vdash|A → B ⊢ ¬B → ¬A
-$\square$|拟态词必然|\square
-$\Diamond$|拟态词可能|\Diamond
-$R \circ S$|复合关系|R \circ S
+$\square$|拟态词必然|\square|
+$\Diamond$|拟态词可能|\Diamond|
+$R \circ S$|复合关系|R \circ S|
 
-# 集合，概率论和统计学(Set , Probability Theory & Statistics)
+# 集合和概率
 
-集合符号|定义|Latex|示例
-:---|:---|:---|:---
+符号|定义|Latex
+:---|:---|:---
 $\{x\vert P(x)\}$|集合|\{x\mid P(x)\}
 $\mathring{U}$|邻域|\mathring{U}
-$\uplus$|多重集|\uplus|{1,1,2,2}
-$\subset$|真子集|\subset|ℕ ⊂ ℚ
+$\uplus$|多重集|\uplus
+$\subset$|真子集|\subset
 $\subseteq$|子集|\subseteq
-$\supset$|真父集|\supset|ℝ ⊃ ℚ
+$\supset$|真父集|\supset
 $\supseteq$|父集|\supseteq
 $\in$||\in
 $\ni$||\ni 
@@ -286,19 +214,19 @@ $n!$|阶乘|n!
 $\binom{n}{k}$, ${n\brack k}$|二项式系数|\binom{n}{k}; \dbinom{n}{k}; <br>{n \choose k}; n\brack k
 $A^n_m$|排列(Arrangement)|A^n_m
 $\complement^n_m$|组合|\complement^n_m
-$\sim$|服从分布|\sim|$X\sim N(\mu,\sigma^2)$
-$\langle \rangle$|左矢量,右矢量|\langle\rangle| ⟨φ\|ψ⟩
+$X\sim N(\mu,\sigma^2)$|服从分布|\sim
+⟨φ\|ψ⟩|左矢量,右矢量|\langle\rangle
 ${n\brace k}$||{n\brace k}
 ${n\brack k}$||{n\brack k}
 
-# 几何(Geometric)
+# 几何
 
-几何符号|定义|Latex
+符号|定义|Latex
 :---|:---|:---
 $\backsim$|相似三角形|\backsim
 $\backsimeq$||\backsimeq
 $\overset{\backsim}{=}$|全等三角形|\overset{\backsim}{=}
-$\parallel$|平行|\parallel|
+$\parallel$|平行|\parallel
 $\nparallel$|不平行|\nparallel
 $\bot$|垂直|\bot
 $\overline{AB}$|直线|\overline{AB}
@@ -315,40 +243,35 @@ $\angle$|角|\angle
 $\measuredangle$||\measuredangle
 $90\degree$|角度|90\degree
 
+# 微积分
 
-
-# 微积分(Calculus)
-
-微积分|定义|Latex|示例
+符号|定义|Latex|示例
 :---|:---|:---|:---
-$\gets$||\gets
+$\gets$||\gets|
 $\to$|趋向于|\to|$f:X\to Y$
-$\infty$|无穷大|\infty
+$\infty$|无穷大|\infty|
 $\lim$|极限|\lim\limits_{x\to \infty} f(x)=1|$\lim\limits_{x\to \infty} f(x)=1$
-$\dot{x}$|导数|\dot{x}
-$\ddot{x}$|二阶导|\ddot{x}
-$x'$|导数|x'; x^\prime
-$x''$|二阶导|x''
-$x^{(n)}$|n阶导|x^{(n)}
-$\partial$|偏导数|\partial
-$\mathrm{d}x$|微分|\mathrm{d}x
+$\dot{x}$|导数|\dot{x}|
+$\ddot{x}$|二阶导|\ddot{x}|
+$x'$|导数|x'; x^\prime|
+$x''$|二阶导|x''|
+$x^{(n)}$|n阶导|x^{(n)}|
+$\partial$|偏导数|\partial|
+$\mathrm{d}x$|微分|\mathrm{d}x|
 $\int$|积分|\int|$\int x^2\mathrm{d}x =\dfrac{x^3}{3}+C \\ \int_a^b x^2\mathrm{d}x =\dfrac{b^3-a^3}{3}$
-$\iint$|积分|\iint
-$\iiint$|积分|\iiint
+$\iint$|积分|\iint|
+$\iiint$|积分|\iiint|
 $\oint$|曲线积分|\oint|$\oint_C \frac{1}{z}\mathrm{d}z=2\pi i$
-$\oiint$|积分|\oiint
-$\oiiint$|积分|\oiiint
+$\oiint$|积分|\oiint|
+$\oiiint$|积分|\oiiint|
 $\nabla$|梯度|\nabla|$\nabla\cdot\vec{v}=\dfrac{\partial v_x}{\partial x}+\dfrac{\partial v_y}{\partial y}+\dfrac{\partial v_z}{\partial z}$
 $\Delta$|拉普拉斯变换|\Delta| $\Delta f=\nabla ^{2}f=\nabla \cdot \nabla f$
 $\Box$|非欧几里得<br>拉普拉斯算子|\Box|$\Box=\dfrac{1}{c^2}\dfrac{\partial^2}{\partial t^2}-\dfrac{\partial^2}{\partial x^2}-\dfrac{\partial^2}{\partial y^2}-\dfrac{\partial^2}{\partial z^2}$
 
+# 线性代数
 
-
-
-# 线性代数(Linear Algebra)
-
-线性代数|定义|Latex
-:---|:---|:---|:---
+表示|定义|Latex
+:---|:---|:---
 $f(x)=\begin{cases} a &\text{if } b \\   c &\text{if } d \end{cases}$|定义方程|`f(x)=\begin{cases}`   <br>`a &\text{if } b \\` <br>   `c &\text{if } d` <br>`\end{cases}`
 $\begin{alignedat}{2}   10&x+ &3&y = 2 \\  3&x+&13&y = 4 \end{alignedat}$|方程组|`\begin{alignedat}{2`}   <br>`10&x+ &3&y = 2 \\`   <br>`3&x+&13&y = 4` <br>`\end{alignedat}`
 $\begin{aligned}  f(x) &=(m+n)^2 \\ & =m^2+2m+n^2 \end{aligned}$|多行等式|`\begin{aligned} ` <br>`f(x) &=(m+n)^2 \\` <br>`& =m^2+2m+n^2` <br>`\end{aligned}`
@@ -390,8 +313,6 @@ a_{m1}&a_{m2}&\cdots&a_{mn} \\
 \right)$
 
 
-
-
 ```md
 \begin{pmatrix}
 a_{11}&a_{12}&\cdots&a_{1n} \\
@@ -411,30 +332,29 @@ a_{m1}&a_{m2}&\cdots&a_{mn} \\
 \right)
 ```
 
+# 群论
 
-# 群论(Group Theory)
-
-群论(瞎猜)|定义|Latex|示例
+符号|定义|Latex|示例
 :---|:---|:---|:---
-$b\pmod m$||b\pmod m
-$x \pod a$||x \pod a
-$a \bmod b$||a \bmod b
+$b\pmod m$||b\pmod m|
+$x \pod a$||x \pod a|
+$a \bmod b$||a \bmod b|
 $\equiv$|同余关系|\equiv|$a\equiv b\pmod m$
-$\gtrdot$||\gtrdot
-$\lessdot$||\lessdot
-$\intercal$|区间|\intercal
+$\gtrdot$||\gtrdot|
+$\lessdot$||\lessdot|
+$\intercal$|区间|\intercal|
 $\rhd$|双方关系对立|\rhd|$R\rhd S=R-R\ltimes S$
 $\lhd$|正规子群|\lhd|$Z(G) \lhd G$
-$\unrhd$||\unrhd
-$\unlhd$||\unlhd
-$\leftthreetimes$||\leftthreetimes
-$\rightthreetimes$||\rightthreetimes
-$\rtimes$||\rtimes
-$\ltimes$||\ltimes
+$\unrhd$||\unrhd|
+$\unlhd$||\unlhd|
+$\leftthreetimes$||\leftthreetimes|
+$\rightthreetimes$||\rightthreetimes|
+$\rtimes$||\rtimes|
+$\ltimes$||\ltimes|
 $\prec$|卡普可约|\prec|If L1 ≺ L2 and L2 ∈ P, <br>then L1 ∈ P
-$\succ$||\succ
+$\succ$||\succ|
 $\mid$|分解|\mid|Since 15 = 3 × 5, <br>it is true that 3 \| 15 and 5 \| 15
-$\nmid$||\nmid
+$\nmid$||\nmid|
 
 
 

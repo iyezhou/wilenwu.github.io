@@ -161,13 +161,24 @@ menu:
   categories: /categories/ || th
   archives: /archives/ || archive
   bookshelf: /bookshelf/ || windows
-  bookmarks: /bookmarks/ || bookmark
+  favorites: /favorites/ || star
   about: /about/ || user
-  #footprints: /footprints/ || paw
   #map: /map/ || send 
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
+  
+  #toc: /toc/ || list
+  #bookmarks: /bookmarks/ || bookmark
+  #movies: /movies/ || film
+  #videos: /videos/ || youtube-play
+  #photos: /photos/ || photo
+  #pictures: /pictures/ || image
+  #footprints: /footprints / || paw
+  #memory: /memory/ || hourglass-half
+  #library: /library/ || university
+  #documents: /documents/ || file
+  #infocenter: /infocenter/ || info-circle
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
@@ -202,8 +213,8 @@ site_state: true
 social:
   GitHub: https://github.com/wilenwu || github
   CSDN: https://blog.csdn.net/qq_41518277 || book
-  E-Mail: mailto:597379201@qq.com || envelope
-  Weibo: https://weibo.com/ || weibo
+  #E-Mail: mailto:yourname@mail.com || envelope
+  #Weibo: https://weibo.com/ || weibo
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
@@ -220,14 +231,12 @@ social_icons:
 
 # Blog rolls
 links_settings:
-  icon: link
+  icon: paperclip
   title: links
   # Available values: block | inline
-  layout: inline
+  layout: block
 
 links:
-  easyicon: https://www.easyicon.net/
-  Font Awesome: http://www.fontawesome.com.cn/
 
   
 

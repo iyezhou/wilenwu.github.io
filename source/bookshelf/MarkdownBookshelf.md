@@ -5,5 +5,5 @@
 - [ ] [Markdown For Typora][mft]
 
 [md]: https://wilenwu.github.io/posts/markdown/GitHub-Flavored-Markdown-Spec.html
-[katex]: https://wilenwu.github.io/posts/markdown/KaTeX-math-symbols.html
+[katex]: https://wilenwu.github.io/posts/markdown/KaTeX-for-Mathematical-Symbols.md.html
 [mft]: https://wilenwu.github.io/posts/markdown/Markdown-For-Typora.html

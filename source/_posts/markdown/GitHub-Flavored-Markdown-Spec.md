@@ -320,24 +320,8 @@ GitHub 自动从标准 URL 创建链接。如 http://www.baidu.com
 | ----- | :------: | ------------: | :----------- |
 | Value | centered | right-aligned | left-aligned |
 
-有时你不需要表头，可以用HTML语法处理
+有时你需要精细化表格，可以用HTML语法处理。
 
-```html
-<table>
-    <tr>
-        <th>header 1</th>
-        <th>header 2</th>
-    </tr>
-    <tr>
-        <td>row1,col1</td>
-        <td>row1,col2</td>
-    </tr>
-    <tr>
-        <td>row2,col1</td>
-        <td>row2,col2</td>
-    </tr>    
-</table>
-```
 
 ## 段落和换行
 
@@ -483,6 +467,16 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
 <!--HTML 注释-->
 ```
 
+## note标签
+
+```html
+<div class="note [class] [no-icon]"><p>content</p></div>
+[class]   : default | primary | success | info | warning | danger.
+[no-icon] : Disable icon in note.
+```
+
+<div class="note danger"><p>danger</p></div>
+
 ## 文本背景色
 
 ```html
@@ -538,6 +532,81 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
 <input type="checkbox" name="vehicle" value="Car" /> I have a car
 </form>
 
+## 表格
+
+```html
+<table width="300" border="1" style="text-align:left;">
+<caption>title</caption>
+<!--border 定义边框-->
+<!--text-align:对齐方式 left|right|center-->
+    <tr>
+        <th>header 1</th>
+        <th>header 2</th>
+    </tr>
+    <tr>
+        <td>row1,col1</td>
+        <td>row1,col2</td>
+    </tr>
+    <tr>
+        <td>row2,col1</td>
+        <td>row2,col2</td>
+    </tr>    
+</table>
+```
+```html
+<!--合并单元格-->
+<table border="1">
+<tr>
+  <th>Name</th>
+  <th colspan="2">Telephone</th>
+</tr>
+<tr>
+  <td>Bill Gates</td>
+  <td>911</td>
+  <td>110</td>
+</tr>
+</table>
+
+<table border="1">
+<tr>
+  <th>First Name:</th>
+  <td>Bill Gates</td>
+</tr>
+<tr>
+  <th rowspan="2">Telephone:</th>
+  <td>911</td>
+</tr>
+<tr>
+  <td>110</td>
+</tr>
+</table>
+```
+<table border="1">
+<tr>
+  <th>Name</th>
+  <th colspan="2">Telephone</th>
+</tr>
+<tr>
+  <td>Bill Gates</td>
+  <td>911</td>
+  <td>110</td>
+</tr>
+</table>
+
+<table border="1">
+<tr>
+  <th>Name:</th>
+  <td>Bill Gates</td>
+</tr>
+<tr>
+  <th rowspan="2">Telephone:</th>
+  <td>911</td>
+</tr>
+<tr>
+  <td>110</td>
+</tr>
+</table>
+
 ## HTML 框架
 
 通过使用框架，你可以在同一个浏览器窗口中显示不止一个页面。
@@ -556,7 +625,6 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
 
 ![video](https://www.runoob.com/wp-content/uploads/2013/07/36B8ED24-2F40-44EC-A751-2617F749447C.jpg)
 
-
 ## Font Awesome
 
 [Font Awesome](http://www.fontawesome.com.cn/) 提供一套免费可缩放矢量图标，它可以被定制大小、颜色、阴影以及任何可以用CSS的样式。
@@ -565,6 +633,89 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
 <i class="fa fa-download"></i>
 ```
 
-<i class="fa fa-download"></i>
+<table style="text-align:left;">
+<caption>部分图标</caption>
 
+<tr>
+<td><i class="fa fa-home"></i><br />home</td>
+<td><i class="fa fa-tags"></i><br />tags</td>
+<td><i class="fa fa-th"></i><br />th</td>
+<td><i class="fa fa-archive"></i><br />archive</td>
+<td><i class="fa fa-windows"></i><br />windows</td>
+<td><i class="fa fa-send"></i><br />send</td>
+</tr>
+<tr>
+<td><i class="fa fa-film"></i><br />film</td>
+<td><i class="fa fa-youtube-play"></i><br />youtube-play</td>
+<td><i class="fa fa-photo"></i><br />photo</td>
+<td><i class="fa fa-microphone"></i><br />microphone</td>
+<td><i class="fa fa-music"></i><br />music</td>
+<td><i class="fa fa-fire"></i><br />fire</td>
+</tr>
+<tr>
+<td><i class="fa fa-star"></i><br />star</td>
+<td><i class="fa fa-bookmark"></i><br />bookmark</td>
+<td><i class="fa fa-user"></i><br />user</td>
+<td><i class="fa fa-group"></i><br />group</td>
+<td><i class="fa fa-heart"></i><br />heart</td>
+<td><i class="fa fa-heartbeat"></i><br />heartbeat</td>
+</tr>
+<tr>
+<td><i class="fa fa-download"></i><br /> download</td>
+<td><i class="fa fa-cloud-upload"></i><br /> cloud-upload</td>
+<td><i class="fa fa-calendar"></i><br /> calendar</td>
+<td><i class="fa fa-book"></i><br /> book</td>
+<td><i class="fa fa-bolt"></i><br /> bolt</td>
+<td><i class="fa fa-bug"></i><br /> bug</td>
+</tr>
+<tr>
+<td><i class="fa fa-crosshairs"></i><br /> crosshairs</td>
+<td><i class="fa fa-expand"></i><br /> expand</td>
+<td><i class="fa fa-code"></i><br /> code</td>
+<td><i class="fa fa-file"></i><br /> file</td>
+<td><i class="fa fa-folder"></i><br /> folder</td>
+<td><i class="fa fa-edit"></i><br /> edit</td>
+</tr>
+<tr>
+<td><i class="fa fa-list"></i><br /> list</td>
+<td><i class="fa fa-list-ol"></i><br /> list-ol</td>
+<td><i class="fa fa-tasks"></i><br /> tasks</td>
+<td><i class="fa fa-heart"></i><br /> heart</td>
+<td><i class="fa fa-heartbeat"></i><br /> heartbeat</td>
+<td><i class="fa fa-leaf"></i><br /> leaf</td>
+</tr>
+<tr>
+<td><i class="fa fa-hourglass"></i><br /> hourglass</td>
+<td><i class="fa fa-hourglass-half"></i><br /> hourglass-half</td>
+<td><i class="fa fa-lock"></i><br /> lock</td>
+<td><i class="fa fa-unlock"></i><br /> unlock</td>
+<td><i class="fa fa-location-arrow"></i><br /> location-arrow</td>
+<td><i class="fa fa-map-signs"></i><br /> map-signs</td>
+</tr>
+<tr>
+<td><i class="fa fa-paper-plane"></i><br /> paper-plane</td>
+<td><i class="fa fa-paw"></i><br /> paw</td>
+<td><i class="fa fa-superpowers"></i><br /> superpowers</td>
+<td><i class="fa fa-key"></i><br /> key</td>
+<td><i class="fa fa-thumbs-up"></i><br /> thumbs-up</td>
+<td><i class="fa fa-thumbs-down"></i><br /> thumbs-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-tint"></i><br /> tint</td>
+<td><i class="fa fa-toggle-off"></i><br /> toggle-off</td>
+<td><i class="fa fa-toggle-on"></i><br /> toggle-on</td>
+<td><i class="fa fa-tree"></i><br /> tree</td>
+<td><i class="fa fa-trophy"></i><br /> trophy</td>
+<td><i class="fa fa-university"></i><br /> university</td>
+</tr>
+<tr>
+<td><i class="fa fa-info"></i><br />info</td>
+<td><i class="fa fa-info-circle"></i><br />info-circle</td>
+<td><i class="fa fa-globe"></i><br />globe</td>
+<td><i class="fa fa-internet-explorer"></i><br />internet-explorer</td>
+<td><i class="fa fa-pencil"></i><br />pencil</td>
+<td><i class="fa fa-cog"></i><br />cog</td>
+</tr>
+</table>
 
+ 

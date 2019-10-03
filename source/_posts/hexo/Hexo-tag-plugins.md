@@ -1,6 +1,6 @@
 ---
 ID: a6be1f1f2719bfe477cd1420bd44b1c6
-title: Hexo tag 插件
+title: Hexo标签插件的使用
 tags: [Hexo,NexT,Github pages]
 copyright: true
 date: 2019-09-11 14:10:48
@@ -10,7 +10,7 @@ categories: [Hexo]
 
 <!-- more -->
 
-# Hexo 标签插件
+# Hexo 标签插件使用
 
 ## 引用块
 
@@ -82,7 +82,7 @@ code snippet
 {% include_code [title] [lang:language] path/to/file %}
 ```
 
-# NexT tag 插件
+# NexT 标签插件使用
 
 ## 文本居中引用
 

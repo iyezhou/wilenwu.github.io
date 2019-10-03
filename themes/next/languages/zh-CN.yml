@@ -15,9 +15,19 @@ menu:
   sitemap: 站点地图
   commonweal: 公益 404
   toc: 目录
-  bookmarks: 收藏夹
+  bookmarks: 书签
   bookshelf: 书架
+  favorites: 收藏夹
+  movies: 影视
+  videos: 视频
+  photos: 照片墙 
+  pictures: 图片集
   footprints: 足迹
+  memory: 记忆
+  library: 图书馆
+  documents: 文档
+  zone: 空间
+  infocenter: 信息中心
 sidebar:
   overview: 站点概览
   toc: 文章目录
@@ -86,7 +96,7 @@ reward:
   donate: 打赏
   wechatpay: 微信支付
   alipay: 支付宝
-  bitcoin: 比特币
+  bitcoin: 开玩笑
 accessibility:
   nav_toggle: 切换导航栏
   prev_page: 上一页
