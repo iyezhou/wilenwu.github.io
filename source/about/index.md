@@ -19,7 +19,6 @@ comments: true
 [Blankj's Blog](https://blankj.com/)
 [DP2PX.COM](https://dp2px.com/)
 
-[GitBook文档](http://gitbook.hushuang.me/setup.html)
 [【Gitbook】实用配置及插件介绍](https://www.cnblogs.com/zhangjk1993/p/5066771.html)
 [GitBook插件整理 - book.json配置](https://www.cnblogs.com/mingyue5826/p/10307051.html)
 [推荐12个实用的gitbook插件 - 大师兄 - CSDN博客](https://blog.csdn.net/weixin_37865166/article/details/91899788)
