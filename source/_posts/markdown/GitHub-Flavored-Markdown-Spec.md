@@ -365,6 +365,8 @@ HTML语法的段落标签为 `<p>paragraph </p>`
 
 键入 `:` 将显示建议的表情符号列表。 列表将在您键入时进行过滤，因此一旦找到所需表情符号，请按 **Tab** 或 **Enter** 键以填写选中的结果。
 
+:sunny: :snowflake: :cloud: :zap: :heart: :heartbeat: :train2: :airplane: :bus: :taxi: :car: :ship: :white_check_mark: :white_medium_square: :white_large_square: :white_circle: :red_circle:
+
 有关可用表情符号和代码的完整列表，请查看 [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com/)。
 
 ## 注脚
@@ -476,7 +478,6 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
 ```
 
 <div class="note danger"><p>danger</p></div>
-
 ## 文本背景色
 
 ```html

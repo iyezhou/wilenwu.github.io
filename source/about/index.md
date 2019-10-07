@@ -1,17 +1,33 @@
 ---
 title: About Me
 date: 2019-09-07 21:46:41
-type: "post"
+type: "about"
 comments: true
 ---
 
-<div class="note success no-icon"><p><b>职业规划</b></p></div>
+# <font color="green">职业规划</font>
 
-<img src="/images/career_planning.png" width="100%" height="100%" />
+![职业规划](/images/career_planning.png)
+
+# <font color="pink">兴趣爱好</font>
+
+# <font color="orange">绘画墙</font>
 
 ![夜景](/images/china.jpg)
 
-<!--
+**建站参考链接：**
+[Blankj's Blog](https://blankj.com/)
+[DP2PX.COM](https://dp2px.com/)
+
+[GitBook文档](http://gitbook.hushuang.me/setup.html)
+[【Gitbook】实用配置及插件介绍](https://www.cnblogs.com/zhangjk1993/p/5066771.html)
+[GitBook插件整理 - book.json配置](https://www.cnblogs.com/mingyue5826/p/10307051.html)
+[推荐12个实用的gitbook插件 - 大师兄 - CSDN博客](https://blog.csdn.net/weixin_37865166/article/details/91899788)
+
+
+
+<!--职业规划 markdown
+
 <style>
 .font{font-size:12px}
 </style>
