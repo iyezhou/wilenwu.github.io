@@ -64,7 +64,7 @@
 <meta property="og:site_name" content="Wilen&#39;s Blog">
 <meta property="og:description" content="Markdown是一种轻量级标记语言，它以纯文本形式编写文档，易读（看起来舒服）、易写（语法简单）、易更改，并最终以HTML格式发布。由于markdown没有明确指定语法，随着编译器不一样，实现方式有很大差异。GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规范了markdown的语法和语义。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-30T06:39:03.732Z">
+<meta property="og:updated_time" content="2019-10-08T04:38:01.503Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub Flavored Markdown 规范">
 <meta name="twitter:description" content="Markdown是一种轻量级标记语言，它以纯文本形式编写文档，易读（看起来舒服）、易写（语法简单）、易更改，并最终以HTML格式发布。由于markdown没有明确指定语法，随着编译器不一样，实现方式有很大差异。GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规范了markdown的语法和语义。">
@@ -238,13 +238,13 @@
       
       
         
-        <li class="menu-item menu-item-bookmarks">
+        <li class="menu-item menu-item-favorites">
       
     
       
     
 
-    <a href="/bookmarks/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏夹</a>
+    <a href="/favorites/" rel="section"><i class="menu-item-icon fa fa-fw fa-star"></i> <br>收藏夹</a>
 
   </li>
       
@@ -351,7 +351,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-30 14:39:03" itemprop="dateModified" datetime="2019-09-30T14:39:03+08:00">2019-09-30</time>
+                <time title="修改时间：2019-10-08 12:38:01" itemprop="dateModified" datetime="2019-10-08T12:38:01+08:00">2019-10-08</time>
               </span>
             
           
@@ -400,7 +400,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>9.4k</span>
+              <span>11k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -410,7 +410,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>9 分钟</span>
+              <span>10 分钟</span>
             </span>
           
 
@@ -657,8 +657,7 @@
 </tr>
 </tbody>
 </table>
-<p>有时你不需要表头，可以用HTML语法处理</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>header 1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>header 2<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>row1,col1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>row1,col2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>row2,col1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>row2,col2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>有时你需要精细化表格，可以用HTML语法处理。</p>
 <h2 id="段落和换行"><a class="markdownIt-Anchor" href="#段落和换行"></a> 段落和换行</h2>
 <p>列表项目可以包含多个段落，每个项目下的段落都必须缩进 4 个空格或是 1 个制表符<br>
 通过在文本行之间留一个空白行，可创建新段落。<br>
@@ -690,6 +689,7 @@ inside a list item.</p>
 <code>@octocat :+1: This PR looks great</code><br>
 @octocat 👍 This PR looks great</p>
 <p>键入 <code>:</code> 将显示建议的表情符号列表。 列表将在您键入时进行过滤，因此一旦找到所需表情符号，请按 <strong>Tab</strong> 或 <strong>Enter</strong> 键以填写选中的结果。</p>
+<p>☀️ ❄️ ☁️ ⚡️ ❤️ 💓 🚆 ✈️ 🚌 🚕 🚗 🚢 ✅ ◻️ ⬜️ ⚪️ 🔴</p>
 <p>有关可用表情符号和代码的完整列表，请查看 <a href="http://emoji-cheat-sheet.com/" target="_blank" rel="noopener">emoji-cheat-sheet.com</a>。</p>
 <h2 id="注脚"><a class="markdownIt-Anchor" href="#注脚"></a> 注脚</h2>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">You can create footnotes like this[^footnote].</span><br><span class="line"></span><br><span class="line">[<span class="symbol">^footnote</span>]: <span class="link">Here is the *text* of the **footnote**.</span></span><br></pre></td></tr></table></figure>
@@ -734,7 +734,10 @@ C --> D
 <p>HTML 的区段（行内）标签如 <code>&lt;span&gt;</code>、<code>&lt;cite&gt;</code>、<code>&lt;del&gt;</code> 可以在 Markdown 的段落、列表或是标题里随意使用。依照个人习惯，甚至可以不用 Markdown 格式，而直接采用 HTML 标签来格式化。</p>
 <h2 id="注释"><a class="markdownIt-Anchor" href="#注释"></a> 注释</h2>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--HTML 注释--&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="文本背景色"><a class="markdownIt-Anchor" href="#文本背景色"></a> 文本背景色</h2>
+<h2 id="note标签"><a class="markdownIt-Anchor" href="#note标签"></a> note标签</h2>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note [class] [no-icon]"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>content<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">[class]   : default | primary | success | info | warning | danger.</span><br><span class="line">[no-icon] : Disable icon in note.</span><br></pre></td></tr></table></figure>
+<div class="note danger"><p>danger</p></div>
+## 文本背景色
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span> <span class="attr">bgcolor</span>=<span class="string">yellow</span>&gt;</span>背景色<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <form>
 <table><tr><td bgcolor="yellow">背景色</td></tr></table>
@@ -759,6 +762,33 @@ C --> D
 <input type="checkbox" name="vehicle" value="Bike" checked="checked"> I have a bike<br>
 <input type="checkbox" name="vehicle" value="Car"> I have a car
 </form>
+<h2 id="表格-2"><a class="markdownIt-Anchor" href="#表格-2"></a> 表格</h2>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">width</span>=<span class="string">"300"</span> <span class="attr">border</span>=<span class="string">"1"</span> <span class="attr">style</span>=<span class="string">"text-align:left;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">caption</span>&gt;</span>title<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--border 定义边框--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--text-align:对齐方式 left|right|center--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>header 1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>header 2<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>row1,col1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>row1,col2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>row2,col1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>row2,col2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--合并单元格--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">th</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>Telephone<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">td</span>&gt;</span>Bill Gates<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">td</span>&gt;</span>911<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">td</span>&gt;</span>110<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">th</span>&gt;</span>First Name:<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">td</span>&gt;</span>Bill Gates<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">th</span> <span class="attr">rowspan</span>=<span class="string">"2"</span>&gt;</span>Telephone:<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">td</span>&gt;</span>911<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">td</span>&gt;</span>110<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<table border="1">
+<tr>
+  <th>Name</th>
+  <th colspan="2">Telephone</th>
+</tr>
+<tr>
+  <td>Bill Gates</td>
+  <td>911</td>
+  <td>110</td>
+</tr>
+</table>
+<table border="1">
+<tr>
+  <th>Name:</th>
+  <td>Bill Gates</td>
+</tr>
+<tr>
+  <th rowspan="2">Telephone:</th>
+  <td>911</td>
+</tr>
+<tr>
+  <td>110</td>
+</tr>
+</table>
 <h2 id="html-框架"><a class="markdownIt-Anchor" href="#html-框架"></a> HTML 框架</h2>
 <p>通过使用框架，你可以在同一个浏览器窗口中显示不止一个页面。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"url"</span> <span class="attr">title</span>=<span class="string">'xxx'</span> <span class="attr">scrolling</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">frameborder</span>=<span class="string">"no"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">framespacing</span>=<span class="string">"0"</span> <span class="attr">allowfullscreen</span>=<span class="string">"true"</span>&gt;</span> <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -769,7 +799,89 @@ C --> D
 <h2 id="font-awesome"><a class="markdownIt-Anchor" href="#font-awesome"></a> Font Awesome</h2>
 <p><a href="http://www.fontawesome.com.cn/" target="_blank" rel="noopener">Font Awesome</a> 提供一套免费可缩放矢量图标，它可以被定制大小、颜色、阴影以及任何可以用CSS的样式。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-download"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><i class="fa fa-download"></i></p>
+<table style="text-align:left;">
+<caption>部分图标</caption>
+<tr>
+<td><i class="fa fa-home"></i><br>home</td>
+<td><i class="fa fa-tags"></i><br>tags</td>
+<td><i class="fa fa-th"></i><br>th</td>
+<td><i class="fa fa-archive"></i><br>archive</td>
+<td><i class="fa fa-windows"></i><br>windows</td>
+<td><i class="fa fa-send"></i><br>send</td>
+</tr>
+<tr>
+<td><i class="fa fa-film"></i><br>film</td>
+<td><i class="fa fa-youtube-play"></i><br>youtube-play</td>
+<td><i class="fa fa-photo"></i><br>photo</td>
+<td><i class="fa fa-microphone"></i><br>microphone</td>
+<td><i class="fa fa-music"></i><br>music</td>
+<td><i class="fa fa-fire"></i><br>fire</td>
+</tr>
+<tr>
+<td><i class="fa fa-star"></i><br>star</td>
+<td><i class="fa fa-bookmark"></i><br>bookmark</td>
+<td><i class="fa fa-user"></i><br>user</td>
+<td><i class="fa fa-group"></i><br>group</td>
+<td><i class="fa fa-heart"></i><br>heart</td>
+<td><i class="fa fa-heartbeat"></i><br>heartbeat</td>
+</tr>
+<tr>
+<td><i class="fa fa-download"></i><br> download</td>
+<td><i class="fa fa-cloud-upload"></i><br> cloud-upload</td>
+<td><i class="fa fa-calendar"></i><br> calendar</td>
+<td><i class="fa fa-book"></i><br> book</td>
+<td><i class="fa fa-bolt"></i><br> bolt</td>
+<td><i class="fa fa-bug"></i><br> bug</td>
+</tr>
+<tr>
+<td><i class="fa fa-crosshairs"></i><br> crosshairs</td>
+<td><i class="fa fa-expand"></i><br> expand</td>
+<td><i class="fa fa-code"></i><br> code</td>
+<td><i class="fa fa-file"></i><br> file</td>
+<td><i class="fa fa-folder"></i><br> folder</td>
+<td><i class="fa fa-edit"></i><br> edit</td>
+</tr>
+<tr>
+<td><i class="fa fa-list"></i><br> list</td>
+<td><i class="fa fa-list-ol"></i><br> list-ol</td>
+<td><i class="fa fa-tasks"></i><br> tasks</td>
+<td><i class="fa fa-heart"></i><br> heart</td>
+<td><i class="fa fa-heartbeat"></i><br> heartbeat</td>
+<td><i class="fa fa-leaf"></i><br> leaf</td>
+</tr>
+<tr>
+<td><i class="fa fa-hourglass"></i><br> hourglass</td>
+<td><i class="fa fa-hourglass-half"></i><br> hourglass-half</td>
+<td><i class="fa fa-lock"></i><br> lock</td>
+<td><i class="fa fa-unlock"></i><br> unlock</td>
+<td><i class="fa fa-location-arrow"></i><br> location-arrow</td>
+<td><i class="fa fa-map-signs"></i><br> map-signs</td>
+</tr>
+<tr>
+<td><i class="fa fa-paper-plane"></i><br> paper-plane</td>
+<td><i class="fa fa-paw"></i><br> paw</td>
+<td><i class="fa fa-superpowers"></i><br> superpowers</td>
+<td><i class="fa fa-key"></i><br> key</td>
+<td><i class="fa fa-thumbs-up"></i><br> thumbs-up</td>
+<td><i class="fa fa-thumbs-down"></i><br> thumbs-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-tint"></i><br> tint</td>
+<td><i class="fa fa-toggle-off"></i><br> toggle-off</td>
+<td><i class="fa fa-toggle-on"></i><br> toggle-on</td>
+<td><i class="fa fa-tree"></i><br> tree</td>
+<td><i class="fa fa-trophy"></i><br> trophy</td>
+<td><i class="fa fa-university"></i><br> university</td>
+</tr>
+<tr>
+<td><i class="fa fa-info"></i><br>info</td>
+<td><i class="fa fa-info-circle"></i><br>info-circle</td>
+<td><i class="fa fa-globe"></i><br>globe</td>
+<td><i class="fa fa-internet-explorer"></i><br>internet-explorer</td>
+<td><i class="fa fa-pencil"></i><br>pencil</td>
+<td><i class="fa fa-cog"></i><br>cog</td>
+</tr>
+</table>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
@@ -799,8 +911,8 @@ C --> D
         
       
       <div style="display: inline-block">
-        <img src="/images/nezha.jpg" alt="Wilen Wu 比特币">
-        <p>比特币</p>
+        <img src="/images/nezha.jpg" alt="Wilen Wu 开玩笑">
+        <p>开玩笑</p>
       </div>
 
   </div>
@@ -944,7 +1056,7 @@ C --> D
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#markdown-免费编辑器推荐"><span class="nav-number">1.</span> <span class="nav-text"> Markdown 免费编辑器推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown-in-browser"><span class="nav-number">1.1.</span> <span class="nav-text"> Markdown In browser</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown-client"><span class="nav-number">1.2.</span> <span class="nav-text"> Markdown Client</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-editor"><span class="nav-number">1.3.</span> <span class="nav-text"> Text Editor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#markdown语法"><span class="nav-number">2.</span> <span class="nav-text"> Markdown语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-number">2.1.</span> <span class="nav-text"> 标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本样式"><span class="nav-number">2.2.</span> <span class="nav-text"> 文本样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">2.3.</span> <span class="nav-text"> 引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">2.4.</span> <span class="nav-text"> 列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.5.</span> <span class="nav-text"> 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学公式"><span class="nav-number">2.6.</span> <span class="nav-text"> 数学公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">2.7.</span> <span class="nav-text"> 链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#urls"><span class="nav-number">2.8.</span> <span class="nav-text"> URLs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片"><span class="nav-number">2.9.</span> <span class="nav-text"> 图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">2.10.</span> <span class="nav-text"> 表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段落和换行"><span class="nav-number">2.11.</span> <span class="nav-text"> 段落和换行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#emoji"><span class="nav-number">2.12.</span> <span class="nav-text"> Emoji 😄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注脚"><span class="nav-number">2.13.</span> <span class="nav-text"> 注脚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#水平线"><span class="nav-number">2.14.</span> <span class="nav-text"> 水平线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yaml-front-matter"><span class="nav-number">2.15.</span> <span class="nav-text"> YAML Front Matter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table-of-contents-toc"><span class="nav-number">2.16.</span> <span class="nav-text"> Table of Contents (TOC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uml-diagrams"><span class="nav-number">2.17.</span> <span class="nav-text"> UML diagrams</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部分html语法"><span class="nav-number">3.</span> <span class="nav-text"> 部分HTML语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">3.1.</span> <span class="nav-text"> 注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本背景色"><span class="nav-number">3.2.</span> <span class="nav-text"> 文本背景色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对齐方式"><span class="nav-number">3.3.</span> <span class="nav-text"> 对齐方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单选按钮radio-buttons"><span class="nav-number">3.4.</span> <span class="nav-text"> 单选按钮(Radio Buttons)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复选框checkboxes"><span class="nav-number">3.5.</span> <span class="nav-text"> 复选框(Checkboxes)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html-框架"><span class="nav-number">3.6.</span> <span class="nav-text"> HTML 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#音视频"><span class="nav-number">3.7.</span> <span class="nav-text"> 音视频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#font-awesome"><span class="nav-number">3.8.</span> <span class="nav-text"> Font Awesome</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#markdown-免费编辑器推荐"><span class="nav-number">1.</span> <span class="nav-text"> Markdown 免费编辑器推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown-in-browser"><span class="nav-number">1.1.</span> <span class="nav-text"> Markdown In browser</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown-client"><span class="nav-number">1.2.</span> <span class="nav-text"> Markdown Client</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-editor"><span class="nav-number">1.3.</span> <span class="nav-text"> Text Editor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#markdown语法"><span class="nav-number">2.</span> <span class="nav-text"> Markdown语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-number">2.1.</span> <span class="nav-text"> 标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本样式"><span class="nav-number">2.2.</span> <span class="nav-text"> 文本样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">2.3.</span> <span class="nav-text"> 引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">2.4.</span> <span class="nav-text"> 列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.5.</span> <span class="nav-text"> 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学公式"><span class="nav-number">2.6.</span> <span class="nav-text"> 数学公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">2.7.</span> <span class="nav-text"> 链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#urls"><span class="nav-number">2.8.</span> <span class="nav-text"> URLs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片"><span class="nav-number">2.9.</span> <span class="nav-text"> 图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">2.10.</span> <span class="nav-text"> 表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段落和换行"><span class="nav-number">2.11.</span> <span class="nav-text"> 段落和换行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#emoji"><span class="nav-number">2.12.</span> <span class="nav-text"> Emoji 😄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注脚"><span class="nav-number">2.13.</span> <span class="nav-text"> 注脚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#水平线"><span class="nav-number">2.14.</span> <span class="nav-text"> 水平线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yaml-front-matter"><span class="nav-number">2.15.</span> <span class="nav-text"> YAML Front Matter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table-of-contents-toc"><span class="nav-number">2.16.</span> <span class="nav-text"> Table of Contents (TOC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uml-diagrams"><span class="nav-number">2.17.</span> <span class="nav-text"> UML diagrams</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部分html语法"><span class="nav-number">3.</span> <span class="nav-text"> 部分HTML语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">3.1.</span> <span class="nav-text"> 注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#note标签"><span class="nav-number">3.2.</span> <span class="nav-text"> note标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对齐方式"><span class="nav-number">3.3.</span> <span class="nav-text"> 对齐方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单选按钮radio-buttons"><span class="nav-number">3.4.</span> <span class="nav-text"> 单选按钮(Radio Buttons)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复选框checkboxes"><span class="nav-number">3.5.</span> <span class="nav-text"> 复选框(Checkboxes)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格-2"><span class="nav-number">3.6.</span> <span class="nav-text"> 表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html-框架"><span class="nav-number">3.7.</span> <span class="nav-text"> HTML 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#音视频"><span class="nav-number">3.8.</span> <span class="nav-text"> 音视频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#font-awesome"><span class="nav-number">3.9.</span> <span class="nav-text"> Font Awesome</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -1022,47 +1134,9 @@ C --> D
         <a href="https://blog.csdn.net/qq_41518277" title="CSDN &rarr; https://blog.csdn.net/qq_41518277" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>CSDN</a>
       </span>
     
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:597379201@qq.com" title="E-Mail &rarr; mailto:597379201@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/" title="Weibo &rarr; https://weibo.com/" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-      </span>
-    
   </div>
 
 
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
-      links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://www.easyicon.net/" title="https://www.easyicon.net/" rel="noopener" target="_blank">easyicon</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="http://www.fontawesome.com.cn/" title="http://www.fontawesome.com.cn/" rel="noopener" target="_blank">Font Awesome</a>
-        </li>
-      
-    </ul>
-  </div>
 
       </div>
         <div class="back-to-top motion-element">
@@ -1090,12 +1164,12 @@ C --> D
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">291k</span>
+    <span title="站点总字数">288k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:25</span>
+    <span title="站点阅读时长">4:21</span>
 </div>
 
         
@@ -1179,6 +1253,24 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
 
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: '3be7aa98d992907175cbd79c194399f2',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 
   
