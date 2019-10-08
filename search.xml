@@ -409,11 +409,11 @@
             
             <tag> R </tag>
             
+            <tag> text2vec </tag>
+            
             <tag> NLP </tag>
             
             <tag> 分词 </tag>
-            
-            <tag> text2vec </tag>
             
         </tags>
       
@@ -754,11 +754,11 @@
       
         <tags>
             
+            <tag> 机器学习 </tag>
+            
             <tag> python </tag>
             
             <tag> sklearn </tag>
-            
-            <tag> 机器学习 </tag>
             
             <tag> 回归 </tag>
             
@@ -1014,11 +1014,11 @@
             
             <tag> R </tag>
             
-            <tag> jiebaR </tag>
-            
             <tag> NLP </tag>
             
             <tag> 分词 </tag>
+            
+            <tag> jiebaR </tag>
             
         </tags>
       
@@ -1080,9 +1080,9 @@
             
             <tag> R </tag>
             
-            <tag> 机器学习 </tag>
-            
             <tag> mlr </tag>
+            
+            <tag> 机器学习 </tag>
             
         </tags>
       
