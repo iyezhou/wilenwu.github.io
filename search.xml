@@ -200,9 +200,9 @@
             
             <tag> python </tag>
             
-            <tag> 科学计算 </tag>
-            
             <tag> SymPy </tag>
+            
+            <tag> 科学计算 </tag>
             
             <tag> 符号计算 </tag>
             
@@ -378,9 +378,9 @@
             
             <tag> R </tag>
             
-            <tag> REmap </tag>
-            
             <tag> 地图 </tag>
+            
+            <tag> REmap </tag>
             
         </tags>
       
@@ -1233,11 +1233,11 @@
             
             <tag> R </tag>
             
-            <tag> 地图 </tag>
-            
             <tag> ggmap </tag>
             
             <tag> baidumap </tag>
+            
+            <tag> 地图 </tag>
             
         </tags>
       
@@ -1818,9 +1818,9 @@
             
             <tag> python </tag>
             
-            <tag> numpy </tag>
-            
             <tag> 科学计算 </tag>
+            
+            <tag> numpy </tag>
             
             <tag> 随机 </tag>
             
