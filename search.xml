@@ -378,9 +378,9 @@
             
             <tag> R </tag>
             
-            <tag> 地图 </tag>
-            
             <tag> REmap </tag>
+            
+            <tag> 地图 </tag>
             
         </tags>
       
@@ -754,11 +754,11 @@
       
         <tags>
             
-            <tag> 机器学习 </tag>
-            
             <tag> python </tag>
             
             <tag> sklearn </tag>
+            
+            <tag> 机器学习 </tag>
             
             <tag> 回归 </tag>
             
@@ -1080,9 +1080,9 @@
             
             <tag> R </tag>
             
-            <tag> mlr </tag>
-            
             <tag> 机器学习 </tag>
+            
+            <tag> mlr </tag>
             
         </tags>
       
@@ -1233,11 +1233,11 @@
             
             <tag> R </tag>
             
+            <tag> 地图 </tag>
+            
             <tag> ggmap </tag>
             
             <tag> baidumap </tag>
-            
-            <tag> 地图 </tag>
             
         </tags>
       
