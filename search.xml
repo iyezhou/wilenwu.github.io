@@ -200,9 +200,9 @@
             
             <tag> python </tag>
             
-            <tag> SymPy </tag>
-            
             <tag> 科学计算 </tag>
+            
+            <tag> SymPy </tag>
             
             <tag> 符号计算 </tag>
             
@@ -888,9 +888,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> math </tag>
+            
+            <tag> python </tag>
             
             <tag> random </tag>
             
@@ -1818,9 +1818,9 @@
             
             <tag> python </tag>
             
-            <tag> 科学计算 </tag>
-            
             <tag> numpy </tag>
+            
+            <tag> 科学计算 </tag>
             
             <tag> 随机 </tag>
             
