@@ -18,8 +18,29 @@ comments: true
 
 # <font color="pink">兴趣爱好</font>
 
+```mermaid
+graph LR
+A(( )) --> B1(drawing)
+A --> B2(nature)
+B1 --> C(math)
+B2 --> C
+C --> D(physics)
+D -.-> E1(computer)
+D --> E2(chaos)
+```
+
 # <font color="orange">绘画墙</font>
 
+{% grouppicture 6-3 %}
+  ![](/images/github.png)
+  ![](/images/github.png)
+  ![](/images/github.png)
+  ![](/images/github.png)
+  ![](/images/github.png)
+  ![](/images/github.png)
+{% endgrouppicture %}
+
+------
 ![夜景](/images/china.jpg)
 
 **建站参考链接：**
