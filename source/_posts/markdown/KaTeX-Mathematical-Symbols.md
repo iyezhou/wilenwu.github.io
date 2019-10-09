@@ -16,7 +16,7 @@ KaTeX支持很多（但不是全部）LaTeX语法和许多LaTeX软件包。
 
 <!-- more -->
 
-# 字母符号
+# 希腊字母
 
 $\Alpha$ \Alpha|$\alpha$ \alpha|$\Tau$ \Tau|$\tau$ \tau
 ---|---|---|---
@@ -47,6 +47,8 @@ $\gimel$ \gimel|$\ell$ \ell|$\Re$ \Re|$\text{\ae}$ \text{\ae}|
 $\daleth$ \daleth|$\hbar$ \hbar|$\real$ \real|$\text{\AE}$ \text{\AE}|
 $\eth$ \eth|$\hslash$ \hslash|$\reals$ \reals|$\text{\oe}$ \text{\oe}|
 
+# 数学结构
+
 符号|定义|Latex
 :---|:---|:---
 $\bar{a};\overline{a+bi}$|共轭|\bar{a}; \overline{a+bi}
@@ -58,6 +60,22 @@ $\overleftrightarrow{T}$|张量|\overleftrightarrow{T}
 $\overset{\rightrightarrows}{T}$|张量并矢|\overset{\rightrightarrows}{T}
 $\underleftrightarrow{AB}$||\underleftrightarrow{AB}
 $\Overrightarrow{AB}$||\Overrightarrow{AB}
+$\dfrac{b}{a}$|分数|\frac{b}{a}; \dfrac{b}{a}
+$\cfrac{a}{1 + \cfrac{1}{b}}$|复合分式|\cfrac{a}{1 + \cfrac{1}{b}}
+$\sqrt{x}; \sqrt[n]{x}$|开方|\sqrt{x}; \sqrt[n]{x}
+$a^n$|指数|a^n
+$a_n$|下标|a_n
+$\stackrel{!}{=}$|堆叠|\stackrel{!}{=}
+$\overset{!}{=}$|上方|\overset{!}{=}
+$\underset{!}{=}$|下方|\underset{!}{=}
+$a \atop b$||a \atop b
+$a\raisebox{0.25em}{b}c$||a\raisebox{0.25em}{b}c
+$f \circ g$|复合函数|f \circ g
+
+# Math mode accents
+
+二元运算|定义|Latex
+:---|:---|:---
 $\hat{\theta}$|坐标基|\hat{\theta};\^{\theta}
 $\widehat{ac}$|夹角|\widehat{ac}
 $\breve{a}$||\breve{a}
@@ -67,9 +85,9 @@ $\acute{a}$||\acute{a}
 $\grave{a}$||\grave{a}
 $\overgroup{AB};\undergroup{AB}$||\overgroup{AB};\undergroup{AB}
 
-# 运算符
+# 基本运算
 
-二元运算|定义|Latex
+基本运算|定义|Latex
 :---|:---|:---
 $=$|is equal to|=
 $\approx$|is approximately equal to|\approx
@@ -88,22 +106,8 @@ $\geqslant;\ge$|大于等于|\geqslant\ge
 $\leqslant;\le$|小于等于|\leqslant;\le
 $\propto$|正比于|\propto
 $\triangleq$|定义|\triangleq
-$\stackrel{!}{=}$|堆叠|\stackrel{!}{=}
-$\overset{!}{=}$|上方|\overset{!}{=}
-$\underset{!}{=}$|下方|\underset{!}{=}
-$a \atop b$||a \atop b
-$a\raisebox{0.25em}{b}c$||a\raisebox{0.25em}{b}c
 $\not=;\not\in$|前方加\not否定|\not=;\not\in
-
-运算|定义|Latex
-:---|:---|:---
-$\dfrac{b}{a}$|分数|\frac{b}{a}; \dfrac{b}{a}
-$\cfrac{a}{1 + \cfrac{1}{b}}$|复合分式|\cfrac{a}{1 + \cfrac{1}{b}}
-$\sqrt{x}; \sqrt[n]{x}$|开方|\sqrt{x}; \sqrt[n]{x}
-$a^n$|指数|a^n
-$a_n$|下标|a_n
-$f \circ g$|复合函数|f \circ g
-$\displaystyle\sum_{k=0}^n \complement^k_n u^{n-k} v^k$|求和|`\displaystyle\sum_{k=0}^n \complement^k_n u^{n-k} v^k`
+$\displaystyle\sum_{k=0}^n \complement^k_n$|求和|`\displaystyle\sum_{k=0}^n \complement^k_n`
 $\prod$|求积|\prod
 $\amalg$|合并|\amalg
 

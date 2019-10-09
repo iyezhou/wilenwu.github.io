@@ -8,13 +8,16 @@ copyright: false
 sticky: true
 ---
 
+<img src="images/bookshelf.jpg" />
 本博客基于 Hexo 及 GitBook 配合搭建而成。
 其中博文依据个人爱好、工作需要等制定了一份详细的学习计划，并根据清单同步更新学习笔记，详情请查阅本「[书架](https://wilenwu.github.io/bookshelf/)」。
+
 <!-- more -->
+
 其中
-- 标记 :ballot_box_with_check: 是必修课
-- 标记 :white_large_square: 待定
-- 标记 :heart: 是选修课
+- 标记 :ballot_box_with_check: 是必修课  
+- 标记 :white_large_square: 待定  
+- 标记 :heart: 是选修课  
 
 ------
 
@@ -37,12 +40,16 @@ sticky: true
 - :white_large_square:  [Markdown For Typora][mft]  
 
 [md]: https://wilenwu.github.io/posts/markdown/GitHub-Flavored-Markdown-Spec.html
-[katex]: https://wilenwu.github.io/posts/markdown/KaTeX-for-Mathematical-Symbols.md.html
+[katex]: https://wilenwu.github.io/posts/markdown/KaTeX-Mathematical-Symbols.md.html
 [mft]: https://wilenwu.github.io/posts/markdown/Markdown-For-Typora.html
 
 ------
 
 # <font color="orange">正则表达式</font>
+
+- :ballot_box_with_check:  [正则表达式][RegularExpression]
+
+[RegularExpression]: https://wilenwu.github.io/posts/regular-expression.html
 
 ------
 
@@ -112,9 +119,8 @@ sticky: true
 
 # <font color="orange">Python手册</font> 
 
-> 本手册所列包来自[Awesome-Python](https://awesome-python.com/) ，结合[GitHub](https://github.com/) 和官方文档  
+本手册所列包来自[Awesome-Python](https://awesome-python.com/) ，结合[GitHub](https://github.com/) 和官方文档  
 致谢，[ApacheCN 中文开源组织](http://www.apachecn.org/##)：致力于官方文档及AI书籍中文翻译。  
-
 ![pandas](images/pandas.png)  
 
 ## <font color="green">IDE</font>  
@@ -138,7 +144,7 @@ sticky: true
 
 - :ballot_box_with_check:  [datetime+time+calendar][datetime]  
 - :ballot_box_with_check:  [math+random][math]  
-- :ballot_box_with_check:  [re+正则表达式][re]  
+- :ballot_box_with_check:  [re][re]：正则表达式调用库
 - :heart:  [tkinter][tk]：Python 的标准 GUI 库  
 - :white_large_square:  [threading][threading] ：多线程  
 - :white_large_square:  [multiprocessing][mul]： 多进程  
@@ -147,7 +153,7 @@ sticky: true
 
 [datetime]: https://wilenwu.github.io/posts/python/PythonNotebook(Standard-Library)--datetime.html
 [math]: https://wilenwu.github.io/posts/python/PythonNotebook(Standard-Library)--math+random.html
-[re]: https://wilenwu.github.io/posts/python/PythonNotebook(Standard-Library)--re+regular-expression.html
+[re]: https://wilenwu.github.io/posts/python/PythonNotebook(Standard-Library)--re.html
 [tk]: http://www.runoob.com/python/python-gui-tkinter.html
 [threading]: http://www.runoob.com/python3/python3-multithreading.html
 [mul]: http://python.jobbole.com/87760/
@@ -256,9 +262,8 @@ sticky: true
 
 # <font color="orange">R手册</font>
 
-> 本手册所列包基本来自[AwesomeR][AwesomeR] ，结合[GitHub][GitHub]和`help(package="pk_name")`官方文档整理所得，有助于使用时下最实用的包对R进行深入的学习。  
+本手册所列包基本来自[AwesomeR][AwesomeR] ，结合[GitHub][GitHub]和`help(package="pk_name")`官方文档整理所得，有助于使用时下最实用的包对R进行深入的学习。  
 致谢，[ApacheCN 中文开源组织](http://www.apachecn.org/## )：致力于官方文档及AI书籍中文翻译。  
-
 ![github](images/github.png)  
 
 ## <font color="green"> Common </font> 
@@ -324,12 +329,11 @@ sticky: true
 
 *DATA MANIPULATION*  
 
-- :ballot_box_with_check: [tidyr][tidyr]：清理数据,reshape2替代版(Hadley)  
+- :ballot_box_with_check: [tidyr][tidyr]：清理数据，reshape2替代版(Hadley)  
 - :ballot_box_with_check: [dplyr and plyr][dplyr]：数据操作(Hadley)  
 - :white_large_square:  rlist：用于list(非规整)数据操作工具箱  
 - :ballot_box_with_check: [stringr][stringr]：for strings.(Hadley)  
 - :white_large_square:  utf8：处理和修复R中的多种文本编码问题   
-- :ballot_box_with_check: [正则表达式][re]：Regular Expression  
 - :ballot_box_with_check: [lubridate+hms][lubridate]：for date and times(Hadley)  
 - :ballot_box_with_check: [forcats][forcats]：for factors(Hadley)  
 - :white_large_square:  sjmisc：各种实用功能的集合，支持数据重编码，缺失值处理等，与dplyr包无缝协作。  
@@ -339,7 +343,6 @@ sticky: true
 [tidyr]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--tidyr.html
 [dplyr]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--dplyr-and-plyr.html
 [stringr]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--stringr.html
-[re]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--regular-expression.html
 [lubridate]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--lubridate+hms.html
 [forcats]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--forcats.html
 [naniar]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--for-missing-data(naniar-and-simputation).html
