@@ -56,19 +56,19 @@
   };
 </script>
 
-  <meta name="description" content="普通字符：普通字符包括没有显式指定为元字符的所有可打印和不可打印字符。可直接匹配自身。 元字符：元字符加斜杠\匹配自身(在R中斜杠为\\，匹配+应写为\\+ Cheat Sheet：Basic Regular Expressions in R">
-<meta name="keywords" content="R,正则表达式">
+  <meta name="description" content="正则表达式是对字符串（包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为“元字符”））操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。正则表达式是一种文本模式，该模式描述在搜索文本时要匹配的一个或多个字符串。 Cheat Sheet：Basic Regular Expressions in">
+<meta name="keywords" content="正则表达式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R手册(Tidy+Transform)--正则表达式">
-<meta property="og:url" content="https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--regular-expression.html">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="https://wilenwu.github.io/posts/regular-expression.html">
 <meta property="og:site_name" content="Wilen&#39;s Blog">
-<meta property="og:description" content="普通字符：普通字符包括没有显式指定为元字符的所有可打印和不可打印字符。可直接匹配自身。 元字符：元字符加斜杠\匹配自身(在R中斜杠为\\，匹配+应写为\\+ Cheat Sheet：Basic Regular Expressions in R">
+<meta property="og:description" content="正则表达式是对字符串（包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为“元字符”））操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。正则表达式是一种文本模式，该模式描述在搜索文本时要匹配的一个或多个字符串。 Cheat Sheet：Basic Regular Expressions in">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-30T06:39:03.841Z">
+<meta property="og:updated_time" content="2019-10-09T06:50:47.355Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R手册(Tidy+Transform)--正则表达式">
-<meta name="twitter:description" content="普通字符：普通字符包括没有显式指定为元字符的所有可打印和不可打印字符。可直接匹配自身。 元字符：元字符加斜杠\匹配自身(在R中斜杠为\\，匹配+应写为\\+ Cheat Sheet：Basic Regular Expressions in R">
-  <link rel="canonical" href="https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--regular-expression">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="正则表达式是对字符串（包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为“元字符”））操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。正则表达式是一种文本模式，该模式描述在搜索文本时要匹配的一个或多个字符串。 Cheat Sheet：Basic Regular Expressions in">
+  <link rel="canonical" href="https://wilenwu.github.io/posts/regular-expression">
 
 
 <script id="page-configurations">
@@ -92,7 +92,7 @@
     })();
 </script>
 
-  <title>R手册(Tidy+Transform)--正则表达式 | Wilen's Blog</title>
+  <title>正则表达式 | Wilen's Blog</title>
   
 
 
@@ -205,7 +205,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">23</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">24</span></a>
 
   </li>
       
@@ -312,7 +312,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--regular-expression.html">
+    <link itemprop="mainEntityOfPage" href="https://wilenwu.github.io/posts/regular-expression.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wilen Wu">
@@ -324,7 +324,7 @@
       <meta itemprop="name" content="Wilen's Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">R手册(Tidy+Transform)--正则表达式
+        <h2 class="post-title" itemprop="name headline">正则表达式
 
           
         </h2>
@@ -351,7 +351,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-30 14:39:03" itemprop="dateModified" datetime="2019-09-30T14:39:03+08:00">2019-09-30</time>
+                <time title="修改时间：2019-10-09 14:50:47" itemprop="dateModified" datetime="2019-10-09T14:50:47+08:00">2019-10-09</time>
               </span>
             
           
@@ -361,14 +361,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/Tidy-Transform/" itemprop="url" rel="index"><span itemprop="name">Tidy+Transform</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Regular-Expression/" itemprop="url" rel="index"><span itemprop="name">Regular Expression</span></a></span>
 
                 
                 
@@ -377,7 +370,7 @@
           
 
           
-            <span id="/posts/R/RNotebook(Tidy+Transform)--regular-expression.html" class="post-meta-item leancloud_visitors" data-flag-title="R手册(Tidy+Transform)--正则表达式" title="热度">
+            <span id="/posts/regular-expression.html" class="post-meta-item leancloud_visitors" data-flag-title="正则表达式" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -395,7 +388,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/R/RNotebook(Tidy+Transform)--regular-expression.html#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/posts/R/RNotebook(Tidy+Transform)--regular-expression.html" itemprop="commentCount"></span></a>
+    <a title="valine" href="/posts/regular-expression.html#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/posts/regular-expression.html" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -407,7 +400,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>1.4k</span>
+              <span>1.8k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -417,7 +410,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
           
 
@@ -430,58 +423,57 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>普通字符</strong>：普通字符包括没有显式指定为元字符的所有可打印和不可打印字符。可直接匹配自身。<br>
-<strong>元字符</strong>：元字符加斜杠\匹配自身(在R中斜杠为<code>\\</code>，匹配<code>+</code>应写为<code>\\+</code></p>
+        <p>正则表达式是对字符串（包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为“元字符”））操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。正则表达式是一种文本模式，该模式描述在搜索文本时要匹配的一个或多个字符串。</p>
 <p>Cheat Sheet：<a href="https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf" target="_blank" rel="noopener">Basic Regular Expressions in R </a></p>
 <a id="more"></a>
-<p><strong>非打印字符</strong></p>
+<h1 id="正则表达式"><a class="markdownIt-Anchor" href="#正则表达式"></a> 正则表达式</h1>
+<p><strong>普通字符</strong>：普通字符包括没有显式指定为元字符的所有可打印和不可打印字符。可直接匹配自身。<br>
+<strong>元字符</strong>：元字符加斜杠\匹配自身(在R中斜杠为<code>\\</code>，匹配<code>+</code>应写为<code>\\+</code></p>
+<h2 id="非打印字符"><a class="markdownIt-Anchor" href="#非打印字符"></a> 非打印字符</h2>
+<p>非打印字符也可以是正则表达式的组成部分。下表列出了表示非打印字符的转义序列</p>
 <table>
 <thead>
 <tr>
 <th>字符</th>
-<th>描述</th>
-<th>等价</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>\cx</td>
+<td style="text-align:left">匹配由x指明的控制字符。例如， \cM 匹配一个 Control-M 或回车符。<br>x 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 ‘c’ 字符。</td>
+</tr>
+<tr>
 <td>\f</td>
-<td>换页符</td>
-<td></td>
+<td style="text-align:left">换页符</td>
 </tr>
 <tr>
 <td>\n</td>
-<td>换行符</td>
-<td></td>
+<td style="text-align:left">换行符</td>
 </tr>
 <tr>
 <td>\r</td>
-<td>回车符</td>
-<td></td>
+<td style="text-align:left">回车符</td>
 </tr>
 <tr>
 <td>\t</td>
-<td>制表符</td>
-<td></td>
+<td style="text-align:left">制表符</td>
 </tr>
 <tr>
 <td>\v</td>
-<td>垂直制表符</td>
-<td></td>
+<td style="text-align:left">垂直制表符</td>
 </tr>
 <tr>
 <td>\s</td>
-<td>空白字符</td>
-<td><code>[ \f\n\r\t\v]</code></td>
+<td style="text-align:left">空白字符，等价于<code>[ \f\n\r\t\v]</code></td>
 </tr>
 <tr>
 <td>\S</td>
-<td>非空白字符</td>
-<td><code>[^ \f\n\r\t\v]</code></td>
+<td style="text-align:left">非空白字符，等价于<code>[^ \f\n\r\t\v]</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>打印字符</strong></p>
+<h2 id="打印字符"><a class="markdownIt-Anchor" href="#打印字符"></a> 打印字符</h2>
 <table>
 <thead>
 <tr>
@@ -518,7 +510,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>限定符</strong></p>
+<h2 id="限定符"><a class="markdownIt-Anchor" href="#限定符"></a> 限定符</h2>
 <table>
 <thead>
 <tr>
@@ -560,10 +552,10 @@
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>限定符都是贪婪匹配，在之后放置 ?，可转换为最小匹配（如*?）</p>
-</blockquote>
-<p><strong>定位符</strong></p>
+<div class="note warning">
+            <p>限定符都是贪婪匹配，在之后放置 ?，可转换为最小匹配（如*?）</p>
+          </div>
+<h2 id="定位符"><a class="markdownIt-Anchor" href="#定位符"></a> 定位符</h2>
 <table>
 <thead>
 <tr>
@@ -595,7 +587,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>选择</strong></p>
+<h2 id="选择"><a class="markdownIt-Anchor" href="#选择"></a> 选择</h2>
 <table>
 <thead>
 <tr>
@@ -637,7 +629,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>字符集合</strong></p>
+<h2 id="字符集合"><a class="markdownIt-Anchor" href="#字符集合"></a> 字符集合</h2>
 <table>
 <thead>
 <tr>
@@ -675,52 +667,67 @@
 <td>大写字母</td>
 </tr>
 <tr>
-<td>[:punct:]</td>
-<td>punctuation</td>
+<td>\num</td>
+<td>匹配 num，其中 num 是一个正整数。对所获取的匹配的引用。<br>例如，’(.)\1’ 匹配两个连续的相同字符。</td>
+</tr>
+</tbody>
+</table>
+<p>R 语言通用字符集</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">字符集合</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">[:punct:]</td>
+<td style="text-align:left">punctuation</td>
 </tr>
 <tr>
-<td>[:alpha:]</td>
-<td>letters.</td>
+<td style="text-align:left">[:alpha:]</td>
+<td style="text-align:left">letters.</td>
 </tr>
 <tr>
-<td>[:lower:]</td>
-<td>lowercase letters.</td>
+<td style="text-align:left">[:lower:]</td>
+<td style="text-align:left">lowercase letters.</td>
 </tr>
 <tr>
-<td>[:upper:]</td>
-<td>upperclass letters.</td>
+<td style="text-align:left">[:upper:]</td>
+<td style="text-align:left">upperclass letters.</td>
 </tr>
 <tr>
-<td>[:digit:]</td>
-<td>digits.</td>
+<td style="text-align:left">[:digit:]</td>
+<td style="text-align:left">digits.</td>
 </tr>
 <tr>
-<td>[:xdigit:]</td>
-<td>hex digits.</td>
+<td style="text-align:left">[:xdigit:]</td>
+<td style="text-align:left">hex digits.</td>
 </tr>
 <tr>
-<td>[:alnum:]</td>
-<td>letters and numbers.</td>
+<td style="text-align:left">[:alnum:]</td>
+<td style="text-align:left">letters and numbers.</td>
 </tr>
 <tr>
-<td>[:cntrl:]</td>
-<td>control characters.</td>
+<td style="text-align:left">[:cntrl:]</td>
+<td style="text-align:left">control characters.</td>
 </tr>
 <tr>
-<td>[:graph:]</td>
-<td>letters, numbers, and punctuation.</td>
+<td style="text-align:left">[:graph:]</td>
+<td style="text-align:left">letters, numbers, and punctuation.</td>
 </tr>
 <tr>
-<td>[:print:]</td>
-<td>letters, numbers, punctuation, and whitespace.</td>
+<td style="text-align:left">[:print:]</td>
+<td style="text-align:left">letters, numbers, punctuation, and whitespace.</td>
 </tr>
 <tr>
-<td>[:space:]</td>
-<td>space characters (basically equivalent to \s).</td>
+<td style="text-align:left">[:space:]</td>
+<td style="text-align:left">space characters (basically equivalent to \s).</td>
 </tr>
 <tr>
-<td>[:blank:]</td>
-<td>space and tab.</td>
+<td style="text-align:left">[:blank:]</td>
+<td style="text-align:left">space and tab.</td>
 </tr>
 </tbody>
 </table>
@@ -762,7 +769,7 @@
     <strong>本文作者： </strong>Wilen Wu</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--regular-expression.html" title="R手册(Tidy+Transform)--正则表达式">https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--regular-expression.html</a>
+    <a href="https://wilenwu.github.io/posts/regular-expression.html" title="正则表达式">https://wilenwu.github.io/posts/regular-expression.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -776,8 +783,6 @@
             
           
           <div class="post-tags">
-            
-              <a href="/tags/R/" rel="tag"># R</a>
             
               <a href="/tags/正则表达式/" rel="tag"># 正则表达式</a>
             
@@ -893,6 +898,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.</span> <span class="nav-text"> 正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#非打印字符"><span class="nav-number">1.1.</span> <span class="nav-text"> 非打印字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打印字符"><span class="nav-number">1.2.</span> <span class="nav-text"> 打印字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#限定符"><span class="nav-number">1.3.</span> <span class="nav-text"> 限定符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位符"><span class="nav-number">1.4.</span> <span class="nav-text"> 定位符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择"><span class="nav-number">1.5.</span> <span class="nav-text"> 选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符集合"><span class="nav-number">1.6.</span> <span class="nav-text"> 字符集合</span></a></li></ol></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
@@ -922,7 +929,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -999,7 +1006,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">288k</span>
+    <span title="站点总字数">287k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
@@ -1126,7 +1133,7 @@ if (document.querySelectorAll('pre.mermaid').length) {
       repo: 'gitalk',
       owner: 'wilenwu',
       admin: ['wilenwu'],
-      id: '97f6e02a62fec955a817c395084650ea',
+      id: '1494440ae582416ad211779d2152eca2',
         language: 'zh-CN',
       
       distractionFreeMode: 'true'
