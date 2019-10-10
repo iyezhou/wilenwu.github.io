@@ -409,11 +409,11 @@
             
             <tag> R </tag>
             
+            <tag> text2vec </tag>
+            
             <tag> NLP </tag>
             
             <tag> 分词 </tag>
-            
-            <tag> text2vec </tag>
             
         </tags>
       
@@ -659,9 +659,9 @@
             
             <tag> python </tag>
             
-            <tag> 可视化 </tag>
-            
             <tag> matplotlib </tag>
+            
+            <tag> 可视化 </tag>
             
         </tags>
       
@@ -725,9 +725,9 @@
             
             <tag> python </tag>
             
-            <tag> seaborn </tag>
-            
             <tag> 可视化 </tag>
+            
+            <tag> seaborn </tag>
             
         </tags>
       
@@ -1014,11 +1014,11 @@
             
             <tag> R </tag>
             
-            <tag> jiebaR </tag>
-            
             <tag> NLP </tag>
             
             <tag> 分词 </tag>
+            
+            <tag> jiebaR </tag>
             
         </tags>
       
