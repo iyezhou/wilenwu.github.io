@@ -219,7 +219,7 @@ Will you choose {% label default@default %}, {% label primary@primary %}, {% lab
 
 ## 流程图
 
-```
+```markdown
 {% mermaid type%}
 {% endmermaid %}
 ```
@@ -247,10 +247,7 @@ Bob-->>Alice: Checking with John...
 Alice->>John: Yes... John, how are you?
 {% endmermaid %}
 
-
 ## 图片集
-
-使用 `button` 或者 简写 `btn`
 
 ```
 {% grouppicture [group]-[layout] %}{% endgrouppicture %}

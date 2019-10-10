@@ -21,6 +21,8 @@ sticky: true
 
 ------
 
+<!-- toc -->
+
 
 # <font color="orange">个人博客</font>
 
@@ -218,7 +220,7 @@ sticky: true
 - :heart:  [xgboost][xgboost]： 一种可扩展，可移植且分布式的渐变增强库  
 
 [scikit-learn]: https://wilenwu.github.io/posts/python/PythonNotebook(Machine-Learning)--sklearn.html
-[statsmodels]: https://blog.csdn.net/qq_41518277/article/details/80275280
+[statsmodels]: https://wilenwu.github.io/gitbook/statsmodels/
 [xgboost]: http://xgboost.apachecn.org/##/
 
 ## <font color="green">Deep Learning</font>  
