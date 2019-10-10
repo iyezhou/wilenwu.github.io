@@ -121,7 +121,7 @@ def get_post_url(info_series,website,permalink):
         permalink=permalink.replace(key,value)
     return '/'.join([website,permalink])
 
-def maps_collect(book,website,permalink,post_info): 
+def maps_collect(book,post_info,local=True): 
     lines=book.splitlines()
     maps={}
     
@@ -133,6 +133,10 @@ def maps_collect(book,website,permalink,post_info):
     post_info['day']=post_info['date'].dt.day
     post_info=post_info.astype(str)
     
+    website='' if local else config['url']
+    permalink=config['permalink']
+    #permalink=':year/:month/:day/:title/'
+
     for line in lines:
         line=re.sub('^(\s*-\s\[[ x]\])','',line) # 去除复选框的影响
         title_id=re.search('\[.+?\]\[.+?\]',line)
@@ -170,9 +174,6 @@ config=clean(config,YAML=False)
 #content=config
 
 source_dir=config['source_dir']
-website=config['url']
-permalink=config['permalink']
-#permalink=':year/:month/:day/:title/'
 
 #更新 post_info
 posts_dir=os.path.join(source_dir,'_posts').replace('\\','/')
@@ -200,7 +201,7 @@ books=os.listdir()
 for path in books:
     with open(path,'r',encoding='utf-8') as f:
         book=f.read()        
-    maps=maps_collect(book,website,permalink,post_info)
+    maps=maps_collect(book,post_info,local=True)
     newbook=bookshelf_update(book,maps)
     with open(path,'w',encoding='utf-8') as f:
         f.writelines(newbook)

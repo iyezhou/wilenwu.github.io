@@ -10,7 +10,7 @@ sticky: true
 
 <img src="images/bookshelf.jpg" />
 本博客基于 Hexo 及 GitBook 配合搭建而成。
-其中博文依据个人爱好、工作需要等制定了一份详细的学习计划，并根据清单同步更新学习笔记，详情请查阅本「[书架](https://wilenwu.github.io/bookshelf/)」。
+其中博文依据个人爱好、工作需要等制定了一份详细的学习计划，并根据清单同步更新学习笔记，详情请查阅本「书架」。
 
 <!-- more -->
 
@@ -21,41 +21,39 @@ sticky: true
 
 ------
 
-<!-- toc -->
 
-
-# <font color="orange">个人博客</font>
+# <font color="red">个人博客</font>
 
 - :ballot_box_with_check:   [Hexo博客搭建及配置][hexo]    
 - :ballot_box_with_check:   [Hexo标签插件的使用][tags]    
 - :ballot_box_with_check:   [NexT主题进阶][NexT]    
 
-[hexo]: https://wilenwu.github.io/posts/hexo/Hexo-setup&configuration.html
-[tags]: https://wilenwu.github.io/posts/hexo/Hexo-tag-plugins.html
-[NexT]: https://wilenwu.github.io/posts/hexo/theme-NexT-advanced.html
+[hexo]: /posts/hexo/Hexo-setup&configuration.html
+[tags]: /posts/hexo/Hexo-tag-plugins.html
+[NexT]: /posts/hexo/theme-NexT-advanced.html
 
 ------
 
-# <font color="orange">Markdown</font>
+# <font color="red">Markdown</font>
 - :ballot_box_with_check:   [GitHub Flavored Markdown 规范][md]  
 - :ballot_box_with_check:   [KaTeX 数学符号列表][katex]  
 - :white_large_square:  [Markdown For Typora][mft]  
 
-[md]: https://wilenwu.github.io/posts/markdown/GitHub-Flavored-Markdown-Spec.html
-[katex]: https://wilenwu.github.io/posts/markdown/KaTeX-Mathematical-Symbols.md.html
-[mft]: https://wilenwu.github.io/posts/markdown/Markdown-For-Typora.html
+[md]: /posts/markdown/GitHub-Flavored-Markdown-Spec.html
+[katex]: /posts/markdown/KaTeX-Mathematical-Symbols.md.html
+[mft]: /posts/markdown/Markdown-For-Typora.html
 
 ------
 
-# <font color="orange">正则表达式</font>
+# <font color="red">正则表达式</font>
 
 - :ballot_box_with_check:  [正则表达式][RegularExpression]
 
-[RegularExpression]: https://wilenwu.github.io/posts/regular-expression.html
+[RegularExpression]: /posts/regular-expression.html
 
 ------
 
-# <font color="orange">大数据</font>
+# <font color="red">大数据</font>
 
 致谢，[ApacheCN 中文开源组织](http://www.apachecn.org/#)：致力于官方文档及AI书籍中文翻译。  
 
@@ -81,8 +79,8 @@ sticky: true
 - :ballot_box_with_check:   [HiveQL][HiveQL]  
 - :white_large_square:  RHive：Apache Hive促进分布式计算的R扩展  
 
-[sql]: https://wilenwu.github.io/posts/big-data/SQLNotebook.html
-[HiveQL]: https://wilenwu.github.io/posts/big-data/BigDataNotebook(Hive)--HiveQL.html
+[sql]: /posts/big-data/SQLNotebook.html
+[HiveQL]: /posts/big-data/BigDataNotebook(Hive)--HiveQL.html
 [hivebasic]: https://blog.csdn.net/zhongqi2513/article/details/69388239
 
 ## <font color="green">Spark</font>
@@ -95,7 +93,7 @@ sticky: true
 - :ballot_box_with_check:  [PySpark][PySpark] : Apache Spark Python API  
 - :white_large_square:  [Akka][akka]：Akka并发编程  
 
-[spark]: https://wilenwu.github.io/posts/big-data/BigDataNotebook(Spark)--Spark-installation.html
+[spark]: /posts/big-data/BigDataNotebook(Spark)--Spark-installation.html
 [spark_base]: https://blog.csdn.net/qq_41518277/article/details/84558396
 [akka]: https://blog.csdn.net/lovehuangjiaju/article/details/51039985
 [PySpark]: https://blog.csdn.net/qq_41518277/article/details/96487035
@@ -109,17 +107,17 @@ sticky: true
 
 ------
 
-# <font color="orange">数据分析</font>
+# <font color="red">数据分析</font>
 
 - :ballot_box_with_check:   [二分类模型评价指标][evaluation]  
 - :ballot_box_with_check:   [数据分析理论概览][theory]  
 
-[evaluation]: https://wilenwu.github.io/posts/data-analysis/classification-evaluation.html
-[theory]: https://wilenwu.github.io/posts/data-analysis/Overview-of-Data-Analysis-Theory.html
+[evaluation]: /posts/data-analysis/classification-evaluation.html
+[theory]: /posts/data-analysis/Overview-of-Data-Analysis-Theory.html
 
 ------
 
-# <font color="orange">Python手册</font> 
+# <font color="red">Python手册</font> 
 
 本手册所列包来自[Awesome-Python](https://awesome-python.com/) ，结合[GitHub](https://github.com/) 和官方文档  
 致谢，[ApacheCN 中文开源组织](http://www.apachecn.org/##)：致力于官方文档及AI书籍中文翻译。  
@@ -130,17 +128,17 @@ sticky: true
 - :white_large_square:  [常用的Python IDE][ide]  
 - :ballot_box_with_check:  [Jupyter Notebook][Jupyter]  
 
-[ide]: https://wilenwu.github.io/posts/python/PythonNotebook(Python-Basics)--common-editor.html
-[Jupyter]: https://wilenwu.github.io/posts/python/PythonNotebook(Python-Basics)--Jupyter-Notebook.html
+[ide]: /posts/python/PythonNotebook(Python-Basics)--common-editor.html
+[Jupyter]: /posts/python/PythonNotebook(Python-Basics)--Jupyter-Notebook.html
 
 ## <font color="green">Python Basics</font>  
 
 - :ballot_box_with_check:  [Python基础][Base]: [Python 3 官方中文文档](base_doc)  
 - :heart:  [rpy2][rpy2]： Python 通过rpy2调用 R语言  
 
-[Base]: https://wilenwu.github.io/posts/python/PythonNotebook(Python-Basics)--Python-base.html
+[Base]: /posts/python/PythonNotebook(Python-Basics)--Python-base.html
 [base_doc]: https://docs.python.org/zh-cn/3/
-[rpy2]: https://wilenwu.github.io/posts/python/PythonNotebook(Python-Basics)--RPy2.html
+[rpy2]: /posts/python/PythonNotebook(Python-Basics)--RPy2.html
 
 ## <font color="green">Standard Library</font>  
 
@@ -153,9 +151,9 @@ sticky: true
 - :heart:  [os][os]: 文件和目录处理库([CSDN][csdn_os]参考链接)  
 - :white_large_square:  [asyncio][asyncio]: 内置了对异步IO的支持   
 
-[datetime]: https://wilenwu.github.io/posts/python/PythonNotebook(Standard-Library)--datetime.html
-[math]: https://wilenwu.github.io/posts/python/PythonNotebook(Standard-Library)--math+random.html
-[re]: https://wilenwu.github.io/posts/python/PythonNotebook(Standard-Library)--re.html
+[datetime]: /posts/python/PythonNotebook(Standard-Library)--datetime.html
+[math]: /posts/python/PythonNotebook(Standard-Library)--math+random.html
+[re]: /posts/python/PythonNotebook(Standard-Library)--re.html
 [tk]: http://www.runoob.com/python/python-gui-tkinter.html
 [threading]: http://www.runoob.com/python3/python3-multithreading.html
 [mul]: http://python.jobbole.com/87760/
@@ -172,10 +170,10 @@ sticky: true
 - :white_large_square:  astropy：一个天文学 Python 库。  
 - :heart:  [noise][noise]：柏林噪声(Python)  
 
-[NumPy]: https://wilenwu.github.io/posts/python/PythonNotebook(Scientific-Computing)--numpy.html
-[SciPy]: https://wilenwu.github.io/posts/python/PythonNotebook(Scientific-Computing)--scipy.html
-[SymPy]: https://wilenwu.github.io/posts/python/PythonNotebook(Scientific-Computing)--SymPy.html
-[noise]: https://wilenwu.github.io/posts/python/PerlinNoise(Python).html
+[NumPy]: /posts/python/PythonNotebook(Scientific-Computing)--numpy.html
+[SciPy]: /posts/python/PythonNotebook(Scientific-Computing)--scipy.html
+[SymPy]: /posts/python/PythonNotebook(Scientific-Computing)--SymPy.html
+[noise]: /posts/python/PerlinNoise(Python).html
 
 ## <font color="green">Data Analysis</font>  
 
@@ -184,8 +182,8 @@ sticky: true
 - :heart:  blaze：NumPy 和 Pandas 的大数据接口。  
 - :heart:  orange：通过可视化编程或 Python 脚本进行数据挖掘，数据可视化，分析和机器学习。  
 
-[pandas]: https://wilenwu.github.io/posts/python/PythonNotebook(Data-Analysis)--pandas.html
-[Time Series]: https://wilenwu.github.io/posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries).html
+[pandas]: /posts/python/PythonNotebook(Data-Analysis)--pandas.html
+[Time Series]: /posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries).html
 
 ## <font color="green">Web Crawling</font> 
 
@@ -209,8 +207,8 @@ sticky: true
 - :white_large_square:  pyecharts：基于百度 Echarts 的数据可视化库。  
 - :heart:  missingno：缺失数据图示。  
 
-[matplotlib]: https://wilenwu.github.io/posts/python/PythonNotebook(Visualise)--matplotlib.html
-[seaborn]: https://wilenwu.github.io/posts/python/PythonNotebook(Visualise)--seaborn.html
+[matplotlib]: /posts/python/PythonNotebook(Visualise)--matplotlib.html
+[seaborn]: /posts/python/PythonNotebook(Visualise)--seaborn.html
 [ggplot]: http://yhat.github.io/ggpy/
 
 ## <font color="green">Machine Learning</font>  
@@ -219,8 +217,8 @@ sticky: true
 - :ballot_box_with_check:  [statsmodels][statsmodels]：统计建模和计量经济学。  
 - :heart:  [xgboost][xgboost]： 一种可扩展，可移植且分布式的渐变增强库  
 
-[scikit-learn]: https://wilenwu.github.io/posts/python/PythonNotebook(Machine-Learning)--sklearn.html
-[statsmodels]: https://wilenwu.github.io/gitbook/statsmodels/
+[scikit-learn]: /posts/python/PythonNotebook(Machine-Learning)--sklearn.html
+[statsmodels]: /gitbook/statsmodels/
 [xgboost]: http://xgboost.apachecn.org/##/
 
 ## <font color="green">Deep Learning</font>  
@@ -262,7 +260,7 @@ sticky: true
 
 ------
 
-# <font color="orange">R手册</font>
+# <font color="red">R手册</font>
 
 本手册所列包基本来自[AwesomeR][AwesomeR] ，结合[GitHub][GitHub]和`help(package="pk_name")`官方文档整理所得，有助于使用时下最实用的包对R进行深入的学习。  
 致谢，[ApacheCN 中文开源组织](http://www.apachecn.org/## )：致力于官方文档及AI书籍中文翻译。  
@@ -278,12 +276,12 @@ sticky: true
 - :heart:  devtools：使开发R包变得更简单(Hadley) (Update according to [cheat sheets][sheet])  
 - :heart:  [rpy2][rpy2]：Python 通过rpy2调用 R语言  
 
-[basic]: https://wilenwu.github.io/posts/R/RNotebook(Common)--R-base.html
-[base]: https://wilenwu.github.io/posts/R/RNotebook(Common)--R-basic-packages.html
-[tidyverse]: https://wilenwu.github.io/posts/R/RNotebook(Common)--tidyverse+tibble.html
-[data.table]: https://wilenwu.github.io/posts/R/RNotebook(Common)--data.table.html
-[R6]: https://wilenwu.github.io/posts/R/RNotebook(Common)--Object-Oriented(R6-and-S4).html
-[rpy2]: https://wilenwu.github.io/posts/python/PythonNotebook(Python-Basics)--RPy2.html
+[basic]: /posts/R/RNotebook(Common)--R-base.html
+[base]: /posts/R/RNotebook(Common)--R-basic-packages.html
+[tidyverse]: /posts/R/RNotebook(Common)--tidyverse+tibble.html
+[data.table]: /posts/R/RNotebook(Common)--data.table.html
+[R6]: /posts/R/RNotebook(Common)--Object-Oriented(R6-and-S4).html
+[rpy2]: /posts/python/PythonNotebook(Python-Basics)--RPy2.html
 
 
 ## <font color="green"> Syntax </font> 
@@ -293,8 +291,8 @@ sticky: true
 - :ballot_box_with_check: [magrittr][magrittr]：Let’s pipe it  
 - :heart:  pipeR：多范式管道编程  
 
-[purrr]: https://wilenwu.github.io/posts/R/RNotebook(Syntax)--purrr.html
-[magrittr]: https://wilenwu.github.io/posts/R/RNotebook(Syntax)--magrittr.html
+[purrr]: /posts/R/RNotebook(Syntax)--purrr.html
+[magrittr]: /posts/R/RNotebook(Syntax)--magrittr.html
 
 ## <font color="green"> Import</font>  
 
@@ -305,17 +303,17 @@ sticky: true
 - :white_large_square:  haven：for SPSS,SAS and Stata files.(Hadley)  
 - :heart:  feather：for sharing with Python and other languages.(Hadley)  
 
-[readr]: https://wilenwu.github.io/posts/R/RNotebook(Import)--read-csv-xlsx-or-json.html#readr:-read-rectangular-text-data
-[readxl]: https://wilenwu.github.io/posts/R/RNotebook(Import)--read-csv-xlsx-or-json.html#readxl:-for-excel
-[openxlsx]: https://wilenwu.github.io/posts/R/RNotebook(Import)--read-csv-xlsx-or-json.html#openxlsx:-xlsx-reading,-writing-and-editing
-[jsonlite]: https://wilenwu.github.io/posts/R/RNotebook(Import)--read-csv-xlsx-or-json.html#jsonlite:-for-json
+[readr]: /posts/R/RNotebook(Import)--read-csv-xlsx-or-json.html#readr:-read-rectangular-text-data
+[readxl]: /posts/R/RNotebook(Import)--read-csv-xlsx-or-json.html#readxl:-for-excel
+[openxlsx]: /posts/R/RNotebook(Import)--read-csv-xlsx-or-json.html#openxlsx:-xlsx-reading,-writing-and-editing
+[jsonlite]: /posts/R/RNotebook(Import)--read-csv-xlsx-or-json.html#jsonlite:-for-json
 
 *DATABASE MANAGEMENT*  
 
 - :heart:  [DBI][DBI]：数据库统一接口(Hadley)  
 - :heart:  RHive：通过Apache Hive促进分布式计算的R扩展  
 
-[DBI]: https://wilenwu.github.io/posts/R/RNotebook(Import)--DBI.html
+[DBI]: /posts/R/RNotebook(Import)--DBI.html
 
 *WEB TECHNOLOGIES*  
 
@@ -325,7 +323,7 @@ sticky: true
 - :ballot_box_with_check:  xml2：解析XML文件 (Hadley)  (Update according to GitHub)  
 
 [httr]: https://httr.r-lib.org/
-[rvest]: https://wilenwu.github.io/posts/R/RNotebook(Import)--rvest.html
+[rvest]: /posts/R/RNotebook(Import)--rvest.html
 
 ## <font color="green"> Tidy+Transform</font>  
 
@@ -342,13 +340,13 @@ sticky: true
 - :ballot_box_with_check: [naniar][naniar]：缺失数据概述和可视化  
 - :ballot_box_with_check: [simputation][simputation]：缺失数据插补框架  
 
-[tidyr]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--tidyr.html
-[dplyr]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--dplyr-and-plyr.html
-[stringr]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--stringr.html
-[lubridate]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--lubridate+hms.html
-[forcats]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--forcats.html
-[naniar]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--for-missing-data(naniar-and-simputation).html
-[simputation]: https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--for-missing-data(naniar-and-simputation).html
+[tidyr]: /posts/R/RNotebook(Tidy+Transform)--tidyr.html
+[dplyr]: /posts/R/RNotebook(Tidy+Transform)--dplyr-and-plyr.html
+[stringr]: /posts/R/RNotebook(Tidy+Transform)--stringr.html
+[lubridate]: /posts/R/RNotebook(Tidy+Transform)--lubridate+hms.html
+[forcats]: /posts/R/RNotebook(Tidy+Transform)--forcats.html
+[naniar]: /posts/R/RNotebook(Tidy+Transform)--for-missing-data(naniar-and-simputation).html
+[simputation]: /posts/R/RNotebook(Tidy+Transform)--for-missing-data(naniar-and-simputation).html
 
 *LARGE DATASETS*  
 
@@ -367,9 +365,9 @@ sticky: true
 - :ballot_box_with_check: [ggplot2][ggplot2]：强大的绘图系统，并实现了许多扩展(Hadley)  
 - :ballot_box_with_check: [ggplot2 extensions][ggplot2 extensions]: ggplot2扩展，包括各种补充图形，坐标系统，主题等。  
 
-[extrafont]: https://wilenwu.github.io/posts/R/RNotebook(Visualise)--RColorBrewer-and-extrafont.html
-[ggplot2]: https://wilenwu.github.io/posts/R/RNotebook(Visualise)--ggplot2.html
-[ggmap]: https://wilenwu.github.io/posts/R/RNotebook(Visualise)--ggmap+baidumap.html
+[extrafont]: /posts/R/RNotebook(Visualise)--RColorBrewer-and-extrafont.html
+[ggplot2]: /posts/R/RNotebook(Visualise)--ggplot2.html
+[ggmap]: /posts/R/RNotebook(Visualise)--ggmap+baidumap.html
 [ggplot2 extensions]: http://www.ggplot2-exts.org/ggiraph.html
 
 *HTML WIDGETS*  
@@ -381,14 +379,14 @@ sticky: true
 - :white_large_square:  rbokeh：R与Bokeh的接口。  
 - :heart:  plotly：R的交互式图形库，基于ggplot2 和shiny。  
 
-[leaflet+leafletCN]: https://wilenwu.github.io/posts/R/RNotebook(Visualise)--leaflet+leafletCN.html
-[Remap]: https://wilenwu.github.io/posts/R/RNotebook(Visualise)--REmap.html
+[leaflet+leafletCN]: /posts/R/RNotebook(Visualise)--leaflet+leafletCN.html
+[Remap]: /posts/R/RNotebook(Visualise)--REmap.html
 
 ## <font color="green"> Parallel Computing</font> 
 
 - :heart:  [foreach][foreach]：在循环(loop)中并行化运算  
 
-[foreach]: https://wilenwu.github.io/posts/R/RNotebook(Parallel-Computing)--foreach.html
+[foreach]: /posts/R/RNotebook(Parallel-Computing)--foreach.html
 
 ## <font color="green"> MapReduce</font>  
 
@@ -401,8 +399,8 @@ sticky: true
 - :ballot_box_with_check: [modelr][modelr]：管道建模辅助包(Hadley)  
 - :heart:  caret：分类和回归问题的数据训练综合工具包（包括交叉验证，网格搜索等）  
 
-[broom]: https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--broom.html
-[modelr]: https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--modelr.html
+[broom]: /posts/R/RNotebook(Model-Tools)--broom.html
+[modelr]: /posts/R/RNotebook(Model-Tools)--modelr.html
 
 
 ## <font color="green"> Machine Learning</font>  
@@ -414,7 +412,7 @@ sticky: true
 - :white_large_square:  survival：生存分析模型  
 - :white_large_square:  nnet：神经网络  
 
-[mlr]: https://wilenwu.github.io/posts/R/RNotebook(Machine-Learning)--mlr.html
+[mlr]: /posts/R/RNotebook(Machine-Learning)--mlr.html
 
 ## <font color="green"> Deep Learning</font>  
 
@@ -432,9 +430,9 @@ sticky: true
 - :heart:  tidytex：简单文本挖掘，结合dplyr，ggplot2和其他简洁工具  
 - :ballot_box_with_check: [text2vec][text2vec]：一个快速文本挖掘框架（jiebaR推荐包） (Update according to GitHub)  
 
-[jiebaR]: https://wilenwu.github.io/posts/R/RNotebook(NLP)--jiebaR.html
-[wordcloud2]: https://wilenwu.github.io/posts/R/RNotebook(NLP)--wordcloud2.html
-[text2vec]: https://wilenwu.github.io/posts/R/RNotebook(NLP)--text2vec.html
+[jiebaR]: /posts/R/RNotebook(NLP)--jiebaR.html
+[wordcloud2]: /posts/R/RNotebook(NLP)--wordcloud2.html
+[text2vec]: /posts/R/RNotebook(NLP)--text2vec.html
 
 ## <font color="green"> Time Series</font>  
 
@@ -445,11 +443,11 @@ sticky: true
 - :ballot_box_with_check: [forecastHybrid][forecastHybrid]：结合forcast包时间序列模型混合预测  
 - :white_large_square:  CausalImpact：使用贝叶斯结构时间序列模型进行因果推理  
 
-[zoo]: https://wilenwu.github.io/posts/R/RNotebook(Time-Series)--zoo.html
+[zoo]: /posts/R/RNotebook(Time-Series)--zoo.html
 [xts]: http://joshuaulrich.github.io/xts/
-[prophet]: https://wilenwu.github.io/posts/R/RNotebook(Time-Series)--forecast-and-prophet.html
-[forecast]: https://wilenwu.github.io/posts/R/RNotebook(Time-Series)--forecast-and-prophet.html
-[forecastHybrid]: https://wilenwu.github.io/posts/R/RNotebook(Time-Series)--forecast-and-prophet.html
+[prophet]: /posts/R/RNotebook(Time-Series)--forecast-and-prophet.html
+[forecast]: /posts/R/RNotebook(Time-Series)--forecast-and-prophet.html
+[forecastHybrid]: /posts/R/RNotebook(Time-Series)--forecast-and-prophet.html
 
 ## <font color="green"> Finance</font>  
 
@@ -465,8 +463,8 @@ sticky: true
 - :white_large_square:  knitr：用于在PDF和HTML文档中嵌入R代码块  
 - :ballot_box_with_check: [shiny][shiny]：使用R语言开发交互式web应用程序的工具  
 
-[rmarkdown]: https://wilenwu.github.io/posts/R/RNotebook(Communicate)--R-Markdown.html
-[shiny]: https://wilenwu.github.io/posts/R/RNotebook(Communicate)--shiny.html
+[rmarkdown]: /posts/R/RNotebook(Communicate)--R-Markdown.html
+[shiny]: /posts/R/RNotebook(Communicate)--shiny.html
 
 ## <font color="green"> Learning R</font>  
 
@@ -489,7 +487,7 @@ sticky: true
 
 ------
 
-# <font color="orange">数学</font>
+# <font color="red">数学</font>
 
 - :ballot_box_with_check:   [初等数学]( https://blog.csdn.net/qq_41518277/article/details/89397900)  
 - :ballot_box_with_check:   高等数学 (数学分析)：  
@@ -531,7 +529,7 @@ sticky: true
 
 ------
 
-# <font color="orange">物理</font>  
+# <font color="red">物理</font>  
 
 ## <font color="green">foundational physics</font>  
 
