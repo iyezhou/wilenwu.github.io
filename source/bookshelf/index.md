@@ -132,7 +132,7 @@ copyright: false
 
 ## <font color="green">Python Basics</font>
 
-- :ballot_box_with_check:  [Python基础][Base]: [Python 3 官方中文文档][python_base_doc]  
+- :ballot_box_with_check:  [Python基础][python_Base]: [Python 3 官方中文文档][python_base_doc]  
 - :ballot_box_with_check:  [Python标准库][Python_Standard_Library]
 - :ballot_box_with_check:  [Python面向对象][Python_Object_Oriented] 
 - :heart:  [rpy2][rpy2]： Python 通过rpy2调用 R语言  
@@ -221,10 +221,10 @@ copyright: false
 - :heart:  [xgboost][xgboost]： 一种可扩展，可移植且分布式的渐变增强库  
 
 [scikit-learn]: /posts/python/PythonNotebook(Machine-Learning)--sklearn.html
-[statsmodels]: /gitbook/statsmodels/
+[statsmodels]: /gitbook/PythonNotebook(Machine-Learning)--statsmodels/
 [xgboost]: http://xgboost.apachecn.org/##/
 
-## <font color="green">Deep Learning</font>  
+## <font color="green">Deep Learning</font>
 
 - :ballot_box_with_check:  [TensorFlow][TensorFlow]：Google开源的最受欢迎的深度学习框架。  
 - :white_large_square:  [PyTorch][PyTorch]: Facebook 的 AI 研究团队发布了一个 Python 工具包，专门针对 GPU 加速的深度神经网络（DNN）编程。  
@@ -371,7 +371,7 @@ copyright: false
 [extrafont]: /posts/R/RNotebook(Visualise)--RColorBrewer-and-extrafont.html
 [ggplot2]: /posts/R/RNotebook(Visualise)--ggplot2.html
 [ggmap]: /posts/R/RNotebook(Visualise)--ggmap+baidumap.html
-[ggplot2 extensions]: /gitbook/ggplot2-extensions/
+[ggplot2 extensions]: /gitbook/RNotebook(Visualise)--ggplot2-extensions/
 
 *HTML WIDGETS*  
 
