@@ -8,7 +8,6 @@ date: 2018-05-09 23:15:58
 categories: [python,Standard Library]
 sticky: false
 ---
-
 re 模块使 Python 语言拥有全部的正则表达式功能。
 
 compile 函数根据一个模式字符串和可选的标志参数生成一个正则表达式对象。该对象拥有一系列方法用于正则表达式匹配和替换。

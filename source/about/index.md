@@ -55,4 +55,5 @@ E3 -.-> F3(数据分析)
 [【Gitbook】实用配置及插件介绍](https://www.cnblogs.com/zhangjk1993/p/5066771.html)
 [GitBook插件整理](https://www.jianshu.com/p/427b8bb066e6)
 [推荐12个实用的gitbook插件 - 大师兄 - CSDN博客](https://blog.csdn.net/weixin_37865166/article/details/91899788)
+[Gitbook 使用入门](https://www.bookstack.cn/books/gitbook-zh)
 

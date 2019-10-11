@@ -6,7 +6,6 @@ copyright: true
 date: 2019-09-11 14:14:04
 categories: [Hexo]
 ---
-
 <div align="center"><a title="NexT website repository" href="https://github.com/theme-next/theme-next.org"><img align="center" width="60" height="60" src="https://raw.githubusercontent.com/theme-next/hexo-theme-next/master/source/images/logo.svg?sanitize=true"></a><font  size=5><b>e x T</b></font></div>
 
 NexT 是 [Hexo](http://hexo.io) 框架中最为流行的主题之一。精于心，简于形。

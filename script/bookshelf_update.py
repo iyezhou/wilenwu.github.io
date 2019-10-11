@@ -9,6 +9,10 @@ import pandas as pd
 root='D:\\wilenwu.github.io\\'
 os.chdir(root)
 
+def hash(string):
+    ID=string.encode(encoding='UTF-8')
+    return hashlib.md5(ID).hexdigest()
+
 def clean_inline(line):    
     key_value=line.split(': ')
     if len(key_value)==1:
@@ -61,7 +65,8 @@ def clean(content,YAML=True):
             key,value=clean_inline(line)
         elif len(line)>1:
             key,value=clean_span(line)
-            
+        
+        # YAML参数用来判断正在解析的是否是YAML
         if YAML and key.lower()=='title':
             key='post_title'
         elif YAML and key.lower()=='id':
@@ -85,8 +90,7 @@ def get_post_info(post_url,updateID=False):
     front_matter=re.sub(boundary,'',YAML)    # 删除起始标记    
     
     yaml_dict=clean(front_matter) # content=front_matter
-    ID=yaml_dict['date'].encode(encoding='UTF-8')
-    yaml_dict['ID']=hashlib.md5(ID).hexdigest()
+    yaml_dict['ID']=hash(yaml_dict['date'])
     
     if updateID:
         YAML=re.sub('^\n+','',YAML)
@@ -194,7 +198,7 @@ post_info.to_csv(os.path.join(root,'script','post_info'),sep='\t',encoding='utf-
 
 # 更新bookshelf
 os.chdir(os.path.join(source_dir,'bookshelf'))
-books=os.listdir()
+books=[file for file in os.listdir() if os.path.isfile(file)]
 
 #path='PythonBookshelf.md'
 

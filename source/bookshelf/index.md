@@ -2,10 +2,9 @@
 title: 书架
 date: 2019-10-08 13:04:44
 categories: [bookshelf]
-tags: [python,R,数据分析,大数据]
+tags: [python,书架]
 comments: true
 copyright: false
-sticky: true
 ---
 
 <img src="images/bookshelf.jpg" />
@@ -25,11 +24,11 @@ sticky: true
 # <font color="red">个人博客</font>
 
 - :ballot_box_with_check:   [Hexo博客搭建及配置][hexo]    
-- :ballot_box_with_check:   [Hexo标签插件的使用][tags]    
+- :ballot_box_with_check:   [Hexo标签插件的使用][hexo_tags]    
 - :ballot_box_with_check:   [NexT主题进阶][NexT]    
 
 [hexo]: /posts/hexo/Hexo-setup&configuration.html
-[tags]: /posts/hexo/Hexo-tag-plugins.html
+[hexo_tags]: /posts/hexo/Hexo-tag-plugins.html
 [NexT]: /posts/hexo/theme-NexT-advanced.html
 
 ------
@@ -40,7 +39,7 @@ sticky: true
 - :white_large_square:  [Markdown For Typora][mft]  
 
 [md]: /posts/markdown/GitHub-Flavored-Markdown-Spec.html
-[katex]: /posts/markdown/KaTeX-Mathematical-Symbols.md.html
+[katex]: /posts/markdown/KaTeX-Mathematical-Symbols.html
 [mft]: /posts/markdown/Markdown-For-Typora.html
 
 ------
@@ -60,12 +59,12 @@ sticky: true
 ## <font color="green">Linux</font>  
 
 - :ballot_box_with_check:  [Linux基础知识][linux]  
-- :ballot_box_with_check:  [Linux Shell 教程][shell]  
+- :ballot_box_with_check:  [Linux Shell教程][shell]  
 
-[linux]: https://blog.csdn.net/qq_41518277/article/details/80720390
-[shell]: https://blog.csdn.net/qq_41518277/article/details/80772546
+[linux]: /posts/big-data/BigDataNotebook(Linux)--Linux-base.html
+[shell]:  /posts/big-data/BigDataNotebook(Linux)--Linux-shell.html
 
-## <font color="green">Hadoop</font>  
+## <font color="green">Hadoop</font>
 
 - :white_large_square:  Hadoop安装配置  
 - :white_large_square:  Hadoop基础知识  
@@ -109,15 +108,15 @@ sticky: true
 
 # <font color="red">数据分析</font>
 
-- :ballot_box_with_check:   [二分类模型评价指标][evaluation]  
-- :ballot_box_with_check:   [数据分析理论概览][theory]  
+- :ballot_box_with_check:   [二分类模型评价指标][DA_evaluation]  
+- :ballot_box_with_check:   [数据分析理论概览][DA_theory]  
 
-[evaluation]: /posts/data-analysis/classification-evaluation.html
-[theory]: /posts/data-analysis/Overview-of-Data-Analysis-Theory.html
+[DA_evaluation]: /posts/data-analysis/classification-evaluation.html
+[DA_theory]: /posts/data-analysis/Overview-of-Data-Analysis-Theory.html
 
 ------
 
-# <font color="red">Python手册</font> 
+# <font color="red">Python手册</font>
 
 本手册所列包来自[Awesome-Python](https://awesome-python.com/) ，结合[GitHub](https://github.com/) 和官方文档  
 致谢，[ApacheCN 中文开源组织](http://www.apachecn.org/##)：致力于官方文档及AI书籍中文翻译。  
@@ -125,22 +124,26 @@ sticky: true
 
 ## <font color="green">IDE</font>  
 
-- :white_large_square:  [常用的Python IDE][ide]  
+- :white_large_square:  [常用的Python IDE][python_ide]  
 - :ballot_box_with_check:  [Jupyter Notebook][Jupyter]  
 
-[ide]: /posts/python/PythonNotebook(Python-Basics)--common-editor.html
+[python_ide]: /posts/python/PythonNotebook(Python-Basics)--common-editor.html
 [Jupyter]: /posts/python/PythonNotebook(Python-Basics)--Jupyter-Notebook.html
 
-## <font color="green">Python Basics</font>  
+## <font color="green">Python Basics</font>
 
-- :ballot_box_with_check:  [Python基础][Base]: [Python 3 官方中文文档](base_doc)  
+- :ballot_box_with_check:  [Python基础][Base]: [Python 3 官方中文文档][python_base_doc]  
+- :ballot_box_with_check:  [Python标准库][Python_Standard_Library]
+- :ballot_box_with_check:  [Python面向对象][Python_Object_Oriented] 
 - :heart:  [rpy2][rpy2]： Python 通过rpy2调用 R语言  
 
-[Base]: /posts/python/PythonNotebook(Python-Basics)--Python-base.html
-[base_doc]: https://docs.python.org/zh-cn/3/
+[python_Base]: /posts/python/PythonNotebook(Python-Basics)--Python-base.html
+[python_base_doc]: https://docs.python.org/zh-cn/3/
+[Python_Standard_Library]: /posts/python/PythonNotebook(Python-Basics)--Python-Standard-Library.html
+[Python_Object_Oriented]: /posts/python/PythonNotebook(Python-Basics)--Python-Object-Oriented.html
 [rpy2]: /posts/python/PythonNotebook(Python-Basics)--RPy2.html
 
-## <font color="green">Standard Library</font>  
+## <font color="green">Standard Library</font>
 
 - :ballot_box_with_check:  [datetime+time+calendar][datetime]  
 - :ballot_box_with_check:  [math+random][math]  
@@ -178,12 +181,12 @@ sticky: true
 ## <font color="green">Data Analysis</font>  
 
 - :ballot_box_with_check:  [pandas][pandas]：提供高性能，易用的数据结构和数据分析工具。  
-- :ballot_box_with_check:  [pandas(Time Series)][time series]: 时间序列数据处理工具。  
+- :ballot_box_with_check:  [pandas(Time Series)][TimeSeries]: 时间序列数据处理工具。  
 - :heart:  blaze：NumPy 和 Pandas 的大数据接口。  
 - :heart:  orange：通过可视化编程或 Python 脚本进行数据挖掘，数据可视化，分析和机器学习。  
 
 [pandas]: /posts/python/PythonNotebook(Data-Analysis)--pandas.html
-[Time Series]: /posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries).html
+[TimeSeries]: /posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries).html
 
 ## <font color="green">Web Crawling</font> 
 
@@ -202,14 +205,14 @@ sticky: true
 - :ballot_box_with_check:  [seaborn][seaborn]：基于matplotlib封装的数据可视化库。  
 - :white_large_square:  bqplot： Jupyter Notebook的交互式绘图库  
 - :white_large_square:  bokeh：用 Python 进行交互式 web 绘图。  
-- :heart:  [ggplot][ggplot]：ggplot port for python  
+- :heart:  [ggplot][py_ggplot]：ggplot port for python  
 - :white_large_square:  plotly：协同 Python 和 matplotlib 工作的 web 绘图库。  
 - :white_large_square:  pyecharts：基于百度 Echarts 的数据可视化库。  
 - :heart:  missingno：缺失数据图示。  
 
 [matplotlib]: /posts/python/PythonNotebook(Visualise)--matplotlib.html
 [seaborn]: /posts/python/PythonNotebook(Visualise)--seaborn.html
-[ggplot]: http://yhat.github.io/ggpy/
+[py_ggplot]: http://yhat.github.io/ggpy/
 
 ## <font color="green">Machine Learning</font>  
 
@@ -268,16 +271,16 @@ sticky: true
 
 ## <font color="green"> Common </font> 
 
-- :ballot_box_with_check: [R语言入门][basic]: 包括Rstudio介绍，R的数据结构和基础语法等  
-- :ballot_box_with_check: [R语言基础包][base]：base, stats等基础包函数  
+- :ballot_box_with_check: [R语言入门][R-base]: 包括Rstudio介绍，R的数据结构和基础语法等  
+- :ballot_box_with_check: [R语言基础包][R-basic-packages]：base, stats等基础包函数  
 - :ballot_box_with_check: [R6 and S4][R6]：面向对象  
 - :ballot_box_with_check: [tidyverse+tibble][tidyverse]：Hadley包集合，核心包(ggplot2,tibble,tidyr,readr,purrr,dplyr)  
 - :ballot_box_with_check: [data.table][data.table]：简短的代码实现快速操作数据  
 - :heart:  devtools：使开发R包变得更简单(Hadley) (Update according to [cheat sheets][sheet])  
 - :heart:  [rpy2][rpy2]：Python 通过rpy2调用 R语言  
 
-[basic]: /posts/R/RNotebook(Common)--R-base.html
-[base]: /posts/R/RNotebook(Common)--R-basic-packages.html
+[R-base]: /posts/R/RNotebook(Common)--R-base.html
+[R-basic-packages]: /posts/R/RNotebook(Common)--R-basic-packages.html
 [tidyverse]: /posts/R/RNotebook(Common)--tidyverse+tibble.html
 [data.table]: /posts/R/RNotebook(Common)--data.table.html
 [R6]: /posts/R/RNotebook(Common)--Object-Oriented(R6-and-S4).html
@@ -368,7 +371,7 @@ sticky: true
 [extrafont]: /posts/R/RNotebook(Visualise)--RColorBrewer-and-extrafont.html
 [ggplot2]: /posts/R/RNotebook(Visualise)--ggplot2.html
 [ggmap]: /posts/R/RNotebook(Visualise)--ggmap+baidumap.html
-[ggplot2 extensions]: http://www.ggplot2-exts.org/ggiraph.html
+[ggplot2 extensions]: /gitbook/ggplot2-extensions/
 
 *HTML WIDGETS*  
 
@@ -483,7 +486,6 @@ sticky: true
 [sheets]: https://www.rstudio.com/resources/cheatsheets/
 [task]: https://cran.r-project.org/web/views/
 [Search]: https://cran.r-project.org/search.html
-[GitHub]: https://github.com/
 
 ------
 

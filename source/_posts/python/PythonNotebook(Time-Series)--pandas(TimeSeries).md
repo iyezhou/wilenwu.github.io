@@ -8,6 +8,7 @@ date: 2018-05-12 00:49:34
 categories: [python,pandas]
 sticky: false
 ---
+
 时间序列（time series）数据是一种重要的结构化数据形式，具体的应用场景，主要有以下几种：
 
 -   时间戳（timestamp），特定的时刻。
@@ -17,7 +18,7 @@ sticky: false
 
 <!-- more -->
 
-# 概述
+# 时间序列概述
 
 > pandas最基本的时间序列类型就是以时间戳（通常以Python字符串或datatime对象表示）为索引的Series。
 > NaT（Not a Time）是pandas中时间戳数据的null值。
@@ -33,7 +34,7 @@ PeriodIndex|Index of Period|period_range, PeriodIndex
 
 # 时间戳和时间区间
 
-## pd.Timestamp and pd.Period
+`pd.Timestamp and pd.Period`
 
 > pandas用NumPy的datetime64数据类型以纳秒形式存储时间戳
 
@@ -51,19 +52,8 @@ In [12]: pd.Period('2012-05', freq='D')
 Out[12]: Period('2012-05-01', 'D')
 ```
 
-## DatetimeIndex and PeriodIndex
+`pd.to_datetime(arg) #Converting to Timestamps`
 
-pd.Timestamp and pd.Period对象是以DatetimeIndex and PeriodIndex的格式存储在Series的索引中
-```python
-In [13]: dates = [pd.Timestamp('2012-05-01'), pd.Timestamp('2012-05-02'), pd.Timestamp('2012-05-03')]
-In [14]: ts = pd.Series(np.random.randn(3), dates)
-In [16]: ts.index
-Out[16]: DatetimeIndex(['2012-05-01', '2012-05-02', '2012-05-03'], dtype='datetime64[ns]', freq=None)
-```
-
-## pd.to_datetime（Converting to Timestamps）
-
-`pd.to_datetime(arg)`
 > arg : integer, float, string, datetime, list, tuple, 1-d array, Series or DataFrame/dict-like
 
 ```python
@@ -87,7 +77,17 @@ Timestamp('2017-03-22 15:16:45')
                    origin=pd.Timestamp('1960-01-01'))
 ```
 
-# 索引和切片
+# 日期索引和切片
+
+`DatetimeIndex and PeriodIndex`
+
+pd.Timestamp and pd.Period对象是以DatetimeIndex and PeriodIndex的格式存储在Series的索引中
+```python
+In [13]: dates = [pd.Timestamp('2012-05-01'), pd.Timestamp('2012-05-02'), pd.Timestamp('2012-05-03')]
+In [14]: ts = pd.Series(np.random.randn(3), dates)
+In [16]: ts.index
+Out[16]: DatetimeIndex(['2012-05-01', '2012-05-02', '2012-05-03'], dtype='datetime64[ns]', freq=None)
+```
 
 DatetimeIndex 可以像常规索引一样使用
 ```python
@@ -147,8 +147,7 @@ In [63]: holidays = [datetime(2011, 1, 5), datetime(2011, 3, 14)]
 In [64]: pd.bdate_range(start, end, freq='C', weekmask=weekmask, holidays=holidays)
 ```
 
-
-# DateOffset Objects
+# DateOffset 对象
 
 ## offset基本用法
 

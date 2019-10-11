@@ -701,6 +701,6 @@ ggplot(iris, aes(Petal.Length, Petal.Width, colour = Species)) +
 gridExtra::grid.arrange(plot1,plot2,…,nrow,ncol)
 ```
 
-# [ggplot2 extensions](http://www.ggplot2-exts.org/ggiraph.html)
+# [ggplot2 extensions](/gitbook/ggplot2-extensions/)
 
 ggplot2 now has an official extension mechanism. This means that others can now easily create their own stats, geoms and positions, and provide them in other packages. This should allow the ggplot2 community to flourish, even as less development work happens in ggplot2 itself. This page showcases these extensions.

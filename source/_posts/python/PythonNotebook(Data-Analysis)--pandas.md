@@ -15,8 +15,6 @@ pandas兼具NumPy高性能的数组计算功能，提供高性能，易用的数
 import pandas as pd
 ```
 
-
-
 <!-- more -->
 
 # Series: 由一维数组和对应的索引组成

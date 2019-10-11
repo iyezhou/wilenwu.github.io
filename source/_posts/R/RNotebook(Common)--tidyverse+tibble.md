@@ -1,7 +1,7 @@
 ---
 ID: 186c177fbbb58b650cc4beb19587e69d
 title: R手册(Common)--tidyverse+tibble
-tags: [R]
+tags: [R,tidyverse,tibble]
 mathjax: false
 copyright: true
 date: 2018-04-30 22:07:52

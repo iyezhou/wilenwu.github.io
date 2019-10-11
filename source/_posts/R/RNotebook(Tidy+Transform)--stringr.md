@@ -1,7 +1,7 @@
 ---
 ID: d187e7427e3520e07030f4f7505ee5e0
 title: R手册(Tidy+Transform)--stringr
-tags: [R]
+tags: [R,stringr]
 mathjax: false
 copyright: true
 date: 2018-05-01 22:35:55
@@ -63,7 +63,6 @@ stri_encode(str,from ,to,to_raw = FALSE)|转换编码
 stri_conv(str,from,to ,to_raw = FALSE)| 转换编码
 stri_read_lines(fname, encoding = "auto")|*base::readLines*
 stri_write_lines(str, fname, encoding = "UTF-8")|
-
 
 ----------
 

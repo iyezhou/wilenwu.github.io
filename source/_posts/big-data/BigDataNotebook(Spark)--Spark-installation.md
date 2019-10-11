@@ -10,7 +10,7 @@ sticky: false
 ---
 Apache Spark 是专为大规模数据处理而设计的快速通用的计算引擎。
 
-    Spark 是一种与 Hadoop 相似的开源集群计算环境，但是两者之间还存在一些不同之处，这些有用的不同之处使 Spark 在某些工作负载方面表现得更加优越，换句话说，Spark 启用了内存分布数据集，除了能够提供交互式查询外，它还可以优化迭代工作负载。
+  Spark 是一种与 Hadoop 相似的开源集群计算环境，但是两者之间还存在一些不同之处，这些有用的不同之处使 Spark 在某些工作负载方面表现得更加优越，换句话说，Spark 启用了内存分布数据集，除了能够提供交互式查询外，它还可以优化迭代工作负载。
 
 <!-- more -->
 
@@ -107,6 +107,33 @@ bash sparkR         # 启动R shell
 #启动时若Java版本报错，安装需要的版本即可
 sudo apt-get install openjdk-8-jdk
 ```
+
+# Spark集群配置免密钥登陆
+
+```bash
+#在每个节点生成公钥文件
+cd ~/.ssh                      #进到当前用户的隐藏目录
+ssh-keygen -t rsa              #用rsa生成密钥，一路回车
+cp id_rsa.pub authorized_keys   #把公钥复制一份，并改名为authorized_keys
+#这步执行完后，在当前机器执行ssh localhost可以无密码登录本机了
+
+#每个节点的公钥文件复制到master节点
+scp authorized_keys master@master：~/download/note01_keys   #重命名公钥便于整合
+scp authorized_keys master@master：~/download/note01_keys
+... ...
+
+ #进入master节点，整合公钥文件分发到所有节点覆盖
+cat ~/download/note01_keys >> ~/.ssh/authorized_keys
+cat ~/download/note02_keys >> ~/.ssh/authorized_keys
+... ...
+scp ~/.ssh/authorized_keys node01@node01：~/.ssh/authorized_keys
+scp ~/.ssh/authorized_keys node02@node02：~/.ssh/authorized_keys
+... ...
+
+#在每个节点更改公钥的权限
+chmod 600 authorized_keys
+```
+
 
 参考链接：[spark-2.2.0安装和部署——Spark集群学习日记](https://blog.csdn.net/weixin_36394852/article/details/76030317)
 

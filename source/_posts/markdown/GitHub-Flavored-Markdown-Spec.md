@@ -131,7 +131,7 @@ HTML 语法
 1. Item 1
 2. Item 2
 
-在每行前面添加`- [ ]`或 `- [x]`标记为任务列表，GFM暂不支持，需采用[HTML语法](#复选框(checkboxes))
+在每行前面添加`- [ ]`或 `- [x]`标记为任务列表，GFM暂不支持，需采用[HTML语法](#复选框checkboxes)
 
 ```markdown
 - [ ] Incomplete item
@@ -257,7 +257,13 @@ This is [an example][id] reference-style link.
 
 锚点
 
-每一个标题都是一个锚点，也可以用HTML方式定义锚点，不过要注意，引用时标题中的英文字母都要被转化为**小写字母**，空格换成 `-`（GFM锚点也支持中文）
+每一个标题都是一个锚点，也可以用HTML方式定义锚点，不过要注意引用标题锚点时：
+
+- 标题中的英文字母都要被转化为**小写字母**
+- 空格换成 `-`
+- 去除括号等HTML字符
+- 标题名相同时，第2个锚点引用时加后缀，如 `标题-2`
+- GFM锚点也支持中文
 
 ```markdown
 [back to h1](#markdown-in-browser)
@@ -320,8 +326,7 @@ GitHub 自动从标准 URL 创建链接。如 http://www.baidu.com
 | ----- | :------: | ------------: | :----------- |
 | Value | centered | right-aligned | left-aligned |
 
-有时你需要精细化表格，可以用HTML语法处理。
-
+有时你需要精细化表格，可以用[HTML语法](#表格-2)处理。
 
 ## 段落和换行
 
