@@ -1,0 +1,449 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>geomnet · ggplot2 extensions</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="WilenWu">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://wilenwu.github.io" target="_blank" class="custom-link"><font size=5><i class='fa fa-home'></i></font></a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="gganimate.html">
+            
+                <a href="gganimate.html">
+            
+                    
+                    gganimate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="ggforce.html">
+            
+                <a href="ggforce.html">
+            
+                    
+                    ggforce
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://github.com/ricardo-bion/ggradar">
+            
+                    
+                    ggradar
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.4" data-path="geomnet.html">
+            
+                <a href="geomnet.html">
+            
+                    
+                    geomnet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://github.com/kassambara/ggcorrplot">
+            
+                    
+                    ggcorrplot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="GGally.html">
+            
+                <a href="GGally.html">
+            
+                    
+                    GGally
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >geomnet</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#geomnet"><b></b>geomnet</a></li><ul><li><span class="title-icon "></span><a href="#geom-&#xFF1A;&#x7F51;&#x683C;&#x56FE;&#x5173;&#x7CFB;&#x56FE;"><b></b>Geom &#xFF1A;&#x7F51;&#x683C;&#x56FE;(&#x5173;&#x7CFB;&#x56FE;)</a></li><li><span class="title-icon "></span><a href="#&#x7F51;&#x683C;&#x56FE;&#x4E3B;&#x9898;"><b></b>&#x7F51;&#x683C;&#x56FE;&#x4E3B;&#x9898;</a></li><li><span class="title-icon "></span><a href="#ggplot2&#x4E3B;&#x9898;&#x5143;&#x7D20;&#x7684;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x793A;&#x610F;&#x56FE;"><b></b>ggplot2&#x4E3B;&#x9898;&#x5143;&#x7D20;&#x7684;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x793A;&#x610F;&#x56FE;</a></li><li><span class="title-icon "></span><a href="#&#x732E;&#x8840;&#x56FE;"><b></b>&#x732E;&#x8840;&#x56FE;</a></li><li><span class="title-icon "></span><a href="#&#x4E0E;plotly&#x4E92;&#x52A8;"><b></b>&#x4E0E;plotly&#x4E92;&#x52A8;</a></li></ul></ul></div><a href="#geomnet" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="geomnet"><a name="geomnet" class="anchor-navigation-ex-anchor" href="#geomnet"><i class="fa fa-link" aria-hidden="true"></i></a>geomnet</h1>
+<h2 id="geom-&#xFF1A;&#x7F51;&#x683C;&#x56FE;&#x5173;&#x7CFB;&#x56FE;"><a name="geom-&#xFF1A;&#x7F51;&#x683C;&#x56FE;&#x5173;&#x7CFB;&#x56FE;" class="anchor-navigation-ex-anchor" href="#geom-&#xFF1A;&#x7F51;&#x683C;&#x56FE;&#x5173;&#x7CFB;&#x56FE;"><i class="fa fa-link" aria-hidden="true"></i></a>Geom &#xFF1A;&#x7F51;&#x683C;&#x56FE;(&#x5173;&#x7CFB;&#x56FE;)</h2>
+<pre class="language-"><code class="lang-r">  geom_net<span class="token punctuation">(</span>aes<span class="token punctuation">(</span>from_id<span class="token punctuation">,</span>to_id<span class="token punctuation">,</span>fontsize<span class="token punctuation">)</span><span class="token punctuation">,</span> data <span class="token punctuation">,</span> stat <span class="token operator">=</span> <span class="token string">&quot;net&quot;</span><span class="token punctuation">,</span>
+    position <span class="token operator">=</span> <span class="token string">&quot;identity&quot;</span><span class="token punctuation">,</span> na.rm <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> layout.alg<span class="token punctuation">,</span>  
+    directed<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>selfloops<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>singletons<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span> 
+    labelon <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>labelcolour <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> labelgeom <span class="token operator">=</span> <span class="token string">&quot;text&quot;</span><span class="token punctuation">)</span> <span class="token comment">#label&#x53C2;&#x6570;</span>
+</code></pre>
+<h2 id="&#x7F51;&#x683C;&#x56FE;&#x4E3B;&#x9898;"><a name="&#x7F51;&#x683C;&#x56FE;&#x4E3B;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x7F51;&#x683C;&#x56FE;&#x4E3B;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F51;&#x683C;&#x56FE;&#x4E3B;&#x9898;</h2>
+<p><code>theme_net(base_size,base_family)</code> </p>
+<p>&#x53C2;&#x6570;&#xFF1A;</p>
+<ul>
+<li>layout.alg,&#x5E03;&#x5C40;</li>
+<li>directed=FALSE,&#x7BAD;&#x5934;</li>
+<li>selfloops=FALSE,&#x663E;&#x793A;&#x5FAA;&#x73AF;</li>
+<li>singletons=TRUE,&#x5355;&#x70B9;&#x7ED8;&#x5236;</li>
+<li>directed&#x7BAD;&#x5934;&#x53C2;&#x6570;&#xFF1A;</li>
+<li>arrow = NULL, arrowgap = 0.01, arrowsize = 1</li>
+</ul>
+<h2 id="ggplot2&#x4E3B;&#x9898;&#x5143;&#x7D20;&#x7684;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x793A;&#x610F;&#x56FE;"><a name="ggplot2&#x4E3B;&#x9898;&#x5143;&#x7D20;&#x7684;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x793A;&#x610F;&#x56FE;" class="anchor-navigation-ex-anchor" href="#ggplot2&#x4E3B;&#x9898;&#x5143;&#x7D20;&#x7684;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x793A;&#x610F;&#x56FE;"><i class="fa fa-link" aria-hidden="true"></i></a>ggplot2&#x4E3B;&#x9898;&#x5143;&#x7D20;&#x7684;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x793A;&#x610F;&#x56FE;</h2>
+<pre class="language-"><code class="lang-r">library<span class="token punctuation">(</span>dplyr<span class="token punctuation">)</span>
+library<span class="token punctuation">(</span>geomnet<span class="token punctuation">)</span>
+data<span class="token punctuation">(</span>theme_elements<span class="token punctuation">)</span>
+<span class="token comment"># data step</span>
+TEnet <span class="token operator">&lt;-</span> fortify<span class="token punctuation">(</span>as.edgedf<span class="token punctuation">(</span>theme_elements<span class="token operator">$</span>edges<span class="token punctuation">[</span><span class="token punctuation">,</span>c<span class="token punctuation">(</span><span class="token string">&quot;parent&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;child&quot;</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> theme_elements<span class="token operator">$</span>vertices<span class="token punctuation">)</span>
+<span class="token comment"># create a degree variable for use later</span>
+TEnet <span class="token operator">&lt;-</span> TEnet <span class="token percent-operator operator">%&gt;%</span>
+  group_by<span class="token punctuation">(</span>from_id<span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+  mutate<span class="token punctuation">(</span>degree <span class="token operator">=</span> sqrt<span class="token punctuation">(</span><span class="token number">10</span> <span class="token operator">*</span> n<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># plot</span>
+ggplot<span class="token punctuation">(</span>data <span class="token operator">=</span> TEnet<span class="token punctuation">,</span>
+       aes<span class="token punctuation">(</span>from_id <span class="token operator">=</span> from_id<span class="token punctuation">,</span> to_id <span class="token operator">=</span> to_id<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span>
+  geom_net<span class="token punctuation">(</span>layout.alg <span class="token operator">=</span> <span class="token string">&quot;fruchtermanreingold&quot;</span><span class="token punctuation">,</span>
+    aes<span class="token punctuation">(</span>fontsize <span class="token operator">=</span> degree<span class="token punctuation">)</span><span class="token punctuation">,</span> directed <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
+    labelon <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> size <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> labelcolour <span class="token operator">=</span> <span class="token string">&apos;black&apos;</span><span class="token punctuation">,</span>
+    ecolour <span class="token operator">=</span> <span class="token string">&quot;grey70&quot;</span><span class="token punctuation">,</span> arrowsize <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">,</span>
+    linewidth <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">,</span> repel <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span> <span class="token operator">+</span>
+  theme_net<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span>
+  xlim<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">0.05</span><span class="token punctuation">,</span> <span class="token number">1.05</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="images/geom_net.png" alt=""></p>
+<h2 id="&#x732E;&#x8840;&#x56FE;"><a name="&#x732E;&#x8840;&#x56FE;" class="anchor-navigation-ex-anchor" href="#&#x732E;&#x8840;&#x56FE;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x732E;&#x8840;&#x56FE;</h2>
+<pre class="language-"><code class="lang-r">library<span class="token punctuation">(</span>geomnet<span class="token punctuation">)</span>
+data<span class="token punctuation">(</span>blood<span class="token punctuation">)</span>
+ggplot<span class="token punctuation">(</span>data <span class="token operator">=</span> blood<span class="token operator">$</span>edges<span class="token punctuation">,</span> aes<span class="token punctuation">(</span>from_id <span class="token operator">=</span> from<span class="token punctuation">,</span> to_id <span class="token operator">=</span> to<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span>
+  geom_net<span class="token punctuation">(</span>colour <span class="token operator">=</span> <span class="token string">&quot;darkred&quot;</span><span class="token punctuation">,</span> layout.alg <span class="token operator">=</span> <span class="token string">&quot;circle&quot;</span><span class="token punctuation">,</span> labelon <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> 
+           size <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">,</span> directed <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> vjust <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">,</span> labelcolour <span class="token operator">=</span> <span class="token string">&quot;grey80&quot;</span><span class="token punctuation">,</span>
+           arrowsize <span class="token operator">=</span> <span class="token number">1.5</span><span class="token punctuation">,</span> linewidth <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">,</span> arrowgap <span class="token operator">=</span> <span class="token number">0.05</span><span class="token punctuation">,</span>
+           selfloops <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> ecolour <span class="token operator">=</span> <span class="token string">&quot;grey40&quot;</span><span class="token punctuation">)</span> <span class="token operator">+</span> 
+  theme_net<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="images/geom_net_blood.png" alt=""></p>
+<h2 id="&#x4E0E;plotly&#x4E92;&#x52A8;"><a name="&#x4E0E;plotly&#x4E92;&#x52A8;" class="anchor-navigation-ex-anchor" href="#&#x4E0E;plotly&#x4E92;&#x52A8;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E0E;<code>plotly</code>&#x4E92;&#x52A8;</h2>
+<pre class="language-"><code class="lang-R">library(geomnet)
+# devtools::install_github(&quot;ropensci/plotly&quot;)
+library(plotly)
+data(blood)
+bloodnet &lt;- fortify(as.edgedf(blood$edges), blood$vertices)
+p &lt;- ggplot(data = bloodnet, aes(from_id = from_id, to_id = to_id))
+
+# create data plot
+p2 &lt;- p + geom_net(aes(size=Predominance, colour=type, shape=rho, linetype=group_to),
+             linewidth=0.75, labelon =TRUE, directed = TRUE, labelcolour=&quot;black&quot;) +
+  facet_wrap(~Ethnicity) +
+  scale_colour_brewer(palette=&quot;Set2&quot;) 
+ggplotly(p2)
+</code></pre>
+<p><footer class="page-footer"><span class="copyright">Copyright &#xA9; WilenWu all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x66F4;&#x65B0;&#x4E8E; 
+2019-10-11 16:05:09
+</span></footer></p>
+<div id="gitalk-container"></div>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"ID":"c4eb4efde86c3b142cb8d7f2b90cf623","tags":["R","ggplot2"],"mathjax":false,"copyright":true,"date":"2018-05-29T18:26:11.000Z","categories":["R","Visualise"],"sticky":false,"title":"geomnet","level":"2.4","depth":1,"next":{"title":"ggcorrplot","level":"2.5","depth":1,"url":"https://github.com/kassambara/ggcorrplot","ref":"https://github.com/kassambara/ggcorrplot","articles":[]},"previous":{"title":"ggradar","level":"2.3","depth":1,"url":"https://github.com/ricardo-bion/ggradar","ref":"https://github.com/ricardo-bion/ggradar","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-sharing","-fontsettings","custom-favicon","insert-logo","search-pro","-search","-lunr","expandable-chapters","splitter","anchor-navigation-ex","hide-element","tbfed-pagefooter","github","mygitalk","popup","prism","-highlight","copy-code-button","codeblock-filename","flexible-alerts","mermaid","pageview-count","sitemap","baidu"],"root":"./ggplot2-extensions/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy WilenWu","modify_label":"更新于 ","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"github":{"url":"https://github.com/wilenwu/wilenwu.github.io"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"mermaid":{},"popup":{},"hide-element":{"elements":[".gitbook-link"]},"anchor-navigation-ex":{"associatedWithSummary":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":"github32.png","codeblock-filename":{},"sitemap":{"hostname":"http://wilenwu.github.io"},"theme-comscore":{},"pageview-count":{},"custom-favicon":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"},"comment":{"label":"Comment","icon":"fa fa-comments","className":"info"}},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"60decc199e52a19f035d","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["wilenwu"],"createIssueManually":false,"distractionFreeMode":true,"repo":"gitalk","owner":"wilenwu","enableHotKey":true,"clientSecret":"fe95a75c03105bf4566a72968f6dfcfd3b861344","pagerDirection":"last","labels":["Gitalk"]},"baidu":{"token":"873a3ba02856122b60c91114a489f967"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 30px; min-height: 30px","url":"open_book.png"},"expandable-chapters":{}},"theme":"default","author":"WilenWu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ggplot2 extensions","language":"zh-hans","links":{"sidebar":{"<font size=5><i class='fa fa-home'></i></font>":"https://wilenwu.github.io"}},"gitbook":"*"},"file":{"path":"geomnet.md","mtime":"2019-10-11T08:05:09.692Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-11T08:15:08.500Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-mygitalk/mygitalk.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-baidu/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

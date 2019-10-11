@@ -64,7 +64,7 @@
 <meta property="og:site_name" content="Wilen&#39;s Blog">
 <meta property="og:description" content="Markdown是一种轻量级标记语言，它以纯文本形式编写文档，易读（看起来舒服）、易写（语法简单）、易更改，并最终以HTML格式发布。由于markdown没有明确指定语法，随着编译器不一样，实现方式有很大差异。GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规范了markdown的语法和语义。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-11T02:59:11.801Z">
+<meta property="og:updated_time" content="2019-10-11T06:40:15.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub Flavored Markdown 规范">
 <meta name="twitter:description" content="Markdown是一种轻量级标记语言，它以纯文本形式编写文档，易读（看起来舒服）、易写（语法简单）、易更改，并最终以HTML格式发布。由于markdown没有明确指定语法，随着编译器不一样，实现方式有很大差异。GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规范了markdown的语法和语义。">
@@ -351,7 +351,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-11 10:59:11" itemprop="dateModified" datetime="2019-10-11T10:59:11+08:00">2019-10-11</time>
+                <time title="修改时间：2019-10-11 14:40:15" itemprop="dateModified" datetime="2019-10-11T14:40:15+08:00">2019-10-11</time>
               </span>
             
           
@@ -557,7 +557,7 @@
 <li>Item 1</li>
 <li>Item 2</li>
 </ol>
-<p>在每行前面添加<code>- [ ]</code>或 <code>- [x]</code>标记为任务列表，GFM暂不支持，需采用<a href="#%E5%A4%8D%E9%80%89%E6%A1%86(checkboxes)">HTML语法</a></p>
+<p>在每行前面添加<code>- [ ]</code>或 <code>- [x]</code>标记为任务列表，GFM暂不支持，需采用<a href="#%E5%A4%8D%E9%80%89%E6%A1%86checkboxes">HTML语法</a></p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>[ ] Incomplete item</span><br><span class="line"><span class="bullet">- </span>[x] Complete item</span><br></pre></td></tr></table></figure>
 <form>
 <input type="checkbox" name="vehicle"> Incomplete item<br>
@@ -620,7 +620,14 @@
 <p>提示：链接文本不必一定是文本。图片或其他 HTML 元素都可以成为链接。</p>
 </blockquote>
 <p>锚点</p>
-<p>每一个标题都是一个锚点，也可以用HTML方式定义锚点，不过要注意，引用时标题中的英文字母都要被转化为<strong>小写字母</strong>，空格换成 <code>-</code>（GFM锚点也支持中文）</p>
+<p>每一个标题都是一个锚点，也可以用HTML方式定义锚点，不过要注意引用标题锚点时：</p>
+<ul>
+<li>标题中的英文字母都要被转化为<strong>小写字母</strong></li>
+<li>空格换成 <code>-</code></li>
+<li>去除括号等HTML字符</li>
+<li>标题名相同时，第2个锚点引用时加后缀，如 <code>标题-2</code></li>
+<li>GFM锚点也支持中文</li>
+</ul>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">back to h1</span>](<span class="link">#markdown-in-browser</span>)</span><br></pre></td></tr></table></figure>
 <p><a href="#markdown-in-browser">back to h1</a></p>
 <p>HTML语法格式为</p>
@@ -657,7 +664,7 @@
 </tr>
 </tbody>
 </table>
-<p>有时你需要精细化表格，可以用HTML语法处理。</p>
+<p>有时你需要精细化表格，可以用<a href="#%E8%A1%A8%E6%A0%BC-2">HTML语法</a>处理。</p>
 <h2 id="段落和换行"><a class="markdownIt-Anchor" href="#段落和换行"></a> 段落和换行</h2>
 <p>列表项目可以包含多个段落，每个项目下的段落都必须缩进 4 个空格或是 1 个制表符<br>
 通过在文本行之间留一个空白行，可创建新段落。<br>
@@ -1263,7 +1270,7 @@ if (document.querySelectorAll('pre.mermaid').length) {
       repo: 'gitalk',
       owner: 'wilenwu',
       admin: ['wilenwu'],
-      id: '3be7aa98d992907175cbd79c194399f2',
+      id: '7b3ef903a0232e7421e1f2815ecd534b',
         language: 'zh-CN',
       
       distractionFreeMode: 'true'

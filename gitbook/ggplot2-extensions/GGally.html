@@ -1,0 +1,510 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>GGally · ggplot2 extensions</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="WilenWu">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://wilenwu.github.io" target="_blank" class="custom-link"><font size=5><i class='fa fa-home'></i></font></a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="gganimate.html">
+            
+                <a href="gganimate.html">
+            
+                    
+                    gganimate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="ggforce.html">
+            
+                <a href="ggforce.html">
+            
+                    
+                    ggforce
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://github.com/ricardo-bion/ggradar">
+            
+                    
+                    ggradar
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="geomnet.html">
+            
+                <a href="geomnet.html">
+            
+                    
+                    geomnet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://github.com/kassambara/ggcorrplot">
+            
+                    
+                    ggcorrplot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.6" data-path="GGally.html">
+            
+                <a href="GGally.html">
+            
+                    
+                    GGally
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >GGally</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#ggally"><b></b>GGally</a></li><ul><li><span class="title-icon "></span><a href="#ggmatrix--ggplot2&#x77E9;&#x9635;"><b></b>ggmatrix:  ggplot2&#x77E9;&#x9635;</a></li><li><span class="title-icon "></span><a href="#ggpairs-ggplot2&#x5E7F;&#x4E49;&#x914D;&#x5BF9;&#x56FE;"><b></b>ggpairs: ggplot2&#x5E7F;&#x4E49;&#x914D;&#x5BF9;&#x56FE;</a></li><li><span class="title-icon "></span><a href="#ggscatmat-&#x7EAF;&#x7CB9;&#x5B9A;&#x91CF;&#x53D8;&#x91CF;&#x7684;&#x4F20;&#x7EDF;&#x6563;&#x70B9;&#x56FE;&#x77E9;&#x9635;"><b></b>ggscatmat: &#x7EAF;&#x7CB9;&#x5B9A;&#x91CF;&#x53D8;&#x91CF;&#x7684;&#x4F20;&#x7EDF;&#x6563;&#x70B9;&#x56FE;&#x77E9;&#x9635;</a></li></ul></ul></div><a href="#ggally" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="ggally"><a name="ggally" class="anchor-navigation-ex-anchor" href="#ggally"><i class="fa fa-link" aria-hidden="true"></i></a>GGally</h1>
+<p>GGally&#x901A;&#x8FC7;&#x6DFB;&#x52A0;&#x51E0;&#x4E2A;&#x51FD;&#x6570;&#x6765;&#x6269;&#x5C55;ggplot2&#xFF0C;&#x4EE5;&#x964D;&#x4F4E;geom&#x4E0E;&#x8F6C;&#x6362;&#x6570;&#x636E;&#x7EC4;&#x5408;&#x7684;&#x590D;&#x6742;&#x6027;&#x3002;&#x5176;&#x4E2D;&#x4E00;&#x4E9B;&#x529F;&#x80FD;&#x5305;&#x62EC;&#x914D;&#x5BF9;&#x56FE;&#x77E9;&#x9635;&#xFF0C;&#x6563;&#x70B9;&#x56FE;&#x77E9;&#x9635;&#xFF0C;&#x5E73;&#x884C;&#x5750;&#x6807;&#x56FE;&#xFF0C;&#x751F;&#x5B58;&#x56FE;&#xFF0C;&#x4EE5;&#x53CA;&#x7ED8;&#x5236;&#x7F51;&#x7EDC;&#x7684;&#x51E0;&#x4E2A;&#x51FD;&#x6570;&#x3002;</p>
+<h2 id="ggmatrix--ggplot2&#x77E9;&#x9635;"><a name="ggmatrix--ggplot2&#x77E9;&#x9635;" class="anchor-navigation-ex-anchor" href="#ggmatrix--ggplot2&#x77E9;&#x9635;"><i class="fa fa-link" aria-hidden="true"></i></a>ggmatrix:  ggplot2&#x77E9;&#x9635;</h2>
+<p><strong>&#x7528;&#x6CD5;</strong></p>
+<pre class="language-"><code class="lang-r">ggmatrix<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;: </strong></p>
+<ul>
+<li>plots: &#x5C06;&#x8981;&#x5217;&#x5165;&#x77E9;&#x9635;&#x7684;&#x56FE;&#x5F62;&#x5217;&#x8868;</li>
+<li>nrow, ncol: &#x884C;&#x6570;&#x548C;&#x5217;&#x6570;</li>
+<li>xAxisLabels, yAxisLabels: # x&#x6807;&#x7B7E;&#x548C;y&#x6807;&#x7B7E;&#x3002;&#x8BBE;&#x7F6E;NULL&#x4E3A;&#x4E0D;&#x663E;&#x793A;</li>
+<li>title, xlab, ylab: &#x6807;&#x9898;&#xFF0C;x&#x6807;&#x7B7E;&#x548C;y&#x6807;&#x7B7E;&#x3002;&#x8BBE;&#x7F6E;NULL&#x4E3A;&#x4E0D;&#x663E;&#x793A;</li>
+<li>byrow: &#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x7528;&#x4E8E;&#x786E;&#x5B9A;&#x56FE;&#x5E94;&#x8BE5;&#x6309;&#x884C;&#x8FD8;&#x662F;&#x6309;&#x5217;&#x6392;&#x5E8F;</li>
+<li>showStrips: &#x5E03;&#x5C14;&#x503C;&#x6765;&#x786E;&#x5B9A;&#x662F;&#x5426;&#x5E94;&#x663E;&#x793A;&#x6BCF;&#x4E2A;&#x56FE;&#x5757;&#x3002;NULL&#x5C06;&#x4EC5;&#x9ED8;&#x8BA4;&#x4E3A;&#x9876;&#x90E8;&#x548C;&#x53F3;&#x4FA7;&#x5730;&#x5757;&#x3002;</li>
+<li>showAxisPlotLabels, showXAxisPlotLabels, showYAxisPlotLabels: &#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x7528;&#x4E8E;&#x786E;&#x5B9A;&#x7ED8;&#x56FE;&#x8F74;&#x6807;&#x7B7E;&#x662F;&#x5426;&#x6253;&#x5370;&#x5728;&#x7ED8;&#x56FE;&#x77E9;&#x9635;&#x7684;X&#xFF08;&#x5E95;&#x90E8;&#xFF09;&#x6216;Y&#xFF08;&#x5DE6;&#x4FA7;&#xFF09;&#x90E8;&#x5206;&#x3002;</li>
+</ul>
+<pre class="language-"><code class="lang-R">plotList &lt;- list()
+for (i in 1:6) {
+  plotList[[i]] &lt;- ggally_text(paste(&quot;Plot #&quot;, i, sep = &quot;&quot;))
+}
+
+pm &lt;- ggmatrix(
+  plotList,           #&#x5C06;&#x8981;&#x5217;&#x5165;&#x77E9;&#x9635;&#x7684;&#x56FE;&#x5F62;&#x5217;&#x8868;
+  nrow = 2, ncol = 3, # &#x884C;&#x6570;&#x548C;&#x5217;&#x6570;
+  xAxisLabels = c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;),  #x&#x6807;&#x9898;&#x3002;&#x8BBE;&#x7F6E;NULL&#x4E3A;&#x4E0D;&#x663E;&#x793A;
+  yAxisLabels = c(&quot;D&quot;, &quot;E&quot;),
+  by
+  title = &quot;Matrix Title&quot;
+)
+pm
+pm &lt;- pm + theme_bw()   #&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;ggplot2&#x4E3B;&#x9898;
+p2 &lt;- pm[1,2]           #&#x4E5F;&#x53EF;&#x4EE5;&#x63D0;&#x53D6;&#x5B50;&#x96C6;&#x4F7F;&#x7528;
+p3 &lt;- pm[1,3]
+</code></pre>
+<p><img src="images/ggmatrix.png" alt="matrix"></p>
+<h2 id="ggpairs-ggplot2&#x5E7F;&#x4E49;&#x914D;&#x5BF9;&#x56FE;"><a name="ggpairs-ggplot2&#x5E7F;&#x4E49;&#x914D;&#x5BF9;&#x56FE;" class="anchor-navigation-ex-anchor" href="#ggpairs-ggplot2&#x5E7F;&#x4E49;&#x914D;&#x5BF9;&#x56FE;"><i class="fa fa-link" aria-hidden="true"></i></a>ggpairs: ggplot2&#x5E7F;&#x4E49;&#x914D;&#x5BF9;&#x56FE;</h2>
+<p><strong>&#x9009;&#x5B9A;&#x5217;&#x6620;&#x5C04;</strong></p>
+<pre class="language-"><code class="lang-r">data<span class="token punctuation">(</span>tips<span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">&quot;reshape&quot;</span><span class="token punctuation">)</span>
+pm <span class="token operator">&lt;-</span> ggpairs<span class="token punctuation">(</span>tips<span class="token punctuation">,</span> mapping <span class="token operator">=</span> aes<span class="token punctuation">(</span>color <span class="token operator">=</span> sex<span class="token punctuation">)</span><span class="token punctuation">,</span> 
+  columns <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">&quot;total_bill&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;time&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;tip&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>columnLabels <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">&quot;Total Bill&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Time of Day&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Tip&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+pm
+</code></pre>
+<p><img src="images/ggpairs.png" alt=""></p>
+<p><strong>&#x77E9;&#x9635;&#x90E8;&#x5206;</strong>
+&#x6210;&#x5BF9;&#x77E9;&#x9635;&#x6709;&#x4E09;&#x4E2A;&#x4E3B;&#x8981;&#x90E8;&#x5206;: lower&#xFF0C;upper&#xFF0C;&#x548C;diag&#x3002;lower&#x548C;upper&#x5305;&#x542B;&#x4E09;&#x4E2A;&#x7C7B;&#x578B;: continuous&#xFF0C;combo&#xFF0C;&#x548C;discrete&#x3002;diag&#x53EA;&#x5305;&#x542B;continuous&#x6216;&#x8005;discrete&#x3002;</p>
+<ul>
+<li>continuous: X&#x548C;Y&#x90FD;&#x662F;&#x8FDE;&#x7EED;&#x53D8;&#x91CF;</li>
+<li>combo: &#x4E00;&#x4E2A;&#x662F;&#x79BB;&#x6563;&#x7684;&#xFF0C;&#x800C;&#x53E6;&#x4E00;&#x4E2A;&#x662F;&#x8FDE;&#x7EED;&#x7684;</li>
+<li>discrete: X&#x548C;Y&#x90FD;&#x662F;&#x79BB;&#x6563;&#x53D8;&#x91CF;</li>
+</ul>
+<p>&#x8981;&#x5BF9;&#x6BCF;&#x4E2A;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x8C03;&#x6574;&#xFF0C;&#x9700;&#x8981;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x4FE1;&#x606F;&#x5217;&#x8868;&#x3002;&#x8BE5;&#x5217;&#x8868;&#x53EF;&#x4EE5;&#x7531;&#x4EE5;&#x4E0B;&#x5143;&#x7D20;&#x7EC4;&#x6210;: </p>
+<ul>
+<li>continuous: <ul>
+<li>&#x8868;&#x793A;ggally_NAME&#x51FD;&#x6570;&#x5C3E;&#x90E8;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;</li>
+<li>&#x5F53;&#x524D;&#x6709;&#x6548;&#x7684;<code>upper$continuous</code>&#x548C;<code>lower$continuous</code>&#x5B57;&#x7B26;&#x4E32;: &apos;points&apos;&#xFF0C;&apos;smooth&apos;&#xFF0C;&apos;density&apos;&#xFF0C;&apos;cor&apos;&#xFF0C;&apos;blank&apos;</li>
+<li>&#x5F53;&#x524D;&#x6709;&#x6548;&#x7684;<code>diag$continuous</code>&#x5B57;&#x7B26;&#x4E32;: &apos;densityDiag&apos;&#xFF0C;&apos;barDiag&apos;&#xFF0C;&apos;blankDiag&apos;</li>
+</ul>
+</li>
+<li>combo: 
+&#x8868;&#x793A;ggally_NAME&#x51FD;&#x6570;&#x5C3E;&#x90E8;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x3002;&#xFF08;&#x4E0D;&#x9002;&#x7528;&#x4E8E;diag&#x5217;&#x8868;&#xFF09;
+&#x5F53;&#x524D;&#x6709;&#x6548;&#x7684;<code>upper$combo</code>&#x548C;<code>lower$combo</code>&#x5B57;&#x7B26;&#x4E32;: &apos;box&apos;&#xFF0C;&apos;dot&apos;&#xFF0C;&apos;facethist&apos;&#xFF0C;&apos;facetdensity&apos;&#xFF0C;&apos;denstrip&apos;&#xFF0C;&apos;blank&apos;</li>
+<li>discrete: <ul>
+<li>&#x8868;&#x793A;ggally_NAME&#x51FD;&#x6570;&#x5C3E;&#x90E8;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;</li>
+<li>&#x5F53;&#x524D;&#x6709;&#x6548;&#x7684;<code>upper$discrete</code>&#x548C;<code>lower$discrete</code>&#x5B57;&#x7B26;&#x4E32;: &apos;ratio&apos;&#xFF0C;&apos;facetbar&apos;&#xFF0C;&apos;blank&apos;</li>
+<li>&#x5F53;&#x524D;&#x6709;&#x6548;&#x7684;<code>diag$discrete</code>&#x5B57;&#x7B26;&#x4E32;: &apos;barDiag&apos;&#xFF0C;&apos;blankDiag&apos;</li>
+</ul>
+</li>
+<li>mapping: &#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86;&#x6620;&#x5C04;&#xFF0C;&#x5219;&#x53EA;&#x4F1A;&#x8986;&#x76D6;&#x8BE5;&#x90E8;&#x5206;&#x7684;&#x6620;&#x5C04;</li>
+</ul>
+<pre class="language-"><code class="lang-r">library<span class="token punctuation">(</span>ggplot2<span class="token punctuation">)</span>
+pm <span class="token operator">&lt;-</span> ggpairs<span class="token punctuation">(</span>
+  tips<span class="token punctuation">,</span> columns <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">&quot;total_bill&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;time&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;tip&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  lower <span class="token operator">=</span> list<span class="token punctuation">(</span>
+    continuous <span class="token operator">=</span> <span class="token string">&quot;smooth&quot;</span><span class="token punctuation">,</span>
+    combo <span class="token operator">=</span> <span class="token string">&quot;facetdensity&quot;</span><span class="token punctuation">,</span>
+    mapping <span class="token operator">=</span> aes<span class="token punctuation">(</span>color <span class="token operator">=</span> time<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+pm
+</code></pre>
+<p><img src="images/ggpairs2.png" alt=""></p>
+<p><strong>&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;</strong>
+&#x8FD9;&#x4E9B;ggally_NAME&#x51FD;&#x6570;&#x4E0D;&#x63D0;&#x4F9B;&#x6240;&#x6709;&#x56FE;&#x5F62;&#x9009;&#x9879;&#x3002;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x4EE3;&#x66FF;&#x4F9B;&#x7ED9;&#x5B57;&#x7B26;&#x4E32;&#x5230;continuous&#xFF0C;combo&#x6216;discrete&#x5185;&#x7684;&#x5143;&#x4EF6;upper&#xFF0C;lower&#x6216;diag&#x3002;</p>
+<p>&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x5E94;&#x8BE5;&#x9075;&#x5FAA;: &#x53EA;&#x8981;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;ggplot2&#x5BF9;&#x8C61;&#x5373;&#x53EF;</p>
+<pre class="language-"><code class="lang-r">custom_function <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> mapping<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment"># produce ggplot2 object here</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-"><code class="lang-r">my_bin <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> mapping<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> low <span class="token operator">=</span> <span class="token string">&quot;#132B43&quot;</span><span class="token punctuation">,</span> high <span class="token operator">=</span> <span class="token string">&quot;#56B1F7&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ggplot<span class="token punctuation">(</span>data <span class="token operator">=</span> data<span class="token punctuation">,</span> mapping <span class="token operator">=</span> mapping<span class="token punctuation">)</span> <span class="token operator">+</span>
+    geom_bin2d<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span> <span class="token operator">+</span>
+    scale_fill_gradient<span class="token punctuation">(</span>low <span class="token operator">=</span> low<span class="token punctuation">,</span> high <span class="token operator">=</span> high<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+pm <span class="token operator">&lt;-</span> ggpairs<span class="token punctuation">(</span>
+  tips<span class="token punctuation">,</span> columns <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">&quot;total_bill&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;time&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;tip&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  lower <span class="token operator">=</span> list<span class="token punctuation">(</span>
+    continuous <span class="token operator">=</span> my_bin
+  <span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+pm
+</code></pre>
+<p><img src="images/ggpairs3.png" alt=""></p>
+<p><strong>&#x51FD;&#x6570;&#x5305;&#x88C5;</strong>
+&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4F7F;&#x7528;&#x6BCF;&#x4E2A;&#x5B50;&#x56FE;&#x7684;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x3002;&#x8981;&#x66F4;&#x6539;&#x9ED8;&#x8BA4;&#x7684;&#x53C2;&#x6570;binwidth&#x8BBE;&#x7F6E;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x4F7F;&#x7528;wrap&#x51FD;&#x6570;&#x3002;wrap&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x3002;&#x63D0;&#x4F9B;&#x7ED9;wrap&#x7684;&#x5176;&#x4F59;&#x53C2;&#x6570;&#x5C06;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x63D0;&#x4F9B;&#x7ED9;&#x51FD;&#x6570;&#x3002;</p>
+<pre class="language-"><code class="lang-r">pm <span class="token operator">&lt;-</span> ggpairs<span class="token punctuation">(</span>
+  tips<span class="token punctuation">,</span> columns <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">&quot;total_bill&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;time&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;tip&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  lower <span class="token operator">=</span> list<span class="token punctuation">(</span>
+    combo <span class="token operator">=</span> wrap<span class="token punctuation">(</span><span class="token string">&quot;facethist&quot;</span><span class="token punctuation">,</span> binwidth <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    continuous <span class="token operator">=</span> wrap<span class="token punctuation">(</span>my_bin<span class="token punctuation">,</span> binwidth <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> high <span class="token operator">=</span> <span class="token string">&quot;red&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+pm
+</code></pre>
+<p><strong>&#x53D6;&#x77E9;&#x9635;&#x5B50;&#x96C6;&#x548C;&#x6DFB;&#x52A0;&#x4E3B;&#x9898;</strong></p>
+<pre class="language-"><code class="lang-r">p <span class="token operator">&lt;-</span> pm<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>  <span class="token comment"># &#x53D6;&#x5B50;&#x96C6;</span>
+p <span class="token operator">&lt;-</span> p <span class="token operator">+</span> aes<span class="token punctuation">(</span>color <span class="token operator">=</span> time<span class="token punctuation">)</span>
+p <span class="token operator">+</span> theme_bw<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">#&#x6DFB;&#x52A0;&#x4E3B;&#x9898;</span>
+</code></pre>
+<h2 id="ggscatmat-&#x7EAF;&#x7CB9;&#x5B9A;&#x91CF;&#x53D8;&#x91CF;&#x7684;&#x4F20;&#x7EDF;&#x6563;&#x70B9;&#x56FE;&#x77E9;&#x9635;"><a name="ggscatmat-&#x7EAF;&#x7CB9;&#x5B9A;&#x91CF;&#x53D8;&#x91CF;&#x7684;&#x4F20;&#x7EDF;&#x6563;&#x70B9;&#x56FE;&#x77E9;&#x9635;" class="anchor-navigation-ex-anchor" href="#ggscatmat-&#x7EAF;&#x7CB9;&#x5B9A;&#x91CF;&#x53D8;&#x91CF;&#x7684;&#x4F20;&#x7EDF;&#x6563;&#x70B9;&#x56FE;&#x77E9;&#x9635;"><i class="fa fa-link" aria-hidden="true"></i></a>ggscatmat: &#x7EAF;&#x7CB9;&#x5B9A;&#x91CF;&#x53D8;&#x91CF;&#x7684;&#x4F20;&#x7EDF;&#x6563;&#x70B9;&#x56FE;&#x77E9;&#x9635;</h2>
+<pre class="language-"><code class="lang-r">ggscatmat<span class="token punctuation">(</span>data<span class="token punctuation">,</span> columns <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span>ncol<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> alpha <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> corMethod <span class="token operator">=</span> <span class="token string">&quot;pearson&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x6BD4;ggpairs&#x66F4;&#x5FEB;&#xFF0C;&#x56E0;&#x4E3A;&#x9700;&#x8981;&#x505A;&#x51FA;&#x66F4;&#x5C11;&#x7684;&#x9009;&#x62E9;&#x3002;&#x5B83;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x77E9;&#x9635;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x5BF9;&#x89D2;&#x7EBF;&#x4E0B;&#x7684;&#x6563;&#x70B9;&#x56FE;&#xFF0C;&#x5BF9;&#x89D2;&#x7EBF;&#x7684;&#x5BC6;&#x5EA6;&#x56FE;&#x4EE5;&#x53CA;&#x5BF9;&#x89D2;&#x7EBF;&#x4E0A;&#x7684;&#x76F8;&#x5173;&#x7CFB;&#x6570;&#x3002;</p>
+<pre class="language-"><code class="lang-r">data<span class="token punctuation">(</span>flea<span class="token punctuation">)</span>
+ggscatmat<span class="token punctuation">(</span>flea<span class="token punctuation">,</span> columns <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">&quot;species&quot;</span><span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.8</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="images/ggscatmat.png" alt=""></p>
+<p><strong>&#x5176;&#x4F59;&#x51FD;&#x6570;&#x5F85;&#x66F4;&#x65B0;</strong></p>
+<p><footer class="page-footer"><span class="copyright">Copyright &#xA9; WilenWu all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x66F4;&#x65B0;&#x4E8E; 
+2019-10-11 16:07:49
+</span></footer></p>
+<div id="gitalk-container"></div>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"ID":"75549bcf4f413d6f2f0666b6f47cfd7d","title":"GGally","tags":["R","ggplot2"],"mathjax":false,"copyright":true,"date":"2018-05-30T23:32:36.000Z","categories":["R","Visualise"],"sticky":false,"level":"2.6","depth":1,"previous":{"title":"ggcorrplot","level":"2.5","depth":1,"url":"https://github.com/kassambara/ggcorrplot","ref":"https://github.com/kassambara/ggcorrplot","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-sharing","-fontsettings","custom-favicon","insert-logo","search-pro","-search","-lunr","expandable-chapters","splitter","anchor-navigation-ex","hide-element","tbfed-pagefooter","github","mygitalk","popup","prism","-highlight","copy-code-button","codeblock-filename","flexible-alerts","mermaid","pageview-count","sitemap","baidu"],"root":"./ggplot2-extensions/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy WilenWu","modify_label":"更新于 ","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"github":{"url":"https://github.com/wilenwu/wilenwu.github.io"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"mermaid":{},"popup":{},"hide-element":{"elements":[".gitbook-link"]},"anchor-navigation-ex":{"associatedWithSummary":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":"github32.png","codeblock-filename":{},"sitemap":{"hostname":"http://wilenwu.github.io"},"theme-comscore":{},"pageview-count":{},"custom-favicon":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"},"comment":{"label":"Comment","icon":"fa fa-comments","className":"info"}},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"60decc199e52a19f035d","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["wilenwu"],"createIssueManually":false,"distractionFreeMode":true,"repo":"gitalk","owner":"wilenwu","enableHotKey":true,"clientSecret":"fe95a75c03105bf4566a72968f6dfcfd3b861344","pagerDirection":"last","labels":["Gitalk"]},"baidu":{"token":"873a3ba02856122b60c91114a489f967"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 30px; min-height: 30px","url":"open_book.png"},"expandable-chapters":{}},"theme":"default","author":"WilenWu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ggplot2 extensions","language":"zh-hans","links":{"sidebar":{"<font size=5><i class='fa fa-home'></i></font>":"https://wilenwu.github.io"}},"gitbook":"*"},"file":{"path":"GGally.md","mtime":"2019-10-11T08:07:49.047Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-11T08:15:08.500Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-mygitalk/mygitalk.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-baidu/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
