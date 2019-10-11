@@ -64,7 +64,7 @@
 <meta property="og:site_name" content="Wilen&#39;s Blog">
 <meta property="og:description" content="时间序列（time series）数据是一种重要的结构化数据形式，具体的应用场景，主要有以下几种：  时间戳（timestamp），特定的时刻。 固定时期（period），如2007年1月或2010年全年。 时间间隔（interval），由起始和结束时间戳表示。时期（period）可以被看做间隔（interval）的特例。 实验或过程时间，每个时间点都是相对于特定起始时间的一个度量。例如，从放入烤">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-30T06:39:03.794Z">
+<meta property="og:updated_time" content="2019-10-11T03:19:50.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python手册(Time Series)--pandas(Time Series)">
 <meta name="twitter:description" content="时间序列（time series）数据是一种重要的结构化数据形式，具体的应用场景，主要有以下几种：  时间戳（timestamp），特定的时刻。 固定时期（period），如2007年1月或2010年全年。 时间间隔（interval），由起始和结束时间戳表示。时期（period）可以被看做间隔（interval）的特例。 实验或过程时间，每个时间点都是相对于特定起始时间的一个度量。例如，从放入烤">
@@ -192,7 +192,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">111</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">118</span></a>
 
   </li>
       
@@ -218,7 +218,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">60</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">64</span></a>
 
   </li>
       
@@ -351,7 +351,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-30 14:39:03" itemprop="dateModified" datetime="2019-09-30T14:39:03+08:00">2019-09-30</time>
+                <time title="修改时间：2019-10-11 11:19:50" itemprop="dateModified" datetime="2019-10-11T11:19:50+08:00">2019-10-11</time>
               </span>
             
           
@@ -417,7 +417,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>10 分钟</span>
+              <span>9 分钟</span>
             </span>
           
 
@@ -438,7 +438,7 @@
 <li>实验或过程时间，每个时间点都是相对于特定起始时间的一个度量。例如，从放入烤箱时起，每秒钟饼干的直径。</li>
 </ul>
 <a id="more"></a>
-<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
+<h1 id="时间序列概述"><a class="markdownIt-Anchor" href="#时间序列概述"></a> 时间序列概述</h1>
 <blockquote>
 <p>pandas最基本的时间序列类型就是以时间戳（通常以Python字符串或datatime对象表示）为索引的Series。<br>
 NaT（Not a Time）是pandas中时间戳数据的null值。</p>
@@ -476,21 +476,20 @@ NaT（Not a Time）是pandas中时间戳数据的null值。</p>
 </tbody>
 </table>
 <h1 id="时间戳和时间区间"><a class="markdownIt-Anchor" href="#时间戳和时间区间"></a> 时间戳和时间区间</h1>
-<h2 id="pdtimestamp-and-pdperiod"><a class="markdownIt-Anchor" href="#pdtimestamp-and-pdperiod"></a> pd.Timestamp and pd.Period</h2>
+<p><code>pd.Timestamp and pd.Period</code></p>
 <blockquote>
 <p>pandas用NumPy的datetime64数据类型以纳秒形式存储时间戳</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pd.Timestamp</span></span><br><span class="line">In [<span class="number">8</span>]: pd.Timestamp(datetime(<span class="number">2012</span>, <span class="number">5</span>, <span class="number">1</span>))</span><br><span class="line">In [<span class="number">9</span>]: pd.Timestamp(<span class="string">'2012-05-01'</span>)</span><br><span class="line">In [<span class="number">10</span>]: pd.Timestamp(<span class="number">2012</span>, <span class="number">5</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment"># Out : Timestamp('2012-05-01 00:00:00')</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pd.Period</span></span><br><span class="line">In [<span class="number">11</span>]: pd.Period(<span class="string">'2011-01'</span>)</span><br><span class="line">Out[<span class="number">11</span>]: Period(<span class="string">'2011-01'</span>, <span class="string">'M'</span>)</span><br><span class="line">In [<span class="number">12</span>]: pd.Period(<span class="string">'2012-05'</span>, freq=<span class="string">'D'</span>)</span><br><span class="line">Out[<span class="number">12</span>]: Period(<span class="string">'2012-05-01'</span>, <span class="string">'D'</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="datetimeindex-and-periodindex"><a class="markdownIt-Anchor" href="#datetimeindex-and-periodindex"></a> DatetimeIndex and PeriodIndex</h2>
-<p>pd.Timestamp and pd.Period对象是以DatetimeIndex and PeriodIndex的格式存储在Series的索引中</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">13</span>]: dates = [pd.Timestamp(<span class="string">'2012-05-01'</span>), pd.Timestamp(<span class="string">'2012-05-02'</span>), pd.Timestamp(<span class="string">'2012-05-03'</span>)]</span><br><span class="line">In [<span class="number">14</span>]: ts = pd.Series(np.random.randn(<span class="number">3</span>), dates)</span><br><span class="line">In [<span class="number">16</span>]: ts.index</span><br><span class="line">Out[<span class="number">16</span>]: DatetimeIndex([<span class="string">'2012-05-01'</span>, <span class="string">'2012-05-02'</span>, <span class="string">'2012-05-03'</span>], dtype=<span class="string">'datetime64[ns]'</span>, freq=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="pdto_datetimeconverting-to-timestamps"><a class="markdownIt-Anchor" href="#pdto_datetimeconverting-to-timestamps"></a> pd.to_datetime（Converting to Timestamps）</h2>
-<p><code>pd.to_datetime(arg)</code></p>
+<p><code>pd.to_datetime(arg) #Converting to Timestamps</code></p>
 <blockquote>
 <p>arg : integer, float, string, datetime, list, tuple, 1-d array, Series or DataFrame/dict-like</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Providing a Format Argument</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pd.to_datetime(<span class="string">'2010/11/12'</span>, format=<span class="string">'%Y/%m/%d'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pd.to_datetime(<span class="string">'13000101'</span>, format=<span class="string">'%Y%m%d'</span>, errors=<span class="string">'ignore'</span>)</span><br><span class="line">datetime.datetime(<span class="number">1300</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># from Multiple DataFrame Columns</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df = pd.DataFrame(&#123;<span class="string">'year'</span>: [<span class="number">2015</span>, <span class="number">2016</span>],</span><br><span class="line">                       <span class="string">'month'</span>: [<span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">                       <span class="string">'day'</span>: [<span class="number">4</span>, <span class="number">5</span>]&#125;)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pd.to_datetime(df)</span><br><span class="line"></span><br><span class="line"><span class="comment"># integer, float</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pd.to_datetime(<span class="number">1490195805</span>, unit=<span class="string">'s'</span>)</span><br><span class="line">Timestamp(<span class="string">'2017-03-22 15:16:45'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using the origin Parameter(default,origin=970-01-01 00:00:00)</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pd.to_datetime([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], unit=<span class="string">'D'</span>,</span><br><span class="line">                   origin=pd.Timestamp(<span class="string">'1960-01-01'</span>))</span><br></pre></td></tr></table></figure>
-<h1 id="索引和切片"><a class="markdownIt-Anchor" href="#索引和切片"></a> 索引和切片</h1>
+<h1 id="日期索引和切片"><a class="markdownIt-Anchor" href="#日期索引和切片"></a> 日期索引和切片</h1>
+<p><code>DatetimeIndex and PeriodIndex</code></p>
+<p>pd.Timestamp and pd.Period对象是以DatetimeIndex and PeriodIndex的格式存储在Series的索引中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">13</span>]: dates = [pd.Timestamp(<span class="string">'2012-05-01'</span>), pd.Timestamp(<span class="string">'2012-05-02'</span>), pd.Timestamp(<span class="string">'2012-05-03'</span>)]</span><br><span class="line">In [<span class="number">14</span>]: ts = pd.Series(np.random.randn(<span class="number">3</span>), dates)</span><br><span class="line">In [<span class="number">16</span>]: ts.index</span><br><span class="line">Out[<span class="number">16</span>]: DatetimeIndex([<span class="string">'2012-05-01'</span>, <span class="string">'2012-05-02'</span>, <span class="string">'2012-05-03'</span>], dtype=<span class="string">'datetime64[ns]'</span>, freq=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
 <p>DatetimeIndex 可以像常规索引一样使用</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>ts[<span class="string">'2011-01-05'</span>:]</span><br></pre></td></tr></table></figure>
 <p>日期和解析为时间戳的字符串可以作为索引参数传递</p>
@@ -510,7 +509,7 @@ NaT（Not a Time）是pandas中时间戳数据的null值。</p>
 normalize参数：被规范化（normalize）到午夜的时间戳。</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">50</span>]: start = datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">In [<span class="number">51</span>]: end = datetime(<span class="number">2012</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">In [<span class="number">52</span>]: index = pd.date_range(start, end)</span><br><span class="line">In [<span class="number">56</span>]: pd.date_range(start, periods=<span class="number">100</span>, freq=<span class="string">'M'</span>)</span><br><span class="line">In [<span class="number">58</span>]: pd.date_range(start, end, freq=<span class="string">'BM'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义频率</span></span><br><span class="line">In [<span class="number">62</span>]: weekmask = <span class="string">'Mon Wed Fri'</span></span><br><span class="line">In [<span class="number">63</span>]: holidays = [datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">5</span>), datetime(<span class="number">2011</span>, <span class="number">3</span>, <span class="number">14</span>)]</span><br><span class="line">In [<span class="number">64</span>]: pd.bdate_range(start, end, freq=<span class="string">'C'</span>, weekmask=weekmask, holidays=holidays)</span><br></pre></td></tr></table></figure>
-<h1 id="dateoffset-objects"><a class="markdownIt-Anchor" href="#dateoffset-objects"></a> DateOffset Objects</h1>
+<h1 id="dateoffset-对象"><a class="markdownIt-Anchor" href="#dateoffset-对象"></a> DateOffset 对象</h1>
 <h2 id="offset基本用法"><a class="markdownIt-Anchor" href="#offset基本用法"></a> offset基本用法</h2>
 <p>前面的DatetimeIndex通过将频率字符串（ 如’M’，‘W’和’BM’）传递给freq参数来创建各种频率的对象。这些频率字符串被翻译成一个DateOffset实例，代表一个常规的频率增量。***(<code>from pandas.tseries.offsets</code>)***</p>
 <table>
@@ -881,8 +880,8 @@ loffset : timedelta，面元标签的时间校正值</p>
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/posts/python/PythonNotebook(Visualise)--matplotlib.html" rel="prev" title="Python手册(Visualise)--matplotlib">
-                  Python手册(Visualise)--matplotlib <i class="fa fa-chevron-right"></i>
+                <a href="/posts/python/PythonNotebook(Python-Basics)--Python-Standard-Library.html" rel="prev" title="Python手册(Python Basics)--Python标准库">
+                  Python手册(Python Basics)--Python标准库 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -975,7 +974,7 @@ loffset : timedelta，面元标签的时间校正值</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时间戳和时间区间"><span class="nav-number">2.</span> <span class="nav-text"> 时间戳和时间区间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pdtimestamp-and-pdperiod"><span class="nav-number">2.1.</span> <span class="nav-text"> pd.Timestamp and pd.Period</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#datetimeindex-and-periodindex"><span class="nav-number">2.2.</span> <span class="nav-text"> DatetimeIndex and PeriodIndex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pdto_datetimeconverting-to-timestamps"><span class="nav-number">2.3.</span> <span class="nav-text"> pd.to_datetime（Converting to Timestamps）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#索引和切片"><span class="nav-number">3.</span> <span class="nav-text"> 索引和切片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#日期范围"><span class="nav-number">4.</span> <span class="nav-text"> 日期范围</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dateoffset-objects"><span class="nav-number">5.</span> <span class="nav-text"> DateOffset Objects</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#offset基本用法"><span class="nav-number">5.1.</span> <span class="nav-text"> offset基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wom日期"><span class="nav-number">5.2.</span> <span class="nav-text"> WOM日期</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动超前和滞后数据"><span class="nav-number">6.</span> <span class="nav-text"> 移动（超前和滞后）数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#shift方法"><span class="nav-number">6.1.</span> <span class="nav-text"> shift方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过offset对日期进行位移"><span class="nav-number">6.2.</span> <span class="nav-text"> 通过Offset对日期进行位移</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时期及其算术运算"><span class="nav-number">7.</span> <span class="nav-text"> 时期及其算术运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#period"><span class="nav-number">7.1.</span> <span class="nav-text"> Period</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#periodindex-and-period_range"><span class="nav-number">7.2.</span> <span class="nav-text"> PeriodIndex and period_range</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时期的频率转换"><span class="nav-number">7.3.</span> <span class="nav-text"> 时期的频率转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按季度计算的时期频率"><span class="nav-number">7.4.</span> <span class="nav-text"> 按季度计算的时期频率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#timestamp和period户型给转换"><span class="nav-number">7.5.</span> <span class="nav-text"> Timestamp和Period户型给转换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重采样及频率转换"><span class="nav-number">8.</span> <span class="nav-text"> 重采样及频率转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#降采样"><span class="nav-number">8.1.</span> <span class="nav-text"> 降采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ohlc重采样"><span class="nav-number">8.2.</span> <span class="nav-text"> OHLC重采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#升采样和插值"><span class="nav-number">8.3.</span> <span class="nav-text"> 升采样和插值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动窗口函数"><span class="nav-number">9.</span> <span class="nav-text"> 移动窗口函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#移动窗口函数-2"><span class="nav-number">9.1.</span> <span class="nav-text"> 移动窗口函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指数加权函数"><span class="nav-number">9.2.</span> <span class="nav-text"> 指数加权函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二元移动窗口函数"><span class="nav-number">9.3.</span> <span class="nav-text"> 二元移动窗口函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户定义的移动窗口函数"><span class="nav-number">9.4.</span> <span class="nav-text"> 用户定义的移动窗口函数</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#时间序列概述"><span class="nav-number">1.</span> <span class="nav-text"> 时间序列概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时间戳和时间区间"><span class="nav-number">2.</span> <span class="nav-text"> 时间戳和时间区间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#日期索引和切片"><span class="nav-number">3.</span> <span class="nav-text"> 日期索引和切片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#日期范围"><span class="nav-number">4.</span> <span class="nav-text"> 日期范围</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dateoffset-对象"><span class="nav-number">5.</span> <span class="nav-text"> DateOffset 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#offset基本用法"><span class="nav-number">5.1.</span> <span class="nav-text"> offset基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wom日期"><span class="nav-number">5.2.</span> <span class="nav-text"> WOM日期</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动超前和滞后数据"><span class="nav-number">6.</span> <span class="nav-text"> 移动（超前和滞后）数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#shift方法"><span class="nav-number">6.1.</span> <span class="nav-text"> shift方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过offset对日期进行位移"><span class="nav-number">6.2.</span> <span class="nav-text"> 通过Offset对日期进行位移</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时期及其算术运算"><span class="nav-number">7.</span> <span class="nav-text"> 时期及其算术运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#period"><span class="nav-number">7.1.</span> <span class="nav-text"> Period</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#periodindex-and-period_range"><span class="nav-number">7.2.</span> <span class="nav-text"> PeriodIndex and period_range</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时期的频率转换"><span class="nav-number">7.3.</span> <span class="nav-text"> 时期的频率转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按季度计算的时期频率"><span class="nav-number">7.4.</span> <span class="nav-text"> 按季度计算的时期频率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#timestamp和period户型给转换"><span class="nav-number">7.5.</span> <span class="nav-text"> Timestamp和Period户型给转换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重采样及频率转换"><span class="nav-number">8.</span> <span class="nav-text"> 重采样及频率转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#降采样"><span class="nav-number">8.1.</span> <span class="nav-text"> 降采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ohlc重采样"><span class="nav-number">8.2.</span> <span class="nav-text"> OHLC重采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#升采样和插值"><span class="nav-number">8.3.</span> <span class="nav-text"> 升采样和插值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动窗口函数"><span class="nav-number">9.</span> <span class="nav-text"> 移动窗口函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#移动窗口函数-2"><span class="nav-number">9.1.</span> <span class="nav-text"> 移动窗口函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指数加权函数"><span class="nav-number">9.2.</span> <span class="nav-text"> 指数加权函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二元移动窗口函数"><span class="nav-number">9.3.</span> <span class="nav-text"> 二元移动窗口函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户定义的移动窗口函数"><span class="nav-number">9.4.</span> <span class="nav-text"> 用户定义的移动窗口函数</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -993,7 +992,7 @@ loffset : timedelta，面元标签的时间校正值</p>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1019,7 +1018,7 @@ loffset : timedelta，面元标签的时间校正值</p>
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">111</span>
+        <span class="site-state-item-count">118</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1083,12 +1082,12 @@ loffset : timedelta，面元标签的时间校正值</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">287k</span>
+    <span title="站点总字数">300k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:21</span>
+    <span title="站点阅读时长">4:33</span>
 </div>
 
         
@@ -1182,7 +1181,7 @@ if (document.querySelectorAll('pre.mermaid').length) {
       repo: 'gitalk',
       owner: 'wilenwu',
       admin: ['wilenwu'],
-      id: '7b3ef903a0232e7421e1f2815ecd534b',
+      id: '3be7aa98d992907175cbd79c194399f2',
         language: 'zh-CN',
       
       distractionFreeMode: 'true'
