@@ -1,4 +1,3 @@
-
 // 添加背景 url(https://source.unsplash.com/random/1600x900); 
 body {
     background: url(/images/background/dalarna_sweden_scenery.jpg);
@@ -10,36 +9,55 @@ body {
 
 // 标题栏背景 $blue
 .site-meta {
-   background: url(/images/background/sidebar3.jpg);
+    padding: 20px 0;
+    color: #fff;
+    background: url(/images/background/sidebar3.jpg);
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position:center;
+    background-size:cover;
 }  
+
+//顶栏图片
+//.header {
+//          background:$blue none repeat scroll !important;
+//}
+//底栏背景色
+//.footer {
+//          background:$blue none repeat scroll !important;
+//}
 
 //主标题颜色
 .brand{
-    color: $white
+    color: $white;
 }
 
 //副标题颜色
-.site-subtitle{
-    color: #fff
+.site-subtitle {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #ffffff;
 }
 
-// 修改主体透明度
-.main-inner{
-    background: #fff;
-    opacity: 0.95;
-}
+//// 修改主体透明度
+//.main-inner{
+//    background: #fff;
+//    opacity: 0.95;
+//}
 
-// 修改菜单栏透明度，会引起搜索菜单bug
+// 修改菜单栏透明度，会引起本地搜索菜单bug
 //.header-inner {
 //    background: #fff;
 //    opacity: 0.95;
 //}
 
 // 主页文章添加阴影效果
-.post {
-   margin-top: 60px;
-   margin-bottom: 60px;
-   padding: 25px;
-   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
-   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
-}
+//.post {
+//   margin-top: 60px;
+//   margin-bottom: 60px;
+//   padding: 25px;
+//   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+//   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+//}
+
+

@@ -6,11 +6,10 @@ copyright: true
 date: 2019-09-11 14:14:04
 categories: [Hexo]
 ---
-<div align="center"><a title="NexT website repository" href="https://github.com/theme-next/theme-next.org"><img align="center" width="60" height="60" src="https://raw.githubusercontent.com/theme-next/hexo-theme-next/master/source/images/logo.svg?sanitize=true"></a><font  size=5><b>e x T</b></font></div>
 
-NexT 是 [Hexo](http://hexo.io) 框架中最为流行的主题之一。精于心，简于形。
-NexT 支持多种常见第三方服务，使用 **第三方服务** 来扩展站点的功能 。
-除了 Markdown 支持的语法之外，NexT 借助 Hexo 提供的 **tag 插件**， 为您提供在书写文档时快速插入带特殊样式的内容。
+[NexT](http://theme-next.iissnan.com/) 是 [Hexo](http://hexo.io) 框架中最为流行的主题之一。精于心，简于形。
+NexT 支持多种常见第三方服务，使用  **第三方服务**  来扩展站点的功能 。
+除了 Markdown 支持的语法之外，NexT 借助 Hexo 提供的  **tag 插件** ， 为您提供在书写文档时快速插入带特殊样式的内容。
 
 <!-- more -->
 
@@ -51,11 +50,11 @@ NexT 支持多种常见第三方服务，使用 **第三方服务** 来扩展站
 
 主题配置文件 `‪username.github.io\themes\next\_config.yml`
 分为若干块，每块都附带官方说明文件网址，可以用谷歌浏览器打开，开启翻译，即可轻松配置。
-目前主流的组件基本已被装进 NexT主题，只需修改主题配置文件参数即可，网上的若干优化教程估计已不适用。
+目前主流的组件基本已被装进 NexT主题，只需修改主题配置文件参数即可，网上的若干优化教程估计已非必要。
 
 NexT 7 自定义样式支持已与主题核心组件分离，如博客背景、文本结束标记等。这样用户可放心升级主题而不会破坏自定义配置。在路径 `source/_data` 下添加自定义文件，并在主题配置文件 `custom_file_path` 取消注释。
 
-另，tag 插件也是NexT的一大亮点，会单独开一篇文章具体介绍，请参考 [NexT tag 插件](http://localhost:4000/2019/09/11/Hexo%20tag%20%E6%8F%92%E4%BB%B6/)
+另，tag 插件也是NexT的一大亮点，会单独开一篇文章具体介绍，请参考 [NexT tag 插件](/posts/hexo/Hexo-tag-plugins.html)
 
 本人博客：由 [Hexo](https://hexo.io/) 强力驱动 v3.9.0 |主题 – [NexT.Gemini](https://theme-next.org/) v7.4.0
 
@@ -208,7 +207,7 @@ baidusitemap:
    {% endcode %}
 
 - 主题配置文件
-   {% code next\_config.yml %} 
+   {% code next\_config.yml %}
    symbols_count_time:
      separated_meta: true       # 以分隔线显示单词计数和估计读取时间
      item_text_post: true       # 显示单词计数和估计阅读时间的文本描述
@@ -244,19 +243,17 @@ baidusitemap:
      enable: true
      app_id: <<your app id>>
      app_key: <<your app key>>
-     # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
+   
+   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
+   
      security: true
-     betterPerformance: false
+    betterPerformance: false
    {% endcode %}
-
+   
 4. 控制台命令：在Leancloud数据库中注册用户以进行权限控制
    {% code %}
    hexo lc-counter register <<username>> <<password>>
    {% endcode %}
-
-
-
-
 
 ## 相关热门帖子
 
@@ -274,7 +271,7 @@ NexT 支持多种背景动画，导入插件并修改对应主题配置文件即
 
 # 第三方服务
 
-静态网站在某​​些功能上受到限制，因此我们需要第三方服务来扩展我们的网站。
+静态网站在某些功能上受到限制，因此我们需要第三方服务来扩展我们的网站。
 您可以随时使用NexT支持的第三方服务扩展所需的功能。
 
 ## 数学公式
@@ -304,7 +301,7 @@ NexT提供了两个用于显示数学公式的渲染引擎。
    npm i hexo-renderer-kramed --save ＃ or hexo-renderer-pandoc
    {% endcode %}
 
-   - 打卡主题配置文件渲染引擎
+   - 打开主题配置文件渲染引擎
    {% code next\_config.yml %}
    mathjax：    
      enable：true
@@ -315,12 +312,12 @@ NexT提供了两个用于显示数学公式的渲染引擎。
    - 需要卸载原始渲染器 `hexo-renderer-marked` 并选择渲染器之一安装：
    {% code %}
    npm un hexo-renderer-marked --save 
-    npm i hexo-renderer-markdown-it-plus --save ＃ or hexo-renderer-markdown-it
+   npm i hexo-renderer-markdown-it-plus --save ＃ or hexo-renderer-markdown-it
    {% endcode %}
 
-   - 打卡主题配置文件渲染引擎
+   - 打开主题配置文件渲染引擎
    {% code next\_config.yml %}
-    katex：    
+   katex:
      enable：true
    {% endcode %}
    <!-- endtab -->
@@ -365,12 +362,19 @@ NexT 支持多款评论系统。
 ## 聊天服务
 请参考[官方文档](https://theme-next.org/docs/third-party-services/chat-services)
 
-
 # 自定义样式支持
+
+NexT 建议大家使用 Hexo 官方推荐的 Data Files 系统（Hexo 3.x 及以上）来分离个人配置，这样就可以在尽可能少地修改 NexT 工程代码的情况下进行个性化配置，方便主题升级。
 
 ## 文本结束标记
 
-在路径 `source/_data` 下创建/修改 `post-body-end.swig`文件，并添加以下内容
+主题配置文件取消注释
+```sh next\_config.yml
+custom_file_path:
+  postBodyEnd: source/_data/post-body-end.swig
+```
+
+在路径 `/source/_data` 下创建/修改 `post-body-end.swig`文件，并添加以下内容
 ```sh
 <div>
     {% if not is_index %}
@@ -379,16 +383,16 @@ NexT 支持多款评论系统。
 </div>
 ```
 
-主题配置文件取消注释
+## 添加主题及标题栏背景图
+
+首先主题配置文件取消注释
 ```sh next\_config.yml
 custom_file_path:
-  postBodyEnd: source/_data/post-body-end.swig
+  style: source/_data/styles.styl
 ```
+在路径 `/source/_data` 下创建/修改 `styles.styl`文件，并添加以下内容
 
-## 修改背景图及侧边栏颜色，修改主副标题颜色
-
-在路径 `source/_data` 下创建/修改 `styles.styl`文件，并添加以下内容
-```sh
+```stylus
 // 添加背景 url(https://source.unsplash.com/random/1600x900); 
 body {
     background:url(/images/background6.jpg);
@@ -400,19 +404,14 @@ body {
 
 // 标题栏背景
 .site-meta {
-   background: $blue; 
+    padding: 20px 0;
+    color: #fff;
+    background: $blue;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position:center;
+    background-size:cover;
 }  
-
-//主标题颜色
-.brand{
-    color: $white
-}
-
-//副标题颜色
-.site-subtitle{
-    color: #fff
-}
-
 
 // 修改主体透明度
 .main-inner{
@@ -420,10 +419,10 @@ body {
     opacity: 0.95;
 }
 
-// 修改菜单栏透明度
-.header-inner {
-    opacity: 0.95;
-}
+// 修改菜单栏透明度，会引起本地搜索菜单bug
+//.header-inner {
+//    opacity: 0.95;
+//}
 
 // 主页文章添加阴影效果
 .post {
@@ -435,18 +434,82 @@ body {
 }
 ```
 
-主题配置文件取消注释
-```sh next\_config.yml
-custom_file_path:
-  style: source/_data/styles.styl.swig
+## 修改主副标题字体颜色
+
+继续在`/source/_data/styles.styl`文件中添加，帮你挑选颜色的网站： [color-hex](http://www.color-hex.com/)
+
+```stylus
+//主标题颜色
+.brand{
+    color: $white
+}
+
+//副标题颜色
+.site-subtitle {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #ffffff;
+}
 ```
 
+## 修改按钮，选择区域，代码块，表格等样式
+
+首先主题配置文件取消注释
+
+```sh next\_config.yml
+custom_file_path:
+  style: source/_data/variables.styl
+```
+在路径 `/source/_data` 下创建/修改 `variables.styl`文件（相当于修改主题文件 `next/source/css/_variables/base.styl`），并添加以下内容
+
+```stylus
+// Buttons
+// --------------------------------------------------
+$btn-default-bg                 = white;
+$btn-default-color              = #49b1f5;
+$btn-default-font-size          = $font-size-small;
+$btn-default-border-width       = 2px;
+$btn-default-border-color       = #49b1f5;
+$btn-default-hover-bg           = #49b1f5;
+$btn-default-hover-color        = white;
+$btn-default-hover-border-color = #49b1f5;
+
+// Selection
+$selection-bg                 = #49b1f5;
+$selection-color              = white;
+
+// Code & Code Blocks
+// --------------------------------------------------
+$code-font-family               = $font-family-monospace;
+$code-border-radius             = 3px;
+$code-foreground                = $black-light;
+$code-background                = #edf1ff;
+
+// Table
+// --------------------------------------------------
+$table-width                    = normal;  //next默认100%
+$table-border-color             = $gray-lighter;
+$table-font-size                = $font-size-small;
+$table-content-alignment        = left;
+$table-content-vertical         = middle;
+$table-th-font-weight           = 700;
+$table-cell-padding             = 8px;
+$table-cell-border-right-color  = $gainsboro;
+$table-cell-border-bottom-color = $gray-lighter;
+$table-row-odd-bg-color         = #f9f9f9;
+$table-row-hover-bg-color       = $whitesmoke;
+```
 
 ## 文章加密
 
 在需要加密的文章 Front matter 区域设置 `password: 123456`
+主题配置文件取消注释
+```sh next\_config.yml
+custom_file_path:
+  head: source/_data/head.swig
+```
 
-在路径 `source/_data` 下创建/修改 `head.swig`文件，并添加以下内容
+在路径 `/source/_data` 下创建/修改 `head.swig`文件，并添加以下内容
 ```sh
 <script> 
  (function(){
@@ -460,15 +523,13 @@ custom_file_path:
 </script>
 ```
 
-主题配置文件取消注释
-```sh next\_config.yml
-custom_file_path:
-  head: source/_data/head.swig
-```
-
+------
 
 参考链接：
 
 [hexo的next主题个性化配置](https://blog.csdn.net/weixin_44815733/article/details/88817220)
 [Hexo Next主题进阶详细教程](https://blog.csdn.net/qq_31279347/article/details/82427562)
 [hexo个人博客next主题优化](https://www.linjiujiu.xyz/2018/12/11/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/)
+[NexT主题统一网站颜色](https://www.jianshu.com/p/2a8d399f1266)
+[Hexo Theme NexT 主题个性化配置最佳实践](https://blog.csdn.net/colton_null/article/details/97622079)
+[Hexo+NexT 主题配置备忘](https://blog.ynxiu.com/2016/hexo-next-theme-optimize.html)

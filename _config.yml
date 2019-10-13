@@ -127,3 +127,8 @@ leancloud_counter_security:
   enable_sync: true
   app_id: xuVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI
   app_key: 6EzBICTWxLbjiGsbNAa8Fv2s
+  
+lazyload:
+  enable: true 
+  onlypost: false
+  loadingImg: /images/loading.gif

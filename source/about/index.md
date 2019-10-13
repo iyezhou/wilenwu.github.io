@@ -34,22 +34,36 @@ E3 -.-> F3(数据分析)
 
 # <font color="orange">绘画墙</font>
 
-{% grouppicture 6-3 %}
-  ![](/images/github.png)
-  ![](/images/github.png)
-  ![](/images/github.png)
-  ![](/images/github.png)
-  ![](/images/github.png)
-  ![](/images/github.png)
+{% grouppicture 18-9 %}
+  ![](images/Bubbles.jpg)
+  ![](images/Bulma.jpg)
+  ![](images/Chiao-tzu.jpg)
+  ![](images/Garfield.jpg)
+  ![](images/Goku.jpg)
+  ![](images/Kaioh.jpg)
+  ![](images/Kame-Sennin.jpg)
+  ![](images/Karin-sama.jpg)
+  ![](images/Kuririn.jpg)
+  ![](images/Kuririn_head.jpg)
+  ![](images/Mr-Popo.jpg)
+  ![](images/Oolong.jpg)
+  ![](images/Picollo.jpg)
+  ![](images/Puar.jpg)
+  ![](images/Tenshinhan.jpg)
+  ![](images/Trunks.jpg)
+  ![](images/Uranai-Baba.jpg)
+  ![](images/Yajirobe.jpg)
 {% endgrouppicture %}
 
 ------
+
 ![夜景](images/china.jpg)
 
 **建站参考链接：**
 [Github+Hexo搭建专属自己的博客](https://www.linjiujiu.xyz/2018/12/10/Github-Hexo%E6%90%AD%E5%BB%BA%E4%B8%93%E5%B1%9E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/)
 [Blankj's Blog](https://blankj.com/)
 [DP2PX.COM](https://dp2px.com/)
+[Leesin' Blog](https://ilxx.gitee.io/)
 
 [Gitboo使用教程](https://gitbook.zhangjikai.com/)
 [【Gitbook】实用配置及插件介绍](https://www.cnblogs.com/zhangjk1993/p/5066771.html)
