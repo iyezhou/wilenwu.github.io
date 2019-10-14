@@ -29,7 +29,7 @@ E3 -.-> F3(数据分析)
 
 # <font color="blue">职业规划</font>
 
-![职业规划](images/career_planning.png)
+![职业规划](career_planning.png)
 <!--职业规划HTML table版请参考draft.md-->
 
 # <font color="orange">绘画墙</font>
@@ -57,7 +57,7 @@ E3 -.-> F3(数据分析)
 
 ------
 
-![夜景](images/china.jpg)
+![夜景](china.jpg)
 
 **建站参考链接：**
 [Github+Hexo搭建专属自己的博客](https://www.linjiujiu.xyz/2018/12/10/Github-Hexo%E6%90%AD%E5%BB%BA%E4%B8%93%E5%B1%9E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/)
