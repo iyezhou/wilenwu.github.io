@@ -4,14 +4,28 @@
   <url>
     <loc>https://wilenwu.github.io/about/index.html</loc>
     
-    <lastmod>2019-10-11T08:28:34.844Z</lastmod>
+    <lastmod>2019-10-16T08:58:17.293Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wilenwu.github.io/posts/hexo/theme-NexT-advanced.html</loc>
+    
+    <lastmod>2019-10-14T05:12:25.411Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wilenwu.github.io/posts/hexo/Hexo-setup&configuration.html</loc>
+    
+    <lastmod>2019-10-14T05:12:25.368Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://wilenwu.github.io/bookshelf/index.html</loc>
     
-    <lastmod>2019-10-11T07:01:30.292Z</lastmod>
+    <lastmod>2019-10-12T01:10:46.876Z</lastmod>
     
   </url>
   
@@ -79,13 +93,6 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Visualise)--RColorBrewer-and-extrafont.html</loc>
-    
-    <lastmod>2019-10-11T02:59:11.863Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://wilenwu.github.io/posts/R/RNotebook(Visualise)--REmap.html</loc>
     
     <lastmod>2019-10-11T02:59:11.863Z</lastmod>
@@ -94,6 +101,13 @@
   
   <url>
     <loc>https://wilenwu.github.io/posts/R/RNotebook(Visualise)--ggmap+baidumap.html</loc>
+    
+    <lastmod>2019-10-11T02:59:11.863Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Visualise)--RColorBrewer-and-extrafont.html</loc>
     
     <lastmod>2019-10-11T02:59:11.863Z</lastmod>
     
@@ -128,14 +142,14 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Parallel-Computing)--foreach.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(NLP)--wordcloud2.html</loc>
     
     <lastmod>2019-10-11T02:59:11.847Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(NLP)--wordcloud2.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Parallel-Computing)--foreach.html</loc>
     
     <lastmod>2019-10-11T02:59:11.847Z</lastmod>
     
@@ -149,21 +163,7 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Syntax)--purrr.html</loc>
-    
-    <lastmod>2019-10-11T02:59:11.847Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--dplyr-and-plyr.html</loc>
-    
-    <lastmod>2019-10-11T02:59:11.847Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--forcats.html</loc>
     
     <lastmod>2019-10-11T02:59:11.847Z</lastmod>
     
@@ -177,7 +177,7 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--lubridate+hms.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Syntax)--purrr.html</loc>
     
     <lastmod>2019-10-11T02:59:11.847Z</lastmod>
     
@@ -191,7 +191,28 @@
   </url>
   
   <url>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--forcats.html</loc>
+    
+    <lastmod>2019-10-11T02:59:11.847Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--tidyr.html</loc>
+    
+    <lastmod>2019-10-11T02:59:11.847Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--lubridate+hms.html</loc>
+    
+    <lastmod>2019-10-11T02:59:11.847Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Time-Series)--forecast-and-prophet.html</loc>
     
     <lastmod>2019-10-11T02:59:11.847Z</lastmod>
     
@@ -205,9 +226,16 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Time-Series)--forecast-and-prophet.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Common)--Object-Oriented(R6-and-S4).html</loc>
     
-    <lastmod>2019-10-11T02:59:11.847Z</lastmod>
+    <lastmod>2019-10-11T02:59:11.832Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Common)--R-basic-packages.html</loc>
+    
+    <lastmod>2019-10-11T02:59:11.832Z</lastmod>
     
   </url>
   
@@ -226,13 +254,6 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Common)--R-basic-packages.html</loc>
-    
-    <lastmod>2019-10-11T02:59:11.832Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://wilenwu.github.io/posts/R/RNotebook(Common)--data.table.html</loc>
     
     <lastmod>2019-10-11T02:59:11.832Z</lastmod>
@@ -240,14 +261,14 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Communicate)--shiny.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Communicate)--R-Markdown.html</loc>
     
     <lastmod>2019-10-11T02:59:11.832Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Communicate)--R-Markdown.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Communicate)--shiny.html</loc>
     
     <lastmod>2019-10-11T02:59:11.832Z</lastmod>
     
@@ -289,13 +310,6 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Common)--Object-Oriented(R6-and-S4).html</loc>
-    
-    <lastmod>2019-10-11T02:59:11.832Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://wilenwu.github.io/posts/python/PythonNotebook(Python-Basics)--RPy2.html</loc>
     
     <lastmod>2019-10-11T02:59:11.816Z</lastmod>
@@ -310,21 +324,7 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/python/PythonNotebook(Scientific-Computing)--numpy.html</loc>
-    
-    <lastmod>2019-10-11T02:59:11.816Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://wilenwu.github.io/posts/python/PythonNotebook(Scientific-Computing)--scipy.html</loc>
-    
-    <lastmod>2019-10-11T02:59:11.816Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wilenwu.github.io/posts/python/PythonNotebook(Standard-Library)--math+random.html</loc>
     
     <lastmod>2019-10-11T02:59:11.816Z</lastmod>
     
@@ -338,7 +338,21 @@
   </url>
   
   <url>
+    <loc>https://wilenwu.github.io/posts/python/PythonNotebook(Scientific-Computing)--numpy.html</loc>
+    
+    <lastmod>2019-10-11T02:59:11.816Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wilenwu.github.io/posts/python/PythonNotebook(Standard-Library)--re.html</loc>
+    
+    <lastmod>2019-10-11T02:59:11.816Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wilenwu.github.io/posts/python/PythonNotebook(Standard-Library)--math+random.html</loc>
     
     <lastmod>2019-10-11T02:59:11.816Z</lastmod>
     
@@ -360,20 +374,6 @@
   
   <url>
     <loc>https://wilenwu.github.io/posts/data-analysis/Overview-of-Data-Analysis-Theory.html</loc>
-    
-    <lastmod>2019-10-11T02:59:11.801Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wilenwu.github.io/posts/hexo/Hexo-setup&configuration.html</loc>
-    
-    <lastmod>2019-10-11T02:59:11.801Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wilenwu.github.io/posts/hexo/theme-NexT-advanced.html</loc>
     
     <lastmod>2019-10-11T02:59:11.801Z</lastmod>
     

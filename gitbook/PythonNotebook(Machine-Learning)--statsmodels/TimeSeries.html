@@ -1,0 +1,791 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>时间序列 · statsmodels</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="WilenWu">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-katex-plus/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-theme-fexa-black/fexa.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Survival.html" />
+    
+    
+    <link rel="prev" href="MultivariateStatistics.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"wilenwu","repo":"wilenwu.github.io","type":"star","size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+	<div class="header-inner">
+		<!-- LOGO -->
+		<div class="logo"></div>
+		<span class="title"></span>
+
+		<!-- Nav -->
+		<ul class="header-nav">
+			<li class=" ">
+				<!-- 通过点击判断跳转 -->
+				
+				
+				<a href="/bookshelf/" target="_blank">返回书架</a>
+				
+			</li>
+		</ul>
+
+		<!-- Home -->
+		
+		<div id="homeIcon" class="home-icon"></div>
+		
+		<!-- Search -->
+		<div id="searchIcon" class="search-icon"></div>
+		
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+	</div>
+
+	<div class="book-summary">
+		<div class="book-summary-title">文档目录</div>
+		
+		
+		<nav role="navigation">
+			
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Regression.html">
+            
+                <a href="Regression.html">
+            
+                    
+                    回归分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="ANOVA.html">
+            
+                <a href="ANOVA.html">
+            
+                    
+                    方差分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="ContingencyTables.html">
+            
+                <a href="ContingencyTables.html">
+            
+                    
+                    列联表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="MultipleImputation.html">
+            
+                <a href="MultipleImputation.html">
+            
+                    
+                    多重插补
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="MultivariateStatistics.html">
+            
+                <a href="MultivariateStatistics.html">
+            
+                    
+                    多变量统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="TimeSeries.html">
+            
+                <a href="TimeSeries.html">
+            
+                    
+                    时间序列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="Survival.html">
+            
+                <a href="Survival.html">
+            
+                    
+                    生存分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Graphics.html">
+            
+                <a href="Graphics.html">
+            
+                    
+                    作图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+		</nav>
+		
+		
+	</div>
+
+	<!-- Content nav -->
+	<div class="book-anchor">
+		<div class="book-anchor-body">
+		</div>
+	</div>
+
+	<div class="book-body">
+		
+		<div class="body-inner">
+			
+			
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >时间序列</a>
+    </h1>
+</div>
+
+
+
+
+			<div class="page-wrapper" tabindex="-1" role="main">
+				<div class="page-inner">
+					
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+					<section class="normal markdown-section">
+						
+						<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#time-series-analysis-tsa&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;"><b></b>Time Series analysis tsa(&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;)</a></li><ul><li><span class="title-icon "></span><a href="#&#x5E38;&#x7528;&#x6A21;&#x578B;"><b></b>&#x5E38;&#x7528;&#x6A21;&#x578B;</a></li><li><span class="title-icon "></span><a href="#arima&#x6A21;&#x578B;&#x8FD0;&#x7528;&#x7684;&#x6D41;&#x7A0B;"><b></b>ARIMA&#x6A21;&#x578B;&#x8FD0;&#x7528;&#x7684;&#x6D41;&#x7A0B;</a></li><li><span class="title-icon "></span><a href="#example-arma-example-sunspots-data"><b></b>Example: ARMA example: Sunspots data</a></li></ul><li><span class="title-icon "></span><a href="#time-series-analysis-by-state-space-methods-statespace&#x57FA;&#x4E8E;&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;"><b></b>Time Series Analysis by State Space Methods statespace(&#x57FA;&#x4E8E;&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;)</a></li><ul><li><span class="title-icon "></span><a href="#&#x6A21;&#x578B;&#x610F;&#x4E49;"><b></b>&#x6A21;&#x578B;&#x610F;&#x4E49;</a></li><li><span class="title-icon "></span><a href="#&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x6A21;&#x578B;&#x7684;&#x5EFA;&#x7ACB;&#x548C;&#x9884;&#x6D4B;&#x7684;&#x6B65;&#x9AA4;"><b></b>&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x6A21;&#x578B;&#x7684;&#x5EFA;&#x7ACB;&#x548C;&#x9884;&#x6D4B;&#x7684;&#x6B65;&#x9AA4;</a></li></ul><li><span class="title-icon "></span><a href="#vector-autoregressions-tsavectorar&#x77E2;&#x91CF;&#x81EA;&#x52A8;&#x56DE;&#x5F52;"><b></b>Vector Autoregressions tsa.vector_ar(&#x77E2;&#x91CF;&#x81EA;&#x52A8;&#x56DE;&#x5F52;)</a></li><ul><li><span class="title-icon "></span><a href="#var&#x8FDB;&#x7A0B;var-processes"><b></b>VAR&#x8FDB;&#x7A0B;(VAR processes)</a></li><li><span class="title-icon "></span><a href="#&#x6A21;&#x578B;&#x62DF;&#x5408;model-fitting"><b></b>&#x6A21;&#x578B;&#x62DF;&#x5408;(Model fitting)</a></li><li><span class="title-icon "></span><a href="#&#x6EDE;&#x540E;&#x987A;&#x5E8F;&#x9009;&#x62E9;lag-order-selection"><b></b>&#x6EDE;&#x540E;&#x987A;&#x5E8F;&#x9009;&#x62E9;(Lag order selection)</a></li><li><span class="title-icon "></span><a href="#&#x9884;&#x6D4B;forecasting"><b></b>&#x9884;&#x6D4B;(Forecasting)</a></li><li><span class="title-icon "></span><a href="#&#x8109;&#x51B2;&#x54CD;&#x5E94;&#x5206;&#x6790;impulse-response-analysis"><b></b>&#x8109;&#x51B2;&#x54CD;&#x5E94;&#x5206;&#x6790;(Impulse Response Analysis)</a></li><li><span class="title-icon "></span><a href="#&#x9884;&#x6D4B;&#x8BEF;&#x5DEE;&#x65B9;&#x5DEE;&#x5206;&#x89E3;fevd"><b></b>&#x9884;&#x6D4B;&#x8BEF;&#x5DEE;&#x65B9;&#x5DEE;&#x5206;&#x89E3;(FEVD)</a></li><li><span class="title-icon "></span><a href="#&#x7EDF;&#x8BA1;&#x68C0;&#x9A8C;statistical-tests"><b></b>&#x7EDF;&#x8BA1;&#x68C0;&#x9A8C;(Statistical tests)</a></li><li><span class="title-icon "></span><a href="#&#x52A8;&#x6001;&#x77E2;&#x91CF;&#x81EA;&#x52A8;&#x56DE;&#x5F52;dynamic-vector-autoregressions"><b></b>&#x52A8;&#x6001;&#x77E2;&#x91CF;&#x81EA;&#x52A8;&#x56DE;&#x5F52;(Dynamic Vector Autoregressions)</a></li></ul></ul></div><a href="#time-series-analysis-tsa&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><p>&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;&#x662F;&#x6839;&#x636E;&#x7CFB;&#x7EDF;&#x89C2;&#x6D4B;&#x5F97;&#x5230;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#xFF0C;&#x901A;&#x8FC7;&#x66F2;&#x7EBF;&#x62DF;&#x5408;&#x548C;&#x53C2;&#x6570;&#x4F30;&#x8BA1;&#x6765;&#x5EFA;&#x7ACB;&#x6570;&#x5B66;&#x6A21;&#x578B;&#x7684;&#x7406;&#x8BBA;&#x548C;&#x65B9;&#x6CD5;&#x3002;&#x5B83;&#x4E00;&#x822C;&#x91C7;&#x7528;&#x66F2;&#x7EBF;&#x62DF;&#x5408;&#x548C;&#x53C2;&#x6570;&#x4F30;&#x8BA1;&#x65B9;&#x6CD5;&#xFF08;&#x5982;&#x975E;&#x7EBF;&#x6027;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#xFF09;&#x8FDB;&#x884C;&#x3002;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;&#x5E38;&#x7528;&#x5728;&#x56FD;&#x6C11;&#x7ECF;&#x6D4E;&#x5B8F;&#x89C2;&#x63A7;&#x5236;&#x3001;&#x533A;&#x57DF;&#x7EFC;&#x5408;&#x53D1;&#x5C55;&#x89C4;&#x5212;&#x3001;&#x4F01;&#x4E1A;&#x7ECF;&#x8425;&#x7BA1;&#x7406;&#x3001;&#x5E02;&#x573A;&#x6F5C;&#x91CF;&#x9884;&#x6D4B;&#x3001;&#x6C14;&#x8C61;&#x9884;&#x62A5;&#x3001;&#x6C34;&#x6587;&#x9884;&#x62A5;&#x3001;&#x5730;&#x9707;&#x524D;&#x5146;&#x9884;&#x62A5;&#x3001;&#x519C;&#x4F5C;&#x7269;&#x75C5;&#x866B;&#x707E;&#x5BB3;&#x9884;&#x62A5;&#x3001;&#x73AF;&#x5883;&#x6C61;&#x67D3;&#x63A7;&#x5236;&#x3001;&#x751F;&#x6001;&#x5E73;&#x8861;&#x3001;&#x5929;&#x6587;&#x5B66;&#x548C;&#x6D77;&#x6D0B;&#x5B66;&#x7B49;&#x65B9;&#x9762;&#x3002;  </p>
+<!-- more -->  
+<h1 id="time-series-analysis-tsa&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;"><a name="time-series-analysis-tsa&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;" class="anchor-navigation-ex-anchor" href="#time-series-analysis-tsa&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;"><i class="fa fa-link" aria-hidden="true"></i></a><a href="http://www.statsmodels.org/stable/tsa.html" target="_blank">Time Series analysis tsa(&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;)</a></h1>
+<p>&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;<br><a href="https://blog.csdn.net/u010414589/article/details/49622625" target="_blank">python&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;&#x4E4B;ARIMA</a><br><a href="https://www.jianshu.com/p/cced6617b423" target="_blank">AR(I)MA&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5EFA;&#x6A21;&#x8FC7;&#x7A0B;&#x2014;&#x2014;&#x6B65;&#x9AA4;&#x548C;python&#x4EE3;&#x7801;</a><br><a href="https://www.ziiai.com/blog/638" target="_blank">https://www.ziiai.com/blog/638</a><br><a href="https://www.analyticsvidhya.com/blog/2015/12/complete-tutorial-time-series-modeling/" target="_blank">https://www.analyticsvidhya.com/blog/2015/12/complete-tutorial-time-series-modeling/</a>  </p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">from</span> statsmodels <span class="token keyword">import</span> tsa
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x5B50;&#x6A21;&#x5757;</th>
+<th style="text-align:left">&#x8BF4;&#x660E;  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">stattools</td>
+<td style="text-align:left">&#x7ECF;&#x9A8C;&#x5C5E;&#x6027;&#x548C;&#x6D4B;&#x8BD5;&#xFF0C;acf&#xFF0C;pacf&#xFF0C;granger-causality&#xFF0C;adf&#x5355;&#x4F4D;&#x6839;&#x6D4B;&#x8BD5;&#xFF0C;kpss&#x6D4B;&#x8BD5;&#xFF0C;bds&#x6D4B;&#x8BD5;&#xFF0C;ljung-box&#x6D4B;&#x8BD5;&#x7B49;&#x3002;  </td>
+</tr>
+<tr>
+<td style="text-align:left">ar_model</td>
+<td style="text-align:left">&#x5355;&#x53D8;&#x91CF;&#x81EA;&#x56DE;&#x5F52;&#x8FC7;&#x7A0B;&#xFF0C;&#x4F7F;&#x7528;&#x6761;&#x4EF6;&#x548C;&#x7CBE;&#x786E;&#x6700;&#x5927;&#x4F3C;&#x7136;&#x4F30;&#x8BA1;&#x548C;&#x6761;&#x4EF6;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;  </td>
+</tr>
+<tr>
+<td style="text-align:left">arima_mode</td>
+<td style="text-align:left">&#x5355;&#x53D8;&#x91CF;ARMA&#x8FC7;&#x7A0B;&#xFF0C;&#x4F7F;&#x7528;&#x6761;&#x4EF6;&#x548C;&#x7CBE;&#x786E;&#x6700;&#x5927;&#x4F3C;&#x7136;&#x4F30;&#x8BA1;&#x548C;&#x6761;&#x4EF6;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;  </td>
+</tr>
+<tr>
+<td style="text-align:left">vector_ar&#xFF0C;var</td>
+<td style="text-align:left">&#x5411;&#x91CF;&#x81EA;&#x56DE;&#x5F52;&#x8FC7;&#x7A0B;&#xFF08;VAR&#xFF09;&#x4F30;&#x8BA1;&#x6A21;&#x578B;&#xFF0C;&#x8109;&#x51B2;&#x54CD;&#x5E94;&#x5206;&#x6790;&#xFF0C;&#x9884;&#x6D4B;&#x8BEF;&#x5DEE;&#x65B9;&#x5DEE;&#x5206;&#x89E3;&#x548C;&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;&#x5DE5;&#x5177;  </td>
+</tr>
+<tr>
+<td style="text-align:left">kalmanf</td>
+<td style="text-align:left">&#x4F7F;&#x7528;&#x5361;&#x5C14;&#x66FC;&#x6EE4;&#x6CE2;&#x5668;&#x7684;ARMA&#x548C;&#x5176;&#x4ED6;&#x5177;&#x6709;&#x7CBE;&#x786E;MLE&#x7684;&#x6A21;&#x578B;&#x7684;&#x4F30;&#x8BA1;&#x7C7B;  </td>
+</tr>
+<tr>
+<td style="text-align:left">arma_process</td>
+<td style="text-align:left">&#x5177;&#x6709;&#x7ED9;&#x5B9A;&#x53C2;&#x6570;&#x7684;arma&#x8FDB;&#x7A0B;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5305;&#x62EC;&#x5728;ARMA&#xFF0C;MA&#x548C;AR&#x8868;&#x793A;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#x7684;&#x5DE5;&#x5177;&#x4EE5;&#x53CA;acf&#xFF0C;pacf&#xFF0C;&#x9891;&#x8C31;&#x5BC6;&#x5EA6;&#xFF0C;&#x8109;&#x51B2;&#x54CD;&#x5E94;&#x51FD;&#x6570;&#x548C;&#x7C7B;&#x4F3C;  </td>
+</tr>
+<tr>
+<td style="text-align:left">sandbox.tsa.fftarma</td>
+<td style="text-align:left">&#x7C7B;&#x4F3C;&#x4E8E;arma_process&#x4F46;&#x5728;&#x9891;&#x57DF;&#x5DE5;&#x4F5C;  </td>
+</tr>
+<tr>
+<td style="text-align:left">tsatools</td>
+<td style="text-align:left">&#x989D;&#x5916;&#x7684;&#x8F85;&#x52A9;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x6EDE;&#x540E;&#x53D8;&#x91CF;&#x6570;&#x7EC4;&#xFF0C;&#x6784;&#x9020;&#x8D8B;&#x52BF;&#xFF0C;&#x8D8B;&#x52BF;&#x548C;&#x7C7B;&#x4F3C;&#x7684;&#x56DE;&#x5F52;&#x91CF;&#x3002;  </td>
+</tr>
+<tr>
+<td style="text-align:left">filters</td>
+<td style="text-align:left">&#x8FC7;&#x6EE4;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x7684;&#x8F85;&#x52A9;&#x51FD;&#x6570;  </td>
+</tr>
+<tr>
+<td style="text-align:left">regime_switching</td>
+<td style="text-align:left">&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x5207;&#x6362;&#x52A8;&#x6001;&#x56DE;&#x5F52;&#x548C;&#x81EA;&#x56DE;&#x5F52;&#x6A21;&#x578B;  </td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x5E38;&#x7528;&#x6A21;&#x578B;"><a name="&#x5E38;&#x7528;&#x6A21;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x5E38;&#x7528;&#x6A21;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5E38;&#x7528;&#x6A21;&#x578B;</h2>
+<p>&#x5E38;&#x7528;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6A21;&#x578B;&#x6709;&#x56DB;&#x79CD;&#xFF1A;&#x81EA;&#x56DE;&#x5F52;&#x6A21;&#x578B; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>R</mi><mo>(</mo><mi>p</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">AR(p)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">A</span><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mclose">)</span></span></span></span>&#x3001;&#x79FB;&#x52A8;&#x5E73;&#x5747;&#x6A21;&#x578B; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mi>A</mi><mo>(</mo><mi>q</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">MA(q)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord mathit">A</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mclose">)</span></span></span></span>&#x3001;&#x81EA;&#x56DE;&#x5F52;&#x79FB;&#x52A8;&#x5E73;&#x5747;&#x6A21;&#x578B; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>R</mi><mi>M</mi><mi>A</mi><mo>(</mo><mi>p</mi><mo separator="true">,</mo><mi>q</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">ARMA(p,q)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">A</span><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord mathit">A</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mclose">)</span></span></span></span>&#x3001;&#x81EA;&#x56DE;&#x5F52;&#x5DEE;&#x5206;&#x79FB;&#x52A8;&#x5E73;&#x5747;&#x6A21;&#x578B; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>R</mi><mi>I</mi><mi>M</mi><mi>A</mi><mo>(</mo><mi>p</mi><mo separator="true">,</mo><mi>d</mi><mo separator="true">,</mo><mi>q</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">ARIMA(p,d,q)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">A</span><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="mord mathit" style="margin-right:0.07847em;">I</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord mathit">A</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit">d</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mclose">)</span></span></span></span><br><strong>ARMA&#x6A21;&#x578B;</strong><br>&#x81EA;&#x56DE;&#x5F52;&#x6ED1;&#x52A8;&#x5E73;&#x5747;&#x6A21;&#x578B;&#xFF08;&#x82F1;&#x8BED;&#xFF1A;Autoregressive moving average model&#xFF0C;&#x7B80;&#x79F0;&#xFF1A;ARMA&#x6A21;&#x578B;&#xFF09;&#x3002;&#x662F;&#x7814;&#x7A76;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x7684;&#x91CD;&#x8981;&#x65B9;&#x6CD5;&#xFF0C;&#x7531;&#x81EA;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#xFF08;&#x7B80;&#x79F0;AR&#x6A21;&#x578B;&#xFF09;&#x4E0E;&#x79FB;&#x52A8;&#x5E73;&#x5747;&#x6A21;&#x578B;&#xFF08;&#x7B80;&#x79F0;MA&#x6A21;&#x578B;&#xFF09;&#x4E3A;&#x57FA;&#x7840;&#x201C;&#x6DF7;&#x5408;&#x201D;&#x6784;&#x6210;&#x3002;<br>&#x57FA;&#x672C;&#x539F;&#x7406;&#xFF1A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>Y</mi><mi>t</mi></msub><mo>=</mo><msub><mi>&#x3B2;</mi><mn>1</mn></msub><msub><mi>Y</mi><mrow><mi>t</mi><mo>&#x2212;</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>&#x3B2;</mi><mn>2</mn></msub><msub><mi>Y</mi><mrow><mi>t</mi><mo>&#x2212;</mo><mn>2</mn></mrow></msub><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>&#x22EF;</mo><mo>+</mo><msub><mi>&#x3B2;</mi><mi>p</mi></msub><msub><mi>Y</mi><mrow><mi>t</mi><mo>&#x2212;</mo><mi>p</mi></mrow></msub><mo>+</mo><msub><mi>Z</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">Y_t=\beta_1Y_{t-1}+\beta_2Y_{t-2}+..\cdots+\beta_pY_{t-p}+Z_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">t</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.05278em;">&#x3B2;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.05278em;">&#x3B2;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="minner">&#x22EF;</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.05278em;">&#x3B2;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">p</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.28055599999999997em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mathit mtight">p</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">t</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span><br>&#x8BEF;&#x5DEE;&#x9879;&#xFF1A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>Z</mi><mi>t</mi></msub><mo>=</mo><msub><mi>&#x3B5;</mi><mi>t</mi></msub><mo>+</mo><msub><mi>&#x3B1;</mi><mn>1</mn></msub><msub><mi>&#x3B5;</mi><mrow><mi>t</mi><mo>&#x2212;</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>&#x3B1;</mi><mn>2</mn></msub><msub><mi>&#x3B5;</mi><mrow><mi>t</mi><mo>&#x2212;</mo><mn>2</mn></mrow></msub><mo>+</mo><mo>&#x22EF;</mo><mo>+</mo><msub><mi>&#x3B1;</mi><mi>q</mi></msub><msub><mi>&#x3B5;</mi><mrow><mi>t</mi><mo>&#x2212;</mo><mi>q</mi></mrow></msub></mrow><annotation encoding="application/x-tex">Z_t=\varepsilon_t+\alpha_1\varepsilon_{t-1}+\alpha_2\varepsilon_{t-2}+\cdots+\alpha_q\varepsilon_{t-q}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">t</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit">&#x3B5;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">t</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit">&#x3B5;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit">&#x3B5;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="minner">&#x22EF;</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.03588em;">q</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mord"><span class="mord mathit">&#x3B5;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.28055599999999997em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mathit mtight" style="margin-right:0.03588em;">q</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span></span></span></span><br><strong>ARIMA&#x6A21;&#x578B;</strong><br>ARIMA&#x6A21;&#x578B;&#xFF08;&#x82F1;&#x8BED;&#xFF1A;AutoregressiveIntegratedMovingAverage model&#xFF09;&#xFF0C;&#x5DEE;&#x5206;&#x6574;&#x5408;&#x79FB;&#x52A8;&#x5E73;&#x5747;&#x81EA;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#xFF0C;&#x53C8;&#x79F0;&#x6574;&#x5408;&#x79FB;&#x52A8;&#x5E73;&#x5747;&#x81EA;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#xFF08;&#x79FB;&#x52A8;&#x4E5F;&#x53EF;&#x79F0;&#x4F5C;&#x6ED1;&#x52A8;&#xFF09;&#xFF0C;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x9884;&#x6D4B;&#x5206;&#x6790;&#x65B9;&#x6CD5;&#x4E4B;&#x4E00;&#x3002;ARIMA&#xFF08;p&#xFF0C;d&#xFF0C;q&#xFF09;&#x4E2D;&#xFF0C;AR&#x662F;&quot;&#x81EA;&#x56DE;&#x5F52;&quot;&#xFF0C;p&#x4E3A;&#x81EA;&#x56DE;&#x5F52;&#x9879;&#x6570;&#xFF1B;MA&#x4E3A;&quot;&#x6ED1;&#x52A8;&#x5E73;&#x5747;&quot;&#xFF0C;q&#x4E3A;&#x6ED1;&#x52A8;&#x5E73;&#x5747;&#x9879;&#x6570;&#xFF0C;d&#x4E3A;&#x4F7F;&#x4E4B;&#x6210;&#x4E3A;&#x5E73;&#x7A33;&#x5E8F;&#x5217;&#x6240;&#x505A;&#x7684;&#x5DEE;&#x5206;&#x6B21;&#x6570;&#xFF08;&#x9636;&#x6570;&#xFF09;&#x3002;<br>&#x5F53;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x672C;&#x8EAB;&#x4E0D;&#x662F;&#x5E73;&#x7A33;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x7684;&#x589E;&#x91CF;&#xFF0C;&#x5373;&#x4E00;&#x6B21;&#x5DEE;&#x5206;&#xFF0C;&#x7A33;&#x5B9A;&#x5728;&#x96F6;&#x70B9;&#x9644;&#x8FD1;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x770B;&#x6210;&#x662F;&#x5E73;&#x7A33;&#x5E8F;&#x5217;&#x3002;&#x5728;&#x5B9E;&#x9645;&#x7684;&#x95EE;&#x9898;&#x4E2D;&#xFF0C;&#x6240;&#x9047;&#x5230;&#x7684;&#x591A;&#x6570;&#x975E;&#x5E73;&#x7A33;&#x5E8F;&#x5217;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E00;&#x6B21;&#x6216;&#x591A;&#x6B21;&#x5DEE;&#x5206;&#x540E;&#x6210;&#x4E3A;&#x5E73;&#x7A33;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x5EFA;&#x7ACB;&#x6A21;&#x578B;&#x3002;  </p>
+<h2 id="arima&#x6A21;&#x578B;&#x8FD0;&#x7528;&#x7684;&#x6D41;&#x7A0B;"><a name="arima&#x6A21;&#x578B;&#x8FD0;&#x7528;&#x7684;&#x6D41;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#arima&#x6A21;&#x578B;&#x8FD0;&#x7528;&#x7684;&#x6D41;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>ARIMA&#x6A21;&#x578B;&#x8FD0;&#x7528;&#x7684;&#x6D41;&#x7A0B;</h2>
+<ol>
+<li>&#x6839;&#x636E;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x7684;&#x6563;&#x70B9;&#x56FE;&#x3001;&#x81EA;&#x76F8;&#x5173;&#x51FD;&#x6570;&#x548C;&#x504F;&#x81EA;&#x76F8;&#x5173;&#x51FD;&#x6570;&#x56FE;&#x8BC6;&#x522B;&#x5176;&#x5E73;&#x7A33;&#x6027;&#x3002;  </li>
+<li>&#x5BF9;&#x975E;&#x5E73;&#x7A33;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5E73;&#x7A33;&#x5316;&#x5904;&#x7406;&#x3002;&#x76F4;&#x5230;&#x5904;&#x7406;&#x540E;&#x7684;&#x81EA;&#x76F8;&#x5173;&#x51FD;&#x6570;&#x548C;&#x504F;&#x81EA;&#x76F8;&#x5173;&#x51FD;&#x6570;&#x7684;&#x6570;&#x503C;&#x975E;&#x663E;&#x8457;&#x975E;&#x96F6;&#x3002;  </li>
+<li>&#x6839;&#x636E;&#x6240;&#x8BC6;&#x522B;&#x51FA;&#x6765;&#x7684;&#x7279;&#x5F81;&#x5EFA;&#x7ACB;&#x76F8;&#x5E94;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6A21;&#x578B;&#x3002;&#x5E73;&#x7A33;&#x5316;&#x5904;&#x7406;&#x540E;&#xFF0C;&#x82E5;&#x504F;&#x81EA;&#x76F8;&#x5173;&#x51FD;&#x6570;&#x662F;&#x622A;&#x5C3E;&#x7684;&#xFF0C;&#x800C;&#x81EA;&#x76F8;&#x5173;&#x51FD;&#x6570;&#x662F;&#x62D6;&#x5C3E;&#x7684;&#xFF0C;&#x5219;&#x5EFA;&#x7ACB;AR&#x6A21;&#x578B;&#xFF1B;&#x82E5;&#x504F;&#x81EA;&#x76F8;&#x5173;&#x51FD;&#x6570;&#x662F;&#x62D6;&#x5C3E;&#x7684;&#xFF0C;&#x800C;&#x81EA;&#x76F8;&#x5173;&#x51FD;&#x6570;&#x662F;&#x622A;&#x5C3E;&#x7684;&#xFF0C;&#x5219;&#x5EFA;&#x7ACB;MA&#x6A21;&#x578B;&#xFF1B;&#x82E5;&#x504F;&#x81EA;&#x76F8;&#x5173;&#x51FD;&#x6570;&#x548C;&#x81EA;&#x76F8;&#x5173;&#x51FD;&#x6570;&#x5747;&#x662F;&#x62D6;&#x5C3E;&#x7684;&#xFF0C;&#x5219;&#x5E8F;&#x5217;&#x9002;&#x5408;ARMA&#x6A21;&#x578B;&#x3002;  </li>
+<li>&#x53C2;&#x6570;&#x4F30;&#x8BA1;&#xFF0C;&#x68C0;&#x9A8C;&#x662F;&#x5426;&#x5177;&#x6709;&#x7EDF;&#x8BA1;&#x610F;&#x4E49;&#x3002;  </li>
+<li>&#x5047;&#x8BBE;&#x68C0;&#x9A8C;&#xFF0C;&#x5224;&#x65AD;&#xFF08;&#x8BCA;&#x65AD;&#xFF09;&#x6B8B;&#x5DEE;&#x5E8F;&#x5217;&#x662F;&#x5426;&#x4E3A;&#x767D;&#x566A;&#x58F0;&#x5E8F;&#x5217;&#x3002;  </li>
+<li>&#x5229;&#x7528;&#x5DF2;&#x901A;&#x8FC7;&#x68C0;&#x9A8C;&#x7684;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x9884;&#x6D4B;  </li>
+</ol>
+<h2 id="example-arma-example-sunspots-data"><a name="example-arma-example-sunspots-data" class="anchor-navigation-ex-anchor" href="#example-arma-example-sunspots-data"><i class="fa fa-link" aria-hidden="true"></i></a>Example: ARMA example: Sunspots data</h2>
+<p><strong>&#x5BFC;&#x5165;&#x6570;&#x636E;&#x5E76;&#x4F5C;&#x56FE;</strong>  </p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">from</span> __future__ <span class="token keyword">import</span> print_function  
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np  
+<span class="token keyword">from</span> scipy <span class="token keyword">import</span> stats  
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd  
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt  
+
+<span class="token keyword">import</span> statsmodels<span class="token punctuation">.</span>api <span class="token keyword">as</span> sm  
+<span class="token keyword">from</span> statsmodels<span class="token punctuation">.</span>graphics<span class="token punctuation">.</span>api <span class="token keyword">import</span> qqplot  
+
+dta <span class="token operator">=</span> sm<span class="token punctuation">.</span>datasets<span class="token punctuation">.</span>sunspots<span class="token punctuation">.</span>load_pandas<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>data  
+dta<span class="token punctuation">.</span>index <span class="token operator">=</span> pd<span class="token punctuation">.</span>Index<span class="token punctuation">(</span>sm<span class="token punctuation">.</span>tsa<span class="token punctuation">.</span>datetools<span class="token punctuation">.</span>dates_from_range<span class="token punctuation">(</span><span class="token string">&apos;1700&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;2008&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+<span class="token keyword">del</span> dta<span class="token punctuation">[</span><span class="token string">&quot;YEAR&quot;</span><span class="token punctuation">]</span>  
+dta<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="images/sunpots.png" alt="sunpots" width="50%" height="50%">  </p>
+<p><strong>&#x53C2;&#x6570;&#x4F30;&#x8BA1;</strong>  </p>
+<pre class="language-"><code class="lang-python">fig <span class="token operator">=</span> plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+ax1 <span class="token operator">=</span> fig<span class="token punctuation">.</span>add_subplot<span class="token punctuation">(</span><span class="token number">211</span><span class="token punctuation">)</span>  
+fig <span class="token operator">=</span> sm<span class="token punctuation">.</span>graphics<span class="token punctuation">.</span>tsa<span class="token punctuation">.</span>plot_acf<span class="token punctuation">(</span>dta<span class="token punctuation">.</span>values<span class="token punctuation">.</span>squeeze<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> lags<span class="token operator">=</span><span class="token number">40</span><span class="token punctuation">,</span> ax<span class="token operator">=</span>ax1<span class="token punctuation">)</span>  
+ax2 <span class="token operator">=</span> fig<span class="token punctuation">.</span>add_subplot<span class="token punctuation">(</span><span class="token number">212</span><span class="token punctuation">)</span>  
+fig <span class="token operator">=</span> sm<span class="token punctuation">.</span>graphics<span class="token punctuation">.</span>tsa<span class="token punctuation">.</span>plot_pacf<span class="token punctuation">(</span>dta<span class="token punctuation">,</span> lags<span class="token operator">=</span><span class="token number">40</span><span class="token punctuation">,</span> ax<span class="token operator">=</span>ax2<span class="token punctuation">)</span>
+</code></pre>
+<p><img src="images/acf.png" alt="acf" width="75%" height="75%">  </p>
+<p><strong>&#x62DF;&#x5408;&#x6A21;&#x578B;&#x5E76;&#x8BC4;&#x4F30;</strong>  </p>
+<pre class="language-"><code class="lang-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> arma_mod20 <span class="token operator">=</span> sm<span class="token punctuation">.</span>tsa<span class="token punctuation">.</span>ARMA<span class="token punctuation">(</span>dta<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>disp<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>  
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>arma_mod20<span class="token punctuation">.</span>params<span class="token punctuation">)</span>  
+const                <span class="token number">49.659542</span>  
+ar<span class="token punctuation">.</span>L1<span class="token punctuation">.</span>SUNACTIVITY     <span class="token number">1.390656</span>  
+ar<span class="token punctuation">.</span>L2<span class="token punctuation">.</span>SUNACTIVITY    <span class="token operator">-</span><span class="token number">0.688571</span>  
+dtype<span class="token punctuation">:</span> float64  
+<span class="token operator">/</span>Users<span class="token operator">/</span>taugspurger<span class="token operator">/</span>sandbox<span class="token operator">/</span>statsmodels<span class="token operator">/</span>statsmodels<span class="token operator">/</span>tsa<span class="token operator">/</span>base<span class="token operator">/</span>tsa_model<span class="token punctuation">.</span>py<span class="token punctuation">:</span><span class="token number">171</span><span class="token punctuation">:</span> ValueWarning<span class="token punctuation">:</span> No frequency information was provided<span class="token punctuation">,</span> so inferred frequency A<span class="token operator">-</span>DEC will be used<span class="token punctuation">.</span>  
+  <span class="token operator">%</span> freq<span class="token punctuation">,</span> ValueWarning<span class="token punctuation">)</span>  
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> arma_mod30 <span class="token operator">=</span> sm<span class="token punctuation">.</span>tsa<span class="token punctuation">.</span>ARMA<span class="token punctuation">(</span>dta<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>disp<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>  
+<span class="token operator">/</span>Users<span class="token operator">/</span>taugspurger<span class="token operator">/</span>sandbox<span class="token operator">/</span>statsmodels<span class="token operator">/</span>statsmodels<span class="token operator">/</span>tsa<span class="token operator">/</span>base<span class="token operator">/</span>tsa_model<span class="token punctuation">.</span>py<span class="token punctuation">:</span><span class="token number">171</span><span class="token punctuation">:</span> ValueWarning<span class="token punctuation">:</span> No frequency information was provided<span class="token punctuation">,</span> so inferred frequency A<span class="token operator">-</span>DEC will be used<span class="token punctuation">.</span>  
+  <span class="token operator">%</span> freq<span class="token punctuation">,</span> ValueWarning<span class="token punctuation">)</span>  
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>arma_mod20<span class="token punctuation">.</span>aic<span class="token punctuation">,</span> arma_mod20<span class="token punctuation">.</span>bic<span class="token punctuation">,</span> arma_mod20<span class="token punctuation">.</span>hqic<span class="token punctuation">)</span>  
+<span class="token number">2622.636338065809</span> <span class="token number">2637.5697031734</span> <span class="token number">2628.606725911055</span>  
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>arma_mod30<span class="token punctuation">.</span>params<span class="token punctuation">)</span>  
+const                <span class="token number">49.749936</span>  
+ar<span class="token punctuation">.</span>L1<span class="token punctuation">.</span>SUNACTIVITY     <span class="token number">1.300810</span>  
+ar<span class="token punctuation">.</span>L2<span class="token punctuation">.</span>SUNACTIVITY    <span class="token operator">-</span><span class="token number">0.508093</span>  
+ar<span class="token punctuation">.</span>L3<span class="token punctuation">.</span>SUNACTIVITY    <span class="token operator">-</span><span class="token number">0.129650</span>  
+dtype<span class="token punctuation">:</span> float64  
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>arma_mod30<span class="token punctuation">.</span>aic<span class="token punctuation">,</span> arma_mod30<span class="token punctuation">.</span>bic<span class="token punctuation">,</span> arma_mod30<span class="token punctuation">.</span>hqic<span class="token punctuation">)</span>  
+<span class="token number">2619.4036286964474</span> <span class="token number">2638.0703350809363</span> <span class="token number">2626.866613503005</span>
+</code></pre>
+<p><strong>&#x5047;&#x8BBE;&#x68C0;&#x9A8C;</strong>  </p>
+<pre class="language-"><code class="lang-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> sm<span class="token punctuation">.</span>stats<span class="token punctuation">.</span>durbin_watson<span class="token punctuation">(</span>arma_mod30<span class="token punctuation">.</span>resid<span class="token punctuation">.</span>values<span class="token punctuation">)</span> <span class="token comment">#D-W&#x68C0;&#x9A8C;  </span>
+<span class="token number">1.9564807635787604</span>  
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> fig <span class="token operator">=</span> plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> ax <span class="token operator">=</span> fig<span class="token punctuation">.</span>add_subplot<span class="token punctuation">(</span><span class="token number">111</span><span class="token punctuation">)</span>  
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> ax <span class="token operator">=</span> arma_mod30<span class="token punctuation">.</span>resid<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>ax<span class="token operator">=</span>ax<span class="token punctuation">)</span> <span class="token comment">#&#x6B8B;&#x5DEE;&#x6B63;&#x6001;  </span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> resid <span class="token operator">=</span> arma_mod30<span class="token punctuation">.</span>resid  
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> stats<span class="token punctuation">.</span>normaltest<span class="token punctuation">(</span>resid<span class="token punctuation">)</span>  
+NormaltestResult<span class="token punctuation">(</span>statistic<span class="token operator">=</span><span class="token number">49.845019661107585</span><span class="token punctuation">,</span> pvalue<span class="token operator">=</span><span class="token number">1.5006917858823576e-11</span><span class="token punctuation">)</span>  
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> fig <span class="token operator">=</span> plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> ax <span class="token operator">=</span> fig<span class="token punctuation">.</span>add_subplot<span class="token punctuation">(</span><span class="token number">111</span><span class="token punctuation">)</span>  
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> fig <span class="token operator">=</span> qqplot<span class="token punctuation">(</span>resid<span class="token punctuation">,</span> line<span class="token operator">=</span><span class="token string">&apos;q&apos;</span><span class="token punctuation">,</span> ax<span class="token operator">=</span>ax<span class="token punctuation">,</span> fit<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="images/arma.png" width="50%" height="50%">  </p>
+<p><img src="images/qq.png" alt="qq" width="50%" height="50%">  </p>
+<p><strong>&#x6A21;&#x578B;&#x9884;&#x6D4B;</strong>  </p>
+<pre class="language-"><code class="lang-python">predict_sunspots <span class="token operator">=</span> arma_mod30<span class="token punctuation">.</span>predict<span class="token punctuation">(</span><span class="token string">&apos;1990&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;2012&apos;</span><span class="token punctuation">,</span> dynamic<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>  
+fig<span class="token punctuation">,</span> ax <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+ax <span class="token operator">=</span> dta<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token string">&apos;1950&apos;</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span>ax<span class="token operator">=</span>ax<span class="token punctuation">)</span>  
+fig <span class="token operator">=</span> arma_mod30<span class="token punctuation">.</span>plot_predict<span class="token punctuation">(</span><span class="token string">&apos;1990&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;2012&apos;</span><span class="token punctuation">,</span> dynamic<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> ax<span class="token operator">=</span>ax<span class="token punctuation">,</span> plot_insample<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="images/pre.png" alt="pre" width="50%" height="50%">  </p>
+<h1 id="time-series-analysis-by-state-space-methods-statespace&#x57FA;&#x4E8E;&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;"><a name="time-series-analysis-by-state-space-methods-statespace&#x57FA;&#x4E8E;&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;" class="anchor-navigation-ex-anchor" href="#time-series-analysis-by-state-space-methods-statespace&#x57FA;&#x4E8E;&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;"><i class="fa fa-link" aria-hidden="true"></i></a><a href="http://www.statsmodels.org/stable/statespace.html" target="_blank">Time Series Analysis by State Space Methods statespace(&#x57FA;&#x4E8E;&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;)</a></h1>
+<p><code>statsmodels.tsa.statespace</code>  </p>
+<h2 id="&#x6A21;&#x578B;&#x610F;&#x4E49;"><a name="&#x6A21;&#x578B;&#x610F;&#x4E49;" class="anchor-navigation-ex-anchor" href="#&#x6A21;&#x578B;&#x610F;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6A21;&#x578B;&#x610F;&#x4E49;</h2>
+<p>&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x6A21;&#x578B;&#x8D77;&#x6E90;&#x4E8E;&#x5E73;&#x7A33;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;&#x3002;&#x5F53;&#x7528;&#x4E8E;&#x975E;&#x5E73;&#x7A33;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;&#x65F6;&#x9700;&#x8981;&#x5C06;&#x975E;&#x5E73;&#x7A33;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x89E3;&#x4E3A;&#x968F;&#x673A;&#x6E38;&#x8D70;&#x6210;&#x5206;(&#x8D8B;&#x52BF;)&#x548C;&#x5F31;&#x5E73;&#x7A33;&#x6210;&#x5206;&#x4E24;&#x4E2A;&#x90E8;&#x5206;&#x5206;&#x522B;&#x5EFA;&#x6A21;&#x3002; &#x542B;&#x6709;&#x968F;&#x673A;&#x6E38;&#x8D70;&#x6210;&#x5206;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x53C8;&#x79F0;&#x79EF;&#x5206;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#xFF0C;&#x56E0;&#x4E3A;&#x968F;&#x673A;&#x6E38;&#x8D70;&#x6210;&#x5206;&#x662F;&#x5F31;&#x5E73;&#x7A33;&#x6210;&#x5206;&#x7684;&#x548C;&#x6216;&#x79EF;&#x5206;&#x3002;&#x5F53;&#x4E00;&#x4E2A;&#x5411;&#x91CF;&#x503C;&#x79EF;&#x5206;&#x5E8F;&#x5217;&#x4E2D;&#x7684;&#x67D0;&#x4E9B;&#x5E8F;&#x5217;&#x7684;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x53D8;&#x6210;&#x5F31;&#x5E73;&#x7A33;&#x65F6;&#x5C31;&#x79F0;&#x8FD9;&#x4E9B;&#x5E8F;&#x5217;&#x6784;&#x6210;&#x4E86;&#x534F;&#x8C03;&#x79EF;&#x5206;(cointegrated)&#x8FC7;&#x7A0B;&#x3002; &#x975E;&#x5E73;&#x7A33;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x7684;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x53EF;&#x80FD;&#x4EA7;&#x751F;&#x5E73;&#x7A33;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x8FD9;&#x4E00;&#x601D;&#x60F3;&#x53EF;&#x4EE5;&#x8FFD;&#x6EAF;&#x5230;&#x56DE;&#x5F52;&#x5206;&#x6790;&#xFF0C;Granger&#x63D0;&#x51FA;&#x7684;&#x534F;&#x8C03;&#x79EF;&#x5206;&#x6982;&#x5FF5;&#x4F7F;&#x8FD9;&#x4E00;&#x601D;&#x60F3;&#x5F97;&#x5230;&#x4E86;&#x79D1;&#x5B66;&#x7684;&#x8BBA;&#x8BC1;&#x3002; Aoki&#x548C;Cochrane&#x7B49;&#x4EBA;&#x7684;&#x7814;&#x7A76;&#x8868;&#x660E;&#xFF1A;&#x5F88;&#x591A;&#x975E;&#x5E73;&#x7A33;&#x591A;&#x53D8;&#x91CF;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x4E2D;&#x7684;&#x968F;&#x673A;&#x6E38;&#x8D70;&#x6210;&#x5206;&#x6BD4;&#x4EE5;&#x524D;&#x4EBA;&#x4EEC;&#x8BA4;&#x4E3A;&#x7684;&#x8981;&#x5C0F;&#x5F97;&#x591A;&#xFF0C;&#x6709;&#x65F6;&#x751A;&#x81F3;&#x5B8C;&#x5168;&#x6D88;&#x5931;&#x3002;<a href="https://baike.baidu.com/item/%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B/5096878" target="_blank"><em>&#x767E;&#x5EA6;&#x767E;&#x79D1;</em></a>  </p>
+<h2 id="&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x6A21;&#x578B;&#x7684;&#x5EFA;&#x7ACB;&#x548C;&#x9884;&#x6D4B;&#x7684;&#x6B65;&#x9AA4;"><a name="&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x6A21;&#x578B;&#x7684;&#x5EFA;&#x7ACB;&#x548C;&#x9884;&#x6D4B;&#x7684;&#x6B65;&#x9AA4;" class="anchor-navigation-ex-anchor" href="#&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x6A21;&#x578B;&#x7684;&#x5EFA;&#x7ACB;&#x548C;&#x9884;&#x6D4B;&#x7684;&#x6B65;&#x9AA4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x6A21;&#x578B;&#x7684;&#x5EFA;&#x7ACB;&#x548C;&#x9884;&#x6D4B;&#x7684;&#x6B65;&#x9AA4;</h2>
+<p>&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x7531;&#x4E8E;&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x6A21;&#x578B;&#x7684;&#x4E0D;&#x53EF;&#x63A7;&#x5236;&#x6027;&#x800C;&#x5BFC;&#x81F4;&#x7684;&#x9519;&#x8BEF;&#x7684;&#x5206;&#x89E3;&#x5F62;&#x5F0F;&#xFF0C;&#x5F53;&#x5BF9;&#x4E00;&#x4E2A;&#x5355;&#x6574;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5EFA;&#x7ACB;&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x5206;&#x89E3;&#x6A21;&#x578B;&#x5E76;&#x8FDB;&#x884C;&#x9884;&#x6D4B;&#xFF0C;&#x5E94;&#x6309;&#x4E0B;&#x9762;&#x7684;&#x6B65;&#x9AA4;&#x6267;&#x884C;&#xFF1A;<br>(1) &#x5BF9;&#x76F8;&#x5173;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x8FDB;&#x884C;&#x5B63;&#x8282;&#x8C03;&#x6574;&#xFF0C;&#x5E76;&#x5C06;&#x5B63;&#x8282;&#x8981;&#x7D20;&#x5E8F;&#x5217;&#x5916;&#x63A8;&#xFF1B;<br>(2) &#x5BF9;&#x5B63;&#x8282;&#x8C03;&#x6574;&#x540E;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x8FDB;&#x884C;&#x5355;&#x4F4D;&#x6839;&#x68C0;&#x9A8C;&#xFF0C;&#x786E;&#x5B9A;&#x5355;&#x6574;&#x9636;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x5728;ARIMA&#x8FC7;&#x7A0B;&#x4E2D;&#x9009;&#x62E9;&#x6700;&#x63A5;&#x8FD1;&#x7684;&#x6A21;&#x578B;&#xFF1B;<br>(3) &#x6C42;&#x51FA;ARIMA&#x6A21;&#x578B;&#x7684;&#x7CFB;&#x6570;&#xFF1B;<br>(4) &#x7528;ARIMA&#x6A21;&#x578B;&#x7684;&#x7CFB;&#x6570;&#x51C6;&#x786E;&#x8868;&#x793A;&#x6B63;&#x89C4;&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x6A21;&#x578B;&#xFF0C;&#x68C0;&#x9A8C;&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x6A21;&#x578B;&#x7684;&#x53EF;&#x63A7;&#x5236;&#x6027;&#xFF1B;<br>(5) &#x5229;&#x7528;Kalman&#x6EE4;&#x6CE2;&#x516C;&#x5F0F;&#x4F30;&#x8BA1;&#x72B6;&#x6001;&#x5411;&#x91CF;&#xFF0C;&#x5E76;&#x5BF9;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x8FDB;&#x884C;&#x9884;&#x6D4B;&#x3002;<br>(6) &#x628A;&#x5916;&#x63A8;&#x7684;&#x5B63;&#x8282;&#x8981;&#x7D20;&#x4E0E;&#x76F8;&#x5E94;&#x7684;&#x9884;&#x6D4B;&#x503C;&#x5408;&#x5E76;&#xFF0C;&#x5C31;&#x5F97;&#x5230;&#x7ECF;&#x6D4E;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x7684;&#x9884;&#x6D4B;&#x7ED3;&#x679C;  </p>
+<h1 id="vector-autoregressions-tsavectorar&#x77E2;&#x91CF;&#x81EA;&#x52A8;&#x56DE;&#x5F52;"><a name="vector-autoregressions-tsavectorar&#x77E2;&#x91CF;&#x81EA;&#x52A8;&#x56DE;&#x5F52;" class="anchor-navigation-ex-anchor" href="#vector-autoregressions-tsavectorar&#x77E2;&#x91CF;&#x81EA;&#x52A8;&#x56DE;&#x5F52;"><i class="fa fa-link" aria-hidden="true"></i></a><a href="http://www.statsmodels.org/stable/vector_ar.htmls" target="_blank">Vector Autoregressions tsa.vector_ar(&#x77E2;&#x91CF;&#x81EA;&#x52A8;&#x56DE;&#x5F52;)</a></h1>
+<pre class="language-"><code class="lang-python"><span class="token keyword">from</span> statsmodels<span class="token punctuation">.</span>tsa<span class="token punctuation">.</span>api <span class="token keyword">import</span> VAR
+</code></pre>
+<p>&#x5411;&#x91CF;&#x81EA;&#x56DE;&#x5F52;&#xFF08;VAR&#xFF09;&#x662F;&#x57FA;&#x4E8E;&#x6570;&#x636E;&#x7684;&#x7EDF;&#x8BA1;&#x6027;&#x8D28;&#x5EFA;&#x7ACB;&#x6A21;&#x578B;&#xFF0C;VAR&#x6A21;&#x578B;&#x628A;&#x7CFB;&#x7EDF;&#x4E2D;&#x6BCF;&#x4E00;&#x4E2A;&#x5185;&#x751F;&#x53D8;&#x91CF;&#x4F5C;&#x4E3A;&#x7CFB;&#x7EDF;&#x4E2D;&#x6240;&#x6709;&#x5185;&#x751F;&#x53D8;&#x91CF;&#x7684;&#x6EDE;&#x540E;&#x503C;&#x7684;&#x51FD;&#x6570;&#x6765;&#x6784;&#x9020;&#x6A21;&#x578B;&#xFF0C;&#x4ECE;&#x800C;&#x5C06;&#x5355;&#x53D8;&#x91CF;&#x81EA;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#x63A8;&#x5E7F;&#x5230;&#x7531;&#x591A;&#x5143;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x53D8;&#x91CF;&#x7EC4;&#x6210;&#x7684;&#x201C;&#x5411;&#x91CF;&#x201D;&#x81EA;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#x3002;VAR&#x6A21;&#x578B;&#x662F;&#x5904;&#x7406;&#x591A;&#x4E2A;&#x76F8;&#x5173;&#x7ECF;&#x6D4E;&#x6307;&#x6807;&#x7684;&#x5206;&#x6790;&#x4E0E;&#x9884;&#x6D4B;&#x6700;&#x5BB9;&#x6613;&#x64CD;&#x4F5C;&#x7684;&#x6A21;&#x578B;&#x4E4B;&#x4E00;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x4E00;&#x5B9A;&#x7684;&#x6761;&#x4EF6;&#x4E0B;&#xFF0C;&#x591A;&#x5143;MA&#x548C;ARMA&#x6A21;&#x578B;&#x4E5F;&#x53EF;&#x8F6C;&#x5316;&#x6210;VAR&#x6A21;&#x578B;&#xFF0C;&#x56E0;&#x6B64;&#x8FD1;&#x5E74;&#x6765;VAR&#x6A21;&#x578B;&#x53D7;&#x5230;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x7684;&#x7ECF;&#x6D4E;&#x5DE5;&#x4F5C;&#x8005;&#x7684;&#x91CD;&#x89C6;&#x3002;  </p>
+<h2 id="var&#x8FDB;&#x7A0B;var-processes"><a name="var&#x8FDB;&#x7A0B;var-processes" class="anchor-navigation-ex-anchor" href="#var&#x8FDB;&#x7A0B;var-processes"><i class="fa fa-link" aria-hidden="true"></i></a>VAR&#x8FDB;&#x7A0B;(VAR processes)</h2>
+<p>VAR(p)&#x5EFA;&#x7ACB;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo>&#xD7;</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">T \times K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#xD7;</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span>&#x591A;&#x53D8;&#x91CF;&#x65F6;&#x95F4;&#x5E8F;&#x5217;Y&#xFF0C;T&#x4E3A;&#x89C2;&#x6D4B;&#x6570;&#x91CF;&#xFF0C;K&#x4E3A;&#x53D8;&#x91CF;&#x6570;&#x91CF;&#x3002;<br>&#x4F30;&#x8BA1;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x4E0E;&#x5176;&#x6EDE;&#x540E;&#x503C;&#x4E4B;&#x95F4;&#x5173;&#x7CFB;&#x7684;&#x5411;&#x91CF;&#x81EA;&#x56DE;&#x5F52;&#x8FC7;&#x7A0B;&#x4E3A;&#xFF1A;<br><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>Y</mi><mi>t</mi></msub><mo>=</mo><msub><mi>A</mi><mn>1</mn></msub><msub><mi>Y</mi><mrow><mi>t</mi><mo>&#x2212;</mo><mn>1</mn></mrow></msub><mo>+</mo><mo>&#x22EF;</mo><mo>+</mo><msub><mi>A</mi><mi>p</mi></msub><msub><mi>Y</mi><mrow><mi>t</mi><mo>&#x2212;</mo><mi>p</mi></mrow></msub><mo>+</mo><msub><mi>u</mi><mi>t</mi></msub><mo separator="true">,</mo><mtext>&#xA0;</mtext><msub><mi>u</mi><mi>t</mi></msub><mo>=</mo><mi>N</mi><mo>(</mo><mn>0</mn><mo separator="true">,</mo><msub><mi mathvariant="normal">&#x3A3;</mi><mi>u</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">Y_t=A_1Y_{t-1}+\cdots+A_pY_{t-p}+u_t,\  u_t=N(0,\Sigma_u)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">t</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="minner">&#x22EF;</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">p</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.28055599999999997em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mathit mtight">p</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">t</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mspace">&#xA0;</span><span class="mord"><span class="mord mathit">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">t</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord">&#x3A3;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">u</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mclose">)</span></span></span></span><br><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">A_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> &#x662F;&#x4E00;&#x4E2A; K&#xD7;K &#x7CFB;&#x6570;&#x77E9;&#x9635;  </p>
+<h2 id="&#x6A21;&#x578B;&#x62DF;&#x5408;model-fitting"><a name="&#x6A21;&#x578B;&#x62DF;&#x5408;model-fitting" class="anchor-navigation-ex-anchor" href="#&#x6A21;&#x578B;&#x62DF;&#x5408;model-fitting"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6A21;&#x578B;&#x62DF;&#x5408;(Model fitting)</h2>
+<p><code>statsmodels.tsa.api</code>  </p>
+<pre class="language-"><code class="lang-python"> <span class="token comment"># some example data  </span>
+In <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np  
+In <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">import</span> pandas  
+In <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">import</span> statsmodels<span class="token punctuation">.</span>api <span class="token keyword">as</span> sm  
+In <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">from</span> statsmodels<span class="token punctuation">.</span>tsa<span class="token punctuation">.</span>api <span class="token keyword">import</span> VAR<span class="token punctuation">,</span> DynamicVAR  
+In <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">:</span> mdata <span class="token operator">=</span> sm<span class="token punctuation">.</span>datasets<span class="token punctuation">.</span>macrodata<span class="token punctuation">.</span>load_pandas<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>data  
+
+ <span class="token comment"># prepare the dates index  </span>
+In <span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">:</span> dates <span class="token operator">=</span> mdata<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">&apos;year&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;quarter&apos;</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">)</span>  
+In <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">:</span> quarterly <span class="token operator">=</span> dates<span class="token punctuation">[</span><span class="token string">&quot;year&quot;</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">&quot;Q&quot;</span> <span class="token operator">+</span> dates<span class="token punctuation">[</span><span class="token string">&quot;quarter&quot;</span><span class="token punctuation">]</span>  
+In <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">from</span> statsmodels<span class="token punctuation">.</span>tsa<span class="token punctuation">.</span>base<span class="token punctuation">.</span>datetools <span class="token keyword">import</span> dates_from_str  
+In <span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">:</span> quarterly <span class="token operator">=</span> dates_from_str<span class="token punctuation">(</span>quarterly<span class="token punctuation">)</span>  
+In <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">:</span> mdata <span class="token operator">=</span> mdata<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">&apos;realgdp&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;realcons&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;realinv&apos;</span><span class="token punctuation">]</span><span class="token punctuation">]</span>  
+In <span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">]</span><span class="token punctuation">:</span> mdata<span class="token punctuation">.</span>index <span class="token operator">=</span> pandas<span class="token punctuation">.</span>DatetimeIndex<span class="token punctuation">(</span>quarterly<span class="token punctuation">)</span>  
+In <span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span><span class="token punctuation">:</span> data <span class="token operator">=</span> np<span class="token punctuation">.</span>log<span class="token punctuation">(</span>mdata<span class="token punctuation">)</span><span class="token punctuation">.</span>diff<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>dropna<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+
+ <span class="token comment"># make a VAR model  </span>
+In <span class="token punctuation">[</span><span class="token number">13</span><span class="token punctuation">]</span><span class="token punctuation">:</span> model <span class="token operator">=</span> VAR<span class="token punctuation">(</span>data<span class="token punctuation">)</span>  
+In <span class="token punctuation">[</span><span class="token number">14</span><span class="token punctuation">]</span><span class="token punctuation">:</span> results <span class="token operator">=</span> model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>  
+In <span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">:</span> results<span class="token punctuation">.</span>summary<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x672C;VAR&#x7C7B;&#x5047;&#x5B9A;&#x901A;&#x8FC7;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x662F;&#x9759;&#x6B62;&#x7684;&#x3002;&#x975E;&#x9759;&#x6001;&#x6216;&#x8D8B;&#x52BF;&#x6570;&#x636E;&#x901A;&#x5E38;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7B2C;&#x4E00;&#x5DEE;&#x5206;&#x6216;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x53D8;&#x6362;&#x4E3A;&#x9759;&#x6B62;&#x7684;&#x3002;&#x5BF9;&#x4E8E;&#x975E;&#x5E73;&#x7A33;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x7684;&#x76F4;&#x63A5;&#x5206;&#x6790;&#xFF0C;&#x6807;&#x51C6;&#x7A33;&#x5B9A;VAR&#xFF08;p&#xFF09;&#x6A21;&#x578B;&#x662F;&#x4E0D;&#x5408;&#x9002;&#x7684;&#x3002;  </p>
+</blockquote>
+<pre class="language-"><code class="lang-python">In <span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">:</span> results<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+Out<span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token operator">&lt;</span>Figure size 1000x1000 <span class="token keyword">with</span> <span class="token number">3</span> Axes<span class="token operator">&gt;</span>
+</code></pre>
+<p><img src="images/var.png" alt="var">  </p>
+<p>&#x7ED8;&#x5236;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x81EA;&#x76F8;&#x5173;&#x51FD;&#x6570;&#xFF1A;  </p>
+<pre class="language-"><code class="lang-python">In <span class="token punctuation">[</span><span class="token number">17</span><span class="token punctuation">]</span><span class="token punctuation">:</span> results<span class="token punctuation">.</span>plot_acorr<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+Out<span class="token punctuation">[</span><span class="token number">17</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token operator">&lt;</span>Figure size 1000x1000 <span class="token keyword">with</span> <span class="token number">9</span> Axes<span class="token operator">&gt;</span>
+</code></pre>
+<h2 id="&#x6EDE;&#x540E;&#x987A;&#x5E8F;&#x9009;&#x62E9;lag-order-selection"><a name="&#x6EDE;&#x540E;&#x987A;&#x5E8F;&#x9009;&#x62E9;lag-order-selection" class="anchor-navigation-ex-anchor" href="#&#x6EDE;&#x540E;&#x987A;&#x5E8F;&#x9009;&#x62E9;lag-order-selection"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6EDE;&#x540E;&#x987A;&#x5E8F;&#x9009;&#x62E9;(Lag order selection)</h2>
+<p>&#x6EDE;&#x540E;&#x987A;&#x5E8F;&#x7684;&#x9009;&#x62E9;&#x53EF;&#x80FD;&#x662F;&#x4E00;&#x4E2A;&#x96BE;&#x9898;&#x3002;&#x6807;&#x51C6;&#x5206;&#x6790;&#x91C7;&#x7528;&#x53EF;&#x80FD;&#x6027;&#x6D4B;&#x8BD5;&#x6216;&#x57FA;&#x4E8E;&#x4FE1;&#x606F;&#x6807;&#x51C6;&#x7684;&#x987A;&#x5E8F;&#x9009;&#x62E9;&#x3002;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5B9E;&#x73B0;&#x4E86;&#x540E;&#x8005;&#xFF0C;&#x53EF;&#x901A;&#x8FC7;VAR&#x6A21;&#x578B;&#x8BBF;&#x95EE;&#xFF1A;  </p>
+<pre class="language-"><code class="lang-python">In <span class="token punctuation">[</span><span class="token number">18</span><span class="token punctuation">]</span><span class="token punctuation">:</span> model<span class="token punctuation">.</span>select_order<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span>  
+Out<span class="token punctuation">[</span><span class="token number">18</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token operator">&lt;</span>statsmodels<span class="token punctuation">.</span>tsa<span class="token punctuation">.</span>vector_ar<span class="token punctuation">.</span>var_model<span class="token punctuation">.</span>LagOrderResults at <span class="token number">0x10c89fef0</span><span class="token operator">&gt;</span>  
+<span class="token comment"># &#x8C03;&#x7528;fit&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x6700;&#x5927;&#x6EDE;&#x540E;&#x6570;&#x548C;order&#x6807;&#x51C6;&#x4EE5;&#x7528;&#x4E8E;order&#x9009;&#x62E9;  </span>
+In <span class="token punctuation">[</span><span class="token number">19</span><span class="token punctuation">]</span><span class="token punctuation">:</span> results <span class="token operator">=</span> model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>maxlags<span class="token operator">=</span><span class="token number">15</span><span class="token punctuation">,</span> ic<span class="token operator">=</span><span class="token string">&apos;aic&apos;</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="&#x9884;&#x6D4B;forecasting"><a name="&#x9884;&#x6D4B;forecasting" class="anchor-navigation-ex-anchor" href="#&#x9884;&#x6D4B;forecasting"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9884;&#x6D4B;(Forecasting)</h2>
+<p>The linear predictor is the optimal h-step ahead forecast in terms of mean-squared error:<br><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>y</mi><mi>t</mi></msub><mo>(</mo><mi>h</mi><mo>)</mo><mo>=</mo><mi>&#x3BD;</mi><mo>+</mo><msub><mi>A</mi><mn>1</mn></msub><msub><mi>y</mi><mi>t</mi></msub><mo>(</mo><mi>h</mi><mo>&#x2212;</mo><mn>1</mn><mo>)</mo><mo>+</mo><mo>&#x22EF;</mo><mo>+</mo><msub><mi>A</mi><mi>p</mi></msub><msub><mi>y</mi><mi>t</mi></msub><mo>(</mo><mi>h</mi><mo>&#x2212;</mo><mi>p</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">y_t(h)=&#x3BD;+A_1y_t(h-1)+\cdots+A_py_t(h-p)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">t</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit">h</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.06366em;">&#x3BD;</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">t</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit">h</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="minner">&#x22EF;</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">p</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">t</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit">h</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit">p</span><span class="mclose">)</span></span></span></span><br>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x9884;&#x6D4B;&#x51FD;&#x6570;&#x6765;&#x751F;&#x6210;&#x6B64;&#x9884;&#x6D4B;&#x3002;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x6211;&#x4EEC;&#x5FC5;&#x987B;&#x4E3A;&#x9884;&#x6D4B;&#x6307;&#x5B9A;&#x201C;&#x521D;&#x59CB;&#x503C;&#x201D;&#xFF1A;  </p>
+<pre class="language-"><code class="lang-python">In <span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">:</span> lag_order <span class="token operator">=</span> results<span class="token punctuation">.</span>k_ar  
+In <span class="token punctuation">[</span><span class="token number">21</span><span class="token punctuation">]</span><span class="token punctuation">:</span> results<span class="token punctuation">.</span>forecast<span class="token punctuation">(</span>data<span class="token punctuation">.</span>values<span class="token punctuation">[</span><span class="token operator">-</span>lag_order<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>  
+Out<span class="token punctuation">[</span><span class="token number">21</span><span class="token punctuation">]</span><span class="token punctuation">:</span>   
+array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token number">0.0062</span><span class="token punctuation">,</span>  <span class="token number">0.005</span> <span class="token punctuation">,</span>  <span class="token number">0.0092</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  
+       <span class="token punctuation">[</span> <span class="token number">0.0043</span><span class="token punctuation">,</span>  <span class="token number">0.0034</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.0024</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  
+       <span class="token punctuation">[</span> <span class="token number">0.0042</span><span class="token punctuation">,</span>  <span class="token number">0.0071</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.0119</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  
+       <span class="token punctuation">[</span> <span class="token number">0.0056</span><span class="token punctuation">,</span>  <span class="token number">0.0064</span><span class="token punctuation">,</span>  <span class="token number">0.0015</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  
+       <span class="token punctuation">[</span> <span class="token number">0.0063</span><span class="token punctuation">,</span>  <span class="token number">0.0067</span><span class="token punctuation">,</span>  <span class="token number">0.0038</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+In <span class="token punctuation">[</span><span class="token number">22</span><span class="token punctuation">]</span><span class="token punctuation">:</span> results<span class="token punctuation">.</span>plot_forecast<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>  
+Out<span class="token punctuation">[</span><span class="token number">22</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token operator">&lt;</span>Figure size 1000x1000 <span class="token keyword">with</span> <span class="token number">3</span> Axes<span class="token operator">&gt;</span>
+</code></pre>
+<p><img src="images/forecast.png" alt="forecast" width="75%" height="75%">  </p>
+<h2 id="&#x8109;&#x51B2;&#x54CD;&#x5E94;&#x5206;&#x6790;impulse-response-analysis"><a name="&#x8109;&#x51B2;&#x54CD;&#x5E94;&#x5206;&#x6790;impulse-response-analysis" class="anchor-navigation-ex-anchor" href="#&#x8109;&#x51B2;&#x54CD;&#x5E94;&#x5206;&#x6790;impulse-response-analysis"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8109;&#x51B2;&#x54CD;&#x5E94;&#x5206;&#x6790;(Impulse Response Analysis)</h2>
+<p>&#x5728;&#x8BA1;&#x91CF;&#x7ECF;&#x6D4E;&#x5B66;&#x7814;&#x7A76;&#x4E2D;&#xFF0C;&#x8109;&#x51B2;&#x54CD;&#x5E94;&#x662F;&#x6709;&#x610F;&#x4E49;&#x7684;&#xFF1A;&#x5B83;&#x4EEC;&#x662F;&#x5BF9;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x4E2D;&#x5355;&#x4F4D;&#x8109;&#x51B2;&#x7684;&#x4F30;&#x8BA1;&#x54CD;&#x5E94;&#x3002;&#x5B83;&#x4EEC;&#x662F;&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#x4F7F;&#x7528;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mi>A</mi><mo>(</mo><mi mathvariant="normal">&#x221E;</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">MA(\infty)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord mathit">A</span><span class="mopen">(</span><span class="mord">&#x221E;</span><span class="mclose">)</span></span></span></span>&#x8BA1;&#x7B97;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi><mi>A</mi><mi>R</mi><mo>(</mo><mi>p</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">VAR(p)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.22222em;">V</span><span class="mord mathit">A</span><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mclose">)</span></span></span></span>&#x8FC7;&#x7A0B;&#xFF1A;<br><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>Y</mi><mi>t</mi></msub><mo>=</mo><mi>&#x3BC;</mi><mo>+</mo><mstyle scriptlevel="0" displaystyle="true"><munderover><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mi mathvariant="normal">&#x221E;</mi></munderover><msub><mi mathvariant="normal">&#x3A6;</mi><mi>i</mi></msub><msub><mi>u</mi><mrow><mi>t</mi><mo>&#x2212;</mo><mi>i</mi></mrow></msub></mstyle></mrow><annotation encoding="application/x-tex">Y_t=\mu + \displaystyle\sum_{i=0}^{\infty} \Phi_i u_{t-i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.6513970000000002em;"></span><span class="strut bottom" style="height:2.929066em;vertical-align:-1.277669em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">t</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit">&#x3BC;</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">&#x2211;</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x221E;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"></span></span></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord">&#x3A6;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mathit mtight">i</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"></span></span></span></span></span></span></span></span><br>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8C03;&#x7528;VARResults&#x5BF9;&#x8C61;&#x4E0A;&#x7684;irf&#x51FD;&#x6570;&#x6765;&#x6267;&#x884C;&#x8109;&#x51B2;&#x54CD;&#x5E94;&#x5206;&#x6790;&#xFF1A;  </p>
+<pre class="language-"><code class="lang-python">In <span class="token punctuation">[</span><span class="token number">23</span><span class="token punctuation">]</span><span class="token punctuation">:</span> irf <span class="token operator">=</span> results<span class="token punctuation">.</span>irf<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>  
+<span class="token comment">#&#x8FD9;&#x4E9B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7ED8;&#x56FE;&#x51FD;&#x6570;&#x4EE5;&#x6B63;&#x4EA4;&#x6216;&#x975E;&#x6B63;&#x4EA4;&#x5F62;&#x5F0F;&#x53EF;&#x89C6;&#x5316;&#x3002;  </span>
+<span class="token comment">#&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6E10;&#x8FD1;&#x6807;&#x51C6;&#x8BEF;&#x5DEE;&#x7ED8;&#x5236;&#x5728;95&#xFF05;&#x663E;&#x7740;&#x6027;&#x6C34;&#x5E73;&#xFF0C;&#x53EF;&#x7531;&#x7528;&#x6237;&#x4FEE;&#x6539;&#x3002;  </span>
+In <span class="token punctuation">[</span><span class="token number">24</span><span class="token punctuation">]</span><span class="token punctuation">:</span> irf<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>orth<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>  
+Out<span class="token punctuation">[</span><span class="token number">24</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token operator">&lt;</span>Figure size 1000x1000 <span class="token keyword">with</span> <span class="token number">9</span> Axes<span class="token operator">&gt;</span>  
+<span class="token comment">#&#x7ED8;&#x56FE;&#x529F;&#x80FD;&#x975E;&#x5E38;&#x7075;&#x6D3B;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#xFF0C;&#x53EA;&#x80FD;&#x7ED8;&#x5236;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x53D8;&#x91CF;  </span>
+In <span class="token punctuation">[</span><span class="token number">25</span><span class="token punctuation">]</span><span class="token punctuation">:</span> irf<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>impulse<span class="token operator">=</span><span class="token string">&apos;realgdp&apos;</span><span class="token punctuation">)</span>  
+Out<span class="token punctuation">[</span><span class="token number">25</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token operator">&lt;</span>Figure size 1000x1000 <span class="token keyword">with</span> <span class="token number">3</span> Axes<span class="token operator">&gt;</span>
+</code></pre>
+<p>&#x7D2F;&#x79EF;&#x6548;&#x5E94; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi mathvariant="normal">&#x3A8;</mi><mi>n</mi></msub><mo>=</mo><msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></msubsup><msub><mi mathvariant="normal">&#x3A6;</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\Psi_n=\sum_{i=0}^n \Phi_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.804292em;"></span><span class="strut bottom" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="base"><span class="mord"><span class="mord">&#x3A8;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord">&#x3A6;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> &#x53EF;&#x4EE5;&#x7528;&#x957F;&#x671F;&#x8FD0;&#x884C;&#x6548;&#x679C;&#x7ED8;&#x5236;&#xFF1A;  </p>
+<pre class="language-"><code class="lang-python">In <span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">:</span> irf<span class="token punctuation">.</span>plot_cum_effects<span class="token punctuation">(</span>orth<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>  
+Out<span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token operator">&lt;</span>Figure size 1000x1000 <span class="token keyword">with</span> <span class="token number">9</span> Axes<span class="token operator">&gt;</span>
+</code></pre>
+<h2 id="&#x9884;&#x6D4B;&#x8BEF;&#x5DEE;&#x65B9;&#x5DEE;&#x5206;&#x89E3;fevd"><a name="&#x9884;&#x6D4B;&#x8BEF;&#x5DEE;&#x65B9;&#x5DEE;&#x5206;&#x89E3;fevd" class="anchor-navigation-ex-anchor" href="#&#x9884;&#x6D4B;&#x8BEF;&#x5DEE;&#x65B9;&#x5DEE;&#x5206;&#x89E3;fevd"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9884;&#x6D4B;&#x8BEF;&#x5DEE;&#x65B9;&#x5DEE;&#x5206;&#x89E3;(FEVD)</h2>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6B63;&#x4EA4;&#x5316;&#x8109;&#x51B2;&#x54CD;&#x5E94;&#x6765;&#x5206;&#x89E3;&#x5728;<code>i-step</code>&#x9884;&#x6D4B;&#x4E2D;<code>k</code>&#x4E0A;&#x7684;&#x5206;&#x91CF;<code>j</code>&#x7684;&#x9884;&#x6D4B;&#x8BEF;&#x5DEE; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi mathvariant="normal">&#x398;</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\Theta_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord">&#x398;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>&#xFF1A;<br>&#x901A;&#x8FC7;<code>fevd</code>&#x51FD;&#x6570;&#x5411;&#x524D;&#x603B;&#x8BA1;&#x6B65;&#x6570;&#x8BA1;&#x7B97;  </p>
+<pre class="language-"><code class="lang-python">In <span class="token punctuation">[</span><span class="token number">27</span><span class="token punctuation">]</span><span class="token punctuation">:</span> fevd <span class="token operator">=</span> results<span class="token punctuation">.</span>fevd<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>  
+In <span class="token punctuation">[</span><span class="token number">28</span><span class="token punctuation">]</span><span class="token punctuation">:</span> fevd<span class="token punctuation">.</span>summary<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+FEVD <span class="token keyword">for</span> realgdp  
+      realgdp  realcons   realinv  
+<span class="token number">0</span>    <span class="token number">1.000000</span>  <span class="token number">0.000000</span>  <span class="token number">0.000000</span>  
+<span class="token number">1</span>    <span class="token number">0.864889</span>  <span class="token number">0.129253</span>  <span class="token number">0.005858</span>  
+<span class="token number">2</span>    <span class="token number">0.816725</span>  <span class="token number">0.177898</span>  <span class="token number">0.005378</span>  
+<span class="token number">3</span>    <span class="token number">0.793647</span>  <span class="token number">0.197590</span>  <span class="token number">0.008763</span>  
+<span class="token number">4</span>    <span class="token number">0.777279</span>  <span class="token number">0.208127</span>  <span class="token number">0.014594</span>  
+
+FEVD <span class="token keyword">for</span> realcons  
+      realgdp  realcons   realinv  
+<span class="token number">0</span>    <span class="token number">0.359877</span>  <span class="token number">0.640123</span>  <span class="token number">0.000000</span>  
+<span class="token number">1</span>    <span class="token number">0.358767</span>  <span class="token number">0.635420</span>  <span class="token number">0.005813</span>  
+<span class="token number">2</span>    <span class="token number">0.348044</span>  <span class="token number">0.645138</span>  <span class="token number">0.006817</span>  
+<span class="token number">3</span>    <span class="token number">0.319913</span>  <span class="token number">0.653609</span>  <span class="token number">0.026478</span>  
+<span class="token number">4</span>    <span class="token number">0.317407</span>  <span class="token number">0.652180</span>  <span class="token number">0.030414</span>  
+
+FEVD <span class="token keyword">for</span> realinv  
+      realgdp  realcons   realinv  
+<span class="token number">0</span>    <span class="token number">0.577021</span>  <span class="token number">0.152783</span>  <span class="token number">0.270196</span>  
+<span class="token number">1</span>    <span class="token number">0.488158</span>  <span class="token number">0.293622</span>  <span class="token number">0.218220</span>  
+<span class="token number">2</span>    <span class="token number">0.478727</span>  <span class="token number">0.314398</span>  <span class="token number">0.206874</span>  
+<span class="token number">3</span>    <span class="token number">0.477182</span>  <span class="token number">0.315564</span>  <span class="token number">0.207254</span>  
+<span class="token number">4</span>    <span class="token number">0.466741</span>  <span class="token number">0.324135</span>  <span class="token number">0.209124</span>
+</code></pre>
+<p>&#x5B83;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD4;&#x56DE;&#x7684;FEVD&#x5BF9;&#x8C61;&#x53EF;&#x89C6;&#x5316;  </p>
+<pre class="language-"><code class="lang-python">In <span class="token punctuation">[</span><span class="token number">29</span><span class="token punctuation">]</span><span class="token punctuation">:</span> results<span class="token punctuation">.</span>fevd<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+Out<span class="token punctuation">[</span><span class="token number">29</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token operator">&lt;</span>Figure size 1000x1000 <span class="token keyword">with</span> <span class="token number">3</span> Axes<span class="token operator">&gt;</span>
+</code></pre>
+<h2 id="&#x7EDF;&#x8BA1;&#x68C0;&#x9A8C;statistical-tests"><a name="&#x7EDF;&#x8BA1;&#x68C0;&#x9A8C;statistical-tests" class="anchor-navigation-ex-anchor" href="#&#x7EDF;&#x8BA1;&#x68C0;&#x9A8C;statistical-tests"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EDF;&#x8BA1;&#x68C0;&#x9A8C;(Statistical tests)</h2>
+<p>&#x63D0;&#x4F9B;&#x4E86;&#x8BB8;&#x591A;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x8FDB;&#x884C;&#x5173;&#x4E8E;&#x6A21;&#x578B;&#x7ED3;&#x679C;&#x7684;&#x5047;&#x8BBE;&#x68C0;&#x9A8C;&#x4EE5;&#x53CA;&#x6A21;&#x578B;&#x5047;&#x8BBE;&#x7684;&#x6B63;&#x786E;&#x6027;(normality, whiteness / &#x201C;iid-ness&#x201D; of errors, etc)  </p>
+<p><a href="https://baike.baidu.com/item/%E6%A0%BC%E5%85%B0%E6%9D%B0%E5%9B%A0%E6%9E%9C%E5%85%B3%E7%B3%BB%E6%A3%80%E9%AA%8C/2485970" target="_blank"><strong>&#x683C;&#x5170;&#x6770;&#x56E0;&#x679C;&#x5173;&#x7CFB;(Granger causality)</strong></a>  </p>
+<ul>
+<li>&#x683C;&#x5170;&#x6770;&#x672C;&#x4EBA;&#x5728;&#x5176;2003&#x5E74;&#x83B7;&#x5956;&#x6F14;&#x8BF4;&#x4E2D;&#x5F3A;&#x8C03;&#x4E86;&#x5176;&#x5F15;&#x7528;&#x7684;&#x5C40;&#x9650;&#x6027;&#xFF0C;&#x4EE5;&#x53CA;&#x201C;&#x5F88;&#x591A;&#x8352;&#x8C2C;&#x8BBA;&#x6587;&#x7684;&#x51FA;&#x73B0;&#x201D;&#xFF08;Of course, many ridiculous papers appeared&#xFF09;&#x3002;&#x7531;&#x4E8E;&#x5176;&#x7EDF;&#x8BA1;&#x5B66;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x5BF9;&#x5E73;&#x7A33;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#x4E00;&#x79CD;&#x9884;&#x6D4B;&#xFF0C;&#x4EC5;&#x9002;&#x7528;&#x4E8E;&#x8BA1;&#x91CF;&#x7ECF;&#x6D4E;&#x5B66;&#x7684;&#x53D8;&#x91CF;&#x9884;&#x6D4B;&#xFF0C;&#x4E0D;&#x80FD;&#x4F5C;&#x4E3A;&#x68C0;&#x9A8C;&#x771F;&#x6B63;&#x56E0;&#x679C;&#x6027;&#x7684;&#x5224;&#x636E;&#x3002;  </li>
+<li>&#x5728;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x60C5;&#x5F62;&#x4E0B;&#xFF0C;&#x4E24;&#x4E2A;&#x7ECF;&#x6D4E;&#x53D8;&#x91CF;X&#x3001;Y&#x4E4B;&#x95F4;&#x7684;&#x683C;&#x5170;&#x6770;&#x56E0;&#x679C;&#x5173;&#x7CFB;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;&#x82E5;&#x5728;&#x5305;&#x542B;&#x4E86;&#x53D8;&#x91CF;X&#x3001;Y&#x7684;&#x8FC7;&#x53BB;&#x4FE1;&#x606F;&#x7684;&#x6761;&#x4EF6;&#x4E0B;&#xFF0C;&#x5BF9;&#x53D8;&#x91CF;Y&#x7684;&#x9884;&#x6D4B;&#x6548;&#x679C;&#x8981;&#x4F18;&#x4E8E;&#x53EA;&#x5355;&#x72EC;&#x7531;Y&#x7684;&#x8FC7;&#x53BB;&#x4FE1;&#x606F;&#x5BF9;Y&#x8FDB;&#x884C;&#x7684;&#x9884;&#x6D4B;&#x6548;&#x679C;&#xFF0C;&#x5373;&#x53D8;&#x91CF;X&#x6709;&#x52A9;&#x4E8E;&#x89E3;&#x91CA;&#x53D8;&#x91CF;Y&#x7684;&#x5C06;&#x6765;&#x53D8;&#x5316;&#xFF0C;&#x5219;&#x8BA4;&#x4E3A;&#x53D8;&#x91CF;X&#x662F;&#x5F15;&#x81F4;&#x53D8;&#x91CF;Y&#x7684;&#x683C;&#x5170;&#x6770;&#x539F;&#x56E0;&#x3002;  </li>
+<li>&#x8FDB;&#x884C;&#x683C;&#x5170;&#x6770;&#x56E0;&#x679C;&#x5173;&#x7CFB;&#x68C0;&#x9A8C;&#x7684;&#x4E00;&#x4E2A;&#x524D;&#x63D0;&#x6761;&#x4EF6;&#x662F;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5FC5;&#x987B;&#x5177;&#x6709;&#x5E73;&#x7A33;&#x6027;&#xFF0C;&#x5426;&#x5219;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x865A;&#x5047;&#x56DE;&#x5F52;&#x95EE;&#x9898;&#x3002;&#x56E0;&#x6B64;&#x5728;&#x8FDB;&#x884C;&#x683C;&#x5170;&#x6770;&#x56E0;&#x679C;&#x5173;&#x7CFB;&#x68C0;&#x9A8C;&#x4E4B;&#x524D;&#x9996;&#x5148;&#x5E94;&#x5BF9;&#x5404;&#x6307;&#x6807;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x7684;&#x5E73;&#x7A33;&#x6027;&#x8FDB;&#x884C;&#x5355;&#x4F4D;&#x6839;&#x68C0;&#x9A8C;(unit root test)&#x3002;&#x5E38;&#x7528;&#x589E;&#x5E7F;&#x7684;&#x8FEA;&#x57FA;&#x2014;&#x5BCC;&#x52D2;&#x68C0;&#x9A8C;(ADF&#x68C0;&#x9A8C;)&#x6765;&#x5206;&#x522B;&#x5BF9;&#x5404;&#x6307;&#x6807;&#x5E8F;&#x5217;&#x7684;&#x5E73;&#x7A33;&#x6027;&#x8FDB;&#x884C;&#x5355;&#x4F4D;&#x6839;&#x68C0;&#x9A8C;  </li>
+</ul>
+<pre class="language-"><code class="lang-python">In <span class="token punctuation">[</span><span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">:</span> results<span class="token punctuation">.</span>test_causality<span class="token punctuation">(</span><span class="token string">&apos;realgdp&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&apos;realinv&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;realcons&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> kind<span class="token operator">=</span><span class="token string">&apos;f&apos;</span><span class="token punctuation">)</span>  
+Out<span class="token punctuation">[</span><span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token operator">&lt;</span>statsmodels<span class="token punctuation">.</span>tsa<span class="token punctuation">.</span>vector_ar<span class="token punctuation">.</span>hypothesis_test_results<span class="token punctuation">.</span>CausalityTestResults at <span class="token number">0x10ca15978</span><span class="token operator">&gt;</span>
+</code></pre>
+<h2 id="&#x52A8;&#x6001;&#x77E2;&#x91CF;&#x81EA;&#x52A8;&#x56DE;&#x5F52;dynamic-vector-autoregressions"><a name="&#x52A8;&#x6001;&#x77E2;&#x91CF;&#x81EA;&#x52A8;&#x56DE;&#x5F52;dynamic-vector-autoregressions" class="anchor-navigation-ex-anchor" href="#&#x52A8;&#x6001;&#x77E2;&#x91CF;&#x81EA;&#x52A8;&#x56DE;&#x5F52;dynamic-vector-autoregressions"><i class="fa fa-link" aria-hidden="true"></i></a>&#x52A8;&#x6001;&#x77E2;&#x91CF;&#x81EA;&#x52A8;&#x56DE;&#x5F52;(Dynamic Vector Autoregressions)</h2>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x8981;&#x4F7F;&#x7528;&#x6B64;&#x529F;&#x80FD;&#xFF0C; &#x5FC5;&#x987B;&#x5B89;&#x88C5;pandas  </p>
+</blockquote>
+<p>&#x4EBA;&#x4EEC;&#x901A;&#x5E38;&#x5BF9;&#x4F30;&#x8BA1;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#x7684;&#x79FB;&#x52A8;&#x7A97;&#x53E3;&#x56DE;&#x5F52;&#x611F;&#x5174;&#x8DA3;&#xFF0C;&#x4EE5;&#x4FBF;&#x5728;&#x6574;&#x4E2A;&#x6570;&#x636E;&#x6837;&#x672C;&#x4E2D;&#x8FDB;&#x884C;&#x9884;&#x6D4B;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x5E0C;&#x671B;&#x751F;&#x6210;&#x7531;&#x6BCF;&#x4E2A;&#x65F6;&#x95F4;&#x70B9;&#x4F30;&#x8BA1;&#x7684;VAR(p)&#x6A21;&#x578B;&#x4EA7;&#x751F;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x4E24;&#x6B65;&#x9884;&#x6D4B;&#x3002;  </p>
+<pre class="language-"><code class="lang-python">In <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">]</span><span class="token punctuation">:</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>seed<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>  
+In <span class="token punctuation">[</span><span class="token number">32</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">import</span> pandas<span class="token punctuation">.</span>util<span class="token punctuation">.</span>testing <span class="token keyword">as</span> ptest  
+In <span class="token punctuation">[</span><span class="token number">33</span><span class="token punctuation">]</span><span class="token punctuation">:</span> ptest<span class="token punctuation">.</span>N <span class="token operator">=</span> <span class="token number">500</span>  
+In <span class="token punctuation">[</span><span class="token number">34</span><span class="token punctuation">]</span><span class="token punctuation">:</span> data <span class="token operator">=</span> ptest<span class="token punctuation">.</span>makeTimeDataFrame<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>  
+In <span class="token punctuation">[</span><span class="token number">35</span><span class="token punctuation">]</span><span class="token punctuation">:</span> data  
+Out<span class="token punctuation">[</span><span class="token number">35</span><span class="token punctuation">]</span><span class="token punctuation">:</span>   
+                    A          B          C          D  
+<span class="token number">2000</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">03</span>   <span class="token number">1.624345</span>  <span class="token operator">-</span><span class="token number">1.719394</span>  <span class="token operator">-</span><span class="token number">0.153236</span>   <span class="token number">1.301225</span>  
+<span class="token number">2000</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">04</span>   <span class="token number">1.012589</span>  <span class="token operator">-</span><span class="token number">1.662273</span>  <span class="token operator">-</span><span class="token number">2.585745</span>   <span class="token number">0.988833</span>  
+<span class="token number">2000</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">05</span>   <span class="token number">0.484417</span>  <span class="token operator">-</span><span class="token number">2.461821</span>  <span class="token operator">-</span><span class="token number">2.077760</span>   <span class="token number">0.717604</span>  
+<span class="token number">2000</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">06</span>  <span class="token operator">-</span><span class="token number">0.588551</span>  <span class="token operator">-</span><span class="token number">2.753416</span>  <span class="token operator">-</span><span class="token number">2.401793</span>   <span class="token number">2.580517</span>  
+<span class="token number">2000</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">07</span>   <span class="token number">0.276856</span>  <span class="token operator">-</span><span class="token number">3.012398</span>  <span class="token operator">-</span><span class="token number">3.912869</span>   <span class="token number">1.937644</span>  
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>               <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>  
+<span class="token number">2001</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">26</span>  <span class="token number">29.552085</span>  <span class="token number">14.274036</span>  <span class="token number">39.222558</span> <span class="token operator">-</span><span class="token number">13.243907</span>  
+<span class="token number">2001</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">27</span>  <span class="token number">30.080964</span>  <span class="token number">11.996738</span>  <span class="token number">38.589968</span> <span class="token operator">-</span><span class="token number">12.682989</span>  
+<span class="token number">2001</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">28</span>  <span class="token number">27.843878</span>  <span class="token number">11.927114</span>  <span class="token number">38.380121</span> <span class="token operator">-</span><span class="token number">13.604648</span>  
+<span class="token number">2001</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">29</span>  <span class="token number">26.736165</span>  <span class="token number">12.280984</span>  <span class="token number">40.277282</span> <span class="token operator">-</span><span class="token number">12.957273</span>  
+<span class="token number">2001</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">30</span>  <span class="token number">26.718447</span>  <span class="token number">12.094029</span>  <span class="token number">38.895890</span> <span class="token operator">-</span><span class="token number">11.570447</span>  
+
+<span class="token punctuation">[</span><span class="token number">500</span> rows x <span class="token number">4</span> columns<span class="token punctuation">]</span>  
+In <span class="token punctuation">[</span><span class="token number">36</span><span class="token punctuation">]</span><span class="token punctuation">:</span> var <span class="token operator">=</span> DynamicVAR<span class="token punctuation">(</span>data<span class="token punctuation">,</span> lag_order<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> window_type<span class="token operator">=</span><span class="token string">&apos;expanding&apos;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x52A8;&#x6001;&#x6A21;&#x578B;&#x7684;&#x4F30;&#x8BA1;&#x7CFB;&#x6570;&#x4F5C;&#x4E3A;pandas.Panel&#x5BF9;&#x8C61;&#x8FD4;&#x56DE; &#xFF0C;&#x8FD9;&#x53EF;&#x4EE5;&#x8BA9;&#x60A8;&#x8F7B;&#x677E;&#x5730;&#x6309;&#x7B49;&#x5F0F;&#x6216;&#x6309;&#x65E5;&#x671F;&#x68C0;&#x67E5;&#x6240;&#x6709;&#x6A21;&#x578B;&#x7CFB;&#x6570;&#xFF1A;  </p>
+<pre class="language-"><code class="lang-python">In <span class="token punctuation">[</span><span class="token number">37</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">import</span> datetime <span class="token keyword">as</span> dt  
+In <span class="token punctuation">[</span><span class="token number">38</span><span class="token punctuation">]</span><span class="token punctuation">:</span> var<span class="token punctuation">.</span>coefs  
+Out<span class="token punctuation">[</span><span class="token number">38</span><span class="token punctuation">]</span><span class="token punctuation">:</span>   
+<span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">&apos;pandas.core.panel.Panel&apos;</span><span class="token operator">&gt;</span>  
+Dimensions<span class="token punctuation">:</span> <span class="token number">9</span> <span class="token punctuation">(</span>items<span class="token punctuation">)</span> x <span class="token number">489</span> <span class="token punctuation">(</span>major_axis<span class="token punctuation">)</span> x <span class="token number">4</span> <span class="token punctuation">(</span>minor_axis<span class="token punctuation">)</span>  
+Items axis<span class="token punctuation">:</span> L1<span class="token punctuation">.</span>A to intercept  
+Major_axis axis<span class="token punctuation">:</span> <span class="token number">2000</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">18</span> <span class="token number">00</span><span class="token punctuation">:</span><span class="token number">00</span><span class="token punctuation">:</span><span class="token number">00</span> to <span class="token number">2001</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">30</span> <span class="token number">00</span><span class="token punctuation">:</span><span class="token number">00</span><span class="token punctuation">:</span><span class="token number">00</span>  
+Minor_axis axis<span class="token punctuation">:</span> A to D  
+
+ <span class="token comment"># all estimated coefficients for equation A  </span>
+In <span class="token punctuation">[</span><span class="token number">39</span><span class="token punctuation">]</span><span class="token punctuation">:</span> var<span class="token punctuation">.</span>coefs<span class="token punctuation">.</span>minor_xs<span class="token punctuation">(</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+<span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">&apos;pandas.core.frame.DataFrame&apos;</span><span class="token operator">&gt;</span>  
+DatetimeIndex<span class="token punctuation">:</span> <span class="token number">489</span> entries<span class="token punctuation">,</span> <span class="token number">2000</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">18</span> to <span class="token number">2001</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">30</span>  
+Freq<span class="token punctuation">:</span> B  
+Data columns <span class="token punctuation">(</span>total <span class="token number">9</span> columns<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+L1<span class="token punctuation">.</span>A         <span class="token number">489</span> non<span class="token operator">-</span>null float64  
+L1<span class="token punctuation">.</span>B         <span class="token number">489</span> non<span class="token operator">-</span>null float64  
+L1<span class="token punctuation">.</span>C         <span class="token number">489</span> non<span class="token operator">-</span>null float64  
+L1<span class="token punctuation">.</span>D         <span class="token number">489</span> non<span class="token operator">-</span>null float64  
+L2<span class="token punctuation">.</span>A         <span class="token number">489</span> non<span class="token operator">-</span>null float64  
+L2<span class="token punctuation">.</span>B         <span class="token number">489</span> non<span class="token operator">-</span>null float64  
+L2<span class="token punctuation">.</span>C         <span class="token number">489</span> non<span class="token operator">-</span>null float64  
+L2<span class="token punctuation">.</span>D         <span class="token number">489</span> non<span class="token operator">-</span>null float64  
+intercept    <span class="token number">489</span> non<span class="token operator">-</span>null float64  
+dtypes<span class="token punctuation">:</span> float64<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>  
+memory usage<span class="token punctuation">:</span> <span class="token number">58.2</span> KB  
+
+ <span class="token comment"># coefficients on 11/30/2001  </span>
+In <span class="token punctuation">[</span><span class="token number">40</span><span class="token punctuation">]</span><span class="token punctuation">:</span> var<span class="token punctuation">.</span>coefs<span class="token punctuation">.</span>major_xs<span class="token punctuation">(</span>dt<span class="token punctuation">.</span>datetime<span class="token punctuation">(</span><span class="token number">2001</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>T  
+Out<span class="token punctuation">[</span><span class="token number">40</span><span class="token punctuation">]</span><span class="token punctuation">:</span>   
+                  A         B         C         D  
+L1<span class="token punctuation">.</span>A       <span class="token number">0.971964</span>  <span class="token number">0.045960</span>  <span class="token number">0.003883</span>  <span class="token number">0.003822</span>  
+L1<span class="token punctuation">.</span>B       <span class="token number">0.043951</span>  <span class="token number">0.937964</span>  <span class="token number">0.000735</span>  <span class="token number">0.020823</span>  
+L1<span class="token punctuation">.</span>C       <span class="token number">0.038144</span>  <span class="token number">0.018260</span>  <span class="token number">0.977037</span>  <span class="token number">0.129287</span>  
+L1<span class="token punctuation">.</span>D       <span class="token number">0.038618</span>  <span class="token number">0.036180</span>  <span class="token number">0.052855</span>  <span class="token number">1.002657</span>  
+L2<span class="token punctuation">.</span>A       <span class="token number">0.013588</span> <span class="token operator">-</span><span class="token number">0.046791</span>  <span class="token number">0.011558</span> <span class="token operator">-</span><span class="token number">0.005300</span>  
+L2<span class="token punctuation">.</span>B      <span class="token operator">-</span><span class="token number">0.048885</span>  <span class="token number">0.041853</span>  <span class="token number">0.012185</span> <span class="token operator">-</span><span class="token number">0.048732</span>  
+L2<span class="token punctuation">.</span>C      <span class="token operator">-</span><span class="token number">0.029426</span> <span class="token operator">-</span><span class="token number">0.015238</span>  <span class="token number">0.011520</span> <span class="token operator">-</span><span class="token number">0.119014</span>  
+L2<span class="token punctuation">.</span>D      <span class="token operator">-</span><span class="token number">0.049945</span> <span class="token operator">-</span><span class="token number">0.025419</span> <span class="token operator">-</span><span class="token number">0.045621</span> <span class="token operator">-</span><span class="token number">0.019496</span>  
+intercept  <span class="token number">0.113331</span>  <span class="token number">0.248795</span> <span class="token operator">-</span><span class="token number">0.058837</span> <span class="token operator">-</span><span class="token number">0.089302</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>forecast</code>&#x51FD;&#x6570;&#x751F;&#x6210;&#x524D;&#x9762;&#x7ED9;&#x5B9A;&#x6B65;&#x9AA4;&#x7684;&#x52A8;&#x6001;&#x9884;&#x6D4B;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;pandas.DataMatrix&#x5BF9;&#x8C61;&#xFF1A;  </p>
+<pre class="language-"><code class="lang-python">In <span class="token punctuation">[</span><span class="token number">41</span><span class="token punctuation">]</span><span class="token punctuation">:</span> var<span class="token punctuation">.</span>forecast<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>  
+Out<span class="token punctuation">[</span><span class="token number">41</span><span class="token punctuation">]</span><span class="token punctuation">:</span>   
+                     A          B           C           D  
+<span class="token number">2000</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">20</span> <span class="token operator">-</span><span class="token number">260.325888</span> <span class="token operator">-</span><span class="token number">23.141610</span>  <span class="token number">104.930427</span> <span class="token operator">-</span><span class="token number">134.489882</span>  
+<span class="token number">2000</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">21</span>  <span class="token operator">-</span><span class="token number">52.121483</span> <span class="token operator">-</span><span class="token number">11.566786</span>   <span class="token number">29.383608</span>  <span class="token operator">-</span><span class="token number">15.099109</span>  
+<span class="token number">2000</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">24</span>  <span class="token operator">-</span><span class="token number">54.900049</span> <span class="token operator">-</span><span class="token number">23.894858</span>   <span class="token number">40.470913</span>  <span class="token operator">-</span><span class="token number">19.199059</span>  
+<span class="token number">2000</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">25</span>   <span class="token operator">-</span><span class="token number">7.493484</span>  <span class="token operator">-</span><span class="token number">4.057529</span>    <span class="token number">6.682707</span>    <span class="token number">4.301623</span>  
+<span class="token number">2000</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">26</span>   <span class="token operator">-</span><span class="token number">6.866108</span>  <span class="token operator">-</span><span class="token number">5.065873</span>    <span class="token number">5.623590</span>    <span class="token number">0.796081</span>  
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>                <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>         <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>         <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>  
+<span class="token number">2001</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">26</span>   <span class="token number">31.886126</span>  <span class="token number">13.515527</span>   <span class="token number">37.618145</span>  <span class="token operator">-</span><span class="token number">11.464682</span>  
+<span class="token number">2001</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">27</span>   <span class="token number">32.314633</span>  <span class="token number">14.237672</span>   <span class="token number">37.397691</span>  <span class="token operator">-</span><span class="token number">12.809727</span>  
+<span class="token number">2001</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">28</span>   <span class="token number">30.896528</span>  <span class="token number">15.488388</span>   <span class="token number">38.541596</span>  <span class="token operator">-</span><span class="token number">13.129524</span>  
+<span class="token number">2001</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">29</span>   <span class="token number">30.077228</span>  <span class="token number">15.533337</span>   <span class="token number">38.734096</span>  <span class="token operator">-</span><span class="token number">12.900891</span>  
+<span class="token number">2001</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">30</span>   <span class="token number">30.510380</span>  <span class="token number">13.491615</span>   <span class="token number">38.088228</span>  <span class="token operator">-</span><span class="token number">12.384976</span>  
+
+<span class="token punctuation">[</span><span class="token number">487</span> rows x <span class="token number">4</span> columns<span class="token punctuation">]</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;plot_forecast&#x663E;&#x793A;&#x9884;&#x6D4B;&#xFF1A;  </p>
+<pre class="language-"><code class="lang-python">In <span class="token punctuation">[</span><span class="token number">42</span><span class="token punctuation">]</span><span class="token punctuation">:</span> var<span class="token punctuation">.</span>plot_forecast<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="images/dvar_forecast.png" alt="dvar_forecast" width="75%" height="75%">  </p>
+<p><footer class="page-footer"><span class="copyright">Copyright &#xA9; WilenWu all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x66F4;&#x65B0;&#x4E8E; 
+2019-10-09 20:52:48
+</span></footer></p>
+<div id="gitalk-container"></div>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+						
+					</section>
+					
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+				</div>
+			</div>
+			
+		</div>
+
+		
+		
+		<a href="MultivariateStatistics.html" class="navigation navigation-prev " aria-label="Previous page: 多变量统计">
+			<i class="fa fa-angle-left"></i>
+		</a>
+		
+		
+		<a href="Survival.html" class="navigation navigation-next " aria-label="Next page: 生存分析">
+			<i class="fa fa-angle-right"></i>
+		</a>
+		
+		
+		
+	</div>
+	<script>
+		var gitbook = gitbook || [];
+		gitbook.push(function() {
+			gitbook.page.hasChanged({"page":{"ID":"12500e129614bde2d1e7bca846392a4b","title":"时间序列","tags":["python","机器学习","statsmodels","时间序列"],"mathjax":true,"copyright":true,"date":"2018-12-19T16:53:47.000Z","categories":["python","Machine Learning"],"sticky":false,"level":"1.7","depth":1,"next":{"title":"生存分析","level":"1.8","depth":1,"path":"Survival.md","ref":"Survival.md","articles":[]},"previous":{"title":"多变量统计","level":"1.6","depth":1,"path":"MultivariateStatistics.md","ref":"MultivariateStatistics.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-fexa-black","-sharing","-fontsettings","search-pro","-search","-lunr","expandable-chapters","splitter","anchor-navigation-ex","hide-element","tbfed-pagefooter","github-buttons","mygitalk","popup","prism","-highlight","copy-code-button","codeblock-filename","flexible-alerts","katex-plus","mermaid","sitemap","baidu"],"root":"./statsmodels/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy WilenWu","modify_label":"更新于 ","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"mermaid":{},"popup":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./images/logo.png","favicon":"./images/favicon.png"},"hide-element":{"elements":[".gitbook-link"]},"anchor-navigation-ex":{"associatedWithSummary":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":"github32.png","codeblock-filename":{},"sitemap":{"hostname":"http://wilenwu.github.io"},"katex-plus":{},"github-buttons":{"buttons":[{"user":"wilenwu","repo":"wilenwu.github.io","type":"star","size":"small"}]},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"},"comment":{"label":"Comment","icon":"fa fa-comments","className":"info"}},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"60decc199e52a19f035d","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["wilenwu"],"createIssueManually":false,"distractionFreeMode":true,"repo":"gitalk","owner":"wilenwu","enableHotKey":true,"clientSecret":"fe95a75c03105bf4566a72968f6dfcfd3b861344","pagerDirection":"last","labels":["Gitalk"]},"baidu":{"token":"873a3ba02856122b60c91114a489f967"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"theme-fexa-black":{},"insert-logo":{"url":"open_book.png","style":"background: none; max-height: 30px; min-height: 30px"},"expandable-chapters":{}},"theme":"default","author":"WilenWu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"GettingStarted.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"themeFexa":{"showHome":true,"showNavigator":false,"nav":[{"url":"/bookshelf/","target":"_blank","name":"返回书架"}]}},"title":"statsmodels","language":"zh-hans","gitbook":"*"},"file":{"path":"TimeSeries.md","mtime":"2019-10-09T12:52:48.487Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-11T14:56:15.036Z"},"basePath":".","book":{"language":""}});
+		});
+	</script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-mygitalk/mygitalk.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-baidu/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-theme-fexa-black/fexa.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -31,8 +31,8 @@
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
     copycode: {"enable":true,"show_result":true,"style":"mac"},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
     lazyload: true,
@@ -56,18 +56,18 @@
   };
 </script>
 
-  <meta name="description" content="e x T NexT 是 Hexo 框架中最为流行的主题之一。精于心，简于形。 NexT 支持多种常见第三方服务，使用 第三方服务 来扩展站点的功能 。 除了 Markdown 支持的语法之外，NexT 借助 Hexo 提供的 tag 插件， 为您提供在书写文档时快速插入带特殊样式的内容。">
+  <meta name="description" content="NexT 是 Hexo 框架中最为流行的主题之一。精于心，简于形。 NexT 支持多种常见第三方服务，使用  第三方服务  来扩展站点的功能 。 除了 Markdown 支持的语法之外，NexT 借助 Hexo 提供的  tag 插件 ， 为您提供在书写文档时快速插入带特殊样式的内容。">
 <meta name="keywords" content="Hexo,NexT,Github pages">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NexT主题进阶">
 <meta property="og:url" content="https://wilenwu.github.io/posts/hexo/theme-NexT-advanced.html">
 <meta property="og:site_name" content="Wilen&#39;s Blog">
-<meta property="og:description" content="e x T NexT 是 Hexo 框架中最为流行的主题之一。精于心，简于形。 NexT 支持多种常见第三方服务，使用 第三方服务 来扩展站点的功能 。 除了 Markdown 支持的语法之外，NexT 借助 Hexo 提供的 tag 插件， 为您提供在书写文档时快速插入带特殊样式的内容。">
+<meta property="og:description" content="NexT 是 Hexo 框架中最为流行的主题之一。精于心，简于形。 NexT 支持多种常见第三方服务，使用  第三方服务  来扩展站点的功能 。 除了 Markdown 支持的语法之外，NexT 借助 Hexo 提供的  tag 插件 ， 为您提供在书写文档时快速插入带特殊样式的内容。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-11T02:59:11.801Z">
+<meta property="og:updated_time" content="2019-10-14T05:12:25.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NexT主题进阶">
-<meta name="twitter:description" content="e x T NexT 是 Hexo 框架中最为流行的主题之一。精于心，简于形。 NexT 支持多种常见第三方服务，使用 第三方服务 来扩展站点的功能 。 除了 Markdown 支持的语法之外，NexT 借助 Hexo 提供的 tag 插件， 为您提供在书写文档时快速插入带特殊样式的内容。">
+<meta name="twitter:description" content="NexT 是 Hexo 框架中最为流行的主题之一。精于心，简于形。 NexT 支持多种常见第三方服务，使用  第三方服务  来扩展站点的功能 。 除了 Markdown 支持的语法之外，NexT 借助 Hexo 提供的  tag 插件 ， 为您提供在书写文档时快速插入带特殊样式的内容。">
   <link rel="canonical" href="https://wilenwu.github.io/posts/hexo/theme-NexT-advanced">
 
 
@@ -91,6 +91,7 @@
         }
     })();
 </script>
+
 
   <title>NexT主题进阶 | Wilen's Blog</title>
   
@@ -186,6 +187,19 @@
       
       
         
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">64</span></a>
+
+  </li>
+      
+      
+      
+        
         <li class="menu-item menu-item-tags">
       
     
@@ -206,19 +220,6 @@
     
 
     <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">24</span></a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-archives">
-      
-    
-      
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">64</span></a>
 
   </li>
       
@@ -294,6 +295,11 @@
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
 
   <a href="https://github.com/wilenwu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
@@ -351,7 +357,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-11 10:59:11" itemprop="dateModified" datetime="2019-10-11T10:59:11+08:00">2019-10-11</time>
+                <time title="修改时间：2019-10-14 13:12:25" itemprop="dateModified" datetime="2019-10-14T13:12:25+08:00">2019-10-14</time>
               </span>
             
           
@@ -400,7 +406,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>7.8k</span>
+              <span>9.8k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -410,7 +416,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>7 分钟</span>
+              <span>9 分钟</span>
             </span>
           
 
@@ -423,10 +429,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div align="center"><a title="NexT website repository" href="https://github.com/theme-next/theme-next.org" target="_blank" rel="noopener"><img align="center" width="60" height="60" data-src="https://raw.githubusercontent.com/theme-next/hexo-theme-next/master/source/images/logo.svg?sanitize=true"></a><font size="5"><b>e x T</b></font></div>
-<p>NexT 是 <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a> 框架中最为流行的主题之一。精于心，简于形。<br>
-NexT 支持多种常见第三方服务，使用 <strong>第三方服务</strong> 来扩展站点的功能 。<br>
-除了 Markdown 支持的语法之外，NexT 借助 Hexo 提供的 <strong>tag 插件</strong>， 为您提供在书写文档时快速插入带特殊样式的内容。</p>
+        <p><a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT</a> 是 <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a> 框架中最为流行的主题之一。精于心，简于形。<br>
+NexT 支持多种常见第三方服务，使用  <strong>第三方服务</strong>  来扩展站点的功能 。<br>
+除了 Markdown 支持的语法之外，NexT 借助 Hexo 提供的  <strong>tag 插件</strong> ， 为您提供在书写文档时快速插入带特殊样式的内容。</p>
 <a id="more"></a>
 <h1 id="安装主题"><a class="markdownIt-Anchor" href="#安装主题"></a> 安装主题</h1>
 <ol>
@@ -447,9 +452,9 @@ NexT 支持多种常见第三方服务，使用 <strong>第三方服务</strong>
 包括：选择Scheme、设置语言、设置菜单、设置头像、设置侧栏、添加「标签」页面、添加「分类」页面、设置字体、设置代码高亮主题、侧边栏社交链接、开启打赏功能、友情链接、腾讯公益404页面、数据统计与分析、搜索服务、分享服务等。</p>
 <p>主题配置文件 <code>‪username.github.io\themes\next\_config.yml</code><br>
 分为若干块，每块都附带官方说明文件网址，可以用谷歌浏览器打开，开启翻译，即可轻松配置。<br>
-目前主流的组件基本已被装进 NexT主题，只需修改主题配置文件参数即可，网上的若干优化教程估计已不适用。</p>
+目前主流的组件基本已被装进 NexT主题，只需修改主题配置文件参数即可，网上的若干优化教程估计已非必要。</p>
 <p>NexT 7 自定义样式支持已与主题核心组件分离，如博客背景、文本结束标记等。这样用户可放心升级主题而不会破坏自定义配置。在路径 <code>source/_data</code> 下添加自定义文件，并在主题配置文件 <code>custom_file_path</code> 取消注释。</p>
-<p>另，tag 插件也是NexT的一大亮点，会单独开一篇文章具体介绍，请参考 <a href="http://localhost:4000/2019/09/11/Hexo%20tag%20%E6%8F%92%E4%BB%B6/" target="_blank" rel="noopener">NexT tag 插件</a></p>
+<p>另，tag 插件也是NexT的一大亮点，会单独开一篇文章具体介绍，请参考 <a href="/posts/hexo/Hexo-tag-plugins.html">NexT tag 插件</a></p>
 <p>本人博客：由 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 强力驱动 v3.9.0 |主题 – <a href="https://theme-next.org/" target="_blank" rel="noopener">NexT.Gemini</a> v7.4.0</p>
 <h1 id="主题优化"><a class="markdownIt-Anchor" href="#主题优化"></a> 主题优化</h1>
 <h2 id="rss支持"><a class="markdownIt-Anchor" href="#rss支持"></a> RSS支持</h2>
@@ -523,7 +528,7 @@ NexT 支持多种常见第三方服务，使用 <strong>第三方服务</strong>
 </li>
 <li>
 <p>主题配置文件</p>
- <figure class="highlight plain"><figcaption><span>next\_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true       # 以分隔线显示单词计数和估计读取时间</span><br><span class="line">  item_text_post: true       # 显示单词计数和估计阅读时间的文本描述</span><br><span class="line">  item_text_total: false     # 在页脚部分显示单词计数和估计阅读时间的文本描述</span><br><span class="line">  awl: 4                     # 平均字长</span><br><span class="line">  wpm: 275                   # 每分钟的平均单词数</span><br><span class="line">  suffix: mins.</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><figcaption><span>next\_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true       # 以分隔线显示单词计数和估计读取时间</span><br><span class="line">  item_text_post: true       # 显示单词计数和估计阅读时间的文本描述</span><br><span class="line">  item_text_total: false     # 在页脚部分显示单词计数和估计阅读时间的文本描述</span><br><span class="line">  awl: 4                     # 平均字长</span><br><span class="line">  wpm: 275                   # 每分钟的平均单词数</span><br><span class="line">  suffix: mins.</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="文章热度"><a class="markdownIt-Anchor" href="#文章热度"></a> 文章热度</h2>
@@ -546,7 +551,7 @@ NexT 支持多种常见第三方服务，使用 <strong>第三方服务</strong>
 </li>
 <li>
 <p>主题配置文件修改</p>
-<figure class="highlight plain"><figcaption><span>next\_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id: &lt;&lt;your app id&gt;&gt;</span><br><span class="line">  app_key: &lt;&lt;your app key&gt;&gt;</span><br><span class="line">  # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security</span><br><span class="line">  security: true</span><br><span class="line">  betterPerformance: false</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>next\_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id: &lt;&lt;your app id&gt;&gt;</span><br><span class="line">  app_key: &lt;&lt;your app key&gt;&gt;</span><br><span class="line"></span><br><span class="line"># Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security</span><br><span class="line"></span><br><span class="line">  security: true</span><br><span class="line"> betterPerformance: false</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>控制台命令：在Leancloud数据库中注册用户以进行权限控制</p>
@@ -562,7 +567,7 @@ NexT 支持多种常见第三方服务，使用 <strong>第三方服务</strong>
 流动线条: <a href="https://github.com/theme-next/theme-next-canvas-nest" target="_blank" rel="noopener">canvas_nest</a><br>
 彩带: <a href="https://github.com/theme-next/theme-next-canvas-ribbon" target="_blank" rel="noopener">canvas_ribbon</a></p>
 <h1 id="第三方服务"><a class="markdownIt-Anchor" href="#第三方服务"></a> 第三方服务</h1>
-<p>静态网站在某​​些功能上受到限制，因此我们需要第三方服务来扩展我们的网站。<br>
+<p>静态网站在某些功能上受到限制，因此我们需要第三方服务来扩展我们的网站。<br>
 您可以随时使用NexT支持的第三方服务扩展所需的功能。</p>
 <h2 id="数学公式"><a class="markdownIt-Anchor" href="#数学公式"></a> 数学公式</h2>
 <p>NexT提供了两个用于显示数学公式的渲染引擎。</p>
@@ -583,16 +588,16 @@ per_page: false 每一页都会导入 <code>mathjax / katex</code> 脚本</p>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save </span><br><span class="line">npm i hexo-renderer-kramed --save ＃ or hexo-renderer-pandoc</span><br></pre></td></tr></table></figure>
 <ul>
-<li>打卡主题配置文件渲染引擎</li>
+<li>打开主题配置文件渲染引擎</li>
 </ul>
 <figure class="highlight plain"><figcaption><span>next\_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mathjax：    </span><br><span class="line">  enable：true</span><br></pre></td></tr></table></figure></div><div class="tab-pane active" id="math-2"><ul>
 <li>需要卸载原始渲染器 <code>hexo-renderer-marked</code> 并选择渲染器之一安装：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save </span><br><span class="line"> npm i hexo-renderer-markdown-it-plus --save ＃ or hexo-renderer-markdown-it</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save </span><br><span class="line">npm i hexo-renderer-markdown-it-plus --save ＃ or hexo-renderer-markdown-it</span><br></pre></td></tr></table></figure>
 <ul>
-<li>打卡主题配置文件渲染引擎</li>
+<li>打开主题配置文件渲染引擎</li>
 </ul>
-<figure class="highlight plain"><figcaption><span>next\_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">katex：    </span><br><span class="line"> enable：true</span><br><span class="line">   </span><br></pre></td></tr></table></figure></div></div></div>
+<figure class="highlight plain"><figcaption><span>next\_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">katex:</span><br><span class="line">  enable：true</span><br></pre></td></tr></table></figure></div></div></div>
 </li>
 </ol>
 <blockquote>
@@ -623,26 +628,39 @@ per_page: false 每一页都会导入 <code>mathjax / katex</code> 脚本</p>
 <h2 id="聊天服务"><a class="markdownIt-Anchor" href="#聊天服务"></a> 聊天服务</h2>
 <p>请参考<a href="https://theme-next.org/docs/third-party-services/chat-services" target="_blank" rel="noopener">官方文档</a></p>
 <h1 id="自定义样式支持"><a class="markdownIt-Anchor" href="#自定义样式支持"></a> 自定义样式支持</h1>
+<p>NexT 建议大家使用 Hexo 官方推荐的 Data Files 系统（Hexo 3.x 及以上）来分离个人配置，这样就可以在尽可能少地修改 NexT 工程代码的情况下进行个性化配置，方便主题升级。</p>
 <h2 id="文本结束标记"><a class="markdownIt-Anchor" href="#文本结束标记"></a> 文本结束标记</h2>
-<p>在路径 <code>source/_data</code> 下创建/修改 <code>post-body-end.swig</code>文件，并添加以下内容</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &#123;% <span class="keyword">if</span> not is_index %&#125;</span><br><span class="line">        &lt;div style=<span class="string">"text-align:center;color: #ccc;font-size:14px;"</span>&gt;-------------本文结束&lt;i class=<span class="string">"fa fa-paw"</span>&gt;&lt;/i&gt;感谢您的阅读-------------&lt;/div&gt;</span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>主题配置文件取消注释</p>
 <figure class="highlight sh"><figcaption><span>next\_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">custom_file_path:</span><br><span class="line">  postBodyEnd: <span class="built_in">source</span>/_data/post-body-end.swig</span><br></pre></td></tr></table></figure>
-<h2 id="修改背景图及侧边栏颜色修改主副标题颜色"><a class="markdownIt-Anchor" href="#修改背景图及侧边栏颜色修改主副标题颜色"></a> 修改背景图及侧边栏颜色，修改主副标题颜色</h2>
-<p>在路径 <code>source/_data</code> 下创建/修改 <code>styles.styl</code>文件，并添加以下内容</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">// 添加背景 url(https://source.unsplash.com/random/1600x900); </span><br><span class="line">body &#123;</span><br><span class="line">    background:url(/images/background6.jpg);</span><br><span class="line">    background-repeat: no-repeat;</span><br><span class="line">    background-attachment:fixed;</span><br><span class="line">    background-position:50% 50%;</span><br><span class="line">    background-size:cover;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 标题栏背景</span><br><span class="line">.site-meta &#123;</span><br><span class="line">   background: <span class="variable">$blue</span>; </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">//主标题颜色</span><br><span class="line">.brand&#123;</span><br><span class="line">    color: <span class="variable">$white</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//副标题颜色</span><br><span class="line">.site-subtitle&#123;</span><br><span class="line">    color: <span class="comment">#fff</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 修改主体透明度</span><br><span class="line">.main-inner&#123;</span><br><span class="line">    background: <span class="comment">#fff;</span></span><br><span class="line">    opacity: 0.95;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 修改菜单栏透明度</span><br><span class="line">.header-inner &#123;</span><br><span class="line">    opacity: 0.95;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 主页文章添加阴影效果</span><br><span class="line">.post &#123;</span><br><span class="line">   margin-top: 60px;</span><br><span class="line">   margin-bottom: 60px;</span><br><span class="line">   padding: 25px;</span><br><span class="line">   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>主题配置文件取消注释</p>
-<figure class="highlight sh"><figcaption><span>next\_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">custom_file_path:</span><br><span class="line">  style: <span class="built_in">source</span>/_data/styles.styl.swig</span><br></pre></td></tr></table></figure>
+<p>在路径 <code>/source/_data</code> 下创建/修改 <code>post-body-end.swig</code>文件，并添加以下内容</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &#123;% <span class="keyword">if</span> not is_index %&#125;</span><br><span class="line">        &lt;div style=<span class="string">"text-align:center;color: #ccc;font-size:14px;"</span>&gt;-------------本文结束&lt;i class=<span class="string">"fa fa-paw"</span>&gt;&lt;/i&gt;感谢您的阅读-------------&lt;/div&gt;</span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="添加主题及标题栏背景图"><a class="markdownIt-Anchor" href="#添加主题及标题栏背景图"></a> 添加主题及标题栏背景图</h2>
+<p>首先主题配置文件取消注释</p>
+<figure class="highlight sh"><figcaption><span>next\_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">custom_file_path:</span><br><span class="line">  style: <span class="built_in">source</span>/_data/styles.styl</span><br></pre></td></tr></table></figure>
+<p>在路径 <code>/source/_data</code> 下创建/修改 <code>styles.styl</code>文件，并添加以下内容</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加背景 url(https://source.unsplash.com/random/1600x900); </span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    background:url(/images/background6.jpg);</span><br><span class="line">    <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">    <span class="attribute">background-attachment</span>:fixed;</span><br><span class="line">    <span class="attribute">background-position</span>:<span class="number">50%</span> <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">background-size</span>:cover;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 标题栏背景</span></span><br><span class="line"><span class="selector-class">.site-meta</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="variable">$blue</span>;</span><br><span class="line">    <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">    <span class="attribute">background-attachment</span>:fixed;</span><br><span class="line">    <span class="attribute">background-position</span>:center;</span><br><span class="line">    <span class="attribute">background-size</span>:cover;</span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改主体透明度</span></span><br><span class="line">.main-inner&#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0.95</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改菜单栏透明度，会引起本地搜索菜单bug</span></span><br><span class="line"><span class="comment">//.header-inner &#123;</span></span><br><span class="line"><span class="comment">//    opacity: 0.95;</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 主页文章添加阴影效果</span></span><br><span class="line"><span class="selector-class">.post</span> &#123;</span><br><span class="line">   <span class="attribute">margin-top</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">margin-bottom</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="修改主副标题字体颜色"><a class="markdownIt-Anchor" href="#修改主副标题字体颜色"></a> 修改主副标题字体颜色</h2>
+<p>继续在<code>/source/_data/styles.styl</code>文件中添加，帮你挑选颜色的网站： <a href="http://www.color-hex.com/" target="_blank" rel="noopener">color-hex</a></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//主标题颜色</span></span><br><span class="line">.brand&#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$white</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//副标题颜色</span></span><br><span class="line"><span class="selector-class">.site-subtitle</span> &#123;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">13px</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="修改按钮选择区域代码块表格等样式"><a class="markdownIt-Anchor" href="#修改按钮选择区域代码块表格等样式"></a> 修改按钮，选择区域，代码块，表格等样式</h2>
+<p>首先主题配置文件取消注释</p>
+<figure class="highlight sh"><figcaption><span>next\_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">custom_file_path:</span><br><span class="line">  style: <span class="built_in">source</span>/_data/variables.styl</span><br></pre></td></tr></table></figure>
+<p>在路径 <code>/source/_data</code> 下创建/修改 <code>variables.styl</code>文件（相当于修改主题文件 <code>next/source/css/_variables/base.styl</code>），并添加以下内容</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Buttons</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line">$btn-default-bg                 = white;</span><br><span class="line"><span class="variable">$btn</span>-default-<span class="attribute">color</span>              = <span class="number">#49b1f5</span>;</span><br><span class="line"><span class="variable">$btn</span>-default-<span class="attribute">font-size</span>          = <span class="variable">$font</span>-size-small;</span><br><span class="line"><span class="variable">$btn</span>-default-<span class="attribute">border-width</span>       = <span class="number">2px</span>;</span><br><span class="line"><span class="variable">$btn</span>-default-<span class="attribute">border-color</span>       = <span class="number">#49b1f5</span>;</span><br><span class="line">$btn-default-hover-bg           = #49b1f5;</span><br><span class="line"><span class="variable">$btn</span>-default-hover-<span class="attribute">color</span>        = white;</span><br><span class="line"><span class="variable">$btn</span>-default-hover-<span class="attribute">border-color</span> = <span class="number">#49b1f5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Selection</span></span><br><span class="line">$selection-bg                 = #49b1f5;</span><br><span class="line"><span class="variable">$selection</span>-<span class="attribute">color</span>              = white;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Code &amp; Code Blocks</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line"><span class="variable">$code</span>-<span class="attribute">font-family</span>               = <span class="variable">$font</span>-family-monospace;</span><br><span class="line"><span class="variable">$code</span>-<span class="attribute">border-radius</span>             = <span class="number">3px</span>;</span><br><span class="line">$code-foreground                = $black-light;</span><br><span class="line"><span class="variable">$code</span>-<span class="attribute">background</span>                = <span class="number">#edf1ff</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Table</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line"><span class="variable">$table</span>-<span class="attribute">width</span>                    = normal;  <span class="comment">//next默认100%</span></span><br><span class="line"><span class="variable">$table</span>-<span class="attribute">border-color</span>             = <span class="variable">$gray</span>-lighter;</span><br><span class="line"><span class="variable">$table</span>-<span class="attribute">font-size</span>                = <span class="variable">$font</span>-size-small;</span><br><span class="line"><span class="variable">$table</span>-<span class="attribute">content</span>-alignment        = left;</span><br><span class="line"><span class="variable">$table</span>-<span class="attribute">content</span>-vertical         = middle;</span><br><span class="line"><span class="variable">$table</span>-th-<span class="attribute">font-weight</span>           = <span class="number">700</span>;</span><br><span class="line"><span class="variable">$table</span>-cell-<span class="attribute">padding</span>             = <span class="number">8px</span>;</span><br><span class="line"><span class="variable">$table</span>-cell-<span class="attribute">border-right-color</span>  = <span class="variable">$gainsboro</span>;</span><br><span class="line"><span class="variable">$table</span>-cell-<span class="attribute">border-bottom-color</span> = <span class="variable">$gray</span>-lighter;</span><br><span class="line"><span class="variable">$table</span>-row-odd-bg-<span class="attribute">color</span>         = <span class="number">#f9f9f9</span>;</span><br><span class="line"><span class="variable">$table</span>-row-hover-bg-<span class="attribute">color</span>       = <span class="variable">$whitesmoke</span>;</span><br></pre></td></tr></table></figure>
 <h2 id="文章加密"><a class="markdownIt-Anchor" href="#文章加密"></a> 文章加密</h2>
-<p>在需要加密的文章 Front matter 区域设置 <code>password: 123456</code></p>
-<p>在路径 <code>source/_data</code> 下创建/修改 <code>head.swig</code>文件，并添加以下内容</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt; </span><br><span class="line"> (<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (prompt(<span class="string">'请输入文章密码'</span>) !== <span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</span><br><span class="line">                alert(<span class="string">'密码错误！'</span>);</span><br><span class="line">                history.back();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>主题配置文件取消注释</p>
+<p>在需要加密的文章 Front matter 区域设置 <code>password: 123456</code><br>
+主题配置文件取消注释</p>
 <figure class="highlight sh"><figcaption><span>next\_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">custom_file_path:</span><br><span class="line">  head: <span class="built_in">source</span>/_data/head.swig</span><br></pre></td></tr></table></figure>
+<p>在路径 <code>/source/_data</code> 下创建/修改 <code>head.swig</code>文件，并添加以下内容</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt; </span><br><span class="line"> (<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (prompt(<span class="string">'请输入文章密码'</span>) !== <span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</span><br><span class="line">                alert(<span class="string">'密码错误！'</span>);</span><br><span class="line">                history.back();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<hr>
 <p>参考链接：</p>
 <p><a href="https://blog.csdn.net/weixin_44815733/article/details/88817220" target="_blank" rel="noopener">hexo的next主题个性化配置</a><br>
 <a href="https://blog.csdn.net/qq_31279347/article/details/82427562" target="_blank" rel="noopener">Hexo Next主题进阶详细教程</a><br>
-<a href="https://www.linjiujiu.xyz/2018/12/11/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/" target="_blank" rel="noopener">hexo个人博客next主题优化</a></p>
+<a href="https://www.linjiujiu.xyz/2018/12/11/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/" target="_blank" rel="noopener">hexo个人博客next主题优化</a><br>
+<a href="https://www.jianshu.com/p/2a8d399f1266" target="_blank" rel="noopener">NexT主题统一网站颜色</a><br>
+<a href="https://blog.csdn.net/colton_null/article/details/97622079" target="_blank" rel="noopener">Hexo Theme NexT 主题个性化配置最佳实践</a><br>
+<a href="https://blog.ynxiu.com/2016/hexo-next-theme-optimize.html" target="_blank" rel="noopener">Hexo+NexT 主题配置备忘</a></p>
 
     </div>
 
@@ -673,22 +691,6 @@ per_page: false 每一页都会导入 <code>mathjax / katex</code> 脚本</p>
 </div>
 
       
-        
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>Wilen Wu</li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://wilenwu.github.io/posts/hexo/theme-NexT-advanced.html" title="NexT主题进阶">https://wilenwu.github.io/posts/hexo/theme-NexT-advanced.html</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
-</ul>
-</div>
-
-      
 
       <footer class="post-footer">
           
@@ -696,11 +698,11 @@ per_page: false 每一页都会导入 <code>mathjax / katex</code> 脚本</p>
           
           <div class="post-tags">
             
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
             
-              <a href="/tags/NexT/" rel="tag"># NexT</a>
+              <a href="/tags/NexT/" rel="tag"><i class="fa fa-tag"></i> NexT</a>
             
-              <a href="/tags/Github-pages/" rel="tag"># Github pages</a>
+              <a href="/tags/Github-pages/" rel="tag"><i class="fa fa-tag"></i> Github pages</a>
             
           </div>
         
@@ -814,7 +816,7 @@ per_page: false 每一页都会导入 <code>mathjax / katex</code> 脚本</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装主题"><span class="nav-number">1.</span> <span class="nav-text"> 安装主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题核心配置"><span class="nav-number">2.</span> <span class="nav-text"> 主题核心配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题优化"><span class="nav-number">3.</span> <span class="nav-text"> 主题优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rss支持"><span class="nav-number">3.1.</span> <span class="nav-text"> RSS支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#creative-commons"><span class="nav-number">3.2.</span> <span class="nav-text"> Creative Commons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阅读进度和书签"><span class="nav-number">3.3.</span> <span class="nav-text"> 阅读进度和书签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网站图标favicon"><span class="nav-number">3.4.</span> <span class="nav-text"> 网站图标(favicon)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#seo支持"><span class="nav-number">3.5.</span> <span class="nav-text"> SEO支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字数统计和阅读时长"><span class="nav-number">3.6.</span> <span class="nav-text"> 字数统计和阅读时长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章热度"><span class="nav-number">3.7.</span> <span class="nav-text"> 文章热度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关热门帖子"><span class="nav-number">3.8.</span> <span class="nav-text"> 相关热门帖子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景动画"><span class="nav-number">3.9.</span> <span class="nav-text"> 背景动画</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三方服务"><span class="nav-number">4.</span> <span class="nav-text"> 第三方服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数学公式"><span class="nav-number">4.1.</span> <span class="nav-text"> 数学公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论系统"><span class="nav-number">4.2.</span> <span class="nav-text"> 评论系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#聊天服务"><span class="nav-number">4.3.</span> <span class="nav-text"> 聊天服务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义样式支持"><span class="nav-number">5.</span> <span class="nav-text"> 自定义样式支持</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文本结束标记"><span class="nav-number">5.1.</span> <span class="nav-text"> 文本结束标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改背景图及侧边栏颜色修改主副标题颜色"><span class="nav-number">5.2.</span> <span class="nav-text"> 修改背景图及侧边栏颜色，修改主副标题颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章加密"><span class="nav-number">5.3.</span> <span class="nav-text"> 文章加密</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装主题"><span class="nav-number">1.</span> <span class="nav-text"> 安装主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题核心配置"><span class="nav-number">2.</span> <span class="nav-text"> 主题核心配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题优化"><span class="nav-number">3.</span> <span class="nav-text"> 主题优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rss支持"><span class="nav-number">3.1.</span> <span class="nav-text"> RSS支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#creative-commons"><span class="nav-number">3.2.</span> <span class="nav-text"> Creative Commons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阅读进度和书签"><span class="nav-number">3.3.</span> <span class="nav-text"> 阅读进度和书签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网站图标favicon"><span class="nav-number">3.4.</span> <span class="nav-text"> 网站图标(favicon)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#seo支持"><span class="nav-number">3.5.</span> <span class="nav-text"> SEO支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字数统计和阅读时长"><span class="nav-number">3.6.</span> <span class="nav-text"> 字数统计和阅读时长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章热度"><span class="nav-number">3.7.</span> <span class="nav-text"> 文章热度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关热门帖子"><span class="nav-number">3.8.</span> <span class="nav-text"> 相关热门帖子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景动画"><span class="nav-number">3.9.</span> <span class="nav-text"> 背景动画</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三方服务"><span class="nav-number">4.</span> <span class="nav-text"> 第三方服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数学公式"><span class="nav-number">4.1.</span> <span class="nav-text"> 数学公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论系统"><span class="nav-number">4.2.</span> <span class="nav-text"> 评论系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#聊天服务"><span class="nav-number">4.3.</span> <span class="nav-text"> 聊天服务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义样式支持"><span class="nav-number">5.</span> <span class="nav-text"> 自定义样式支持</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文本结束标记"><span class="nav-number">5.1.</span> <span class="nav-text"> 文本结束标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加主题及标题栏背景图"><span class="nav-number">5.2.</span> <span class="nav-text"> 添加主题及标题栏背景图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改主副标题字体颜色"><span class="nav-number">5.3.</span> <span class="nav-text"> 修改主副标题字体颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改按钮选择区域代码块表格等样式"><span class="nav-number">5.4.</span> <span class="nav-text"> 修改按钮，选择区域，代码块，表格等样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章加密"><span class="nav-number">5.5.</span> <span class="nav-text"> 文章加密</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -893,15 +895,15 @@ per_page: false 每一页都会导入 <code>mathjax / katex</code> 脚本</p>
       </span>
     
   </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
 
 
 
       </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
-      
 
     </div>
   </aside>
@@ -922,13 +924,14 @@ per_page: false 每一页都会导入 <code>mathjax / katex</code> 脚本</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">300k</span>
+    <span title="站点总字数">302k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:33</span>
+    <span title="站点阅读时长">4:35</span>
 </div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
 
         
 
@@ -961,7 +964,7 @@ per_page: false 每一页都会导入 <code>mathjax / katex</code> 脚本</p>
 <script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
 <script src="/js/schemes/pisces.js?v=7.4.0"></script>
 
-<script src="/js/next-boot.js?v=7.4.0"></script>
+<script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
 
 
 
