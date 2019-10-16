@@ -491,21 +491,18 @@ copyright: false
 
 # <font color="red">数学</font>
 
-- :ballot_box_with_check:   [初等数学]( https://blog.csdn.net/qq_41518277/article/details/89397900)  
-- :ballot_box_with_check:   高等数学 (数学分析)：  
-[微积分][c1]  
-[多元函数微积分][c2]  
-[无穷级数][c3]  
-[常微分方程][ode]  
-[空间解析几何][sag]  
+## <font color="green">Foundational Math</font>
+
+- :ballot_box_with_check:   [初等数学]( https://blog.csdn.net/qq_41518277/article/details/89397900) 
+- :ballot_box_with_check:   [微积分][c1] 
 - :ballot_box_with_check:   [线性代数](https://blog.csdn.net/qq_41518277/article/details/89703485)  
-- :ballot_box_with_check:   概率论与数理统计：  
- [概率论][ps1]  
- [数理统计][ps2]  
-- :ballot_box_with_check:   数学物理方法：  
-[复变函数][cf1]  
-[积分变换][cf2]  
-[偏微分方程(数学物理方程)][pde]  
+- :ballot_box_with_check:   概率论与数理统计 
+- :ballot_box_with_check:   复变函数与积分变换
+- :ballot_box_with_check:   常微分方程
+
+## <font color="green">Advanced Math</font> 
+
+- :ballot_box_with_check:   偏微分方程
 - :ballot_box_with_check:   [群论基础](https://mp.csdn.net/mdeditor/90261550#)  
 - :ballot_box_with_check:   [近世代数(抽象代数)](https://blog.csdn.net/qq_41518277/article/details/92605711) ：群、环、域  
 - :ballot_box_with_check:   微分几何  
@@ -516,7 +513,13 @@ copyright: false
 - :white_large_square:  泛函分析  
 - :heart:  混沌理论   
 - :heart:  计算物理学   
-- :white_large_square:  张量分析(多重线性代数)   
+- :white_large_square:  张量分析(多重线性代数) 
+
+## <font color="green">书籍清单</font> 
+
+- 高等数学：(数学分析)微积分，无穷级数，常微分方程，空间解析几何
+- 数学物理方法：复变函数与积分变换，偏微分方程
+
 
 [c1]: https://blog.csdn.net/qq_41518277/article/details/89397964
 [c2]: https://blog.csdn.net/qq_41518277/article/details/89761069
@@ -533,7 +536,7 @@ copyright: false
 
 # <font color="red">物理</font>  
 
-## <font color="green">foundational physics</font>  
+## <font color="green">Foundational Physics</font>  
 
 - :ballot_box_with_check:   普通物理（力学，热学，光学，电磁学，原子物理学）  
 - :ballot_box_with_check:   理论力学  
@@ -544,7 +547,7 @@ copyright: false
 - :white_large_square:  分析力学   
 - :heart:  流体力学   
 
-## <font color="green">advanced physics</font>  
+## <font color="green">Advanced Physics</font>  
 
 - :ballot_box_with_check:   狭义相对论  
 - :ballot_box_with_check:   广义相对论  

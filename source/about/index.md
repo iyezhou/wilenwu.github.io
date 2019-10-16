@@ -34,30 +34,13 @@ E3 -.-> F3(数据分析)
 
 # <font color="orange">绘画墙</font>
 
-{% grouppicture 18-9 %}
-  ![](images/Bubbles.jpg)
-  ![](images/Bulma.jpg)
-  ![](images/Chiao-tzu.jpg)
-  ![](images/Garfield.jpg)
-  ![](images/Goku.jpg)
-  ![](images/Kaioh.jpg)
-  ![](images/Kame-Sennin.jpg)
-  ![](images/Karin-sama.jpg)
-  ![](images/Kuririn.jpg)
-  ![](images/Kuririn_head.jpg)
-  ![](images/Mr-Popo.jpg)
-  ![](images/Oolong.jpg)
-  ![](images/Picollo.jpg)
-  ![](images/Puar.jpg)
-  ![](images/Tenshinhan.jpg)
-  ![](images/Trunks.jpg)
-  ![](images/Uranai-Baba.jpg)
-  ![](images/Yajirobe.jpg)
-{% endgrouppicture %}
+{% gp 3-2 %}
+<img src="pictures/dragon_ball.png" alt="龙珠" height="400" />
+<img src="pictures/Karin-sama.png" alt="卡林大人" height="200" /> 
+<img src="pictures/Garfield_2007.png" alt="加菲猫-2007" height="180" />
+{% endgp %}
 
 ------
-
-![夜景](china.jpg)
 
 **建站参考链接：**
 [Github+Hexo搭建专属自己的博客](https://www.linjiujiu.xyz/2018/12/10/Github-Hexo%E6%90%AD%E5%BB%BA%E4%B8%93%E5%B1%9E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/)
@@ -71,3 +54,4 @@ E3 -.-> F3(数据分析)
 [推荐12个实用的gitbook插件 - 大师兄 - CSDN博客](https://blog.csdn.net/weixin_37865166/article/details/91899788)
 [Gitbook 使用入门](https://www.bookstack.cn/books/gitbook-zh)
 
+![夜景](china.jpg)
