@@ -8,7 +8,8 @@ date: 2018-12-23 22:05:50
 categories: [python,Python Basics]
 sticky: false
 ---
-## 概述
+
+# 概述
 
 [Python](http://www.python.org/)是一种流行的通用脚本语言，而[R](http://www.r-project.org/)(S/Splus语言的开源实现)是一种主要用于数据分析，统计和图形的脚本语言。[rpy2](https://rpy2.github.io/doc/latest/html/overview.html) 是一个嵌入在Python进程中的R接口.
 
@@ -27,7 +28,7 @@ pip install rpy2
 - [rpy2.rlike](https://rpy2.github.io/doc/latest/html/rlike.html#module-rpy2.rlike): 数据结构和函数，以模仿纯Python中的一些R特性和特性（无嵌入式R过程）。
 
 
-## IPython魔法接口(rmagic)
+# IPython魔法接口(rmagic)
 
 **Rmagic**: 用于在ipython中与R进行交互式工作的Magic命令。％R和%% R分别是单行和单元格(cell)的magic命令。
 **Usage**: 要运行magics below,，先执行 `%load_ext rpy2.ipython`
@@ -45,7 +46,7 @@ pip install rpy2
       ....: Y = c(2,4,3,9)
       ....: summary(lm(Y~X))
    ```
-     
+   
    通过用分号连接来执行多个R表达式
    ```python
    In [9]: %R X=c(1,4,5,7); sd(X); mean(X)

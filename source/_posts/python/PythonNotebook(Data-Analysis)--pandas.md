@@ -17,7 +17,9 @@ import pandas as pd
 
 <!-- more -->
 
-# Series: 由一维数组和对应的索引组成
+# Series
+
+由一维数组和对应的索引组成
 
 ## 创建Series
 
@@ -142,7 +144,7 @@ pd.DataFrame(dict)
 | `df.iloc[index_num]`| 返回行Series |
 | `df.loc['index','columns']`| 字符筛选 |
 | `df.iloc[index_num,columns_num]`| 数字筛选，与bool类型不可混用 |
-| `df.ix[]`  | 混合筛选 |
+| `df.ix[]`  | 混合筛选（不建议用） |
 | `df.filter(items=None,like=None,regex=None, axis=None)` | 筛选方法，like: 字符列表 |
 |`df.query(expr,inplace=False)`|逻辑筛选<br>`df.query('c1=="auto" & c2>=5')`|
 
@@ -230,6 +232,7 @@ data.replace({-999: np.nan, -1000: 0})   #参数为字典
 | df.astype(dtype,copy=False)   | 数据类型转换|
 | df['column'].str.title()  | 转换成首字母大写（字符的属性和方法对pandas适用） |
 | df['datetime'].dt.day | 获取日期（datetime类的属性和方法对pandas适用） |
+| df.round() | 保留小数位数 |
 
 |**重复值**|默认判断全部列|
 |:---|:---|

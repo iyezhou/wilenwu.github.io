@@ -296,7 +296,6 @@ module.exports = function(locals) {
     }
   });
 };
-
 ```
 
 修改完成后，只需要在front-matter中设置需要置顶文章的 `sticky: true`。同时sticky也决定了是否添加置顶标签。

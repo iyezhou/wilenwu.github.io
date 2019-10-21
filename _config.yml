@@ -129,6 +129,6 @@ leancloud_counter_security:
   app_key: 6EzBICTWxLbjiGsbNAa8Fv2s
   
 lazyload:
-  enable: true 
+  enable: false 
   onlypost: false
   loadingImg: /images/loading.gif

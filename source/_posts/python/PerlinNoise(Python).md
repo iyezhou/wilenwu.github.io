@@ -9,6 +9,7 @@ categories: [python,,Scientific Computing]
 sticky: false
 ---
 # 柏林噪声
+
 &emsp; Perlin Noise是Ken Perlin在1983年开发的一种梯度噪音，这是一种用于在计算机生成的表面上产生自然出现纹理的技术，使用Perlin噪声合成的纹理通常用于CGI，通过模仿自然界中纹理的受控随机外观，使计算机生成的视觉元素（如物体表面，火焰，烟雾或云）看起来更自然。[$--Wiki$](https://en.wikipedia.org/wiki/Perlin_noise)
 
 <!-- more -->
@@ -19,7 +20,7 @@ sticky: false
  http://libnoise.sourceforge.net/index.html
  [不只是噪声，更是数学美 ---浅谈Perlin Noise](https://blog.csdn.net/qq_34302921/article/details/80849139)（理论知识完美）
  [不只是噪音--知乎](https://zhuanlan.zhihu.com/p/22337544)（写的超棒！！）
- 
+
 # 代码实现(Python)
 
 > 由Ken Perlin 2002年原始JAVA代码改编而来
