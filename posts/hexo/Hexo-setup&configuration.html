@@ -64,7 +64,7 @@
 <meta property="og:site_name" content="Wilen&#39;s Blog">
 <meta property="og:description" content="Hexo 是高效的静态站点生成框架，基于 Node.js。 通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 tag 插件 来快速的插入特定形式的内容。Hexo 还拥有丰富的主题和插件。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-14T05:12:25.368Z">
+<meta property="og:updated_time" content="2019-10-18T07:54:01.723Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客搭建及配置">
 <meta name="twitter:description" content="Hexo 是高效的静态站点生成框架，基于 Node.js。 通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 tag 插件 来快速的插入特定形式的内容。Hexo 还拥有丰富的主题和插件。">
@@ -357,7 +357,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-14 13:12:25" itemprop="dateModified" datetime="2019-10-14T13:12:25+08:00">2019-10-14</time>
+                <time title="修改时间：2019-10-18 15:54:01" itemprop="dateModified" datetime="2019-10-18T15:54:01+08:00">2019-10-18</time>
               </span>
             
           
@@ -431,13 +431,13 @@
       
         <p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a> 是高效的静态站点生成框架，基于 <a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a>。 通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 <a href="https://hexo.io/zh-cn/docs/tag-plugins.html" target="_blank" rel="noopener">tag 插件</a> 来快速的插入特定形式的内容。Hexo 还拥有丰富的主题和插件。</p>
 <a id="more"></a>
-<h2 id="前提环境"><a class="markdownIt-Anchor" href="#前提环境"></a> 前提环境</h2>
+<h1 id="前提环境"><a class="markdownIt-Anchor" href="#前提环境"></a> 前提环境</h1>
 <ul>
 <li><a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (Should be at least nodejs 6.9)</li>
 <li><a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a>：<a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">Git命令官方文档</a></li>
 <li>创建 github pages 库：库名为 <code>username.github.io</code> ，<code>username</code> 必须和github用户名保持一致</li>
 </ul>
-<h2 id="hexo-相关命令"><a class="markdownIt-Anchor" href="#hexo-相关命令"></a> Hexo 相关命令</h2>
+<h1 id="hexo-相关命令"><a class="markdownIt-Anchor" href="#hexo-相关命令"></a> Hexo 相关命令</h1>
 <p>选择博客目录文件夹，右键打开 <code>Git Bash Here</code></p>
 <ul>
 <li>安装命令</li>
@@ -451,7 +451,7 @@
 <li>命令简写</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g -s    <span class="comment"># 清除缓存+生成+预览</span></span><br><span class="line">hexo clean &amp;&amp; hexo g -d    <span class="comment"># 清除缓存+生成+发布</span></span><br></pre></td></tr></table></figure>
-<h2 id="预览"><a class="markdownIt-Anchor" href="#预览"></a> 预览</h2>
+<h1 id="预览"><a class="markdownIt-Anchor" href="#预览"></a> 预览</h1>
 <p>可在本地4000端口预览 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>
 主题的配置文件，修改时会自动更新，无需重启服务器。</p>
 <ul>
@@ -466,8 +466,8 @@
 <li>预览</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo serve</span><br></pre></td></tr></table></figure>
-<h2 id="git-配置"><a class="markdownIt-Anchor" href="#git-配置"></a> Git 配置</h2>
-<h3 id="配置-ssh-keys"><a class="markdownIt-Anchor" href="#配置-ssh-keys"></a> 配置 SSH keys</h3>
+<h1 id="git-配置"><a class="markdownIt-Anchor" href="#git-配置"></a> Git 配置</h1>
+<h2 id="配置-ssh-keys"><a class="markdownIt-Anchor" href="#配置-ssh-keys"></a> 配置 SSH keys</h2>
 <ul>
 <li>生成新的 SSH keys</li>
 </ul>
@@ -488,7 +488,7 @@
 <li>配置个人信息</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"username"</span></span><br><span class="line">git config --global user.email <span class="string">"github注册邮箱"</span></span><br></pre></td></tr></table></figure>
-<h3 id="部署博客到-github-pages"><a class="markdownIt-Anchor" href="#部署博客到-github-pages"></a> 部署博客到 github pages</h3>
+<h2 id="部署博客到-github-pages"><a class="markdownIt-Anchor" href="#部署博客到-github-pages"></a> 部署博客到 github pages</h2>
 <ul>
 <li>安装插件</li>
 </ul>
@@ -504,7 +504,7 @@
 <p>完成以上操作后，使用浏览器访访问 <a href="https://username.github.io" target="_blank" rel="noopener">https://username.github.io</a> 就可以成功访问我们的博客</p>
 <p>当执行 <code>hexo deploy</code> 时，Hexo 会将 public 目录中的文件和目录推送至_config.yml 中指定的远端仓库和分支中，并且完全覆盖该分支下的已有内容。<br>
 此外，如果您的 Github Pages 需要使用 CNAME 文件<strong>自定义域名</strong>，请将 CNAME 文件置于 <code>source</code> 目录下，只有这样 <code>hexo deploy</code> 才能将 CNAME 文件一并推送至部署分支</p>
-<h2 id="站点配置文件"><a class="markdownIt-Anchor" href="#站点配置文件"></a> 站点配置文件</h2>
+<h1 id="站点配置文件"><a class="markdownIt-Anchor" href="#站点配置文件"></a> 站点配置文件</h1>
 <p>Hexo 框架主要配置2方面的内容：站点配置文件和主题配置文件。</p>
 <p>站点配置文件 <code>‪username.github.io\_config.yml</code><br>
 主题配置文件  <code>‪username.github.io\themes\next\_config.yml</code></p>
@@ -697,7 +697,7 @@
 </table>
 <p>接下来是扩展(Extensions)，放置插件和主题。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next    <span class="comment"># 更换主题</span></span><br></pre></td></tr></table></figure>
-<h2 id="写作模板"><a class="markdownIt-Anchor" href="#写作模板"></a> 写作模板</h2>
+<h1 id="写作模板"><a class="markdownIt-Anchor" href="#写作模板"></a> 写作模板</h1>
 <p>在新建文章时，Hexo 会根据 <code>scaffolds</code> 文件夹内相对应的模板来建立文件</p>
 <p>Front-matter 是文件最上方以 <code>---</code> 分隔的区域，用于指定个别文件的变量，举例来说：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hello</span> <span class="string">World</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2013</span><span class="string">/7/13</span> <span class="number">20</span><span class="string">:46:25</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
@@ -757,19 +757,19 @@
 </tr>
 </tbody>
 </table>
-<h2 id="分类和标签"><a class="markdownIt-Anchor" href="#分类和标签"></a> 分类和标签</h2>
+<h1 id="分类和标签"><a class="markdownIt-Anchor" href="#分类和标签"></a> 分类和标签</h1>
 <p>可以在 Front-matter 中设置分类和标签。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">- Diary</span><br><span class="line">- Sunday </span><br><span class="line">tags:</span><br><span class="line">- Games</span><br></pre></td></tr></table></figure>
-<h2 id="文章摘要和截断"><a class="markdownIt-Anchor" href="#文章摘要和截断"></a> 文章摘要和截断</h2>
+<h1 id="文章摘要和截断"><a class="markdownIt-Anchor" href="#文章摘要和截断"></a> 文章摘要和截断</h1>
 <p>在文章中使用 <code>&lt;!-- more --&gt;</code>，那么 <code>&lt;!-- more --&gt;</code> 之前的文字将会被视为摘要，在主页中展示。</p>
-<h2 id="置顶和置顶标签"><a class="markdownIt-Anchor" href="#置顶和置顶标签"></a> 置顶和置顶标签</h2>
+<h1 id="置顶和置顶标签"><a class="markdownIt-Anchor" href="#置顶和置顶标签"></a> 置顶和置顶标签</h1>
 <p>修改Hexo文件夹下的<code>node_modules/hexo-generator-index/lib/generator.js</code>，在生成文章之前进行文章sticky值排序。</p>
 <p>以下是最终的generator.js内容、</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pagination = <span class="built_in">require</span>(<span class="string">'hexo-pagination'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">locals</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> config = <span class="keyword">this</span>.config;</span><br><span class="line">  <span class="keyword">var</span> posts = locals.posts.sort(config.index_generator.order_by);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// -----------------需要添加的代码------------------------</span></span><br><span class="line">  posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(a.sticky &amp;&amp; b.sticky) &#123; <span class="comment">// 两篇文章sticky都有定义</span></span><br><span class="line">          <span class="keyword">if</span>(a.sticky == b.sticky) <span class="keyword">return</span> b.date - a.date; <span class="comment">// 若sticky值一样则按照文章日期降序排</span></span><br><span class="line">          <span class="keyword">else</span> <span class="keyword">return</span> b.sticky - a.sticky; <span class="comment">// 否则按照sticky值降序排</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span>(a.sticky &amp;&amp; !b.sticky) &#123; <span class="comment">// 以下是只有一篇文章sticky有定义</span></span><br><span class="line">          <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span>(!a.sticky &amp;&amp; b.sticky) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">return</span> b.date - a.date; <span class="comment">// 都没定义按照文章日期降序排</span></span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">//-------------------------分割线-----------------------</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">var</span> paginationDir = config.pagination_dir || <span class="string">'page'</span>;</span><br><span class="line">  <span class="keyword">var</span> path = config.index_generator.path || <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> pagination(path, posts, &#123;</span><br><span class="line">    perPage: config.index_generator.per_page,</span><br><span class="line">    layout: [<span class="string">'index'</span>, <span class="string">'archive'</span>],</span><br><span class="line">    format: paginationDir + <span class="string">'/%d/'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">      __index: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>修改完成后，只需要在front-matter中设置需要置顶文章的 <code>sticky: true</code>。同时sticky也决定了是否添加置顶标签。<br>
 也可以设置sticky值为数字，将会根据sticky值大小来选择置顶顺序，sticky值越大越靠前。<br>
 需要注意的是，这个文件不是主题的一部分，也不是Git管理的，备份的时候比较容易忽略。</p>
-<h2 id="本地图片链接"><a class="markdownIt-Anchor" href="#本地图片链接"></a> 本地图片链接</h2>
+<h1 id="本地图片链接"><a class="markdownIt-Anchor" href="#本地图片链接"></a> 本地图片链接</h1>
 <ul>
 <li>如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 <code>source/images</code> 文件夹中。然后通过类似于 <code>![](/images/image.jpg)</code> 或<code></code>的方法访问它们。</li>
 <li>对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。<br>
@@ -777,7 +777,7 @@
 打开当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径  <code>![](image.jpg)</code>  来引用它们。</li>
 </ul>
 <hr>
-<h2 id="踩过的坑"><a class="markdownIt-Anchor" href="#踩过的坑"></a> 踩过的坑</h2>
+<h1 id="踩过的坑"><a class="markdownIt-Anchor" href="#踩过的坑"></a> 踩过的坑</h1>
 <div class="note info">
             <p>skip_render</p>
           </div>
@@ -959,7 +959,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前提环境"><span class="nav-number">1.</span> <span class="nav-text"> 前提环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-相关命令"><span class="nav-number">2.</span> <span class="nav-text"> Hexo 相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预览"><span class="nav-number">3.</span> <span class="nav-text"> 预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-配置"><span class="nav-number">4.</span> <span class="nav-text"> Git 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-ssh-keys"><span class="nav-number">4.1.</span> <span class="nav-text"> 配置 SSH keys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署博客到-github-pages"><span class="nav-number">4.2.</span> <span class="nav-text"> 部署博客到 github pages</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#站点配置文件"><span class="nav-number">5.</span> <span class="nav-text"> 站点配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写作模板"><span class="nav-number">6.</span> <span class="nav-text"> 写作模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类和标签"><span class="nav-number">7.</span> <span class="nav-text"> 分类和标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章摘要和截断"><span class="nav-number">8.</span> <span class="nav-text"> 文章摘要和截断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#置顶和置顶标签"><span class="nav-number">9.</span> <span class="nav-text"> 置顶和置顶标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地图片链接"><span class="nav-number">10.</span> <span class="nav-text"> 本地图片链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#踩过的坑"><span class="nav-number">11.</span> <span class="nav-text"> 踩过的坑</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前提环境"><span class="nav-number">1.</span> <span class="nav-text"> 前提环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo-相关命令"><span class="nav-number">2.</span> <span class="nav-text"> Hexo 相关命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#预览"><span class="nav-number">3.</span> <span class="nav-text"> 预览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-配置"><span class="nav-number">4.</span> <span class="nav-text"> Git 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-ssh-keys"><span class="nav-number">4.1.</span> <span class="nav-text"> 配置 SSH keys</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署博客到-github-pages"><span class="nav-number">4.2.</span> <span class="nav-text"> 部署博客到 github pages</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#站点配置文件"><span class="nav-number">5.</span> <span class="nav-text"> 站点配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写作模板"><span class="nav-number">6.</span> <span class="nav-text"> 写作模板</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分类和标签"><span class="nav-number">7.</span> <span class="nav-text"> 分类和标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文章摘要和截断"><span class="nav-number">8.</span> <span class="nav-text"> 文章摘要和截断</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#置顶和置顶标签"><span class="nav-number">9.</span> <span class="nav-text"> 置顶和置顶标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#本地图片链接"><span class="nav-number">10.</span> <span class="nav-text"> 本地图片链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#踩过的坑"><span class="nav-number">11.</span> <span class="nav-text"> 踩过的坑</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
