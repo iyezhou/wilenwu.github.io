@@ -200,9 +200,9 @@
             
             <tag> python </tag>
             
-            <tag> 科学计算 </tag>
-            
             <tag> SymPy </tag>
+            
+            <tag> 科学计算 </tag>
             
             <tag> 符号计算 </tag>
             
@@ -407,9 +407,9 @@
       
         <tags>
             
-            <tag> 大数据 </tag>
-            
             <tag> linux </tag>
+            
+            <tag> 大数据 </tag>
             
         </tags>
       
@@ -434,9 +434,9 @@
       
         <tags>
             
-            <tag> 大数据 </tag>
-            
             <tag> linux </tag>
+            
+            <tag> 大数据 </tag>
             
         </tags>
       
@@ -562,13 +562,13 @@
             
             <tag> R </tag>
             
-            <tag> 日期和时间 </tag>
+            <tag> 数据清洗 </tag>
             
-            <tag> zoo </tag>
+            <tag> 日期和时间 </tag>
             
             <tag> 时间序列 </tag>
             
-            <tag> 数据清洗 </tag>
+            <tag> zoo </tag>
             
         </tags>
       
@@ -1008,9 +1008,9 @@
       
         <tags>
             
-            <tag> math </tag>
-            
             <tag> python </tag>
+            
+            <tag> math </tag>
             
             <tag> random </tag>
             
@@ -1163,11 +1163,11 @@
             
             <tag> R </tag>
             
-            <tag> 时间序列 </tag>
-            
             <tag> orecast </tag>
             
             <tag> prophet </tag>
+            
+            <tag> 时间序列 </tag>
             
         </tags>
       
@@ -1618,7 +1618,7 @@
       <link href="/posts/regular-expression.html"/>
       <url>/posts/regular-expression.html</url>
       
-        <content type="html"><![CDATA[<p>正则表达式是对字符串（包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为“元字符”））操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。正则表达式是一种文本模式，该模式描述在搜索文本时要匹配的一个或多个字符串。</p><p>Cheat Sheet：<a href="https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf" target="_blank" rel="noopener">Basic Regular Expressions in R </a></p><a id="more"></a><h1 id="正则表达式"><a class="markdownIt-Anchor" href="#正则表达式"></a> 正则表达式</h1><p><strong>普通字符</strong>：普通字符包括没有显式指定为元字符的所有可打印和不可打印字符。可直接匹配自身。<br><strong>元字符</strong>：元字符加斜杠\匹配自身(在R中斜杠为<code>\\</code>，匹配<code>+</code>应写为<code>\\+</code></p><h2 id="非打印字符"><a class="markdownIt-Anchor" href="#非打印字符"></a> 非打印字符</h2><p>非打印字符也可以是正则表达式的组成部分。下表列出了表示非打印字符的转义序列</p><table><thead><tr><th>字符</th><th style="text-align:left">描述</th></tr></thead><tbody><tr><td>\cx</td><td style="text-align:left">匹配由x指明的控制字符。例如， \cM 匹配一个 Control-M 或回车符。<br>x 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 ‘c’ 字符。</td></tr><tr><td>\f</td><td style="text-align:left">换页符</td></tr><tr><td>\n</td><td style="text-align:left">换行符</td></tr><tr><td>\r</td><td style="text-align:left">回车符</td></tr><tr><td>\t</td><td style="text-align:left">制表符</td></tr><tr><td>\v</td><td style="text-align:left">垂直制表符</td></tr><tr><td>\s</td><td style="text-align:left">空白字符，等价于<code>[ \f\n\r\t\v]</code></td></tr><tr><td>\S</td><td style="text-align:left">非空白字符，等价于<code>[^ \f\n\r\t\v]</code></td></tr></tbody></table><h2 id="打印字符"><a class="markdownIt-Anchor" href="#打印字符"></a> 打印字符</h2><table><thead><tr><th>打印字符</th><th>描述</th><th>等价</th></tr></thead><tbody><tr><td><code>.</code>(dot)</td><td>匹配除换行符、制表符之外的任何单个字符</td><td><code>[^\n\r]</code></td></tr><tr><td>\d</td><td>匹配一个数字</td><td><code>[0-9]</code></td></tr><tr><td>\D</td><td>匹配一个非数字</td><td><code>[^0-9]</code></td></tr><tr><td>\w</td><td>匹配字母、数字、下划线</td><td><code>[A-Za-z0-9_]</code></td></tr><tr><td>\W</td><td>匹配非字母、数字、下划线</td><td><code>[^A-Za-z0-9_]</code></td></tr></tbody></table><h2 id="限定符"><a class="markdownIt-Anchor" href="#限定符"></a> 限定符</h2><table><thead><tr><th>限定符</th><th>描述</th><th>等价</th></tr></thead><tbody><tr><td>*</td><td>零次或多次</td><td>{0,}</td></tr><tr><td>+</td><td>一次或多次</td><td>{1,}</td></tr><tr><td>?</td><td>零次或一次</td><td>{0,1}</td></tr><tr><td>{n}</td><td>匹配确定的n次</td><td></td></tr><tr><td>{n,}</td><td>至少匹配n次</td><td></td></tr><tr><td>{n,m}</td><td>匹配&gt;=n且&lt;=m次</td><td></td></tr></tbody></table><div class="note warning">            <p>限定符都是贪婪匹配，在之后放置 ?，可转换为最小匹配（如*?）</p>          </div><h2 id="定位符"><a class="markdownIt-Anchor" href="#定位符"></a> 定位符</h2><table><thead><tr><th>定位符</th><th>描述</th><th>示例</th></tr></thead><tbody><tr><td>$</td><td>匹配结尾位置</td><td><code>(.csv)$</code></td></tr><tr><td>^</td><td>匹配开始位置</td><td><code>^(Windows)</code></td></tr><tr><td>\b</td><td>匹配单词边界位置</td><td><code>er\b</code> 可以匹配<code>never</code> 中的 <code>er</code>，但不能匹配 <code>verb</code> 中的 <code>er</code></td></tr><tr><td>\B</td><td>匹配非单词边界位置</td><td><code>er\B</code> 能匹配 <code>verb</code> 中的 <code>er</code>，但不能匹配 <code>never</code> 中的 <code>er</code></td></tr></tbody></table><h2 id="选择"><a class="markdownIt-Anchor" href="#选择"></a> 选择</h2><table><thead><tr><th>选择</th><th>描述</th><th>举例</th></tr></thead><tbody><tr><td><code>(pattern)</code></td><td>匹配pattern并获取结果</td><td></td></tr><tr><td><code>(?:pattern)</code></td><td>匹配 pattern 但不获取匹配结果</td><td><code>Win(?:7\|10)</code>相当于<code>Win7\|Win10</code>简略版</td></tr><tr><td><code>(?=pattern)</code></td><td>正向肯定预查（look ahead positive assert)</td><td><code>Win(?=XP)</code>能匹配<code>WinXP</code>中的<code>Win</code>，但不能匹配<code>Win10</code>中的<code>Win</code></td></tr><tr><td><code>(?!pattern)</code></td><td>正向否定预查(negative assert)</td><td><code>Win(?!XP)</code>能匹配&quot;Win10&quot;中的<code>Win</code>，但不能匹配<code>WinXP</code>中的<code>Win</code></td></tr><tr><td><code>(?&lt;=pattern)</code></td><td>反向(look behind)肯定预查</td><td><code>(?&lt;=7)Win</code>能匹配<code>7Win</code>中的<code>Win</code>，但不能匹配<code>10Win</code>中的<code>Win</code></td></tr><tr><td><code>(?&lt;!pattern)</code></td><td>反向否定预查</td><td><code>(?&lt;!7)Win</code>能匹配<code>10Win</code>中的<code>Win</code>，但不能匹配<code>7Win</code>中的<code>Win</code></td></tr></tbody></table><h2 id="字符集合"><a class="markdownIt-Anchor" href="#字符集合"></a> 字符集合</h2><table><thead><tr><th>字符集合</th><th>描述</th></tr></thead><tbody><tr><td>x | y</td><td>或，优先级最低</td></tr><tr><td>[xyz]</td><td>字符集合，匹配任意一个</td></tr><tr><td>[a-z]</td><td>小写字母</td></tr><tr><td>[0-9]</td><td>数字</td></tr><tr><td>[^xyz]</td><td>匹配不在集合里的任意字符</td></tr><tr><td>[^a-z]</td><td>除了小写字母</td></tr><tr><td>[A-Z]</td><td>大写字母</td></tr><tr><td>\num</td><td>匹配 num，其中 num 是一个正整数。对所获取的匹配的引用。<br>例如，’(.)\1’ 匹配两个连续的相同字符。</td></tr></tbody></table><p>R 语言通用字符集</p><table><thead><tr><th style="text-align:left">字符集合</th><th style="text-align:left">描述</th></tr></thead><tbody><tr><td style="text-align:left">[:punct:]</td><td style="text-align:left">punctuation</td></tr><tr><td style="text-align:left">[:alpha:]</td><td style="text-align:left">letters.</td></tr><tr><td style="text-align:left">[:lower:]</td><td style="text-align:left">lowercase letters.</td></tr><tr><td style="text-align:left">[:upper:]</td><td style="text-align:left">upperclass letters.</td></tr><tr><td style="text-align:left">[:digit:]</td><td style="text-align:left">digits.</td></tr><tr><td style="text-align:left">[:xdigit:]</td><td style="text-align:left">hex digits.</td></tr><tr><td style="text-align:left">[:alnum:]</td><td style="text-align:left">letters and numbers.</td></tr><tr><td style="text-align:left">[:cntrl:]</td><td style="text-align:left">control characters.</td></tr><tr><td style="text-align:left">[:graph:]</td><td style="text-align:left">letters, numbers, and punctuation.</td></tr><tr><td style="text-align:left">[:print:]</td><td style="text-align:left">letters, numbers, punctuation, and whitespace.</td></tr><tr><td style="text-align:left">[:space:]</td><td style="text-align:left">space characters (basically equivalent to \s).</td></tr><tr><td style="text-align:left">[:blank:]</td><td style="text-align:left">space and tab.</td></tr></tbody></table>]]></content>
+        <content type="html"><![CDATA[<p>正则表达式是对字符串（包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为“元字符”））操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。正则表达式是一种文本模式，该模式描述在搜索文本时要匹配的一个或多个字符串。</p><p>Cheat Sheet：<a href="https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf" target="_blank" rel="noopener">Basic Regular Expressions in R </a></p><a id="more"></a><h1 id="正则表达式"><a class="markdownIt-Anchor" href="#正则表达式"></a> 正则表达式</h1><p><strong>普通字符</strong>：普通字符包括没有显式指定为元字符的所有可打印和不可打印字符。可直接匹配自身。<br><strong>元字符</strong>：元字符加斜杠\匹配自身(在R中斜杠为<code>\\</code>，匹配<code>+</code>应写为<code>\\+</code></p><h2 id="非打印字符"><a class="markdownIt-Anchor" href="#非打印字符"></a> 非打印字符</h2><p>非打印字符也可以是正则表达式的组成部分。下表列出了表示非打印字符的转义序列</p><table><thead><tr><th>字符</th><th style="text-align:left">描述</th></tr></thead><tbody><tr><td>\cx</td><td style="text-align:left">匹配由x指明的控制字符。例如， \cM 匹配一个 Control-M 或回车符。<br>x 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 ‘c’ 字符。</td></tr><tr><td>\f</td><td style="text-align:left">换页符</td></tr><tr><td>\n</td><td style="text-align:left">换行符</td></tr><tr><td>\r</td><td style="text-align:left">回车符</td></tr><tr><td>\t</td><td style="text-align:left">制表符</td></tr><tr><td>\v</td><td style="text-align:left">垂直制表符</td></tr><tr><td>\s</td><td style="text-align:left">空白字符，等价于<code>[ \f\n\r\t\v]</code></td></tr><tr><td>\S</td><td style="text-align:left">非空白字符，等价于<code>[^ \f\n\r\t\v]</code></td></tr></tbody></table><h2 id="打印字符"><a class="markdownIt-Anchor" href="#打印字符"></a> 打印字符</h2><table><thead><tr><th>打印字符</th><th>描述</th><th>等价</th></tr></thead><tbody><tr><td><code>.</code>(dot)</td><td>匹配除换行符、制表符之外的任何单个字符</td><td><code>[^\n\r]</code></td></tr><tr><td>\d</td><td>匹配一个数字</td><td><code>[0-9]</code></td></tr><tr><td>\D</td><td>匹配一个非数字</td><td><code>[^0-9]</code></td></tr><tr><td>\w</td><td>匹配字母、数字、下划线</td><td><code>[A-Za-z0-9_]</code></td></tr><tr><td>\W</td><td>匹配非字母、数字、下划线</td><td><code>[^A-Za-z0-9_]</code></td></tr></tbody></table><h2 id="限定符"><a class="markdownIt-Anchor" href="#限定符"></a> 限定符</h2><table><thead><tr><th>限定符</th><th>描述</th><th>等价</th></tr></thead><tbody><tr><td>*</td><td>零次或多次</td><td>{0,}</td></tr><tr><td>+</td><td>一次或多次</td><td>{1,}</td></tr><tr><td>?</td><td>零次或一次</td><td>{0,1}</td></tr><tr><td>{n}</td><td>匹配确定的n次</td><td></td></tr><tr><td>{n,}</td><td>至少匹配n次</td><td></td></tr><tr><td>{n,m}</td><td>匹配&gt;=n且&lt;=m次</td><td></td></tr></tbody></table><div class="note warning">            <p>限定符都是贪婪匹配，在之后放置 ?，可转换为最小匹配（如*?）</p>          </div><h2 id="定位符"><a class="markdownIt-Anchor" href="#定位符"></a> 定位符</h2><table><thead><tr><th>定位符</th><th>描述</th><th>示例</th></tr></thead><tbody><tr><td>$</td><td>匹配结尾位置</td><td><code>(.csv)$</code></td></tr><tr><td>^</td><td>匹配开始位置</td><td><code>^(Windows)</code></td></tr><tr><td>\b</td><td>匹配单词边界位置</td><td><code>er\b</code> 可以匹配<code>never</code> 中的 <code>er</code>，但不能匹配 <code>verb</code> 中的 <code>er</code></td></tr><tr><td>\B</td><td>匹配非单词边界位置</td><td><code>er\B</code> 能匹配 <code>verb</code> 中的 <code>er</code>，但不能匹配 <code>never</code> 中的 <code>er</code></td></tr></tbody></table><h2 id="选择"><a class="markdownIt-Anchor" href="#选择"></a> 选择</h2><table><thead><tr><th>选择</th><th>描述</th><th>举例</th></tr></thead><tbody><tr><td><code>(pattern)</code></td><td>匹配pattern并获取结果</td><td></td></tr><tr><td><code>(?:pattern)</code></td><td>匹配 pattern 但不获取匹配结果</td><td><code>Win(?:7\|10)</code>相当于<code>Win7\|Win10</code>简略版</td></tr><tr><td><code>(?=pattern)</code></td><td>正向肯定预查（look ahead positive assert)</td><td><code>Win(?=XP)</code>能匹配<code>WinXP</code>中的<code>Win</code>，但不能匹配<code>Win10</code>中的<code>Win</code></td></tr><tr><td><code>(?!pattern)</code></td><td>正向否定预查(negative assert)</td><td><code>Win(?!XP)</code>能匹配&quot;Win10&quot;中的<code>Win</code>，但不能匹配<code>WinXP</code>中的<code>Win</code></td></tr><tr><td><code>(?&lt;=pattern)</code></td><td>反向(look behind)肯定预查</td><td><code>(?&lt;=7)Win</code>能匹配<code>7Win</code>中的<code>Win</code>，但不能匹配<code>10Win</code>中的<code>Win</code></td></tr><tr><td><code>(?&lt;!pattern)</code></td><td>反向否定预查</td><td><code>(?&lt;!7)Win</code>能匹配<code>10Win</code>中的<code>Win</code>，但不能匹配<code>7Win</code>中的<code>Win</code></td></tr></tbody></table><h2 id="字符集合"><a class="markdownIt-Anchor" href="#字符集合"></a> 字符集合</h2><table><thead><tr><th>字符集合</th><th>描述</th></tr></thead><tbody><tr><td>x | y</td><td>或，优先级最低</td></tr><tr><td>[xyz]</td><td>字符集合，匹配任意一个</td></tr><tr><td>[a-z]</td><td>小写字母</td></tr><tr><td>[0-9]</td><td>数字</td></tr><tr><td>[^xyz]</td><td>匹配不在集合里的任意字符</td></tr><tr><td>[^a-z]</td><td>除了小写字母</td></tr><tr><td>[A-Z]</td><td>大写字母</td></tr><tr><td>\num</td><td>匹配 num，其中 num 是一个正整数。对所获取的匹配的引用。<br>例如，’(.)\1’ 匹配两个连续的相同字符。</td></tr></tbody></table><h1 id="r语言通用字符集"><a class="markdownIt-Anchor" href="#r语言通用字符集"></a> R语言通用字符集</h1><table><thead><tr><th style="text-align:left">字符集合</th><th style="text-align:left">描述</th></tr></thead><tbody><tr><td style="text-align:left">[:punct:]</td><td style="text-align:left">punctuation</td></tr><tr><td style="text-align:left">[:alpha:]</td><td style="text-align:left">letters.</td></tr><tr><td style="text-align:left">[:lower:]</td><td style="text-align:left">lowercase letters.</td></tr><tr><td style="text-align:left">[:upper:]</td><td style="text-align:left">upperclass letters.</td></tr><tr><td style="text-align:left">[:digit:]</td><td style="text-align:left">digits.</td></tr><tr><td style="text-align:left">[:xdigit:]</td><td style="text-align:left">hex digits.</td></tr><tr><td style="text-align:left">[:alnum:]</td><td style="text-align:left">letters and numbers.</td></tr><tr><td style="text-align:left">[:cntrl:]</td><td style="text-align:left">control characters.</td></tr><tr><td style="text-align:left">[:graph:]</td><td style="text-align:left">letters, numbers, and punctuation.</td></tr><tr><td style="text-align:left">[:print:]</td><td style="text-align:left">letters, numbers, punctuation, and whitespace.</td></tr><tr><td style="text-align:left">[:space:]</td><td style="text-align:left">space characters (basically equivalent to \s).</td></tr><tr><td style="text-align:left">[:blank:]</td><td style="text-align:left">space and tab.</td></tr></tbody></table>]]></content>
       
       
       <categories>
@@ -1936,9 +1936,9 @@
             
             <tag> python </tag>
             
-            <tag> numpy </tag>
-            
             <tag> 科学计算 </tag>
+            
+            <tag> numpy </tag>
             
             <tag> 随机 </tag>
             
@@ -1969,9 +1969,9 @@
             
             <tag> python </tag>
             
-            <tag> IDE </tag>
-            
             <tag> Jupyter Notebook </tag>
+            
+            <tag> IDE </tag>
             
         </tags>
       
