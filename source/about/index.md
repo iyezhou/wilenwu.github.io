@@ -34,10 +34,13 @@ E3 -.-> F3(数据分析)
 
 # <font color="orange">绘画墙</font>
 
-{% gp 3-2 %}
-<img src="pictures/dragon_ball.png" alt="龙珠" height="400" />
-<img src="pictures/Karin-sama.png" alt="卡林大人" height="200" /> 
-<img src="pictures/Garfield_2007.png" alt="加菲猫-2007" height="180" />
+{% gp 6-3 %}
+<img src="pictures/Karin-sama.png" alt="卡林大人" width="150" />
+<img src="pictures/Garfield_2007.png" alt="加菲猫-2007" width="150" />
+<img src="pictures/dragon_ball.png" alt="龙珠" width="350" />
+<img src="pictures/Snoopy.png" alt="Snoopy" width="150" /> 
+<img src="pictures/unknow.png" width="150" /> 
+<img src="pictures/unknow2.png" width="150" /> 
 {% endgp %}
 
 ------
