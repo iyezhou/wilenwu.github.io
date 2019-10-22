@@ -746,9 +746,9 @@
             
             <tag> python </tag>
             
-            <tag> matplotlib </tag>
-            
             <tag> 可视化 </tag>
+            
+            <tag> matplotlib </tag>
             
         </tags>
       
@@ -845,9 +845,9 @@
             
             <tag> python </tag>
             
-            <tag> 可视化 </tag>
-            
             <tag> seaborn </tag>
+            
+            <tag> 可视化 </tag>
             
         </tags>
       
@@ -1099,9 +1099,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> 基础 </tag>
+            
+            <tag> python </tag>
             
         </tags>
       

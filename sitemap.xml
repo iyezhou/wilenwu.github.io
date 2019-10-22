@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wilenwu.github.io/about/index.html</loc>
+    
+    <lastmod>2019-10-22T02:49:28.742Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wilenwu.github.io/posts/regular-expression.html</loc>
     
     <lastmod>2019-10-21T07:06:14.504Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>https://wilenwu.github.io/bookshelf/index.html</loc>
     
     <lastmod>2019-10-18T06:51:25.626Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wilenwu.github.io/about/index.html</loc>
-    
-    <lastmod>2019-10-17T01:20:39.097Z</lastmod>
     
   </url>
   
@@ -128,14 +128,14 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Visualise)--ggmap+baidumap.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Visualise)--leaflet+leafletCN.html</loc>
     
     <lastmod>2019-10-11T02:59:11.863Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Visualise)--leaflet+leafletCN.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Visualise)--ggmap+baidumap.html</loc>
     
     <lastmod>2019-10-11T02:59:11.863Z</lastmod>
     
@@ -177,14 +177,14 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Syntax)--purrr.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Syntax)--magrittr.html</loc>
     
     <lastmod>2019-10-11T02:59:11.847Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Syntax)--magrittr.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Syntax)--purrr.html</loc>
     
     <lastmod>2019-10-11T02:59:11.847Z</lastmod>
     
@@ -205,14 +205,14 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--lubridate+hms.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--forcats.html</loc>
     
     <lastmod>2019-10-11T02:59:11.847Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--forcats.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--lubridate+hms.html</loc>
     
     <lastmod>2019-10-11T02:59:11.847Z</lastmod>
     
@@ -247,7 +247,7 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Common)--R-basic-packages.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Common)--R-base.html</loc>
     
     <lastmod>2019-10-11T02:59:11.832Z</lastmod>
     
@@ -261,7 +261,14 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Communicate)--shiny.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Common)--tidyverse+tibble.html</loc>
+    
+    <lastmod>2019-10-11T02:59:11.832Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Common)--R-basic-packages.html</loc>
     
     <lastmod>2019-10-11T02:59:11.832Z</lastmod>
     
@@ -282,7 +289,7 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Import)--read-csv-xlsx-or-json.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Communicate)--shiny.html</loc>
     
     <lastmod>2019-10-11T02:59:11.832Z</lastmod>
     
@@ -296,7 +303,7 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--broom.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Import)--read-csv-xlsx-or-json.html</loc>
     
     <lastmod>2019-10-11T02:59:11.832Z</lastmod>
     
@@ -310,14 +317,7 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Common)--tidyverse+tibble.html</loc>
-    
-    <lastmod>2019-10-11T02:59:11.832Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wilenwu.github.io/posts/R/RNotebook(Common)--R-base.html</loc>
+    <loc>https://wilenwu.github.io/posts/R/RNotebook(Model-Tools)--broom.html</loc>
     
     <lastmod>2019-10-11T02:59:11.832Z</lastmod>
     
@@ -366,14 +366,14 @@
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/python/PythonNotebook(Visualise)--matplotlib.html</loc>
+    <loc>https://wilenwu.github.io/posts/python/PythonNotebook(Visualise)--seaborn.html</loc>
     
     <lastmod>2019-10-11T02:59:11.816Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/python/PythonNotebook(Visualise)--seaborn.html</loc>
+    <loc>https://wilenwu.github.io/posts/python/PythonNotebook(Visualise)--matplotlib.html</loc>
     
     <lastmod>2019-10-11T02:59:11.816Z</lastmod>
     
