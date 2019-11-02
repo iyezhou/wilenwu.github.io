@@ -162,6 +162,7 @@ menu:
   categories: /categories/ || th
   archives: /archives/ || archive
   bookshelf: /bookshelf/ || windows
+  movies: /movies/ || film
   favorites: /favorites/ || star
   about: /about/ || user
   #map: /map/ || send 
@@ -170,7 +171,6 @@ menu:
   #commonweal: /404/ || heartbeat
   #------------personal------------
   #bookmarks: /bookmarks/ || bookmark
-  #movies: /movies/ || film
   #videos: /videos/ || youtube-play
   #photos: /photos/ || photo
   #pictures: /pictures/ || image

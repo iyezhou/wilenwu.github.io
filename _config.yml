@@ -132,3 +132,17 @@ lazyload:
   enable: true 
   onlypost: false
   loadingImg: /images/loading.gif
+  
+douban:
+  user: 206186342
+  builtin: true 
+  movie:
+    title: '豆瓣影视'
+    quote: '一个保存电影的地方'
+  #book:
+  #  title: 'This is my book title'
+  #  quote: 'This is my book quote'
+  #game:
+  #  title: 'This is my game title'
+  #  quote: 'This is my game quote'
+  timeout: 10000 
