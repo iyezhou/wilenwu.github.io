@@ -483,6 +483,7 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
 ```
 
 <div class="note danger"><p>danger</p></div>
+
 ## 文本背景色
 
 ```html

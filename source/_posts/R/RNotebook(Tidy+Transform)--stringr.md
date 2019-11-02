@@ -8,13 +8,11 @@ date: 2018-05-01 22:35:55
 categories: [R,Tidy+Transform]
 sticky: false
 ---
-**目录**
-
 ----------
 
 
 <!-- more -->
-## **stringr**: Simple, Consistent Wrappers for Common String Operations
+# stringr: Simple, Consistent Wrappers for Common String Operations
 
 函数|说明
 :---|---
@@ -53,8 +51,8 @@ regex(pattern, ignore\_case = FALSE, multiline = FALSE, comments = FALSE, dotall
 
 ----------
 
+# stringi
 
-## **stringi**
 函数|说明
 :---|---
 e1 %s+% e2| 连接两个字符
@@ -66,8 +64,8 @@ stri_write_lines(str, fname, encoding = "UTF-8")|
 
 ----------
 
+# R语言编码
 
-## **R语言编码**
 > Encoding(someX)<-'UTF-8'/'GB2312'  #将正确的编码标记告诉 R 
 > iconv(x,from,to)   #转换编码
 

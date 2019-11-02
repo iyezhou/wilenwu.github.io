@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Mon Sep 16 12:55:51 2019
-
-@author: Administrator
-"""
 
 import os
 import re
+import hashlib
 
+def hash(string):
+    ID=string.encode(encoding='UTF-8')
+    return hashlib.md5(ID).hexdigest()
 
 def post_move(name,out=r"./new/"):
     f1 = open('./old/'+name,'r+',encoding='utf-8')
@@ -19,25 +18,26 @@ def post_move(name,out=r"./new/"):
     f2 = open(out+name,'w+',encoding='utf-8')
     
     f3=open('dt.txt','r+',encoding='utf-8')
-    dt_list=f3.readlines()
+    dt_list=f3.read().splitlines()
     f3.close()
     for i in range(len(dt_list)):
         if dt_list[i].find(title) != -1:
             date=dt_list[i+2].split(r' 阅读数')[0]
             break       
     try:    
-        cats=re.split('[()]',title)[1]
+        tag=re.split('[()]',title)[1]
     except:
-        cats=None
+        tag=None
     header='''---
+ID: {ID}
 title: {title}
-tags: [R]
-mathjax: false
+tags: [Math,{tag}]
+mathjax: true
 copyright: true
 date: {date}
-categories: [R,{cats}]
+categories: [Foundations Math]
 sticky: false
----'''.format(title=title,date=date,cats=cats)
+---'''.format(ID=hash(date),title=re.sub('\(.+\)','',title),date=date,tag=tag)
     
     f2.write(header+'\n')
     
@@ -57,7 +57,7 @@ sticky: false
     f1.close()
     f2.close()
 
-name='SQL手册.md'
+name='初等数学公式(Elementary mathematical formula).md'
 
 for name in os.listdir('./old/'):
     print(name)
@@ -65,5 +65,7 @@ for name in os.listdir('./old/'):
 
 os.chdir('./new/')
 for old in os.listdir():
-    new=old.replace(' ','-').replace('手册','Notebook')
-    os.rename(old, new)
+    title,end=os.path.splitext(old)
+    new=title.replace(' ','-').replace('手册','Notebook')
+    new=re.split('[()]',new)[1]
+    os.rename(old, new+end)

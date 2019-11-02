@@ -11,14 +11,14 @@ sticky:
 <!-- more -->
 
 
-## 前提环境
+# 前提环境
 
 - [Node.js](http://nodejs.org/) (Should be at least nodejs 6.9)
 - [Git](http://git-scm.com/)：[Git命令官方文档](https://git-scm.com/book/zh/v2)
 - 创建 github pages 库：库名为 `username.github.io` ，`username` 必须和github用户名保持一致 
 
 
-## Hexo 相关命令 
+# Hexo 相关命令 
 
 选择博客目录文件夹，右键打开 `Git Bash Here`
 
@@ -47,7 +47,7 @@ hexo clean && hexo g -s    # 清除缓存+生成+预览
 hexo clean && hexo g -d    # 清除缓存+生成+发布
 ```
 
-## 预览
+# 预览
 
 可在本地4000端口预览 http://localhost:4000
 主题的配置文件，修改时会自动更新，无需重启服务器。
@@ -68,9 +68,9 @@ deploy:
 hexo serve 
 ```
 
-## Git 配置
+# Git 配置
 
-### 配置 SSH keys
+## 配置 SSH keys
 
 - 生成新的 SSH keys
 ```sh
@@ -94,7 +94,7 @@ git config --global user.name "username"
 git config --global user.email "github注册邮箱"
 ```
 
-### 部署博客到 github pages
+## 部署博客到 github pages
 
 - 安装插件
 ```sh
@@ -121,7 +121,7 @@ hexo deploye
 当执行 `hexo deploy` 时，Hexo 会将 public 目录中的文件和目录推送至_config.yml 中指定的远端仓库和分支中，并且完全覆盖该分支下的已有内容。
 此外，如果您的 Github Pages 需要使用 CNAME 文件**自定义域名**，请将 CNAME 文件置于 `source` 目录下，只有这样 `hexo deploy` 才能将 CNAME 文件一并推送至部署分支
 
-## 站点配置文件
+# 站点配置文件
 
 Hexo 框架主要配置2方面的内容：站点配置文件和主题配置文件。
 
@@ -211,7 +211,7 @@ tag_generator:               # 标签页
 theme: next    # 更换主题
 ```
 
-## 写作模板
+# 写作模板
 
 在新建文章时，Hexo 会根据 `scaffolds` 文件夹内相对应的模板来建立文件
 
@@ -237,7 +237,7 @@ date: 2013/7/13 20:46:25
 | `keywords`   | 仅用于 meta 标签和 Open Graph 的关键词（不推荐使用） |     |
 
 
-## 分类和标签
+# 分类和标签
 
 可以在 Front-matter 中设置分类和标签。
 ```sh
@@ -249,12 +249,12 @@ tags:
 ```
 
 
-## 文章摘要和截断
+# 文章摘要和截断
 
 在文章中使用 `<!-- more -->`，那么 `<!-- more -->` 之前的文字将会被视为摘要，在主页中展示。
 
 
-## 置顶和置顶标签
+# 置顶和置顶标签
 
 修改Hexo文件夹下的`node_modules/hexo-generator-index/lib/generator.js`，在生成文章之前进行文章sticky值排序。
 
@@ -296,14 +296,13 @@ module.exports = function(locals) {
     }
   });
 };
-
 ```
 
 修改完成后，只需要在front-matter中设置需要置顶文章的 `sticky: true`。同时sticky也决定了是否添加置顶标签。
 也可以设置sticky值为数字，将会根据sticky值大小来选择置顶顺序，sticky值越大越靠前。
 需要注意的是，这个文件不是主题的一部分，也不是Git管理的，备份的时候比较容易忽略。
 
-## 本地图片链接
+# 本地图片链接
 
 - 如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 `source/images` 文件夹中。然后通过类似于 `![](/images/image.jpg)` 或`{% asset_img /images/image.jpg %}`的方法访问它们。
 - 对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。
@@ -313,7 +312,7 @@ module.exports = function(locals) {
 
 ------
 
-## 踩过的坑
+# 踩过的坑
 
 {% note info %} skip_render {% endnote %}
 
