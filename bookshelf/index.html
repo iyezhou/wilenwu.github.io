@@ -64,7 +64,7 @@
 <meta property="og:site_name" content="Wilen&#39;s Blog">
 <meta property="og:description" content="本博客基于 Hexo 及 GitBook 配合搭建而成。 其中博文依据个人爱好、工作需要等制定了一份详细的学习计划，并根据清单同步更新学习笔记，详情请查阅本「书架」。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-18T06:51:25.626Z">
+<meta property="og:updated_time" content="2019-11-07T01:41:39.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="书架">
 <meta name="twitter:description" content="本博客基于 Hexo 及 GitBook 配合搭建而成。 其中博文依据个人爱好、工作需要等制定了一份详细的学习计划，并根据清单同步更新学习笔记，详情请查阅本「书架」。">
@@ -239,6 +239,19 @@
       
       
         
+        <li class="menu-item menu-item-movies">
+      
+    
+      
+    
+
+    <a href="/movies/" rel="section"><i class="menu-item-icon fa fa-fw fa-film"></i> <br>影视</a>
+
+  </li>
+      
+      
+      
+        
         <li class="menu-item menu-item-favorites">
       
     
@@ -310,6 +323,9 @@
             
 
     
+    
+      
+      
     
       
       
@@ -698,8 +714,8 @@
 <li>☑️   <a href="https://blog.csdn.net/qq_41518277/article/details/89739640" target="_blank" rel="noopener">空间解析几何</a></li>
 <li>☑️   <a href="https://blog.csdn.net/qq_41518277/article/details/90261253" target="_blank" rel="noopener">概率论与数理统计 I</a>：概率论</li>
 <li>☑️   <a href="https://blog.csdn.net/qq_41518277/article/details/90733362" target="_blank" rel="noopener">概率论与数理统计 II</a>：数理统计</li>
-<li>☑️   复变函数与积分变换<a href="https://blog.csdn.net/qq_41518277/article/details/89742631" target="_blank" rel="noopener">cf1</a>：复变函数</li>
-<li>☑️   复变函数与积分变换<a href="https://blog.csdn.net/qq_41518277/article/details/97121991" target="_blank" rel="noopener">cf2</a>：积分变换</li>
+<li>☑️   <a href="https://blog.csdn.net/qq_41518277/article/details/89742631" target="_blank" rel="noopener">复变函数与积分变换</a>：复变函数</li>
+<li>☑️   <a href="https://blog.csdn.net/qq_41518277/article/details/97121991" target="_blank" rel="noopener">复变函数与积分变换</a>：积分变换</li>
 </ul>
 <h2 id="font-colorgreenadvanced-mathfont"><a class="markdownIt-Anchor" href="#font-colorgreenadvanced-mathfont"></a> <font color="green">Advanced Math</font></h2>
 <ul>
@@ -831,19 +847,19 @@
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
           
-            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
-          
             <li class="tab"><a href="#comment-valine">valine</a></li>
+          
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
           
         </ul>
         <div class="tab-content">
           
-            <div class="tab-pane gitalk" id="comment-gitalk">
-              <div class="comments" id="gitalk-container"></div>
-            </div>
-          
             <div class="tab-pane valine" id="comment-valine">
               <div class="comments" id="comments"></div>
+            </div>
+          
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
             </div>
           
         </div>
@@ -1109,7 +1125,7 @@ if (document.querySelectorAll('pre.mermaid').length) {
       repo: 'gitalk',
       owner: 'wilenwu',
       admin: ['wilenwu'],
-      id: '3be7aa98d992907175cbd79c194399f2',
+      id: '7b3ef903a0232e7421e1f2815ecd534b',
         language: 'zh-CN',
       
       distractionFreeMode: 'true'
@@ -1126,25 +1142,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '60decc199e52a19f035d',
-      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
-      repo: 'gitalk',
-      owner: 'wilenwu',
-      admin: ['wilenwu'],
-      id: '3bbe57ef68079c9abf669d171845550d',
-        language: 'zh-CN',
-      
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-</script>
 
 
 <script>
@@ -1169,6 +1166,25 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: '3bbe57ef68079c9abf669d171845550d',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
 </script>
 
 </body>
