@@ -57,7 +57,7 @@
 </script>
 
   <meta name="description" content="SymPy（Symbol Python的简称）是一个用于符号数学的Python库。它旨在成为一个功能齐全的计算机代数系统（CAS），同时保持代码尽可能简单，以便易于理解和易于扩展。SymPy完全用Python编写，不依赖于外部库。">
-<meta name="keywords" content="python,SymPy,科学计算,符号计算">
+<meta name="keywords" content="python,科学计算,SymPy,符号计算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python手册(Scientific Computing)--SymPy">
 <meta property="og:url" content="https://wilenwu.github.io/posts/python/PythonNotebook(Scientific-Computing)--SymPy.html">
@@ -499,9 +499,9 @@ SymPy可以简化表达式，计算导数，积分和极限，求解方程，使
             
               <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
             
-              <a href="/tags/SymPy/" rel="tag"><i class="fa fa-tag"></i> SymPy</a>
-            
               <a href="/tags/科学计算/" rel="tag"><i class="fa fa-tag"></i> 科学计算</a>
+            
+              <a href="/tags/SymPy/" rel="tag"><i class="fa fa-tag"></i> SymPy</a>
             
               <a href="/tags/符号计算/" rel="tag"><i class="fa fa-tag"></i> 符号计算</a>
             
@@ -547,19 +547,19 @@ SymPy可以简化表达式，计算导数，积分和极限，求解方程，使
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
           
-            <li class="tab"><a href="#comment-valine">valine</a></li>
-          
             <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+          
+            <li class="tab"><a href="#comment-valine">valine</a></li>
           
         </ul>
         <div class="tab-content">
           
-            <div class="tab-pane valine" id="comment-valine">
-              <div class="comments" id="comments"></div>
-            </div>
-          
             <div class="tab-pane gitalk" id="comment-gitalk">
               <div class="comments" id="gitalk-container"></div>
+            </div>
+          
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="comments"></div>
             </div>
           
         </div>
@@ -825,7 +825,7 @@ if (document.querySelectorAll('pre.mermaid').length) {
       repo: 'gitalk',
       owner: 'wilenwu',
       admin: ['wilenwu'],
-      id: '7b3ef903a0232e7421e1f2815ecd534b',
+      id: '3be7aa98d992907175cbd79c194399f2',
         language: 'zh-CN',
       
       distractionFreeMode: 'true'
@@ -842,6 +842,25 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: '0d3f33f6e56bf88694fc6fd57b9784eb',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 
 <script>
@@ -866,25 +885,6 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '60decc199e52a19f035d',
-      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
-      repo: 'gitalk',
-      owner: 'wilenwu',
-      admin: ['wilenwu'],
-      id: '0d3f33f6e56bf88694fc6fd57b9784eb',
-        language: 'zh-CN',
-      
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
 </script>
 
 </body>

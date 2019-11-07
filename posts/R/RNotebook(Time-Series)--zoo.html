@@ -57,7 +57,7 @@
 </script>
 
   <meta name="description" content="zoo和xts是对日期型数据进行清洗的R包">
-<meta name="keywords" content="R,日期和时间,数据清洗,时间序列,zoo">
+<meta name="keywords" content="R,数据清洗,日期和时间,时间序列,zoo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R手册(Time Series)--zoo">
 <meta property="og:url" content="https://wilenwu.github.io/posts/R/RNotebook(Time-Series)--zoo.html">
@@ -525,9 +525,9 @@
             
               <a href="/tags/R/" rel="tag"><i class="fa fa-tag"></i> R</a>
             
-              <a href="/tags/日期和时间/" rel="tag"><i class="fa fa-tag"></i> 日期和时间</a>
-            
               <a href="/tags/数据清洗/" rel="tag"><i class="fa fa-tag"></i> 数据清洗</a>
+            
+              <a href="/tags/日期和时间/" rel="tag"><i class="fa fa-tag"></i> 日期和时间</a>
             
               <a href="/tags/时间序列/" rel="tag"><i class="fa fa-tag"></i> 时间序列</a>
             
@@ -575,19 +575,19 @@
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
           
-            <li class="tab"><a href="#comment-valine">valine</a></li>
-          
             <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+          
+            <li class="tab"><a href="#comment-valine">valine</a></li>
           
         </ul>
         <div class="tab-content">
           
-            <div class="tab-pane valine" id="comment-valine">
-              <div class="comments" id="comments"></div>
-            </div>
-          
             <div class="tab-pane gitalk" id="comment-gitalk">
               <div class="comments" id="gitalk-container"></div>
+            </div>
+          
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="comments"></div>
             </div>
           
         </div>
@@ -853,7 +853,7 @@ if (document.querySelectorAll('pre.mermaid').length) {
       repo: 'gitalk',
       owner: 'wilenwu',
       admin: ['wilenwu'],
-      id: '7b3ef903a0232e7421e1f2815ecd534b',
+      id: '3be7aa98d992907175cbd79c194399f2',
         language: 'zh-CN',
       
       distractionFreeMode: 'true'
@@ -870,6 +870,25 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '60decc199e52a19f035d',
+      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
+      repo: 'gitalk',
+      owner: 'wilenwu',
+      admin: ['wilenwu'],
+      id: 'e88991e55fb0f52d90beeb10cf29c007',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 
 <script>
@@ -894,25 +913,6 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '60decc199e52a19f035d',
-      clientSecret: 'fe95a75c03105bf4566a72968f6dfcfd3b861344',
-      repo: 'gitalk',
-      owner: 'wilenwu',
-      admin: ['wilenwu'],
-      id: 'e88991e55fb0f52d90beeb10cf29c007',
-        language: 'zh-CN',
-      
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
 </script>
 
 </body>
