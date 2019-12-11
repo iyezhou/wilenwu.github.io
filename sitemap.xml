@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wilenwu.github.io/posts/hexo/Hexo-setup&configuration.html</loc>
+    
+    <lastmod>2019-12-11T05:15:11.539Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wilenwu.github.io/posts/big-data/BigDataNotebook(Linux)--Linux-shell.html</loc>
     
     <lastmod>2019-12-11T04:50:08.361Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>https://wilenwu.github.io/posts/markdown/GitHub-Flavored-Markdown-Spec.html</loc>
     
     <lastmod>2019-12-11T02:11:25.695Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wilenwu.github.io/posts/hexo/Hexo-setup&configuration.html</loc>
-    
-    <lastmod>2019-12-11T01:45:02.440Z</lastmod>
     
   </url>
   

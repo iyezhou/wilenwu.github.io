@@ -64,7 +64,7 @@
 <meta property="og:site_name" content="Wilen&#39;s Blog">
 <meta property="og:description" content="Hexo 是高效的静态站点生成框架，基于 Node.js。 通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 tag 插件 来快速的插入特定形式的内容。Hexo 还拥有丰富的主题和插件。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-11T01:45:02.440Z">
+<meta property="og:updated_time" content="2019-12-11T05:15:11.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客搭建及配置">
 <meta name="twitter:description" content="Hexo 是高效的静态站点生成框架，基于 Node.js。 通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 tag 插件 来快速的插入特定形式的内容。Hexo 还拥有丰富的主题和插件。">
@@ -357,7 +357,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-11 09:45:02" itemprop="dateModified" datetime="2019-12-11T09:45:02+08:00">2019-12-11</time>
+                <time title="修改时间：2019-12-11 13:15:11" itemprop="dateModified" datetime="2019-12-11T13:15:11+08:00">2019-12-11</time>
               </span>
             
           
@@ -433,9 +433,9 @@
 <a id="more"></a>
 <h1 id="前提环境"><a class="markdownIt-Anchor" href="#前提环境"></a> 前提环境</h1>
 <ul>
-<li><a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (Should be at least nodejs 6.9)</li>
-<li><a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a>：<a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">Git命令官方文档</a></li>
-<li>创建 github pages 库：库名为 <code>username.github.io</code> ，<code>username</code> 必须和github用户名保持一致</li>
+<li>安装<a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (Should be at least nodejs 6.9)</li>
+<li>安装<a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a>：<a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">Git命令官方文档</a></li>
+<li>Github注册并创建 github pages 库：库名为 <code>username.github.io</code> ，<code>username</code> 必须和github用户名保持一致</li>
 </ul>
 <h1 id="hexo-相关命令"><a class="markdownIt-Anchor" href="#hexo-相关命令"></a> Hexo 相关命令</h1>
 <p>选择博客目录文件夹，右键打开 <code>Git Bash Here</code></p>
@@ -508,7 +508,7 @@
 <p>Hexo 框架主要配置2方面的内容：站点配置文件和主题配置文件。</p>
 <p>站点配置文件 <code>‪username.github.io\_config.yml</code><br>
 主题配置文件  <code>‪username.github.io\themes\next\_config.yml</code></p>
-<p>站点配置文件建议参考<a href="(https://hexo.io/zh-cn/)">中文官方文档</a></p>
+<p>站点配置文件建议参考<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">中文官方文档</a></p>
 <p>站点配置主要分为几块：</p>
 <table>
 <thead>
@@ -764,7 +764,7 @@
 <p>在文章中使用 <code>&lt;!-- more --&gt;</code>，那么 <code>&lt;!-- more --&gt;</code> 之前的文字将会被视为摘要，在主页中展示。</p>
 <h1 id="置顶和置顶标签"><a class="markdownIt-Anchor" href="#置顶和置顶标签"></a> 置顶和置顶标签</h1>
 <p>修改Hexo文件夹下的<code>node_modules/hexo-generator-index/lib/generator.js</code>，在生成文章之前进行文章sticky值排序。</p>
-<p>以下是最终的generator.js内容、</p>
+<p>以下是最终的generator.js内容</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pagination = <span class="built_in">require</span>(<span class="string">'hexo-pagination'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">locals</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> config = <span class="keyword">this</span>.config;</span><br><span class="line">  <span class="keyword">var</span> posts = locals.posts.sort(config.index_generator.order_by);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// -----------------需要添加的代码------------------------</span></span><br><span class="line">  posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(a.sticky &amp;&amp; b.sticky) &#123; <span class="comment">// 两篇文章sticky都有定义</span></span><br><span class="line">          <span class="keyword">if</span>(a.sticky == b.sticky) <span class="keyword">return</span> b.date - a.date; <span class="comment">// 若sticky值一样则按照文章日期降序排</span></span><br><span class="line">          <span class="keyword">else</span> <span class="keyword">return</span> b.sticky - a.sticky; <span class="comment">// 否则按照sticky值降序排</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span>(a.sticky &amp;&amp; !b.sticky) &#123; <span class="comment">// 以下是只有一篇文章sticky有定义</span></span><br><span class="line">          <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span>(!a.sticky &amp;&amp; b.sticky) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">return</span> b.date - a.date; <span class="comment">// 都没定义按照文章日期降序排</span></span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">//-------------------------分割线-----------------------</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">var</span> paginationDir = config.pagination_dir || <span class="string">'page'</span>;</span><br><span class="line">  <span class="keyword">var</span> path = config.index_generator.path || <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> pagination(path, posts, &#123;</span><br><span class="line">    perPage: config.index_generator.per_page,</span><br><span class="line">    layout: [<span class="string">'index'</span>, <span class="string">'archive'</span>],</span><br><span class="line">    format: paginationDir + <span class="string">'/%d/'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">      __index: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>修改完成后，只需要在front-matter中设置需要置顶文章的 <code>sticky: true</code>。同时sticky也决定了是否添加置顶标签。<br>
 也可以设置sticky值为数字，将会根据sticky值大小来选择置顶顺序，sticky值越大越靠前。<br>
@@ -798,7 +798,7 @@
 </li>
 <li>
 <p>如果要忽略多个路径的文件或目录，可以这样配置：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">skip_render: </span><br><span class="line">  - "_posts/test-post.md"   </span><br><span class="line">  - "mypage/*</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">skip_render: </span><br><span class="line">  - "_posts/test-post.md"   </span><br><span class="line">  - "mypage/*""</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>参考链接：<br>
