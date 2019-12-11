@@ -106,6 +106,22 @@ bash pyspark        # 启动python shell
 bash sparkR         # 启动R shell
 #启动时若Java版本报错，安装需要的版本即可
 sudo apt-get install openjdk-8-jdk
+
+# 启动成功会出现
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ '/ __/  '_/
+   /___/ .__/\_,_/_/ /_/\_\   version 2.3.1
+      /_/
+
+Using Scala version 2.10.4 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_71)
+Type in expressions to have them evaluated.
+Type :help for more information.
+….
+18/06/17 23:17:53 INFO BlockManagerMaster: Registered BlockManager
+18/06/17 23:17:53 INFO SparkILoop: Created spark context..
+Spark context available as sc.
 ```
 
 # Spark集群配置免密钥登陆

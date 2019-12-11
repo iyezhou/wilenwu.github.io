@@ -304,11 +304,10 @@ module.exports = function(locals) {
 
 # 本地图片链接
 
-- 如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 `source/images` 文件夹中。然后通过类似于 `![](/images/image.jpg)` 或`{% asset_img /images/image.jpg %}`的方法访问它们。
+- 如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 `source/images` 文件夹中。然后通过类似于 `![](/images/image.jpg)` 或 `{% asset_img /images/image.jpg %}` 的方法访问它们。
 - 对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。
   需要首先修改站点配置文件 `post_asset_folder: true` 打开资源文件夹。
   打开当资源文件管理功能打开后，Hexo将会在你每一次通过 `hexo new [layout] <title>` 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径  `![](image.jpg)`  来引用它们。
-  
 
 ------
 

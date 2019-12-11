@@ -8,14 +8,15 @@ categories: [Big Data]
 sticky: false
 ---
 
+
 # Shell简介
 
 Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。
 Shell 注释以"#"开头的行就是注释，会被解释器忽略。sh里没有多行注释，只能每一行加一个#号。
 
-{% note warning %} 由于Hexo不能正常编译，文档中的 `{ #` 一律去掉中间空格 {% endnote %}
-
-<!-- more -->
+{% note warning %} 
+由于Hexo不能正常编译，文档中的 `{ #` 一律去掉中间空格 
+{% endnote %}
 
 
 # Shell 变量
@@ -342,5 +343,4 @@ function funname ()
 - 参数的传递方法和使用脚本一样，`$1,$2`等
 - 参数可以隐式加载
 - `return`可以省略（将以最后一条命令运行结果）
-
 

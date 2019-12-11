@@ -8,6 +8,7 @@ date: 2018-07-03 17:57:36
 categories: [Big Data]
 sticky: true
 ---
+
 Hive是一个数据仓库基础工具，在Hadoop中用来处理结构化数据。
 
 <!-- more -->
@@ -238,7 +239,7 @@ select `(y|m|d)?+.+` from  employee;
 
 **只支持等值连接** 
 
-<img src="/images/hive_join.png" alt="join" style="zoom: 45%;" />
+<img src="https://img-blog.csdnimg.cn/20181223145448951.jpg" alt="join" width="60%" />
 
 ```sql
 select column,... from tableA
@@ -522,23 +523,45 @@ AS 'index.handler.class.name'
 [TBLPROPERTIES (...)];
 --删除索引
 DROP INDEX <index_name> ON <table_name>
-
 ```
 
-# Hive性能调优
+# Hive 中变量的使用
+- shell中设置变量，hive -e中直接使用
+   ```shell
+   #!/bin/bash
+   tablename="student"
+   limitcount="8"
+ 
+   hive -e "select * from ${tablename} limit ${limitcount};"
+   ```
+- 使用-hiveconf定义，在SQL文件中使用
+   ```shell
+   hive -hiveconf tablename='student' -hiveconf limitcount=8 -f test.sql
+   ```
+   SQL文件内容如下
+   ```sql
+    select * from ${hiveconf:tablename} limit ${hiveconf:limitcount};
+   ```
+   注意，hiveconf不能在 hive -e中使用
+- 使用用户自定义变量 hivevar
+   ```sql
+   hive > set hivevar: tablename="student";
+   hive > set hivevar: limitcount="8";
+   hive > set ${hivevar: tablename};  --hivevar 使用前缀查看变量
+   tablename="student"
+   hive > select * from ${tablename} limit ${limitcount}; --不使用前缀也可以引用使用
+   ```
+   hiveconf 变量也可以在SQL文件中以类似的方式设置，引用时必须加上hiveconf前缀
 
-https://blog.csdn.net/myproudcodelife/article/details/45372467
-
-# 部分Hadoop命令
-
-https://blog.csdn.net/m0_38003171/article/details/79086780
+# 其他
+[Hive性能调优](https://blog.csdn.net/myproudcodelife/article/details/45372467)
+[部分Hadoop命令](https://blog.csdn.net/m0_38003171/article/details/79086780)
 
 
 
-------
-参考链接
-https://www.yiibai.com/hive
-https://blog.csdn.net/u012386109/article/details/78214894
-https://www.cnblogs.com/skyl/p/4736129.html
 
+参考链接：
+[易百教程 | Hive教程](https://www.yiibai.com/hive)
+[HiveQL基础知识及常用语句总结](https://blog.csdn.net/u012386109/article/details/78214894)
+[Hive Shell常用操作](https://www.cnblogs.com/skyl/p/4736129.html)
 

@@ -12,7 +12,6 @@ sticky: false
 
 Cheat Sheet：[Basic Regular Expressions in R ](https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
 
-<!-- more -->
 
 # 正则表达式
 

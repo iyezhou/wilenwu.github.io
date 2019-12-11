@@ -36,11 +36,9 @@ copyright: false
 # <font color="red">Markdown</font>
 - :ballot_box_with_check:   [GitHub Flavored Markdown 规范][md]  
 - :ballot_box_with_check:   [KaTeX 数学符号列表][katex]  
-- :white_large_square:  [Markdown For Typora][mft]  
 
 [md]: /posts/markdown/GitHub-Flavored-Markdown-Spec.html
 [katex]: /posts/markdown/KaTeX-Mathematical-Symbols.html
-[mft]: /posts/markdown/Markdown-For-Typora.html
 
 ------
 
@@ -84,18 +82,16 @@ copyright: false
 
 ## <font color="green">Spark</font>
 
-- :ballot_box_with_check:   [Spark安装配置][spark]  
-- :ballot_box_with_check:   [Spark基础知识][spark_base]  
+- :ballot_box_with_check:   [Spark安装配置(PySpark版)][spark]  
+- :ballot_box_with_check:   [Spark基础知识(PySpark版)][spark_base]  
 - :heart:  scala：spark 基础语言 
 - :heart:  sparkR： Apache Spark R API  
 - :heart:  sparklyr：来自RStudio的Apache Spark的R接口，提供dplyr后端  
-- :ballot_box_with_check:  [PySpark][PySpark] : Apache Spark Python API  
 - :white_large_square:  [Akka][akka]：Akka并发编程  
 
 [spark]: /posts/big-data/BigDataNotebook(Spark)--Spark-installation.html
 [spark_base]: https://blog.csdn.net/qq_41518277/article/details/84558396
 [akka]: https://blog.csdn.net/lovehuangjiaju/article/details/51039985
-[PySpark]: https://blog.csdn.net/qq_41518277/article/details/96487035
 
 ## <font color="green">Learning</font> 
 
@@ -500,8 +496,8 @@ copyright: false
 - :ballot_box_with_check:   [空间解析几何][sag]
 - :ballot_box_with_check:   [概率论与数理统计 I][ps1]：概率论
 - :ballot_box_with_check:   [概率论与数理统计 II][ps2]：数理统计
-- :ballot_box_with_check:   复变函数与积分变换[cf1]：复变函数
-- :ballot_box_with_check:   复变函数与积分变换[cf2]：积分变换
+- :ballot_box_with_check:   [复变函数与积分变换][cf1]：复变函数
+- :ballot_box_with_check:   [复变函数与积分变换][cf2]：积分变换
 
 [c1]: https://blog.csdn.net/qq_41518277/article/details/89397964
 [c2]: https://blog.csdn.net/qq_41518277/article/details/89761069
@@ -529,7 +525,7 @@ copyright: false
 - :heart:  计算物理学   
 - :white_large_square:  张量分析：(多重线性代数) 
 
-[Linear Algebra]: (https://blog.csdn.net/qq_41518277/article/details/89703485) 
+[Linear Algebra]: (https://blog.csdn.net/qq_41518277/article/details/89703485)
 [ode]: https://blog.csdn.net/qq_41518277/article/details/89703473
 [pde]: https://blog.csdn.net/qq_41518277/article/details/90295633
 [Group Theory]: https://blog.csdn.net/qq_41518277/article/details/90261550
@@ -544,7 +540,6 @@ copyright: false
 - 概率论与数理统计
 - 线性代数
 - 近世代数
-
 
 
 
@@ -564,7 +559,7 @@ copyright: false
 - :heart:  流体力学   
 
 ## <font color="green">Advanced Physics</font>  
-   
+
 - :ballot_box_with_check:   广义相对论  
 - :ballot_box_with_check:   高等量子理论  
 - :ballot_box_with_check:   场论基础 

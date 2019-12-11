@@ -308,6 +308,10 @@ GitHub 自动从标准 URL 创建链接。如 http://www.baidu.com
 <img src="img.jpg" alt="Optional title" width="20%" height="20%" align="right"/>
 ```
 
+> CSDN去图片水印的方法：上传图片后将图片URL后面的所有的参数去掉，就不显示水印了
+> 如上传图片URL为 `https://img-blog.csdnimg.cn/20191210170351158.jpg?x-oss-process=image/watermark******`
+> 修改为 `https://img-blog.csdnimg.cn/20191210170351158.jpg` 即可
+
 ## 表格
 
 您可以用竖线 `|` 和横线 `-` 创建表格。 横线用于创建每列的标题，而竖线用于分隔每列。 必须在表格前包含空白链接，以便其正确呈现。表格末尾的竖线可选。
@@ -483,7 +487,6 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
 ```
 
 <div class="note danger"><p>danger</p></div>
-
 ## 文本背景色
 
 ```html
@@ -630,7 +633,7 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
 ```
 你可以在各大视频网站的分享入口，找到嵌入的 HTML 代码。
 
-![video](https://www.runoob.com/wp-content/uploads/2013/07/36B8ED24-2F40-44EC-A751-2617F749447C.jpg)
+![video](https://img-blog.csdnimg.cn/20191210170351158.jpg)
 
 ## Font Awesome
 

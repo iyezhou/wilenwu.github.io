@@ -162,7 +162,7 @@ menu:
   categories: /categories/ || th
   archives: /archives/ || archive
   bookshelf: /bookshelf/ || windows
-  movies: /movies/ || film
+  #movies: /movies/ || film
   favorites: /favorites/ || star
   about: /about/ || user
   #map: /map/ || send 

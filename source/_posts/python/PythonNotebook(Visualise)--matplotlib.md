@@ -14,7 +14,7 @@ sticky: false
 
 <!-- more -->
 
-![figure](/images/matplotlib/figure.png)
+![figure](/images/matplotlib/figure.jpg)
 
 
 # Pyplot
