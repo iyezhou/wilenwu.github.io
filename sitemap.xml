@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wilenwu.github.io/posts/hexo/Hexo-setup&configuration.html</loc>
+    <loc>https://wilenwu.github.io/posts/big-data/BigDataNotebook(Linux)--Linux-shell.html</loc>
     
-    <lastmod>2019-12-11T05:15:11.539Z</lastmod>
+    <lastmod>2019-12-11T06:36:12.720Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wilenwu.github.io/posts/big-data/BigDataNotebook(Linux)--Linux-shell.html</loc>
+    <loc>https://wilenwu.github.io/posts/hexo/theme-NexT-advanced.html</loc>
     
-    <lastmod>2019-12-11T04:50:08.361Z</lastmod>
+    <lastmod>2019-12-11T05:32:48.449Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wilenwu.github.io/posts/hexo/Hexo-setup&configuration.html</loc>
+    
+    <lastmod>2019-12-11T05:15:11.539Z</lastmod>
     
   </url>
   
@@ -110,13 +117,6 @@
     <loc>https://wilenwu.github.io/posts/R/RNotebook(Tidy+Transform)--stringr.html</loc>
     
     <lastmod>2019-10-18T09:35:28.938Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wilenwu.github.io/posts/hexo/theme-NexT-advanced.html</loc>
-    
-    <lastmod>2019-10-14T05:12:25.411Z</lastmod>
     
   </url>
   
