@@ -64,7 +64,7 @@
 <meta property="og:site_name" content="Wilen&#39;s Blog">
 <meta property="og:description" content="Markdown是一种轻量级标记语言，它以纯文本形式编写文档，易读（看起来舒服）、易写（语法简单）、易更改，并最终以HTML格式发布。由于markdown没有明确指定语法，随着编译器不一样，实现方式有很大差异。GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规范了markdown的语法和语义。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-21T06:32:07.563Z">
+<meta property="og:updated_time" content="2019-12-11T02:11:25.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub Flavored Markdown 规范">
 <meta name="twitter:description" content="Markdown是一种轻量级标记语言，它以纯文本形式编写文档，易读（看起来舒服）、易写（语法简单）、易更改，并最终以HTML格式发布。由于markdown没有明确指定语法，随着编译器不一样，实现方式有很大差异。GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规范了markdown的语法和语义。">
@@ -193,7 +193,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">64</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">63</span></a>
 
   </li>
       
@@ -206,7 +206,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">118</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">117</span></a>
 
   </li>
       
@@ -233,19 +233,6 @@
     
 
     <a href="/bookshelf/" rel="section"><i class="menu-item-icon fa fa-fw fa-windows"></i> <br>书架</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-movies">
-      
-    
-      
-    
-
-    <a href="/movies/" rel="section"><i class="menu-item-icon fa fa-fw fa-film"></i> <br>影视</a>
 
   </li>
       
@@ -370,7 +357,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-21 14:32:07" itemprop="dateModified" datetime="2019-10-21T14:32:07+08:00">2019-10-21</time>
+                <time title="修改时间：2019-12-11 10:11:25" itemprop="dateModified" datetime="2019-12-11T10:11:25+08:00">2019-12-11</time>
               </span>
             
           
@@ -660,6 +647,11 @@
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">img.jpg "Optional title"</span>)</span><br></pre></td></tr></table></figure>
 <p>当然，有时markdown不能满足我们的需求，我们可以采用HTML语法。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img.jpg"</span> <span class="attr">alt</span>=<span class="string">"Optional title"</span> <span class="attr">width</span>=<span class="string">"20%"</span> <span class="attr">height</span>=<span class="string">"20%"</span> <span class="attr">align</span>=<span class="string">"right"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>CSDN去图片水印的方法：上传图片后将图片URL后面的所有的参数去掉，就不显示水印了<br>
+如上传图片URL为 <code>https://img-blog.csdnimg.cn/20191210170351158.jpg?x-oss-process=image/watermark******</code><br>
+修改为 <code>https://img-blog.csdnimg.cn/20191210170351158.jpg</code> 即可</p>
+</blockquote>
 <h2 id="表格"><a class="markdownIt-Anchor" href="#表格"></a> 表格</h2>
 <p>您可以用竖线 <code>|</code> 和横线 <code>-</code> 创建表格。 横线用于创建每列的标题，而竖线用于分隔每列。 必须在表格前包含空白链接，以便其正确呈现。表格末尾的竖线可选。</p>
 <p>您可以在标头行中横线的左侧、右侧或两侧加入冒号 <code>:</code>，靠左、靠右或居中对齐列中的文本。</p>
@@ -763,7 +755,7 @@ C --> D
 <h2 id="note标签"><a class="markdownIt-Anchor" href="#note标签"></a> note标签</h2>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note [class] [no-icon]"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>content<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">[class]   : default | primary | success | info | warning | danger.</span><br><span class="line">[no-icon] : Disable icon in note.</span><br></pre></td></tr></table></figure>
 <div class="note danger"><p>danger</p></div>
-<h2 id="文本背景色"><a class="markdownIt-Anchor" href="#文本背景色"></a> 文本背景色</h2>
+## 文本背景色
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span> <span class="attr">bgcolor</span>=<span class="string">yellow</span>&gt;</span>背景色<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <form>
 <table><tr><td bgcolor="yellow">背景色</td></tr></table>
@@ -821,7 +813,7 @@ C --> D
 <h2 id="音视频"><a class="markdownIt-Anchor" href="#音视频"></a> 音视频</h2>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">"xxx.mp4"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 <p>你可以在各大视频网站的分享入口，找到嵌入的 HTML 代码。</p>
-<p><img alt="video" data-src="https://www.runoob.com/wp-content/uploads/2013/07/36B8ED24-2F40-44EC-A751-2617F749447C.jpg"></p>
+<p><img alt="video" data-src="https://img-blog.csdnimg.cn/20191210170351158.jpg"></p>
 <h2 id="font-awesome"><a class="markdownIt-Anchor" href="#font-awesome"></a> Font Awesome</h2>
 <p><a href="http://www.fontawesome.com.cn/" target="_blank" rel="noopener">Font Awesome</a> 提供一套免费可缩放矢量图标，它可以被定制大小、颜色、阴影以及任何可以用CSS的样式。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-download"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1066,7 +1058,7 @@ C --> D
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#markdown-免费编辑器推荐"><span class="nav-number">1.</span> <span class="nav-text"> Markdown 免费编辑器推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown-in-browser"><span class="nav-number">1.1.</span> <span class="nav-text"> Markdown In browser</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown-client"><span class="nav-number">1.2.</span> <span class="nav-text"> Markdown Client</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-editor"><span class="nav-number">1.3.</span> <span class="nav-text"> Text Editor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#markdown语法"><span class="nav-number">2.</span> <span class="nav-text"> Markdown语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-number">2.1.</span> <span class="nav-text"> 标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本样式"><span class="nav-number">2.2.</span> <span class="nav-text"> 文本样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">2.3.</span> <span class="nav-text"> 引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">2.4.</span> <span class="nav-text"> 列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.5.</span> <span class="nav-text"> 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学公式"><span class="nav-number">2.6.</span> <span class="nav-text"> 数学公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">2.7.</span> <span class="nav-text"> 链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#urls"><span class="nav-number">2.8.</span> <span class="nav-text"> URLs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片"><span class="nav-number">2.9.</span> <span class="nav-text"> 图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">2.10.</span> <span class="nav-text"> 表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段落和换行"><span class="nav-number">2.11.</span> <span class="nav-text"> 段落和换行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#emoji"><span class="nav-number">2.12.</span> <span class="nav-text"> Emoji 😄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注脚"><span class="nav-number">2.13.</span> <span class="nav-text"> 注脚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#水平线"><span class="nav-number">2.14.</span> <span class="nav-text"> 水平线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yaml-front-matter"><span class="nav-number">2.15.</span> <span class="nav-text"> YAML Front Matter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table-of-contents-toc"><span class="nav-number">2.16.</span> <span class="nav-text"> Table of Contents (TOC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uml-diagrams"><span class="nav-number">2.17.</span> <span class="nav-text"> UML diagrams</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部分html语法"><span class="nav-number">3.</span> <span class="nav-text"> 部分HTML语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">3.1.</span> <span class="nav-text"> 注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#note标签"><span class="nav-number">3.2.</span> <span class="nav-text"> note标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本背景色"><span class="nav-number">3.3.</span> <span class="nav-text"> 文本背景色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对齐方式"><span class="nav-number">3.4.</span> <span class="nav-text"> 对齐方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单选按钮radio-buttons"><span class="nav-number">3.5.</span> <span class="nav-text"> 单选按钮(Radio Buttons)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复选框checkboxes"><span class="nav-number">3.6.</span> <span class="nav-text"> 复选框(Checkboxes)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格-2"><span class="nav-number">3.7.</span> <span class="nav-text"> 表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html-框架"><span class="nav-number">3.8.</span> <span class="nav-text"> HTML 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#音视频"><span class="nav-number">3.9.</span> <span class="nav-text"> 音视频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#font-awesome"><span class="nav-number">3.10.</span> <span class="nav-text"> Font Awesome</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#markdown-免费编辑器推荐"><span class="nav-number">1.</span> <span class="nav-text"> Markdown 免费编辑器推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown-in-browser"><span class="nav-number">1.1.</span> <span class="nav-text"> Markdown In browser</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown-client"><span class="nav-number">1.2.</span> <span class="nav-text"> Markdown Client</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-editor"><span class="nav-number">1.3.</span> <span class="nav-text"> Text Editor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#markdown语法"><span class="nav-number">2.</span> <span class="nav-text"> Markdown语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-number">2.1.</span> <span class="nav-text"> 标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本样式"><span class="nav-number">2.2.</span> <span class="nav-text"> 文本样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">2.3.</span> <span class="nav-text"> 引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">2.4.</span> <span class="nav-text"> 列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.5.</span> <span class="nav-text"> 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学公式"><span class="nav-number">2.6.</span> <span class="nav-text"> 数学公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">2.7.</span> <span class="nav-text"> 链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#urls"><span class="nav-number">2.8.</span> <span class="nav-text"> URLs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片"><span class="nav-number">2.9.</span> <span class="nav-text"> 图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">2.10.</span> <span class="nav-text"> 表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段落和换行"><span class="nav-number">2.11.</span> <span class="nav-text"> 段落和换行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#emoji"><span class="nav-number">2.12.</span> <span class="nav-text"> Emoji 😄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注脚"><span class="nav-number">2.13.</span> <span class="nav-text"> 注脚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#水平线"><span class="nav-number">2.14.</span> <span class="nav-text"> 水平线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yaml-front-matter"><span class="nav-number">2.15.</span> <span class="nav-text"> YAML Front Matter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table-of-contents-toc"><span class="nav-number">2.16.</span> <span class="nav-text"> Table of Contents (TOC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uml-diagrams"><span class="nav-number">2.17.</span> <span class="nav-text"> UML diagrams</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部分html语法"><span class="nav-number">3.</span> <span class="nav-text"> 部分HTML语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">3.1.</span> <span class="nav-text"> 注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#note标签"><span class="nav-number">3.2.</span> <span class="nav-text"> note标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对齐方式"><span class="nav-number">3.3.</span> <span class="nav-text"> 对齐方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单选按钮radio-buttons"><span class="nav-number">3.4.</span> <span class="nav-text"> 单选按钮(Radio Buttons)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复选框checkboxes"><span class="nav-number">3.5.</span> <span class="nav-text"> 复选框(Checkboxes)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格-2"><span class="nav-number">3.6.</span> <span class="nav-text"> 表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html-框架"><span class="nav-number">3.7.</span> <span class="nav-text"> HTML 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#音视频"><span class="nav-number">3.8.</span> <span class="nav-text"> 音视频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#font-awesome"><span class="nav-number">3.9.</span> <span class="nav-text"> Font Awesome</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -1084,7 +1076,7 @@ C --> D
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1110,7 +1102,7 @@ C --> D
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">118</span>
+        <span class="site-state-item-count">117</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1174,12 +1166,12 @@ C --> D
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">302k</span>
+    <span title="站点总字数">291k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:35</span>
+    <span title="站点阅读时长">4:24</span>
 </div>
   <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
 
@@ -1274,7 +1266,7 @@ if (document.querySelectorAll('pre.mermaid').length) {
       repo: 'gitalk',
       owner: 'wilenwu',
       admin: ['wilenwu'],
-      id: '3be7aa98d992907175cbd79c194399f2',
+      id: '7b3ef903a0232e7421e1f2815ecd534b',
         language: 'zh-CN',
       
       distractionFreeMode: 'true'
