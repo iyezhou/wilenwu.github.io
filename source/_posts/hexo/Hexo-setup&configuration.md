@@ -13,9 +13,9 @@ sticky:
 
 # 前提环境
 
-- [Node.js](http://nodejs.org/) (Should be at least nodejs 6.9)
-- [Git](http://git-scm.com/)：[Git命令官方文档](https://git-scm.com/book/zh/v2)
-- 创建 github pages 库：库名为 `username.github.io` ，`username` 必须和github用户名保持一致 
+- 安装[Node.js](http://nodejs.org/) (Should be at least nodejs 6.9)
+- 安装[Git](http://git-scm.com/)：[Git命令官方文档](https://git-scm.com/book/zh/v2)
+- Github注册并创建 github pages 库：库名为 `username.github.io` ，`username` 必须和github用户名保持一致 
 
 
 # Hexo 相关命令 
@@ -128,7 +128,7 @@ Hexo 框架主要配置2方面的内容：站点配置文件和主题配置文�
 站点配置文件 `‪username.github.io\_config.yml`
 主题配置文件  `‪username.github.io\themes\next\_config.yml`
 
-站点配置文件建议参考[中文官方文档]((https://hexo.io/zh-cn/))
+站点配置文件建议参考[中文官方文档](https://hexo.io/zh-cn/)
 
 站点配置主要分为几块：
 
@@ -258,7 +258,7 @@ tags:
 
 修改Hexo文件夹下的`node_modules/hexo-generator-index/lib/generator.js`，在生成文章之前进行文章sticky值排序。
 
-以下是最终的generator.js内容、
+以下是最终的generator.js内容
 ```js
 'use strict';
 
@@ -329,7 +329,7 @@ module.exports = function(locals) {
   ```shell
   skip_render: 
     - "_posts/test-post.md"   
-    - "mypage/*
+    - "mypage/*""
   ```
 
 
