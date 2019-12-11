@@ -380,9 +380,9 @@
       
         <tags>
             
-            <tag> 大数据 </tag>
-            
             <tag> linux </tag>
+            
+            <tag> 大数据 </tag>
             
         </tags>
       
@@ -407,9 +407,9 @@
       
         <tags>
             
-            <tag> 大数据 </tag>
-            
             <tag> linux </tag>
+            
+            <tag> 大数据 </tag>
             
         </tags>
       
@@ -469,11 +469,11 @@
             
             <tag> R </tag>
             
-            <tag> text2vec </tag>
-            
             <tag> NLP </tag>
             
             <tag> 分词 </tag>
+            
+            <tag> text2vec </tag>
             
         </tags>
       
@@ -537,11 +537,11 @@
             
             <tag> 数据清洗 </tag>
             
+            <tag> 日期和时间 </tag>
+            
             <tag> 时间序列 </tag>
             
             <tag> zoo </tag>
-            
-            <tag> 日期和时间 </tag>
             
         </tags>
       
@@ -1103,11 +1103,11 @@
             
             <tag> R </tag>
             
+            <tag> jiebaR </tag>
+            
             <tag> NLP </tag>
             
             <tag> 分词 </tag>
-            
-            <tag> jiebaR </tag>
             
         </tags>
       

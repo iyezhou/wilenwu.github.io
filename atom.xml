@@ -390,9 +390,9 @@ KaTeX支持很多（但不是全部）LaTeX语法和许多LaTeX软件包。&lt;/
       <category term="Big Data" scheme="https://wilenwu.github.io/categories/Big-Data/"/>
     
     
-      <category term="大数据" scheme="https://wilenwu.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
       <category term="linux" scheme="https://wilenwu.github.io/tags/linux/"/>
+    
+      <category term="大数据" scheme="https://wilenwu.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
   </entry>
   
@@ -416,9 +416,9 @@ KaTeX支持很多（但不是全部）LaTeX语法和许多LaTeX软件包。&lt;/
       <category term="Big Data" scheme="https://wilenwu.github.io/categories/Big-Data/"/>
     
     
-      <category term="大数据" scheme="https://wilenwu.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
       <category term="linux" scheme="https://wilenwu.github.io/tags/linux/"/>
+    
+      <category term="大数据" scheme="https://wilenwu.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
   </entry>
   
@@ -476,11 +476,11 @@ KaTeX支持很多（但不是全部）LaTeX语法和许多LaTeX软件包。&lt;/
     
       <category term="R" scheme="https://wilenwu.github.io/tags/R/"/>
     
-      <category term="text2vec" scheme="https://wilenwu.github.io/tags/text2vec/"/>
-    
       <category term="NLP" scheme="https://wilenwu.github.io/tags/NLP/"/>
     
       <category term="分词" scheme="https://wilenwu.github.io/tags/%E5%88%86%E8%AF%8D/"/>
+    
+      <category term="text2vec" scheme="https://wilenwu.github.io/tags/text2vec/"/>
     
   </entry>
   
@@ -545,11 +545,11 @@ KaTeX支持很多（但不是全部）LaTeX语法和许多LaTeX软件包。&lt;/
     
       <category term="数据清洗" scheme="https://wilenwu.github.io/tags/%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97/"/>
     
+      <category term="日期和时间" scheme="https://wilenwu.github.io/tags/%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4/"/>
+    
       <category term="时间序列" scheme="https://wilenwu.github.io/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/"/>
     
       <category term="zoo" scheme="https://wilenwu.github.io/tags/zoo/"/>
-    
-      <category term="日期和时间" scheme="https://wilenwu.github.io/tags/%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4/"/>
     
   </entry>
   
