@@ -1,10 +1,11 @@
 {%- if page.comments %}
-{%- set gitalk_css_uri = theme.vendors.gitalk_css | default('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css') %}
+{%- set gitalk_css_uri = theme.vendors.gitalk_css or '//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css' %}
 <link rel="stylesheet" href="{{ gitalk_css_uri }}">
 
-{%- set gitalk_js_uri = theme.vendors.gitalk_js | default('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js') %}
+{%- set gitalk_js_uri = theme.vendors.gitalk_js or '//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js' %}
 
 <script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
   NexT.utils.getScript('{{ gitalk_js_uri }}', () => {
     var gitalk = new Gitalk({
       clientID: '{{ theme.gitalk.client_id }}',
@@ -22,5 +23,6 @@
     });
     gitalk.render('gitalk-container');
   }, window.Gitalk);
+});
 </script>
 {%- endif %}
