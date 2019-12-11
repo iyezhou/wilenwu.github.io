@@ -3,25 +3,27 @@
 'use strict';
 
 hexo.extend.helper.register('next_font', () => {
-  var config = hexo.theme.config.font;
+  var fontConfig = hexo.theme.config.font;
 
-  if (!config || !config.enable) return '';
+  if (!fontConfig || !fontConfig.enable) {
+    return '';
+  }
 
   var fontDisplay = '&display=swap';
   var fontSubset = '&subset=latin,latin-ext';
   var fontStyles = ':300,300italic,400,400italic,700,700italic';
-  var fontHost = config.host || '//fonts.googleapis.com';
+  var fontHost = fontConfig.host || '//fonts.googleapis.com';
 
-  //Get a font list from config
+  //Get a font list from fontConfig
   var fontFamilies = ['global', 'title', 'headings', 'posts', 'codes'].map(item => {
-    if (config[item] && config[item].family && config[item].external) {
-      return config[item].family + fontStyles;
+    if (fontConfig[item] && fontConfig[item].family && fontConfig[item].external) {
+      return fontConfig[item].family + fontStyles;
     }
     return '';
   });
 
   fontFamilies = fontFamilies.filter(item => item !== '');
-  fontFamilies = [...new Set(fontFamilies)];
+  fontFamilies = Array.from(new Set(fontFamilies));
   fontFamilies = fontFamilies.join('|');
 
   // Merge extra parameters to the final processed font string

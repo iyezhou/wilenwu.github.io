@@ -1,39 +1,44 @@
 {% extends '_layout.swig' %}
-{% import '_macro/sidebar.swig' as sidebar_template with context %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
-  {% block title %}
-    {%- set page_title_suffix = ' | ' + title %}
+  {% block title %}{#
+  #}{%- set page_title_suffix = ' | ' + title %}{#
 
-    {%- if page.type === 'categories' and not page.title %}
-      {{- __('title.category') + page_title_suffix }}
-    {%- elif page.type === 'tags' and not page.title %}
-      {{- __('title.tag') + page_title_suffix }}
-    {%- elif page.type === 'schedule' and not page.title %}
-      {{- __('title.schedule') + page_title_suffix }}
-    {%- else %}
-      {{- page.title + page_title_suffix }}
-    {%- endif %}
-  {% endblock %}
+  #}{%- if page.type === 'categories' and not page.title %}{#
+    #}{{ __('title.category') + page_title_suffix }}{#
+  #}{% elif page.type === 'tags' and not page.title %}{#
+    #}{{ __('title.tag') + page_title_suffix }}{#
+  #}{% elif page.type === 'schedule' and not page.title %}{#
+    #}{{ __('title.schedule') + page_title_suffix }}{#
+  #}{% else %}{#
+    #}{{ page.title + page_title_suffix }}{#
+  #}{%- endif %}{#
+#}{% endblock %}
 
 {% block content %}
 
-  <div class="posts-expand">
+  <div id="posts" class="posts-expand">
     {##################}
     {### PAGE BLOCK ###}
     {##################}
-    <div class="post-block" lang="{{ page.lang or page.language or config.language }}">
+    <div class="post-block page">
       {% include '_partials/page/page-header.swig' %}
       {#################}
       {### PAGE BODY ###}
       {#################}
       <div class="post-body{%- if page.direction and page.direction.toLowerCase() === 'rtl' %} rtl{%- endif %}">
+        {# tagcloud page support #}
         {%- if page.type === 'tags' %}
           <div class="tag-cloud">
             <div class="tag-cloud-title">
               {{ _p('counter.tag_cloud', site.tags.length) }}
             </div>
             <div class="tag-cloud-tags">
-              {{ tagcloud({min_font: theme.tagcloud.min, max_font: theme.tagcloud.max, amount: theme.tagcloud.amount, color: true, start_color: theme.tagcloud.start, end_color: theme.tagcloud.end}) }}
+              {%- if not theme.tagcloud %}
+                {{ tagcloud({min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#ccc', end_color: '#111'}) }}
+              {% else %}
+                {{ tagcloud({min_font: theme.tagcloud.min, max_font: theme.tagcloud.max, amount: theme.tagcloud.amount, color: true, start_color: theme.tagcloud.start, end_color: theme.tagcloud.end}) }}
+              {%- endif %}
             </div>
           </div>
         {% elif page.type === 'categories' %}
@@ -46,8 +51,8 @@
             </div>
           </div>
         {% elif page.type === 'schedule' %}
-          <div class="event-list">
-          </div>
+          <ul id="event-list">
+          </ul>
           {% include '_scripts/pages/schedule.swig' %}
         {% else %}
           {{ page.content }}

@@ -30,11 +30,17 @@ post:
   sticky: Sabit
   views: Görünümler
   related_posts: İlgili Gönderiler
+  copy_button: Kopyala
+  copy_success: Kopyalandı
+  copy_failure: Kopyalanamadı
   copyright:
     author: Gönderiyi yazan
     link: Gönderi bağlantısı
     license_title: Telif Hakkı Bildirimi
     license_content: "Bu blogdaki tüm makaleler aksi belirtilmediği sürece %s altında lisanslıdır."
+page:
+  totally: Toplamda
+  tags: etiketler
 footer:
   powered: "%s tarafından desteklenmektedir"
   theme: Tema
@@ -55,6 +61,7 @@ counter:
     other: "Toplamda %d gönderi."
 state:
   posts: gönderiler
+  pages: sayfalar
   tags: etiketler
   categories: kategoriler
 search:

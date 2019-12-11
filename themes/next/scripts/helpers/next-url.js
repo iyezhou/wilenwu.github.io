@@ -1,12 +1,15 @@
+/**
+ * next-url.js | https://theme-next.org/api/helpers/next-url/
+ */
+
 /* global hexo */
 
 'use strict';
 
-const { htmlTag } = require('hexo-util');
-const url = require('url');
-
-hexo.extend.helper.register('next_url', function(path, text, options = {}) {
-  const { config } = this;
+hexo.extend.helper.register('next_url', function(path, text, options) {
+  var htmlTag = require('hexo-util').htmlTag;
+  var config = this.config;
+  var url = require('url');
   var data = url.parse(path);
   var siteHost = url.parse(config.url).hostname || config.url;
 
@@ -26,7 +29,13 @@ hexo.extend.helper.register('next_url', function(path, text, options = {}) {
     };
   }
 
-  for (let key in options) {
+  options = options || {};
+
+  var keys = Object.keys(options);
+  var key = '';
+
+  for (var i = 0, len = keys.length; i < len; i++) {
+    key = keys[i];
 
     /**
      * If option have `class` attribute, add it to
@@ -57,5 +66,5 @@ hexo.extend.helper.register('next_url', function(path, text, options = {}) {
     }
   }
 
-  return htmlTag(tag, attrs, decodeURI(text), false);
+  return htmlTag(tag, attrs, text);
 });

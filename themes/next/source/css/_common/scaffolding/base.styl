@@ -3,10 +3,6 @@
   color: $selection-color;
 }
 
-html, body {
-  height: 100%;
-}
-
 body {
   background: $body-bg-color;
   color: $text-color;
@@ -15,9 +11,7 @@ body {
   line-height: $line-height-base;
 
   +tablet-mobile() {
-    // Remove the padding of body when the sidebar is open.
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-right: 0;
   }
 }
 
@@ -26,6 +20,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
+  padding: 0;
 }
 
 for headline in (1 .. 6) {
@@ -39,11 +34,13 @@ p {
 }
 
 a, span.exturl {
+  word-wrap();
+  // Remove the gray background color from active links in IE 10.
+  background-color: transparent;
   border-bottom: 1px solid $link-decoration-color;
   color: $link-color;
-  outline: 0;
+  outline: none;
   text-decoration: none;
-  word-wrap();
 
   &:hover {
     border-bottom-color: $link-decoration-hover-color;
@@ -63,7 +60,13 @@ iframe, img, video {
 
 hr {
   background-color: $gray-lighter;
-  background-image: repeating-linear-gradient(-45deg, white, white 4px, transparent 4px, transparent 8px);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    white,
+    white 4px,
+    transparent 4px,
+    transparent 8px
+  );
   border: 0;
   height: 3px;
   margin: 40px 0;
@@ -91,8 +94,8 @@ dd {
 }
 
 kbd {
-  background-color: $whitesmoke;
-  background-image: linear-gradient($gainsboro, white, $gainsboro);
+  background-color: #f9f9f9;
+  background-image: linear-gradient(top, #eee, white, #eee);
   border: 1px solid $grey-light;
   border-radius: .2em;
   box-shadow: .1em .1em .2em rgba(0, 0, 0, .1);
