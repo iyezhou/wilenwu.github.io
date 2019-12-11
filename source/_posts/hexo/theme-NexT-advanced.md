@@ -58,6 +58,7 @@ NexT 7 自定义样式支持已与主题核心组件分离，如博客背景、�
 
 本人博客：由 [Hexo](https://hexo.io/) 强力驱动 v3.9.0 |主题 – [NexT.Gemini](https://theme-next.org/) v7.4.0
 
+[Next 主题更新日志]( https://theme-next.org/ )
 
 # 主题优化
 
